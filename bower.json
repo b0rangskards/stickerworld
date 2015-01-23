@@ -1,0 +1,20 @@
+{
+  "name": "stickerworld",
+  "version": "0.0.1",
+  "authors": [
+    "Wayne Abarquez"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/assets/components/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fontawesome": "~4.2.0",
+    "bootstrap": "~3.3.2"
+  }
+}

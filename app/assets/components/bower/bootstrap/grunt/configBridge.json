@@ -1,0 +1,45 @@
+{
+  "paths": {
+    "customizerJs": [
+      "../assets/scripts/vendor/autoprefixer.scripts",
+      "../assets/scripts/vendor/less.min.scripts",
+      "../assets/scripts/vendor/jszip.min.scripts",
+      "../assets/scripts/vendor/uglify.min.scripts",
+      "../assets/scripts/vendor/Blob.scripts",
+      "../assets/scripts/vendor/FileSaver.scripts",
+      "../assets/scripts/raw-files.min.scripts",
+      "../assets/scripts/src/customizer.scripts"
+    ],
+    "docsJs": [
+      "../assets/scripts/vendor/holder.scripts",
+      "../assets/scripts/vendor/ZeroClipboard.min.scripts",
+      "../assets/scripts/src/application.scripts"
+    ]
+  },
+  "config": {
+    "autoprefixerBrowsers": [
+      "Android 2.3",
+      "Android >= 4",
+      "Chrome >= 20",
+      "Firefox >= 24",
+      "Explorer >= 8",
+      "iOS >= 6",
+      "Opera >= 12",
+      "Safari >= 6"
+    ],
+    "jqueryCheck": [
+      "if (typeof jQuery === 'undefined') {",
+      "  throw new Error('Bootstrap\\'s JavaScript requires jQuery')",
+      "}\n"
+    ],
+    "jqueryVersionCheck": [
+      "+function ($) {",
+      "  'use strict';",
+      "  var version = $.fn.jquery.split(' ')[0].split('.')",
+      "  if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1)) {",
+      "    throw new Error('Bootstrap\\'s JavaScript requires jQuery version 1.9.1 or higher')",
+      "  }",
+      "}(jQuery);\n\n"
+    ]
+  }
+}
