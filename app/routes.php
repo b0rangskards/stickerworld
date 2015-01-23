@@ -11,6 +11,16 @@
 |
 */
 
+
+Route::group(['prefix' => 'api'], function(){
+
+    Route::get('items', function(){
+        return "itms";
+    });
+
+});
+
+
 Route::get('/', 'PagesController@home');
 
 //Route::group(['prefix' => 'api'], function(){

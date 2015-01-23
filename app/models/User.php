@@ -5,6 +5,9 @@ use Illuminate\Auth\UserTrait;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
+/**
+ * Class User
+ */
 class User extends Eloquent implements UserInterface, RemindableInterface
 {
 
@@ -20,7 +23,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface
      * @var string
      */
     protected $table = 'users';
-
     /**
      * The attributes excluded from the model's JSON form.
      *

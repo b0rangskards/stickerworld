@@ -1,0 +1,1 @@
+C:\wamp\www\stickerworld\app/views/Items/index.blade.php
