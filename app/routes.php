@@ -11,23 +11,113 @@
 |
 */
 
+/**
+ * Sessions
+*/
+Route::get('/', [
+    'as'   => 'home',
+    'uses' => 'SessionsController@create'
+]);
 
-Route::group(['prefix' => 'api'], function(){
+/* Log in User */
+Route::get('/login', [
+    'as'   => 'login_path',
+    'uses' => 'SessionsController@create'
+]);
 
-    Route::get('items', function(){
-        return "itms";
-    });
+Route::post('/login', [
+    'as'   => 'login_path',
+    'uses' => 'SessionsController@store'
+]);
 
-});
+/* Logout *Need to change it to DELETE */
+Route::get('logout', [
+    'as'   => 'logout_path',
+    'uses' => 'SessionsController@destroy'
+]);
+
+/**
+ * Base Routes
+*/
+
+/* Dashboard */
+Route::get('/dashboard', [
+    'as'   => 'home',
+    'uses' => 'PagesController@dashboard'
+]);
+
+/* Page Not Found */
+Route::get('/not_found', [
+    'as'   => 'not_found_path',
+    'uses' => 'PagesController@pageNotFound'
+]);
+
+/**
+ * Users
+ */
+
+/* Profile */
+
+Route::put('profile/change_password', [
+    'as' => 'change_password_user_profile_path',
+    'uses' => 'UserProfileController@changePassword'
+]);
+
+Route::get('profile/{username}', [
+    'as'   => 'user_profile_path',
+    'uses' => 'UserProfileController@index'
+]);
+
+Route::put('profile/{username}', [
+    'as'   => 'update_user_profile_path',
+    'uses' => 'UserProfileController@update'
+]);
 
 
-Route::get('/', 'PagesController@home');
 
-//Route::group(['prefix' => 'api'], function(){
-//    Route::resource('users', 'UsersController');
-//});
-//
-//Route::group(['prefix' => 'admin'], function(){
-//    Route::get('login', 'SessionsController@getLogin');
-//    Route::post('login', 'SessionsController@postLogin');
-//});
+/* Register a user */
+Route::get('register', [
+    'as'    =>  'register_path',
+    'uses'  =>  'RegistrationController@create'
+]);
+
+Route::post('register', [
+    'as'   => 'register_path',
+    'uses' => 'RegistrationController@store'
+]);
+
+/* Activate User */
+Route::get('register/activate/{activationCode}', [
+    'as'   => 'user_activation_path',
+    'uses' => 'UserActivationController@index'
+]);
+
+Route::post('register/activate/{activationCode}', [
+    'as' => 'user_activation_path',
+    'uses' => 'UserActivationController@store'
+]);
+
+/* Show all Users */
+Route::get('user/users', [
+    'as' => 'users.index',
+    'uses' => 'UsersController@index'
+]);
+
+/* Resend Mail */
+Route::post('register/resend_email', [
+    'as' => 'resend_email_user_path',
+    'uses' => 'UsersController@resendActivationEmail'
+]);
+
+/* Deactivate User */
+Route::put('user/deactivate', [
+    'as' => 'deactivate_user_path',
+    'uses' => 'UsersController@deactivateUser'
+]);
+
+/* Re-Activate User */
+Route::put('user/reactivate/{id}', [
+    'as' => 'reactivate_user_path',
+    'uses' => 'UsersController@reactivateUser'
+]);
+

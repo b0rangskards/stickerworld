@@ -27,7 +27,6 @@ return array(
 	*/
 
 	'url' => '',
-//http://localhost/stickerworld
 	/*
 	|--------------------------------------------------------------------------
 	| Application Timezone
@@ -39,7 +38,7 @@ return array(
 	|
 	*/
 
-	'timezone' => 'UTC',
+	'timezone' => 'Asia/Manila',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -121,8 +120,11 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-		'Way\Generators\GeneratorsServiceProvider',
-        'Laracasts\Commander\CommanderServiceProvider'
+	'Way\Generators\GeneratorsServiceProvider',
+    'Laracasts\Validation\ValidationServiceProvider',
+    'Laracasts\Flash\FlashServiceProvider',
+    'Laracasts\Commander\CommanderServiceProvider',
+    'Acme\Providers\EventServiceProvider',
 	),
 
 	/*
@@ -189,7 +191,7 @@ return array(
 		'URL'               => 'Illuminate\Support\Facades\URL',
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
-
+    'Flash'             => 'Laracasts\Flash\Flash'
 	),
 
 );

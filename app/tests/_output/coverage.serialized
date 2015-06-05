@@ -1,0 +1,3298 @@
+<?php
+$coverage = new PHP_CodeCoverage;
+$coverage->setData(array (
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Providers\\EventServiceProvider.php' => 
+  array (
+    18 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    19 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\routes.php' => 
+  array (
+    17 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    18 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    20 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    22 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    23 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    25 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    27 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    28 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    30 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    32 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    33 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    35 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    41 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    42 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    44 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    46 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    47 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    49 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    55 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    56 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    58 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    60 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    61 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    63 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    65 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    66 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    68 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    70 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    71 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    73 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    75 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    76 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    78 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    81 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    82 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    84 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Forms\\SignInForm.php' => 
+  array (
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\controllers\\PagesController.php' => 
+  array (
+    8 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      3 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      4 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    9 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      3 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      4 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    13 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      3 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      4 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    14 => NULL,
+    18 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+    ),
+    19 => NULL,
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\controllers\\SessionsController.php' => 
+  array (
+    15 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    17 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    18 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    27 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    28 => NULL,
+    37 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      3 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    39 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      3 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    41 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      3 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    42 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      3 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    43 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+    ),
+    45 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+    ),
+    46 => NULL,
+    48 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      3 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      4 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    50 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      3 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      4 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    52 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      3 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      4 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    53 => NULL,
+    61 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    63 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    65 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    66 => NULL,
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\controllers\\BaseController.php' => 
+  array (
+    16 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    17 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    18 => 
+    array (
+    ),
+    19 => 
+    array (
+    ),
+    21 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    22 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Users\\UserHelper.php' => 
+  array (
+    7 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    8 => NULL,
+    12 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    13 => NULL,
+    20 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      3 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      4 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    21 => NULL,
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\models\\User.php' => 
+  array (
+    53 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    55 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    57 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    59 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    60 => NULL,
+    68 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    69 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    71 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    73 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    75 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    76 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    85 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      3 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      4 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    86 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      3 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      4 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    90 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      3 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      4 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    92 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      3 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      4 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    93 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      3 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      4 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    97 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::see_pending_users',
+    ),
+    98 => NULL,
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\filters.php' => 
+  array (
+    17 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    23 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    38 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    39 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    40 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+    ),
+    41 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+    ),
+    42 => 
+    array (
+    ),
+    43 => NULL,
+    46 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+    ),
+    47 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+    ),
+    49 => NULL,
+    50 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    55 => 
+    array (
+    ),
+    56 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    71 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    72 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    87 => 
+    array (
+    ),
+    88 => 
+    array (
+    ),
+    89 => 
+    array (
+    ),
+    90 => NULL,
+    91 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\start\\global.php' => 
+  array (
+    16 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    18 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    19 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    20 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    21 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    23 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    36 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    53 => 
+    array (
+    ),
+    54 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    57 => 
+    array (
+    ),
+    58 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    61 => 
+    array (
+    ),
+    62 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    78 => 
+    array (
+    ),
+    79 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+    92 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist',
+      1 => 'Codeception\\TestCase\\Cest::see_pending_users',
+      2 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      3 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+      4 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account',
+      5 => 'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account',
+      6 => 'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user',
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\controllers\\UsersController.php' => 
+  array (
+    7 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::see_pending_users',
+    ),
+    8 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::see_pending_users',
+    ),
+    18 => 
+    array (
+    ),
+    20 => 
+    array (
+    ),
+    21 => NULL,
+    26 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::see_pending_users',
+    ),
+    28 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::see_pending_users',
+    ),
+    29 => NULL,
+    33 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::see_pending_users',
+    ),
+    34 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::see_pending_users',
+    ),
+    35 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::see_pending_users',
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\models\\Role.php' => 
+  array (
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Forms\\RegistrationForm.php' => 
+  array (
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\controllers\\RegistrationController.php' => 
+  array (
+    13 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      1 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    15 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      1 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    16 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account',
+      1 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    26 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    29 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    31 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    32 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    33 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    34 => NULL,
+    44 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    46 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    48 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    50 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    51 => NULL,
+    58 => 
+    array (
+    ),
+    59 => 
+    array (
+    ),
+    61 => 
+    array (
+    ),
+    63 => 
+    array (
+    ),
+    64 => 
+    array (
+    ),
+    65 => 
+    array (
+    ),
+    67 => 
+    array (
+    ),
+    69 => 
+    array (
+    ),
+    78 => 
+    array (
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Mailers\\UserMailer.php' => 
+  array (
+    12 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    13 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    15 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    16 => NULL,
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Handlers\\EmailNotifier.php' => 
+  array (
+    13 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    14 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    18 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    19 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Registration\\RegisterUserCommand.php' => 
+  array (
+    17 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    18 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    19 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Mailers\\Mailer.php' => 
+  array (
+    15 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    16 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    28 => 
+    array (
+    ),
+    29 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    30 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Users\\UserRepository.php' => 
+  array (
+    15 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    16 => NULL,
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Registration\\Events\\UserHasRegistered.php' => 
+  array (
+    11 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    12 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Registration\\RegisterUserCommandHandler.php' => 
+  array (
+    19 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    20 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    30 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    31 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    32 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    34 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    36 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    38 => 
+    array (
+      0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
+    ),
+    39 => NULL,
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Presenters\\UserPresenter.php' => 
+  array (
+    8 => 
+    array (
+    ),
+    9 => 
+    array (
+    ),
+    10 => 
+    array (
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\start\\artisan.php' => 
+  array (
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\start\\local.php' => 
+  array (
+    3 => 
+    array (
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\test' => 
+  array (
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\views\\emails\\auth\\reminder.blade.php' => 
+  array (
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+    ),
+    3 => 
+    array (
+    ),
+    4 => 
+    array (
+    ),
+    5 => 
+    array (
+    ),
+    6 => 
+    array (
+    ),
+    7 => 
+    array (
+    ),
+    9 => 
+    array (
+    ),
+    10 => 
+    array (
+    ),
+    11 => 
+    array (
+    ),
+    12 => 
+    array (
+    ),
+    13 => 
+    array (
+    ),
+    14 => 
+    array (
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\views\\emails\\registration\\confirm.blade.php' => 
+  array (
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+    ),
+    3 => 
+    array (
+    ),
+    4 => 
+    array (
+    ),
+    5 => 
+    array (
+    ),
+    6 => 
+    array (
+    ),
+    7 => 
+    array (
+    ),
+    9 => 
+    array (
+    ),
+    10 => 
+    array (
+    ),
+    11 => 
+    array (
+    ),
+    12 => 
+    array (
+    ),
+    13 => 
+    array (
+    ),
+    14 => 
+    array (
+    ),
+    15 => 
+    array (
+    ),
+    17 => 
+    array (
+    ),
+    18 => 
+    array (
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\views\\layouts\\master.blade.php' => 
+  array (
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+    ),
+    3 => 
+    array (
+    ),
+    4 => 
+    array (
+    ),
+    5 => 
+    array (
+    ),
+    7 => 
+    array (
+    ),
+    8 => 
+    array (
+    ),
+    9 => 
+    array (
+    ),
+    10 => 
+    array (
+    ),
+    12 => 
+    array (
+    ),
+    13 => 
+    array (
+    ),
+    14 => 
+    array (
+    ),
+    16 => 
+    array (
+    ),
+    17 => 
+    array (
+    ),
+    19 => 
+    array (
+    ),
+    20 => 
+    array (
+    ),
+    21 => 
+    array (
+    ),
+    23 => 
+    array (
+    ),
+    25 => 
+    array (
+    ),
+    26 => 
+    array (
+    ),
+    27 => 
+    array (
+    ),
+    29 => 
+    array (
+    ),
+    30 => 
+    array (
+    ),
+    31 => 
+    array (
+    ),
+    32 => 
+    array (
+    ),
+    33 => 
+    array (
+    ),
+    34 => 
+    array (
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\views\\layouts\\partials\\breadcrumbs.blade.php' => 
+  array (
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+    ),
+    3 => 
+    array (
+    ),
+    4 => 
+    array (
+    ),
+    5 => 
+    array (
+    ),
+    6 => 
+    array (
+    ),
+    7 => 
+    array (
+    ),
+    8 => 
+    array (
+    ),
+    9 => 
+    array (
+    ),
+    10 => 
+    array (
+    ),
+    11 => 
+    array (
+    ),
+    12 => 
+    array (
+    ),
+    13 => 
+    array (
+    ),
+    14 => 
+    array (
+    ),
+    15 => 
+    array (
+    ),
+    16 => 
+    array (
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\views\\layouts\\partials\\errors.blade.php' => 
+  array (
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+    ),
+    3 => 
+    array (
+    ),
+    4 => 
+    array (
+    ),
+    5 => 
+    array (
+    ),
+    6 => 
+    array (
+    ),
+    7 => 
+    array (
+    ),
+    8 => 
+    array (
+    ),
+    9 => 
+    array (
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\views\\layouts\\partials\\head-nav.blade.php' => 
+  array (
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+    ),
+    3 => 
+    array (
+    ),
+    4 => 
+    array (
+    ),
+    6 => 
+    array (
+    ),
+    7 => 
+    array (
+    ),
+    8 => 
+    array (
+    ),
+    9 => 
+    array (
+    ),
+    10 => 
+    array (
+    ),
+    11 => 
+    array (
+    ),
+    12 => 
+    array (
+    ),
+    13 => 
+    array (
+    ),
+    15 => 
+    array (
+    ),
+    16 => 
+    array (
+    ),
+    18 => 
+    array (
+    ),
+    19 => 
+    array (
+    ),
+    20 => 
+    array (
+    ),
+    21 => 
+    array (
+    ),
+    22 => 
+    array (
+    ),
+    23 => 
+    array (
+    ),
+    24 => 
+    array (
+    ),
+    25 => 
+    array (
+    ),
+    26 => 
+    array (
+    ),
+    27 => 
+    array (
+    ),
+    28 => 
+    array (
+    ),
+    29 => 
+    array (
+    ),
+    30 => 
+    array (
+    ),
+    31 => 
+    array (
+    ),
+    32 => 
+    array (
+    ),
+    33 => 
+    array (
+    ),
+    34 => 
+    array (
+    ),
+    35 => 
+    array (
+    ),
+    36 => 
+    array (
+    ),
+    37 => 
+    array (
+    ),
+    38 => 
+    array (
+    ),
+    39 => 
+    array (
+    ),
+    40 => 
+    array (
+    ),
+    41 => 
+    array (
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\views\\layouts\\partials\\notify-section.blade.php' => 
+  array (
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+    ),
+    3 => 
+    array (
+    ),
+    4 => 
+    array (
+    ),
+    5 => 
+    array (
+    ),
+    6 => 
+    array (
+    ),
+    7 => 
+    array (
+    ),
+    8 => 
+    array (
+    ),
+    9 => 
+    array (
+    ),
+    10 => 
+    array (
+    ),
+    11 => 
+    array (
+    ),
+    12 => 
+    array (
+    ),
+    13 => 
+    array (
+    ),
+    14 => 
+    array (
+    ),
+    15 => 
+    array (
+    ),
+    16 => 
+    array (
+    ),
+    17 => 
+    array (
+    ),
+    18 => 
+    array (
+    ),
+    19 => 
+    array (
+    ),
+    20 => 
+    array (
+    ),
+    21 => 
+    array (
+    ),
+    22 => 
+    array (
+    ),
+    23 => 
+    array (
+    ),
+    24 => 
+    array (
+    ),
+    25 => 
+    array (
+    ),
+    26 => 
+    array (
+    ),
+    27 => 
+    array (
+    ),
+    28 => 
+    array (
+    ),
+    29 => 
+    array (
+    ),
+    30 => 
+    array (
+    ),
+    31 => 
+    array (
+    ),
+    32 => 
+    array (
+    ),
+    33 => 
+    array (
+    ),
+    34 => 
+    array (
+    ),
+    35 => 
+    array (
+    ),
+    36 => 
+    array (
+    ),
+    37 => 
+    array (
+    ),
+    38 => 
+    array (
+    ),
+    39 => 
+    array (
+    ),
+    40 => 
+    array (
+    ),
+    41 => 
+    array (
+    ),
+    42 => 
+    array (
+    ),
+    43 => 
+    array (
+    ),
+    44 => 
+    array (
+    ),
+    45 => 
+    array (
+    ),
+    46 => 
+    array (
+    ),
+    47 => 
+    array (
+    ),
+    48 => 
+    array (
+    ),
+    49 => 
+    array (
+    ),
+    50 => 
+    array (
+    ),
+    51 => 
+    array (
+    ),
+    52 => 
+    array (
+    ),
+    53 => 
+    array (
+    ),
+    54 => 
+    array (
+    ),
+    55 => 
+    array (
+    ),
+    56 => 
+    array (
+    ),
+    57 => 
+    array (
+    ),
+    58 => 
+    array (
+    ),
+    59 => 
+    array (
+    ),
+    60 => 
+    array (
+    ),
+    61 => 
+    array (
+    ),
+    62 => 
+    array (
+    ),
+    63 => 
+    array (
+    ),
+    64 => 
+    array (
+    ),
+    65 => 
+    array (
+    ),
+    67 => 
+    array (
+    ),
+    68 => 
+    array (
+    ),
+    69 => 
+    array (
+    ),
+    70 => 
+    array (
+    ),
+    71 => 
+    array (
+    ),
+    72 => 
+    array (
+    ),
+    73 => 
+    array (
+    ),
+    74 => 
+    array (
+    ),
+    75 => 
+    array (
+    ),
+    76 => 
+    array (
+    ),
+    77 => 
+    array (
+    ),
+    78 => 
+    array (
+    ),
+    79 => 
+    array (
+    ),
+    80 => 
+    array (
+    ),
+    81 => 
+    array (
+    ),
+    82 => 
+    array (
+    ),
+    83 => 
+    array (
+    ),
+    84 => 
+    array (
+    ),
+    85 => 
+    array (
+    ),
+    86 => 
+    array (
+    ),
+    87 => 
+    array (
+    ),
+    88 => 
+    array (
+    ),
+    89 => 
+    array (
+    ),
+    90 => 
+    array (
+    ),
+    91 => 
+    array (
+    ),
+    92 => 
+    array (
+    ),
+    93 => 
+    array (
+    ),
+    94 => 
+    array (
+    ),
+    95 => 
+    array (
+    ),
+    96 => 
+    array (
+    ),
+    97 => 
+    array (
+    ),
+    98 => 
+    array (
+    ),
+    99 => 
+    array (
+    ),
+    100 => 
+    array (
+    ),
+    101 => 
+    array (
+    ),
+    102 => 
+    array (
+    ),
+    103 => 
+    array (
+    ),
+    104 => 
+    array (
+    ),
+    105 => 
+    array (
+    ),
+    106 => 
+    array (
+    ),
+    107 => 
+    array (
+    ),
+    108 => 
+    array (
+    ),
+    109 => 
+    array (
+    ),
+    110 => 
+    array (
+    ),
+    111 => 
+    array (
+    ),
+    112 => 
+    array (
+    ),
+    113 => 
+    array (
+    ),
+    114 => 
+    array (
+    ),
+    115 => 
+    array (
+    ),
+    116 => 
+    array (
+    ),
+    117 => 
+    array (
+    ),
+    118 => 
+    array (
+    ),
+    119 => 
+    array (
+    ),
+    120 => 
+    array (
+    ),
+    121 => 
+    array (
+    ),
+    122 => 
+    array (
+    ),
+    123 => 
+    array (
+    ),
+    124 => 
+    array (
+    ),
+    125 => 
+    array (
+    ),
+    126 => 
+    array (
+    ),
+    127 => 
+    array (
+    ),
+    128 => 
+    array (
+    ),
+    129 => 
+    array (
+    ),
+    130 => 
+    array (
+    ),
+    131 => 
+    array (
+    ),
+    132 => 
+    array (
+    ),
+    133 => 
+    array (
+    ),
+    134 => 
+    array (
+    ),
+    135 => 
+    array (
+    ),
+    136 => 
+    array (
+    ),
+    137 => 
+    array (
+    ),
+    138 => 
+    array (
+    ),
+    139 => 
+    array (
+    ),
+    141 => 
+    array (
+    ),
+    142 => 
+    array (
+    ),
+    143 => 
+    array (
+    ),
+    144 => 
+    array (
+    ),
+    145 => 
+    array (
+    ),
+    146 => 
+    array (
+    ),
+    147 => 
+    array (
+    ),
+    148 => 
+    array (
+    ),
+    149 => 
+    array (
+    ),
+    150 => 
+    array (
+    ),
+    151 => 
+    array (
+    ),
+    152 => 
+    array (
+    ),
+    153 => 
+    array (
+    ),
+    154 => 
+    array (
+    ),
+    155 => 
+    array (
+    ),
+    156 => 
+    array (
+    ),
+    157 => 
+    array (
+    ),
+    158 => 
+    array (
+    ),
+    159 => 
+    array (
+    ),
+    160 => 
+    array (
+    ),
+    161 => 
+    array (
+    ),
+    162 => 
+    array (
+    ),
+    163 => 
+    array (
+    ),
+    164 => 
+    array (
+    ),
+    165 => 
+    array (
+    ),
+    166 => 
+    array (
+    ),
+    167 => 
+    array (
+    ),
+    168 => 
+    array (
+    ),
+    169 => 
+    array (
+    ),
+    170 => 
+    array (
+    ),
+    171 => 
+    array (
+    ),
+    173 => 
+    array (
+    ),
+    174 => 
+    array (
+    ),
+    175 => 
+    array (
+    ),
+    176 => 
+    array (
+    ),
+    177 => 
+    array (
+    ),
+    178 => 
+    array (
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\views\\layouts\\partials\\side-nav.blade.php' => 
+  array (
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+    ),
+    3 => 
+    array (
+    ),
+    4 => 
+    array (
+    ),
+    5 => 
+    array (
+    ),
+    6 => 
+    array (
+    ),
+    7 => 
+    array (
+    ),
+    8 => 
+    array (
+    ),
+    9 => 
+    array (
+    ),
+    10 => 
+    array (
+    ),
+    11 => 
+    array (
+    ),
+    12 => 
+    array (
+    ),
+    13 => 
+    array (
+    ),
+    14 => 
+    array (
+    ),
+    15 => 
+    array (
+    ),
+    16 => 
+    array (
+    ),
+    17 => 
+    array (
+    ),
+    18 => 
+    array (
+    ),
+    19 => 
+    array (
+    ),
+    20 => 
+    array (
+    ),
+    21 => 
+    array (
+    ),
+    22 => 
+    array (
+    ),
+    23 => 
+    array (
+    ),
+    24 => 
+    array (
+    ),
+    25 => 
+    array (
+    ),
+    26 => 
+    array (
+    ),
+    27 => 
+    array (
+    ),
+    28 => 
+    array (
+    ),
+    29 => 
+    array (
+    ),
+    30 => 
+    array (
+    ),
+    31 => 
+    array (
+    ),
+    32 => 
+    array (
+    ),
+    33 => 
+    array (
+    ),
+    34 => 
+    array (
+    ),
+    35 => 
+    array (
+    ),
+    36 => 
+    array (
+    ),
+    37 => 
+    array (
+    ),
+    38 => 
+    array (
+    ),
+    39 => 
+    array (
+    ),
+    40 => 
+    array (
+    ),
+    41 => 
+    array (
+    ),
+    42 => 
+    array (
+    ),
+    43 => 
+    array (
+    ),
+    44 => 
+    array (
+    ),
+    45 => 
+    array (
+    ),
+    46 => 
+    array (
+    ),
+    47 => 
+    array (
+    ),
+    48 => 
+    array (
+    ),
+    49 => 
+    array (
+    ),
+    50 => 
+    array (
+    ),
+    51 => 
+    array (
+    ),
+    52 => 
+    array (
+    ),
+    53 => 
+    array (
+    ),
+    54 => 
+    array (
+    ),
+    55 => 
+    array (
+    ),
+    56 => 
+    array (
+    ),
+    57 => 
+    array (
+    ),
+    58 => 
+    array (
+    ),
+    59 => 
+    array (
+    ),
+    61 => 
+    array (
+    ),
+    62 => 
+    array (
+    ),
+    63 => 
+    array (
+    ),
+    64 => 
+    array (
+    ),
+    65 => 
+    array (
+    ),
+    66 => 
+    array (
+    ),
+    67 => 
+    array (
+    ),
+    68 => 
+    array (
+    ),
+    69 => 
+    array (
+    ),
+    70 => 
+    array (
+    ),
+    71 => 
+    array (
+    ),
+    72 => 
+    array (
+    ),
+    78 => 
+    array (
+    ),
+    79 => 
+    array (
+    ),
+    80 => 
+    array (
+    ),
+    81 => 
+    array (
+    ),
+    82 => 
+    array (
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\views\\pages\\home.blade.php' => 
+  array (
+    1 => 
+    array (
+    ),
+    3 => 
+    array (
+    ),
+    4 => 
+    array (
+    ),
+    5 => 
+    array (
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\views\\pages\\page_not_found.blade.php' => 
+  array (
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+    ),
+    3 => 
+    array (
+    ),
+    4 => 
+    array (
+    ),
+    5 => 
+    array (
+    ),
+    6 => 
+    array (
+    ),
+    7 => 
+    array (
+    ),
+    8 => 
+    array (
+    ),
+    9 => 
+    array (
+    ),
+    11 => 
+    array (
+    ),
+    13 => 
+    array (
+    ),
+    15 => 
+    array (
+    ),
+    16 => 
+    array (
+    ),
+    17 => 
+    array (
+    ),
+    18 => 
+    array (
+    ),
+    19 => 
+    array (
+    ),
+    20 => 
+    array (
+    ),
+    21 => 
+    array (
+    ),
+    22 => 
+    array (
+    ),
+    24 => 
+    array (
+    ),
+    26 => 
+    array (
+    ),
+    27 => 
+    array (
+    ),
+    28 => 
+    array (
+    ),
+    29 => 
+    array (
+    ),
+    30 => 
+    array (
+    ),
+    31 => 
+    array (
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\views\\registration\\create.blade.php' => 
+  array (
+    1 => 
+    array (
+    ),
+    3 => 
+    array (
+    ),
+    5 => 
+    array (
+    ),
+    7 => 
+    array (
+    ),
+    8 => 
+    array (
+    ),
+    9 => 
+    array (
+    ),
+    10 => 
+    array (
+    ),
+    11 => 
+    array (
+    ),
+    12 => 
+    array (
+    ),
+    13 => 
+    array (
+    ),
+    15 => 
+    array (
+    ),
+    16 => 
+    array (
+    ),
+    18 => 
+    array (
+    ),
+    20 => 
+    array (
+    ),
+    21 => 
+    array (
+    ),
+    23 => 
+    array (
+    ),
+    25 => 
+    array (
+    ),
+    26 => 
+    array (
+    ),
+    27 => 
+    array (
+    ),
+    28 => 
+    array (
+    ),
+    29 => 
+    array (
+    ),
+    30 => 
+    array (
+    ),
+    31 => 
+    array (
+    ),
+    32 => 
+    array (
+    ),
+    33 => 
+    array (
+    ),
+    34 => 
+    array (
+    ),
+    35 => 
+    array (
+    ),
+    36 => 
+    array (
+    ),
+    37 => 
+    array (
+    ),
+    39 => 
+    array (
+    ),
+    40 => 
+    array (
+    ),
+    41 => 
+    array (
+    ),
+    42 => 
+    array (
+    ),
+    43 => 
+    array (
+    ),
+    45 => 
+    array (
+    ),
+    46 => 
+    array (
+    ),
+    47 => 
+    array (
+    ),
+    49 => 
+    array (
+    ),
+    51 => 
+    array (
+    ),
+    52 => 
+    array (
+    ),
+    53 => 
+    array (
+    ),
+    54 => 
+    array (
+    ),
+    55 => 
+    array (
+    ),
+    60 => 
+    array (
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\views\\sessions\\create.blade.php' => 
+  array (
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+    ),
+    3 => 
+    array (
+    ),
+    4 => 
+    array (
+    ),
+    5 => 
+    array (
+    ),
+    6 => 
+    array (
+    ),
+    7 => 
+    array (
+    ),
+    8 => 
+    array (
+    ),
+    9 => 
+    array (
+    ),
+    11 => 
+    array (
+    ),
+    13 => 
+    array (
+    ),
+    15 => 
+    array (
+    ),
+    17 => 
+    array (
+    ),
+    18 => 
+    array (
+    ),
+    20 => 
+    array (
+    ),
+    21 => 
+    array (
+    ),
+    22 => 
+    array (
+    ),
+    23 => 
+    array (
+    ),
+    25 => 
+    array (
+    ),
+    26 => 
+    array (
+    ),
+    28 => 
+    array (
+    ),
+    30 => 
+    array (
+    ),
+    31 => 
+    array (
+    ),
+    33 => 
+    array (
+    ),
+    35 => 
+    array (
+    ),
+    37 => 
+    array (
+    ),
+    38 => 
+    array (
+    ),
+    39 => 
+    array (
+    ),
+    40 => 
+    array (
+    ),
+    41 => 
+    array (
+    ),
+    42 => 
+    array (
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\views\\users\\index.blade.php' => 
+  array (
+    1 => 
+    array (
+    ),
+    3 => 
+    array (
+    ),
+    5 => 
+    array (
+    ),
+    7 => 
+    array (
+    ),
+    8 => 
+    array (
+    ),
+    9 => 
+    array (
+    ),
+    10 => 
+    array (
+    ),
+    11 => 
+    array (
+    ),
+    13 => 
+    array (
+    ),
+    14 => 
+    array (
+    ),
+    15 => 
+    array (
+    ),
+    17 => 
+    array (
+    ),
+    19 => 
+    array (
+    ),
+    20 => 
+    array (
+    ),
+    21 => 
+    array (
+    ),
+    22 => 
+    array (
+    ),
+    23 => 
+    array (
+    ),
+    24 => 
+    array (
+    ),
+    25 => 
+    array (
+    ),
+    26 => 
+    array (
+    ),
+    27 => 
+    array (
+    ),
+    28 => 
+    array (
+    ),
+    29 => 
+    array (
+    ),
+    31 => 
+    array (
+    ),
+    33 => 
+    array (
+    ),
+    34 => 
+    array (
+    ),
+    35 => 
+    array (
+    ),
+    36 => 
+    array (
+    ),
+    37 => 
+    array (
+    ),
+    38 => 
+    array (
+    ),
+    39 => 
+    array (
+    ),
+    40 => 
+    array (
+    ),
+    41 => 
+    array (
+    ),
+    42 => 
+    array (
+    ),
+    43 => 
+    array (
+    ),
+    44 => 
+    array (
+    ),
+    45 => 
+    array (
+    ),
+    46 => 
+    array (
+    ),
+    47 => 
+    array (
+    ),
+    48 => 
+    array (
+    ),
+    49 => 
+    array (
+    ),
+    50 => 
+    array (
+    ),
+    51 => 
+    array (
+    ),
+    52 => 
+    array (
+    ),
+    53 => 
+    array (
+    ),
+    54 => 
+    array (
+    ),
+    55 => 
+    array (
+    ),
+    56 => 
+    array (
+    ),
+    57 => 
+    array (
+    ),
+    58 => 
+    array (
+    ),
+    59 => 
+    array (
+    ),
+    60 => 
+    array (
+    ),
+    61 => 
+    array (
+    ),
+    62 => 
+    array (
+    ),
+    63 => 
+    array (
+    ),
+    64 => 
+    array (
+    ),
+    65 => 
+    array (
+    ),
+    66 => 
+    array (
+    ),
+    67 => 
+    array (
+    ),
+    68 => 
+    array (
+    ),
+    69 => 
+    array (
+    ),
+    70 => 
+    array (
+    ),
+    71 => 
+    array (
+    ),
+    72 => 
+    array (
+    ),
+    73 => 
+    array (
+    ),
+    74 => 
+    array (
+    ),
+    75 => 
+    array (
+    ),
+    76 => 
+    array (
+    ),
+    77 => 
+    array (
+    ),
+    78 => 
+    array (
+    ),
+    79 => 
+    array (
+    ),
+    80 => 
+    array (
+    ),
+    81 => 
+    array (
+    ),
+    82 => 
+    array (
+    ),
+    83 => 
+    array (
+    ),
+    84 => 
+    array (
+    ),
+    85 => 
+    array (
+    ),
+    86 => 
+    array (
+    ),
+    88 => 
+    array (
+    ),
+    89 => 
+    array (
+    ),
+    90 => 
+    array (
+    ),
+    91 => 
+    array (
+    ),
+    92 => 
+    array (
+    ),
+    94 => 
+    array (
+    ),
+    95 => 
+    array (
+    ),
+    96 => 
+    array (
+    ),
+    97 => 
+    array (
+    ),
+    98 => 
+    array (
+    ),
+    100 => 
+    array (
+    ),
+    101 => 
+    array (
+    ),
+    102 => 
+    array (
+    ),
+    103 => 
+    array (
+    ),
+    104 => 
+    array (
+    ),
+    105 => 
+    array (
+    ),
+    107 => 
+    array (
+    ),
+    108 => 
+    array (
+    ),
+    109 => 
+    array (
+    ),
+    111 => 
+    array (
+    ),
+    112 => 
+    array (
+    ),
+    113 => 
+    array (
+    ),
+    115 => 
+    array (
+    ),
+    116 => 
+    array (
+    ),
+    117 => 
+    array (
+    ),
+    120 => 
+    array (
+    ),
+    122 => 
+    array (
+    ),
+    124 => 
+    array (
+    ),
+    125 => 
+    array (
+    ),
+    126 => 
+    array (
+    ),
+    127 => 
+    array (
+    ),
+    128 => 
+    array (
+    ),
+    130 => 
+    array (
+    ),
+  ),
+  'C:\\wamp\\www\\stickerworld\\app\\views\\users\\pending.blade.php' => 
+  array (
+    1 => 
+    array (
+    ),
+    3 => 
+    array (
+    ),
+    5 => 
+    array (
+    ),
+    7 => 
+    array (
+    ),
+    8 => 
+    array (
+    ),
+    9 => 
+    array (
+    ),
+    10 => 
+    array (
+    ),
+    11 => 
+    array (
+    ),
+    13 => 
+    array (
+    ),
+    14 => 
+    array (
+    ),
+    15 => 
+    array (
+    ),
+    16 => 
+    array (
+    ),
+    17 => 
+    array (
+    ),
+    18 => 
+    array (
+    ),
+    19 => 
+    array (
+    ),
+    20 => 
+    array (
+    ),
+    21 => 
+    array (
+    ),
+    22 => 
+    array (
+    ),
+    23 => 
+    array (
+    ),
+    24 => 
+    array (
+    ),
+    25 => 
+    array (
+    ),
+    26 => 
+    array (
+    ),
+    27 => 
+    array (
+    ),
+    28 => 
+    array (
+    ),
+    29 => 
+    array (
+    ),
+    30 => 
+    array (
+    ),
+    31 => 
+    array (
+    ),
+    32 => 
+    array (
+    ),
+    33 => 
+    array (
+    ),
+    34 => 
+    array (
+    ),
+    35 => 
+    array (
+    ),
+    36 => 
+    array (
+    ),
+    37 => 
+    array (
+    ),
+    38 => 
+    array (
+    ),
+    39 => 
+    array (
+    ),
+    40 => 
+    array (
+    ),
+    41 => 
+    array (
+    ),
+    42 => 
+    array (
+    ),
+    43 => 
+    array (
+    ),
+    44 => 
+    array (
+    ),
+    45 => 
+    array (
+    ),
+    46 => 
+    array (
+    ),
+    47 => 
+    array (
+    ),
+    48 => 
+    array (
+    ),
+    49 => 
+    array (
+    ),
+    50 => 
+    array (
+    ),
+    51 => 
+    array (
+    ),
+    52 => 
+    array (
+    ),
+    53 => 
+    array (
+    ),
+    54 => 
+    array (
+    ),
+    55 => 
+    array (
+    ),
+    56 => 
+    array (
+    ),
+    58 => 
+    array (
+    ),
+    60 => 
+    array (
+    ),
+    61 => 
+    array (
+    ),
+    62 => 
+    array (
+    ),
+    64 => 
+    array (
+    ),
+    65 => 
+    array (
+    ),
+    66 => 
+    array (
+    ),
+    68 => 
+    array (
+    ),
+    69 => 
+    array (
+    ),
+    70 => 
+    array (
+    ),
+    74 => 
+    array (
+    ),
+  ),
+));
+$coverage->setTests(array (
+  'Codeception\\TestCase\\Cest::try_to_access_a_page_that_does_not_exist' => 0,
+  'Codeception\\TestCase\\Cest::see_pending_users' => 0,
+  'Codeception\\TestCase\\Cest::try_to_register_user_with_guest_account' => 0,
+  'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user' => 0,
+  'Codeception\\TestCase\\Cest::try_to_access_home_with_valid_account' => 0,
+  'Codeception\\TestCase\\Cest::try_to_access_home_with_invalid_account' => 0,
+  'Codeception\\TestCase\\Cest::try_to_log_out_authenticated_user' => 0,
+  'UNCOVERED_FILES_FROM_WHITELIST' => NULL,
+));
+
+$filter = $coverage->filter();
+$filter->setBlacklistedFiles(array (
+));
+$filter->setWhitelistedFiles(array (
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Forms\\RegistrationForm.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Forms\\SignInForm.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Handlers\\EmailNotifier.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Mailers\\Mailer.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Mailers\\UserMailer.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Presenters\\UserPresenter.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Providers\\EventServiceProvider.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Registration\\Events\\UserHasRegistered.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Registration\\RegisterUserCommand.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Registration\\RegisterUserCommandHandler.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Users\\UserHelper.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Users\\UserRepository.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\controllers\\BaseController.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\controllers\\PagesController.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\controllers\\RegistrationController.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\controllers\\SessionsController.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\controllers\\UsersController.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\filters.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\models\\Role.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\models\\User.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\routes.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\start\\artisan.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\start\\global.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\start\\local.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\test' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\views\\emails\\auth\\reminder.blade.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\views\\emails\\registration\\confirm.blade.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\views\\layouts\\master.blade.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\views\\layouts\\partials\\breadcrumbs.blade.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\views\\layouts\\partials\\errors.blade.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\views\\layouts\\partials\\head-nav.blade.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\views\\layouts\\partials\\notify-section.blade.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\views\\layouts\\partials\\side-nav.blade.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\views\\pages\\home.blade.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\views\\pages\\page_not_found.blade.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\views\\registration\\create.blade.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\views\\sessions\\create.blade.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\views\\users\\index.blade.php' => true,
+  'C:\\wamp\\www\\stickerworld\\app\\views\\users\\pending.blade.php' => true,
+));
+
+return $coverage;

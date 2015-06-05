@@ -15,20 +15,20 @@ return array(
 	|
 	*/
 
-	'driver' => 'smtp',
+    'driver' => 'smtp',
 
-	/*
-	|--------------------------------------------------------------------------
-	| SMTP Host Address
-	|--------------------------------------------------------------------------
-	|
-	| Here you may provide the host address of the SMTP server used by your
-	| applications. A default option is provided that is compatible with
-	| the Mailgun mail service which will provide reliable deliveries.
-	|
-	*/
+    /*
+    |--------------------------------------------------------------------------
+    | SMTP Host Address
+    |--------------------------------------------------------------------------
+    |
+    | Here you may provide the host address of the SMTP server used by your
+    | applications. A default option is provided that is compatible with
+    | the Mailgun mail service which will provide reliable deliveries.
+    |
+    */
 
-	'host' => 'smtp.mailgun.org',
+    'host' => 'smtp.mandrillapp.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => null, 'name' => null),
+	'from' => array('address' => 'stickerworldph2015@gmail.com', 'name' => 'Administrator'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => null,
+	'username' => 'smtp.mandrillapp.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => null,
+	'password' => 'J6ekp2x2pDQoZ57VkW3KQQ',
 
 	/*
 	|--------------------------------------------------------------------------

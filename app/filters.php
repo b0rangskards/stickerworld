@@ -13,7 +13,7 @@
 
 App::before(function($request)
 {
-	//
+    //
 });
 
 
@@ -39,11 +39,12 @@ Route::filter('auth', function()
 	{
 		if (Request::ajax())
 		{
-			return Response::make('Unauthorized', 401);
+			return Response::make('Unauthorized', Response::HTTP_UNAUTHORIZED);
 		}
 		else
 		{
-			return Redirect::guest('login');
+            Flash::error('Please Log in to Continue');
+            return Redirect::to('/login');
 		}
 	}
 });
@@ -67,7 +68,7 @@ Route::filter('auth.basic', function()
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+	if (Auth::check()) return Redirect::to('/dashboard');
 });
 
 /*
@@ -88,3 +89,11 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+/* TODO
+    filter to check user permissions
+*/
+//Route::filter('permission', function()
+//{
+//
+//});

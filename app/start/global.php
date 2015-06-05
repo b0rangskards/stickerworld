@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Redirect;
+
 ClassLoader::addDirectories(array(
 
 	app_path().'/commands',
@@ -49,6 +51,18 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 App::error(function(Exception $exception, $code)
 {
 	Log::error($exception);
+});
+
+App::error(function (Symfony\Component\HttpKernel\Exception\NotFoundHttpException $exception, $code){
+    return Redirect::route('not_found_path');
+});
+
+App::error(function (Laracasts\Validation\FormValidationException $exception, $code) {
+    return Redirect::back()->withInput()->withErrors($exception->getErrors());
+});
+
+App::error(function (Acme\Registration\InvalidActivationCodeException $exception, $code){
+    return Redirect::route('not_found_path');
 });
 
 /*

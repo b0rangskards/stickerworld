@@ -1,0 +1,89 @@
+/* Stickerworld Custom CSS */
+
+.flash {
+  display: inline-block;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  z-index: 100;
+}
+
+.btn-disable {
+  cursor: default;
+  pointer-events: none;
+
+  /*Button disabled - CSS color class*/
+  color: #c0c0c0;
+  background-color: #ffffff;
+}
+
+.loader-label {
+  margin: 0;
+  padding: 0;
+  width: 50px;
+  color: limegreen;
+  font-size: xx-small
+}
+
+.display-none {
+  display: none;
+}
+
+aside.profile-nav {
+  ul.nav-stacked > li {
+    color: #1fb5ad;
+    border-left: 5px solid #1fb5ad;
+  }
+}
+
+.vertical-form {
+  label {
+    color: #7f8c8d;
+    font-weight: 300;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    -webkit-font-smoothing: antialiased !important;
+  }
+
+  .input-group {
+    span.input-group-addon {
+      background-color: #dbdbdb;
+        i.fa
+        {
+          color: #7f8c8d;
+        }
+    }
+    input {
+      background-color: #efefef;
+      color: #7f8c8d;
+    }
+  }
+}
+
+img#overlay-upload {
+  width: 15px;
+  height: 15px;
+  position: relative;
+  top:65px;
+  left:-70px;
+}
+
+.normal-font {
+  font-weight: 300;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased ! important;
+}
+
+.label-font {
+  @extend .normal-font;
+  margin-top: 20px;
+}
+
+#deactivate-label {
+  @extend .normal-font;
+  color: #e74c3c;
+}
+
+
+/* Stickerworld Custom CSS End here */

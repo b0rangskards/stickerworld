@@ -3,6 +3,8 @@
         Options -MultiViews
     </IfModule>
 
+    #AddDefaultCharset UTF-8
+
     RewriteEngine On
 
     # Redirect Trailing Slashes...

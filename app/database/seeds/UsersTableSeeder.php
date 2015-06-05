@@ -1,22 +1,40 @@
 <?php
 
-// Composer: "fzaninotto/faker": "v1.3.0"
-use Faker\Factory as Faker;
+class UsersTableSeeder extends MasterSeeder
+{
 
-class UsersTableSeeder extends Seeder {
+    public function run()
+    {
+        /* Create admin account */
+        User::create([
+            'role_id'   => 1,
+            'username'  => 'admin',
+            'password'  => '1234',
+            'email'     => 'admin@gmail.com',
+            'recstat'   => 'A'
+        ]);
 
-	public function run()
-	{
-		$faker = Faker::create();
+        $users = [];
+        foreach ( range(1, 10) as $index ) {
+            $users[] = $this->createSlug();
+        }
+        User::insert($users);
+    }
 
-		foreach(range(1, 10) as $index)
-		{
-			User::create([
-                'username' => $faker->userName . $index,
-                'password' => Hash::make('1234'),
-                'email' => $faker->email
-			]);
-		}
-	}
+    public function createSlug()
+    {
+        $roles = Role::lists('id');
+        $activation_code = str_random(20);
+        $activation_select = $this->faker->randomElement([null, $activation_code]);
+
+        return [
+            'role_id'  => $this->faker->randomElement($roles),
+            'username' => $this->faker->userName,
+            'password' => '1234',
+            'email'    => $this->faker->email,
+            'activation_code' => $activation_select,
+            'recstat'  => is_null($activation_select) ? 'A' : 'I'
+        ];
+    }
 
 }

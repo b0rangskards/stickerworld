@@ -1,0 +1,9 @@
+User:
+  role_id: 1
+  username: $string$integer,
+  email: $string$integer@example.com
+  password: $string
+  created_at: $date
+  updated_at: $date
+
+

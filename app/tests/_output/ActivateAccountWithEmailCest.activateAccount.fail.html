@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost/css/vendor.min.css">
+
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost/css/admin.min.css">
+
+</head>
+<body>
+
+<div class="row">
+
+    <div class="col-sm-8 col-sm-offset-2">
+        <section class="panel">
+            <header class="panel-heading">
+                Activate Account <br/>
+                <small>Please Enter Username and Password to activate your account</small>
+            </header>
+            <div class="panel-body">
+                <div class="position-center">
+
+                                
+                    <form method="POST" action="http://localhost/register/activate/%7BactivationCode%7D" accept-charset="UTF-8" class="form-horizontal" role="form" novalidate="novalidate"><input name="_token" type="hidden" value="BPG2Yi8yjWPYfW6NndW0IWX4gNsQgYbr2S2KTmDf">
+
+                    <input name="activation_code" type="hidden" value="IuFJg6iT7YbB3IzPKtbP">
+
+                    <div class="form-group">
+                        <label for="username" class="col-lg-2 col-sm-2 control-label">Username</label>
+                        <div class="col-lg-10">
+                            <input class="form-control" placeholder="Username" autofocus="autofocus" required="required" name="username" type="text" id="username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-lg-2 col-sm-2 control-label">Password</label>
+                        <div class="col-lg-10">
+                            <input class="form-control" placeholder="Password" required="required" name="password" type="password" value="" id="password">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password_confirmation" class="col-lg-2 col-sm-2 control-label">Confirm Password</label>
+                        <div class="col-lg-10">
+                            <input class="form-control" placeholder="Confirm Password" required="required" name="password_confirmation" type="password" value="" id="password_confirmation">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <input class="btn btn-success btn-lg btn-login btn-block" type="submit" value="Activate Account">
+                        </div>
+                    </div>
+
+                </form>
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>
+
+    <script src="http://localhost/js/vendor.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+    <script src="http://localhost/js/admin.min.js"></script>
+
+</body>
+</html>
