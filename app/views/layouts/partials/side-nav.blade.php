@@ -20,17 +20,15 @@
                             <a href="{{ URL::route('register_path') }}">Register New User</a>
                         </li>
                         <li class="{{Request::is('user/users')?'active':''}}">
-                            <a href="{{ URL::route('users.index') }}">View All Account</a>
+                            <a href="{{ URL::route('users.index') }}">View All Users</a>
                         </li>
                     </ul>
                 </li>
                 <li class="sub-menu">
-                    <a href="javascript:;">
+                    <a href="{{ URL::route('branches_index_path') }}" id="branches-nav-btn" class="{{(Request::is('branch/*'))?'active':''}}">
                         <i class="fa fa-home"></i>
                         <span>Branches</span>
                     </a>
-                    <ul class="sub">
-                    </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">

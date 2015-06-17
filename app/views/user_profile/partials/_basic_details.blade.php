@@ -22,10 +22,11 @@
                             data-type="text"
                             data-name="username"
                             data-pk="{{ $currentUser->id }}"
-                            data-url="{{ URL::route('update_user_profile_path', $currentUser->username) }}"
+                            data-url="{{ URL::route('update_username_path', $currentUser->username) }}"
                             data-title="Enter username">
                             {{ $currentUser->username }}
                             </a>
+                         <p id="change-username-error" class="help-block"></p>
                          </div>
                     </div>
 
@@ -41,11 +42,11 @@
 
                     <div class="col-lg-offset-4 col-lg-10" id="change-password" style="display:none">
                         {{ Form::open(['method' => 'PUT',
-                                       'route'  => 'change_password_user_profile_path',
+                                       'route'  => 'change_password_path',
                                        'id'     => 'change-password-form'
                                     ]) }}
 
-                           {{ Form::hidden('userId', $currentUser->id) }}
+                           {{ Form::hidden('user_id', $currentUser->id) }}
 
                            <div class="form-group">
                                <label for="input-password-current" class="col-lg-2 col-sm-2 control-label">Current</label>
@@ -107,11 +108,12 @@
                             data-emptytext="Click to Change Email"
                             data-type="email"
                             data-name="email"
-                            data-pk="{{ $currentUser->id }}"
-                            data-url="{{ URL::route('update_user_profile_path') }}"
+                            data-pk="{{$currentUser->id}}"
+                            data-url="{{URL::route('update_user_email_path')}}"
                             data-title="Enter Email">
-                             {{ $currentUser->email }}
+                             {{$currentUser->email}}
                             </a>
+                            <p id="change-email-error" class="help-block"></p>
                          </div>
                     </div>
 

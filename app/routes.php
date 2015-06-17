@@ -53,27 +53,36 @@ Route::get('/not_found', [
 ]);
 
 /**
- * Users
+ * Profile
  */
 
-/* Profile */
-
+/* Change Password */
 Route::put('profile/change_password', [
-    'as' => 'change_password_user_profile_path',
+    'as' => 'change_password_path',
     'uses' => 'UserProfileController@changePassword'
 ]);
 
+/* User Profile View */
 Route::get('profile/{username}', [
     'as'   => 'user_profile_path',
     'uses' => 'UserProfileController@index'
 ]);
 
-Route::put('profile/{username}', [
-    'as'   => 'update_user_profile_path',
-    'uses' => 'UserProfileController@update'
+/* Change Username */
+Route::put('profile/{username}/change_username', [
+    'as'   => 'update_username_path',
+    'uses' => 'UserProfileController@changeUsername'
 ]);
 
+/* Change Email */
+Route::put('profile/{username}/change_email', [
+    'as' => 'update_user_email_path',
+    'uses' => 'UserProfileController@changeEmail'
+]);
 
+/**
+ * Users
+ */
 
 /* Register a user */
 Route::get('register', [
@@ -119,5 +128,25 @@ Route::put('user/deactivate', [
 Route::put('user/reactivate/{id}', [
     'as' => 'reactivate_user_path',
     'uses' => 'UsersController@reactivateUser'
+]);
+
+/**
+ * Branches
+ */
+
+/* Show all Branches */
+Route::get('branch/branches', [
+    'as'   => 'branches_index_path',
+    'uses' => 'BranchesController@index'
+]);
+
+Route::get('branch/branches/collection', [
+    'as' => 'branches_collection_path',
+    'uses' => 'BranchesController@getDatatable'
+]);
+
+Route::post('branch/new', [
+    'as' => 'new_branch_path',
+    'uses' => 'BranchesController@store'
 ]);
 

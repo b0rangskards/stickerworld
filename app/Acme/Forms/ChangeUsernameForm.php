@@ -11,6 +11,8 @@ class ChangeUsernameForm extends FormValidator {
      */
     protected $rules = [
 
+        'id'    => 'required|numeric|exists:users',
+
         'username' => 'required|alpha_dash|between:4,20|unique:users'
 
     ];

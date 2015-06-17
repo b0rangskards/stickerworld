@@ -120,11 +120,11 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-	'Way\Generators\GeneratorsServiceProvider',
     'Laracasts\Validation\ValidationServiceProvider',
     'Laracasts\Flash\FlashServiceProvider',
     'Laracasts\Commander\CommanderServiceProvider',
     'Acme\Providers\EventServiceProvider',
+    'Chumper\Datatable\DatatableServiceProvider'
 	),
 
 	/*
@@ -191,7 +191,8 @@ return array(
 		'URL'               => 'Illuminate\Support\Facades\URL',
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
-    'Flash'             => 'Laracasts\Flash\Flash'
+    'Flash'             => 'Laracasts\Flash\Flash',
+    'Datatable'         => 'Chumper\Datatable\Facades\DatatableFacade'
 	),
 
 );

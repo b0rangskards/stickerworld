@@ -65,10 +65,11 @@ gulp.task('vendor-css', ['clean'], function(){
         dirs.vendor     + 'bootstrap/dist/css/bootstrap.css',
         dirs.assetsCss  + 'bootstrap-editable.css',
         dirs.assetsCss  + 'jasny-bootstrap.min.css',
-        dirs.assetsCss  + 'bootstrap-reset.css',
-        dirs.assetsCss  + 'blankon-layouts.css',
         dirs.assetsCss  + 'demo_table.css',
         dirs.assetsCss  + 'dt_bootstrap.css',
+        dirs.assetsCss  + 'dataTables.tableTools.css',
+        dirs.assetsCss  + 'bootstrap-reset.css',
+        dirs.assetsCss  + 'blankon-layouts.css',
         dirs.vendor     + 'pnotify/pnotify.core.css',
         dirs.vendor     + 'semantic-ui-loader/loader.min.css',
         dirs.vendor     + 'sweetalert/dist/sweetalert.css',
@@ -98,9 +99,9 @@ gulp.task('js', [], function () {
 */
 gulp.task('vendor-js', ['clean'], function () {
     return gulp.src([
-            dirs.vendor     + 'jquery/dist/jquery.js',
-            dirs.assetsJs   + 'jquery-ui-1.10.1.custom.min.js',
-            dirs.vendor     + 'bootstrap/dist/js/bootstrap.js',
+        dirs.vendor     + 'jquery/dist/jquery.js',
+        dirs.assetsJs   + 'jquery-ui-1.10.1.custom.min.js',
+        dirs.vendor     + 'bootstrap/dist/js/bootstrap.js',
         dirs.assetsJs   + 'bootstrap-editable.min.js',
         dirs.assetsJs   + 'jquery.dcjqaccordion.2.7.js',
         dirs.assetsJs   + 'jquery.scrollto.min.js',
@@ -108,7 +109,8 @@ gulp.task('vendor-js', ['clean'], function () {
         dirs.assetsJs   + 'jquery.nicescroll.js',
         dirs.assetsJs   + 'jquery.scrollto.js',
         dirs.assetsJs   + 'jquery.datatables.js',
-            dirs.assetsJs   + 'dt_bootstrap.js',
+        dirs.assetsJs   + 'dataTables.tableTools.js',
+        dirs.assetsJs   + 'dt_bootstrap.js',
         dirs.vendor     + 'sweetalert/dist/sweetalert.min.js',
         dirs.vendor     + 'pnotify/pnotify.core.js',
         dirs.assetsJs   + 'jasny-bootstrap.min.js'

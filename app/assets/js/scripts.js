@@ -133,10 +133,7 @@
             if ($('.header').hasClass('merge-header')) {
                 $('.header').removeClass('merge-header')
             }
-
-
         });
-
 
         $('.panel .tools .fa').click(function () {
             var el = $(this).parents(".panel").children(".panel-body");
@@ -147,8 +144,6 @@
                 $(this).removeClass("fa-chevron-up").addClass("fa-chevron-down");
                 el.slideDown(200); }
         });
-
-
 
         $('.panel .tools .fa-times').click(function () {
             $(this).parents(".panel").parent().remove();
@@ -167,10 +162,59 @@
             "aaSorting": [[4, "desc"]]
         });
 
+
         $('#flash-overlay-modal').modal();
+
 
         /* Stickerworld Javascripts */
 
+        /* Methods */
+
+        function showSuccessDialog(title, message) {
+            swal({
+                title: title,
+                text: message,
+                type: "success",
+                timer: 1000
+            });
+        }
+
+        function clearForm(form) {
+            form.find('div.form-group').removeClass('has-error');
+            form.find('p.help-block').html('');
+        }
+
+        function clearGroup(divGroup) {
+            divGroup.removeClass('has-error');
+            divGroup.find('p.help-block').html('');
+        }
+
+        function displayError(fieldName, jsonObj) {
+            var current = $('input[name=' + fieldName + '],  a[data-name=' + fieldName + ']');
+
+            var currentFormGroup = current.closest('div.form-group');
+            var currentHelpBlock = current.closest('p.help-block');
+            var errorMessage = '';
+
+            if (!$.isEmptyObject(jsonObj)) {
+                currentFormGroup.addClass('has-error');
+
+                $.each(jsonObj, function (key, value) {
+                    errorMessage += value + '<br/>';
+                });
+
+                current.parent().find('p.help-block').html(errorMessage).fadeIn(300);
+            } else {
+                if (currentFormGroup.hasClass('has-error')) {
+                    currentFormGroup.removeClass('has-error');
+                    current.parent().find('p.help-block').html('').fadeOut(300);
+                }
+            }
+        }
+
+        /* End of Methods */
+
+        /* Jquery */
 
         /* Resend User Activation Email */
         $('form[data-remote-resendmail]').on('submit', function(e) {
@@ -298,18 +342,35 @@
                     form.submit();
                 }
             });
-
         });
-
-
 
         /* X-Editable */
 
         $.fn.editable.defaults.mode = 'inline';
         $.fn.editable.defaults.ajaxOptions = {type: "PUT"};
 
-        $('#username').editable();
-        $('#email').editable();
+        $('#username').editable({
+            success: function (response, newValue) {
+                clearGroup($(this).closest('div.form-group'));
+
+                showSuccessDialog('Username Changed!', 'Username Successfully Changed!')
+
+                $('ul.top-menu > li > a > span.username').html(newValue);
+            },
+            error: function(response, newValue) {
+                displayError('username', response.responseJSON.username);
+            }
+        });
+
+        $('#email').editable({
+            success: function (response, newValue) {
+                showSuccessDialog('Email Changed!', 'Email Successfully Changed!')
+                clearGroup($(this).closest('div.form-group'));
+            },
+            error: function (response, newValue) {
+                displayError('email', response.responseJSON.email);
+            }
+        });
 
         /* X-Editable */
 
@@ -359,23 +420,15 @@
                 url: url,
                 data: form.serialize(),
                 success: function (response) {
-
                     clearForm(form);
 
-                    swal({
-                        title: "Password Changed!",
-                        text: "Password successfully changed.",
-                        type: "success",
-                        timer: 1000
-                    });
+                    showSuccessDialog('Password Changed!', 'Password Successfully Changed!')
 
                     form.trigger('reset');
                     $('#change-password').slideUp('slow');
                 },
                 error: function(response) {
                     var errors = JSON.parse(response.responseText);
-
-                    //alert(JSON.stringify(errors));
 
                     displayError('current_password', errors.current_password);
                     displayError('new_password', errors.new_password);
@@ -384,34 +437,7 @@
             });
         });
 
-        function clearForm(form) {
-            form.find('div.form-group').removeClass('has-error');
-            form.find('p.help-block').html('');
-        }
-
-        function displayError( fieldName, jsonObj )
-        {
-            var current = $('input[name='+ fieldName +']');
-            var currentFormGroup = current.closest('div.form-group');
-            var currentHelpBlock = current.closest('p.help-block');
-            var errorMessage = '';
-
-            if (!$.isEmptyObject( jsonObj )) {
-                currentFormGroup.addClass('has-error');
-
-                $.each(jsonObj, function (key, value) {
-                    errorMessage += value + '<br/>';
-                });
-
-                current.parent().find('p.help-block').html(errorMessage).fadeIn(300);
-            } else {
-                if (currentFormGroup.hasClass('has-error')) {
-                    currentFormGroup.removeClass('has-error');
-                    current.parent().find('p.help-block').html('').fadeOut(300);
-                }
-            }
-        }
-
+        /* End of Jquery */
 
     });
 })(jQuery);

@@ -1,14 +1,27 @@
 <?php
 
+use Acme\Forms\ChangeEmailForm;
 use Acme\Forms\ChangePasswordForm;
+use Acme\Forms\ChangeUsernameForm;
+use Acme\Users\UserProfile\ChangeEmailCommand;
+use Acme\Users\UserProfile\ChangePasswordCommand;
+use Acme\Users\UserProfile\ChangeUsernameCommand;
 
 class UserProfileController extends \BaseController {
 
     private $changePasswordForm;
 
-    function __construct(ChangePasswordForm $changePasswordForm)
+    private $changeUsernameForm;
+
+    private $changeEmailForm;
+
+    function __construct(ChangePasswordForm $changePasswordForm, ChangeUsernameForm $changeUsernameForm, ChangeEmailForm $changeEmailForm )
     {
+        $this->changeUsernameForm = $changeUsernameForm;
+
         $this->changePasswordForm = $changePasswordForm;
+
+        $this->changeEmailForm = $changeEmailForm;
 
         $this->beforeFilter('auth');
     }
@@ -33,53 +46,55 @@ class UserProfileController extends \BaseController {
         return Redirect::back();
 	}
 
-
-    /**
-     * Update User Profile
-     * with X-Editable
-     *
-     */
-    public function update()
+    public function changeUsername($username)
     {
-        $inputs = Input::all();
-//        dd($inputs);
-
-        $user = User::findOrFail($inputs['pk']);
-
-        if ($user)
+        try
         {
-            $value = $inputs['value'];
-            $name = $inputs['name'];
-            switch( $name )
-            {
-                case 'username':
-                    if(empty($value))
-                    {
-                        return Response::json('The username field is required', 400);
-                    }
-                    Log::info('update username ' . $user->username . ' to ' . $inputs['value']);
-                    break;
-                case 'email':
-                    if ( empty($value) ) {
-                        return Response::json('The email field is required', 400);
-                    }
-                    Log::info('update email ' . $user->email . ' to ' . $inputs['value']);
-                    break;
-                default:
-                    Log::info('Default');
-            }
+
+            $this->changeUsernameForm->validate(
+                [
+                    'id' => Input::get('pk'),
+                    'username' => Input::get('value')
+                ]
+            );
+
+            $this->execute(ChangeUsernameCommand::class);
+
+        } catch( Laracasts\Validation\FormValidationException $exception ) {
+
+            $errors = $exception->getErrors()->toArray();
+
+            return Response::json($errors, 400);
         }
-        Log::info($inputs);
     }
 
+    public function changeEmail($username)
+    {
+        try {
+
+            $this->changeEmailForm->validate(
+                [
+                    'id' => Input::get('pk'),
+                    'email' => Input::get('value')
+                ]
+            );
+
+            $this->execute(ChangeEmailCommand::class);
+
+        } catch ( Laracasts\Validation\FormValidationException $exception ) {
+
+            $errors = $exception->getErrors()->toArray();
+
+            return Response::json($errors, 400);
+        }
+    }
 
 	public function changePassword()
 	{
         $errors = [];
         $input = Input::all();
 
-        $user = User::find(Input::get('userId'))->first();
-
+        $user = User::findOrFail($input['user_id'])->first();
 
         if( !$user )
         {
@@ -100,7 +115,8 @@ class UserProfileController extends \BaseController {
 
             $this->execute(ChangePasswordCommand::class);
 
-        }catch( Exception $exception) {
+        }catch( Laracasts\Validation\FormValidationException $exception) {
+
             $messages = $exception->getErrors()->toArray();
 
             $errors = array_merge_recursive($messages, $errors);
@@ -109,6 +125,43 @@ class UserProfileController extends \BaseController {
         }
 
 	}
+
+    /**
+     * Update User Profile
+     * with X-Editable
+     *
+     */
+//    public function update()
+//    {
+//        $inputs = Input::all();
+//
+//        $user = User::findOrFail($inputs['pk']);
+//
+//        if ($user)
+//        {
+//            $value = $inputs['value'];
+//            $name = $inputs['name'];
+//            switch( $name )
+//            {
+//                case 'username':
+//                    if(empty($value))
+//                    {
+//                        return Response::json('The username field is required', 400);
+//                    }
+//                    Log::info('update username ' . $user->username . ' to ' . $inputs['value']);
+//                    break;
+//                case 'email':
+//                    if ( empty($value) ) {
+//                        return Response::json('The email field is required', 400);
+//                    }
+//                    Log::info('update email ' . $user->email . ' to ' . $inputs['value']);
+//                    break;
+//                default:
+//                    Log::info('Default');
+//            }
+//        }
+//        Log::info($inputs);
+//    }
 
 //	/**
 //	 * Store a newly created resource in storage.

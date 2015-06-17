@@ -28,7 +28,7 @@ class ResendUserActivationEmailCest
 
     public function try_to_resend_user_activation_email(FunctionalTester $I)
     {
-        $I->amOnPage(UsersListPage::$URL);
+        $I->amOnPage(UsersPage::$URL);
 
         $I->see('Management', 'span');
 
@@ -36,7 +36,7 @@ class ResendUserActivationEmailCest
 
         $I->canSee($this->user->username, 'tr:nth-child(1) td');
 
-        $I->click( UsersListPage::$resendButton);
+        $I->click( UsersPage::$resendButton);
 
         $I->seeEmailCount(2);
     }

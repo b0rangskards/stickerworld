@@ -22,7 +22,7 @@ class ChangePasswordCommandHandler implements CommandHandler {
      */
     public function handle($command)
     {
-        $user = User::whereUsername($command->username)->first();
+        $user = User::findOrFail($command->user_id)->first();
 
         $user = User::changePassword($user, $command->new_password);
 

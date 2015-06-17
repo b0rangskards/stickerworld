@@ -33,7 +33,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface
      *
      * @var array
      */
-    protected $hidden = array('password', 'remember_token');
+    protected $hidden = array('password', 'remember_token', 'activation_code');
 
     /**
      * Path to the presenter for a user.
@@ -128,21 +128,25 @@ class User extends Eloquent implements UserInterface, RemindableInterface
         return $user;
     }
 
-    public static function changePassword( $user, $new_password)
+    public static function changePassword( $user, $newPassword)
     {
-        $user->password = $new_password;
+        $user->password = $newPassword;
 
         return $user;
     }
 
-    /**
-     * Passwords must always be hashed.
-     *
-     * @param $password
-     */
-    public function setPasswordAttribute($password)
+    public static function changeUsername($user, $newUsername)
     {
-        $this->attributes['password'] = Hash::make($password);
+        $user->username = $newUsername;
+
+        return $user;
+    }
+
+    public static function changeEmail($user, $newEmail)
+    {
+        $user->email = $newEmail;
+
+        return $user;
     }
 
     public function updateLastLoginDate()
@@ -157,6 +161,21 @@ class User extends Eloquent implements UserInterface, RemindableInterface
         return $this->belongsTo('Role');
     }
 
+    /**
+     * Passwords must always be hashed.
+     *
+     * @param $password
+     */
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = Hash::make($password);
+    }
 
+    /* Query Scopes */
+
+    public function scopeMembers($query)
+    {
+       return $query->where('id', '!=', Auth::user()->id);
+    }
 
 }

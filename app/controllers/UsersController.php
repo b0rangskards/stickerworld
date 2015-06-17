@@ -3,16 +3,21 @@
 use Acme\Activation\ResendUserActivationCommand;
 use Acme\Users\DeactivateUserCommand;
 use Acme\Users\ReactivateUserCommand;
+use Acme\Users\UserRepository;
 
 class UsersController extends BaseController {
 
+    private $userRepository;
+
     /**
      * Check User if logged in
-     *
+     * @param UserRepository $userRepository
      */
-    function __construct()
+    function __construct(UserRepository $userRepository)
     {
         $this->beforeFilter('auth');
+
+        $this->userRepository = $userRepository;
     }
 
     /**
@@ -22,9 +27,10 @@ class UsersController extends BaseController {
 	 */
 	public function index()
 	{
-		$users = User::where('id', '!=', Auth::user()->id)->with('role')->get();
+        $data['users'] = $this->userRepository->getTableData();
+        $data['columns'] = $this->userRepository->getTableColumns();
 
-		return View::make('users.index', compact('users'));
+		return View::make('users.index', $data);
 	}
 
 
@@ -58,76 +64,5 @@ class UsersController extends BaseController {
 
         return Response::json();
     }
-
-	/**
-	 * Show the form for creating a new user
-	 *
-	 * @return Response
-	 */
-//	public function create()
-//	{
-//		return View::make('users.create');
-//	}
-
-	/**
-	 * Display the specified user.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-//	public function show($id)
-//	{
-//		$user = User::findOrFail($id);
-//
-//		return View::make('users.show', compact('user'));
-//	}
-
-	/**
-	 * Show the form for editing the specified user.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-//	public function edit($id)
-//	{
-//		$user = User::find($id);
-//
-//		return View::make('users.edit', compact('user'));
-//	}
-
-	/**
-	 * Update the specified user in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-//	public function update($id)
-//	{
-//		$user = User::findOrFail($id);
-//
-//		$validator = Validator::make($data = Input::all(), User::$rules);
-//
-//		if ($validator->fails())
-//		{
-//			return Redirect::back()->withErrors($validator)->withInput();
-//		}
-//
-//		$user->update($data);
-//
-//		return Redirect::route('users.index');
-//	}
-
-	/**
-	 * Remove the specified user from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-//	public function destroy($id)
-//	{
-//		User::destroy($id);
-//
-//		return Redirect::route('users.index');
-//	}
 
 }

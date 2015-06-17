@@ -4,6 +4,7 @@ namespace FunctionalTester;
 use FunctionalTester;
 use RegistrationPage;
 use SignInPage;
+use User;
 
 class MemberSteps extends FunctionalTester
 {
@@ -57,5 +58,29 @@ class MemberSteps extends FunctionalTester
         $this->I->seeInLastEmailTo($email, 'Please follow the link below to Activate your account');
 
         $this->I->seeInCurrentUrl(RegistrationPage::$URL);
+    }
+
+    public function getUserByUsername($username)
+    {
+        return User::whereUsername($username)->first();
+    }
+
+    public function getUserById($id)
+    {
+        return User::findOrFail($id)->first();
+    }
+
+    public function deleteUserByUsername($username)
+    {
+        $user = $this->getUserByUsername($username);
+
+        $user->delete();
+    }
+
+    public function deleteUserById($id)
+    {
+        $user = $this->getUserById($id);
+
+        $user->delete();
     }
 }

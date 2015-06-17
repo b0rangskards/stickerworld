@@ -5,6 +5,14 @@ class UserProfilePage
     // include url of current page
     public static $URL = '/profile';
 
+    public static $basicDetailsTab = 'Basic Details';
+
+    public static $changePasswordLink = 'Click here to change password';
+
+    public static $changeUsernameLink = 'a#username';
+
+    public static $changeEmailLink = 'a#email';
+
 
     /**
      * Declare UI map for this page here. CSS or XPath allowed.
@@ -20,6 +28,11 @@ class UserProfilePage
     public static function route($param)
     {
         return static::$URL.$param;
+    }
+
+    public static function url($username)
+    {
+        return self::$URL . '/' . $username;
     }
 
 

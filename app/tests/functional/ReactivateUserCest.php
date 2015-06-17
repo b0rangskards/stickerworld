@@ -24,7 +24,7 @@ class ReactivateUserCest
 
     public function try_to_reactivate_user(FunctionalTester $I)
     {
-        $I->amOnPage(UsersListPage::$URL);
+        $I->amOnPage(UsersPage::$URL);
 
         $I->see('Management', 'span');
 
@@ -32,7 +32,7 @@ class ReactivateUserCest
 
         $I->canSee($this->username, 'tr:nth-child(1) td');
 
-        $I->click(UsersListPage::$reactivateButton);
+        $I->click(UsersPage::$reactivateButton);
 
         $user = User::whereEmail($this->email)->first();
 

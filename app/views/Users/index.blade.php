@@ -33,18 +33,16 @@
                         <table class="display table table-bordered table-striped dynamic-table">
                             <thead>
                                 <tr>
-                                    <th>Username</th>
-                                    <th>Role</th>
-                                    <th>Last Login</th>
-                                    <th>Activated</th>
-                                    <th style="width:15%;">Action</th>
+                                    @foreach($columns as $column)
+                                        {{ "<th class='col-md-{$column["width"]}'>". $column['column'] .'</th>' }}
+                                    @endforeach
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($users as $user)
                                     <tr>
                                         <td>
-                                            {{$user->username}}
+                                           <span class="weight600">{{$user->username}}</span>
                                         </td>
                                         <td>
                                             @if ($user->role->id === 1)
@@ -66,7 +64,7 @@
                                             @endif
                                         </td>
                                         <td>
-                                            {{$user->present()->lastLoginHuman }}
+                                            <span class="text-muted">{{$user->present()->lastLoginHuman }}</span>
                                         </td>
                                         <td>{{
                                             $user->recstat === 'A' ?

@@ -25,7 +25,7 @@ class DeactivateUserCest
 
     public function try_to_deactivate_user(FunctionalTester $I)
     {
-        $I->amOnPage(UsersListPage::$URL);
+        $I->amOnPage(UsersPage::$URL);
 
         $I->see('Management', 'span');
 
@@ -33,7 +33,7 @@ class DeactivateUserCest
 
         $I->canSee($this->username, 'tr:nth-child(1) td');
 
-        $I->click(UsersListPage::$deactivateButton);
+        $I->click(UsersPage::$deactivateButton);
 
         $user = User::whereEmail($this->email)->first();
 

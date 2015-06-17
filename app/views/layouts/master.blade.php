@@ -6,6 +6,11 @@
 
     {{ HTML::style('css/vendor.min.css'); }}
     {{ HTML::style('css/admin.min.css'); }}
+
+    {{ HTML::script('js/vendor.min.js'); }}
+    {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'); }}
+    {{ HTML::script('http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js'); }}
+    {{ HTML::script('js/admin.min.js'); }}
 </head>
 <body>
 
@@ -26,9 +31,5 @@
         </section>
     </div>
 
-    {{ HTML::script('js/vendor.min.js'); }}
-    {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'); }}
-    {{ HTML::script('http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js'); }}
-    {{ HTML::script('js/admin.min.js'); }}
 </body>
 </html>

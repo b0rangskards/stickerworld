@@ -1,15 +1,12 @@
 <?php
 
-class UsersListPage
+class BranchesPage
 {
     // include url of current page
-    public static $URL = 'user/users';
+    public static $URL = '/branch/branches';
 
-    public static $resendButton = 'button.resend-email';
+    public static $newBranchButton = 'a#new-branch-btn';
 
-    public static $deactivateButton = 'button.deactivate-user';
-
-    public static $reactivateButton = 'button.reactivate-user';
 
     /**
      * Declare UI map for this page here. CSS or XPath allowed.

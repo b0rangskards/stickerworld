@@ -2,7 +2,7 @@
 
 class ChangePasswordCommand {
 
-    public $username;
+    public $user_id;
 
     public $current_password;
 
@@ -10,9 +10,9 @@ class ChangePasswordCommand {
 
     public $new_password_confirmation;
 
-    function __construct($username, $current_password, $new_password, $new_password_confirmation)
+    function __construct($user_id, $current_password, $new_password, $new_password_confirmation)
     {
-        $this->username = $username;
+        $this->user_id = $user_id;
         $this->current_password = $current_password;
         $this->new_password = $new_password;
         $this->new_password_confirmation = $new_password_confirmation;

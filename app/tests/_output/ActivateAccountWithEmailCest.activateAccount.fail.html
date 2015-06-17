@@ -8,58 +8,29 @@
     <link media="all" type="text/css" rel="stylesheet" href="http://localhost/css/admin.min.css">
 
 </head>
-<body>
+<body class="login-body">
 
-<div class="row">
+    <div class="container">
 
-    <div class="col-sm-8 col-sm-offset-2">
-        <section class="panel">
-            <header class="panel-heading">
-                Activate Account <br/>
-                <small>Please Enter Username and Password to activate your account</small>
-            </header>
-            <div class="panel-body">
-                <div class="position-center">
+      <form method="POST" action="http://localhost/login" accept-charset="UTF-8" class="form-signin"><input name="_token" type="hidden" value="umVQWPBTVyYcnpIfHRdU3XWDo1xv6WszJWWB34zC">
 
-                                
-                    <form method="POST" action="http://localhost/register/activate/%7BactivationCode%7D" accept-charset="UTF-8" class="form-horizontal" role="form" novalidate="novalidate"><input name="_token" type="hidden" value="BPG2Yi8yjWPYfW6NndW0IWX4gNsQgYbr2S2KTmDf">
+        <h2 class="form-signin-heading">Stickerworld <br/><small>Sign in now</small></h2>
 
-                    <input name="activation_code" type="hidden" value="IuFJg6iT7YbB3IzPKtbP">
+        <div class="login-wrap">
+            <div class="user-login-info">
 
-                    <div class="form-group">
-                        <label for="username" class="col-lg-2 col-sm-2 control-label">Username</label>
-                        <div class="col-lg-10">
-                            <input class="form-control" placeholder="Username" autofocus="autofocus" required="required" name="username" type="text" id="username">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="password" class="col-lg-2 col-sm-2 control-label">Password</label>
-                        <div class="col-lg-10">
-                            <input class="form-control" placeholder="Password" required="required" name="password" type="password" value="" id="password">
-                        </div>
-                    </div>
+                                                                
+                <input class="form-control" placeholder="Username" autofocus="autofocus" required="required" name="username" type="text">
+                <input class="form-control" placeholder="Password" required="required" name="password" type="password" value="">
 
-                    <div class="form-group">
-                        <label for="password_confirmation" class="col-lg-2 col-sm-2 control-label">Confirm Password</label>
-                        <div class="col-lg-10">
-                            <input class="form-control" placeholder="Confirm Password" required="required" name="password_confirmation" type="password" value="" id="password_confirmation">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-lg-offset-2 col-lg-10">
-                            <input class="btn btn-success btn-lg btn-login btn-block" type="submit" value="Activate Account">
-                        </div>
-                    </div>
-
-                </form>
-
-                </div>
             </div>
-        </section>
-    </div>
 
-</div>
+            <input class="btn btn-lg btn-login btn-block" type="submit" value="Sign In">
+        </div>
+
+      </form>
+
+    </div>
 
     <script src="http://localhost/js/vendor.min.js"></script>
 
