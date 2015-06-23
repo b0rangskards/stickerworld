@@ -1,9 +1,9 @@
 <?php  namespace Acme\Users;
 
-use Acme\Base\BaseRepository;
+use Acme\Base\BaseRepositoryInterface;
 use User;
 
-class UserRepository extends BaseRepository {
+class UserRepository implements BaseRepositoryInterface {
 
     /**
      * Persist a user
@@ -11,7 +11,7 @@ class UserRepository extends BaseRepository {
      * @param User $user
      * @return mixed
      */
-    public function save( $user)
+    public function save(User $user)
     {
         return $user->save();
     }

@@ -9,7 +9,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     jshint = require('gulp-jshint'),
     copy = require('gulp-copy'),
-    rename = require('gulp-rename');
+    rename = require('gulp-rename'),
+    livereload = require('gulp-livereload');
 
 
 var dirs = {
@@ -28,36 +29,49 @@ var dirs = {
 };
 
 /* Clean Files in .tmp and public directory */
-gulp.task('clean', function(){
-    return del([
-            dirs.tempCss        + '*.css',
-            dirs.publicCss      + '*.css',
-            dirs.publicJs       + '*.js',
-            dirs.publicFonts    + '**.*',
-            dirs.publicImages   + '**.*'
-        ]
-        ,function(err, deletedFiles){
-           gutil.log('Files deleted:', deletedFiles.join('\n'));
-        });
+//gulp.task('clean', function(){
+//    return del([
+//            dirs.tempCss        + '*.css',
+//            dirs.publicCss      + '*.css',
+//            dirs.publicJs       + '*.js',
+//            dirs.publicFonts    + '**.*',
+//            dirs.publicImages   + '**.*'
+//        ]
+//        ,function(err, deletedFiles){
+//           gutil.log('Files deleted:', deletedFiles.join('\n'));
+//        });
+//});
+
+gulp.task('cleanSass', function(){
+   return del(dirs.publicCss + 'admin.min.css', function(err, deletedFile){
+       gutil.log('Files deleted:', deletedFile);
+   });
 });
 
 /*
 * Convert sass file to css
 * Move it in .tmp/css/ directory
 */
-gulp.task('sass', [], function () {
+gulp.task('sass', ['cleanSass'], function () {
     return gulp.src(dirs.assetsSass + '*.scss')
         .pipe(sass())
         .pipe(autoprefixer('last 10 version'))
         .pipe(minifyCss())
         .pipe(rename('admin.min.css'))
-        .pipe(gulp.dest(dirs.publicCss));
+        .pipe(gulp.dest(dirs.publicCss))
+        .pipe(livereload());
+});
+
+gulp.task('cleanVendorCss', function () {
+    return del(dirs.publicCss + 'vendor.min.css', function (err, deletedFile) {
+        gutil.log('Files deleted:', deletedFile);
+    });
 });
 
 /*
 * Concat and Minify vendor css files
 */
-gulp.task('vendor-css', ['clean'], function(){
+gulp.task('vendor-css', ['cleanVendorCss'], function(){
     return gulp.src([
         dirs.assetsCss  + 'jquery-ui-1.10.1.custom.css',
         dirs.assetsCss  + 'bucket-ico-fonts.css',
@@ -73,32 +87,48 @@ gulp.task('vendor-css', ['clean'], function(){
         dirs.vendor     + 'pnotify/pnotify.core.css',
         dirs.vendor     + 'semantic-ui-loader/loader.min.css',
         dirs.vendor     + 'sweetalert/dist/sweetalert.css',
+        dirs.assetsCss  + 'real-estate-listing.css',
         dirs.assetsCss  + 'style.css',
         dirs.assetsCss  + 'style-responsive.css'
     ])
         .pipe(concat('vendor.min.css'))
         .pipe(minifyCss({processImport: false}))
-        .pipe(gulp.dest(dirs.publicCss));
+        .pipe(gulp.dest(dirs.publicCss))
+        .pipe(livereload());
+});
+
+gulp.task('cleanJs', function () {
+    return del(dirs.publicJs + 'admin.min.js', function (err, deletedFile) {
+        gutil.log('Files deleted:', deletedFile);
+    });
 });
 
 /*
  * Concat and uglify admin js files
  */
-gulp.task('js', [], function () {
+gulp.task('js', ['cleanJs'], function () {
     return gulp.src([
         dirs.assetsJs + 'scripts.js'
     ])
         .pipe(uglify({mangle: false}))
         .pipe(rename('admin.min.js'))
         .pipe(gulp.dest(dirs.publicJs))
+        .pipe(livereload())
         .on('error', gutil.log);
+});
+
+gulp.task('cleanVendorJs', function () {
+    return del(dirs.publicJs + 'vendor.min.js', function (err, deletedFile) {
+        gutil.log('Files deleted:', deletedFile);
+    });
 });
 
 /*
 * Concat and uglify vendor js files
 */
-gulp.task('vendor-js', ['clean'], function () {
+gulp.task('vendor-js', ['cleanVendorJs'], function () {
     return gulp.src([
+        dirs.assetsJs   + 'constants.js',
         dirs.vendor     + 'jquery/dist/jquery.js',
         dirs.assetsJs   + 'jquery-ui-1.10.1.custom.min.js',
         dirs.vendor     + 'bootstrap/dist/js/bootstrap.js',
@@ -113,18 +143,26 @@ gulp.task('vendor-js', ['clean'], function () {
         dirs.assetsJs   + 'dt_bootstrap.js',
         dirs.vendor     + 'sweetalert/dist/sweetalert.min.js',
         dirs.vendor     + 'pnotify/pnotify.core.js',
-        dirs.assetsJs   + 'jasny-bootstrap.min.js'
+        dirs.assetsJs   + 'jasny-bootstrap.min.js',
+        dirs.vendor     + 'gmap3/dist/gmap3.js',
     ])
             .pipe(concat('vendor.min.js'))
             .pipe(uglify({mangle: false}))
             .pipe(gulp.dest(dirs.publicJs))
+            .pipe(livereload())
             .on('error', gutil.log);
+});
+
+gulp.task('cleanFonts', function () {
+    return del(dirs.publicFonts + '**.*', function (err, deletedFile) {
+        gutil.log('Files deleted:', deletedFile);
+    });
 });
 
 /*
  * Copy fonts to public directory
  */
-gulp.task('copy-fonts', ['clean'], function () {
+gulp.task('copy-fonts', ['cleanFonts'], function () {
     return gulp.src([
         dirs.vendor + 'fontawesome/fonts/**.*',
         dirs.assetsFonts + '**.*'
@@ -132,14 +170,42 @@ gulp.task('copy-fonts', ['clean'], function () {
         .pipe(gulp.dest(dirs.publicFonts));
 });
 
-gulp.task('copy-images', ['clean'], function () {
+gulp.task('cleanImages', function () {
+    return del(dirs.publicImages + '**.*', function (err, deletedFile) {
+        gutil.log('Files deleted:', deletedFile);
+    });
+});
+
+gulp.task('copy-images', ['cleanImages'], function () {
     return gulp.src([
         dirs.assetsImages + '**/*.*'
     ])
-        .pipe(gulp.dest(dirs.publicImages));
+        .pipe(gulp.dest(dirs.publicImages))
+        .pipe(livereload());
+
 });
 
-gulp.task('default', ['clean', 'sass', 'vendor-css', 'js', 'vendor-js', 'copy-fonts', 'copy-images']);
+gulp.task('watch', ['sass', 'vendor-css', 'copy-images'], function () {
+
+    livereload.listen();
+
+    gulp.watch(dirs.assetsSass + '*.scss', ['sass']);
+
+    gulp.watch(dirs.assetsCss + '*.css', ['vendor-css']);
+
+    gulp.watch([dirs.assetsJs + 'scripts.js'], ['js']);
+
+    gulp.watch([dirs.assetsJs + '*.js', '!' + dirs.assetsJs + 'scripts.js'], ['vendor-js']);
+
+    gulp.watch(dirs.assetsImages + '**/*.*', ['copy-images']);
+
+});
+
+gulp.task('compile', ['sass', 'vendor-css', 'js', 'vendor-js']);
+
+gulp.task('copy', ['copy-fonts', 'copy-images']);
+
+gulp.task('default', ['compile', 'copy', 'watch']);
 
 
 

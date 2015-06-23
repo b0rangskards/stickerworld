@@ -105,4 +105,122 @@ div.dataTables_wrapper {
 }
 /*for datatable tabletools*/
 
+/* For Gmap3 */
+// Map in new branch modal
+#new-branch-map, #update-branch-map {
+  width: 250px;
+  height: 250px;
+}
+
+
+/* Reset Paddings */
+
+.reset-padding {
+  padding: 0;
+}
+
+.reset-padding-right {
+  padding-right: 0;
+}
+
+.reset-padding-bottom {
+  padding-bottom: 0;
+}
+
+.reset-padding-top {
+  padding-top: 0;
+}
+
+.reset-padding-left {
+  padding-left: 0;
+}
+
+/* Margins */
+
+.margin-top-10 {
+  margin-top: 10px;
+}
+
+/* your custom CSS */
+@-moz-keyframes pulsate {
+  from {
+    -moz-transform: scale(0.25);
+    opacity: 1.0;
+  }
+  95% {
+    -moz-transform: scale(1.3);
+    opacity: 0;
+  }
+  to {
+    -moz-transform: scale(0.3);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes pulsate {
+  from {
+    -webkit-transform: scale(0.25);
+    opacity: 1.0;
+  }
+  95% {
+    -webkit-transform: scale(1.3);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: scale(0.3);
+    opacity: 0;
+  }
+}
+
+.pulsate-map-marker div.gmnoprint[title="I am here"] {
+  -moz-animation: pulsate 1.5s ease-in-out infinite;
+  -webkit-animation: pulsate 1.5s ease-in-out infinite;
+  border: 1pt solid #fff;
+  /* make a circle */
+  -moz-border-radius: 51px;
+  -webkit-border-radius: 51px;
+  border-radius: 51px;
+  /* multiply the shadows, inside and outside the circle */
+  -moz-box-shadow: inset 0 0 5px #06f, inset 0 0 5px #06f, inset 0 0 5px #06f, 0 0 5px #06f, 0 0 5px #06f, 0 0 5px #06f;
+  -webkit-box-shadow: inset 0 0 5px #06f, inset 0 0 5px #06f, inset 0 0 5px #06f, 0 0 5px #06f, 0 0 5px #06f, 0 0 5px #06f;
+  box-shadow: inset 0 0 5px #06f, inset 0 0 5px #06f, inset 0 0 5px #06f, 0 0 5px #06f, 0 0 5px #06f, 0 0 5px #06f;
+  /* set the ring's new dimension and re-center it */
+  height: 51px !important;
+  margin: -18px 0 0 -18px;
+  width: 51px !important;
+}
+
+.pulsate-map-marker div.gmnoprint[title="I am here"] img {
+  display: none;
+}
+
+.branches-panel-map-grid {
+  min-width: 300px;
+  min-height: 280px;
+}
+
+.simple-tools  {
+text-transform: capitalize;
+a, button {
+  margin-left: 10px;
+  color: #a7a7a7;
+  font-size: 12px;
+}
+form {
+  display:inline;
+
+  button {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+  }
+}
+
+}
+
+
 /* Stickerworld Custom CSS End here */

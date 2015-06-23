@@ -12,8 +12,6 @@ class RegistrationController extends BaseController {
     function __construct(RegistrationForm $registrationForm)
     {
         $this->registrationForm = $registrationForm;
-
-        $this->beforeFilter('auth', ['except' => 'activate']);
     }
 
     /**

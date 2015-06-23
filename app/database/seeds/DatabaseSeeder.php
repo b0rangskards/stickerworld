@@ -5,7 +5,10 @@ class DatabaseSeeder extends Seeder
 
     private $tables = [
         'roles',
-        'users'
+        'users',
+        'branches',
+        'departments',
+        'employees'
     ];
 
     /**

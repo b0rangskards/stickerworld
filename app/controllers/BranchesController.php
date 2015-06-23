@@ -1,22 +1,40 @@
 <?php
 
 
-use Chumper\Datatable\Datatable as Datatable1;
+use Acme\Branches\AddNewBranchCommand;
+use Acme\Branches\BranchRepository;
+use Acme\Branches\CloseBranchCommand;
+use Acme\Branches\UpdateBranchInformationCommand;
+use Acme\Forms\AddNewBranchForm;
+use Acme\Forms\CloseBranchForm;
+use Acme\Forms\UpdateBranchInformationForm;
 use Chumper\Datatable\Datatable;
 
-class BranchesController extends \BaseController {
+class BranchesController extends BaseController {
 
-    private $dataTable;
+    private $branchRepository;
+
+    private $addNewBranchForm;
+
+    private $closeBranchForm;
+
+    private $updateBranchInformationForm;
 
     /**
-     * Check User if logged in
-     * @param Datatable $dataTable
+     * @param AddNewBranchForm $addNewBranchForm
+     * @param BranchRepository $branchRepository
+     * @param CloseBranchForm $closeBranchForm
+     * @param UpdateBranchInformationForm $updateBranchInformationForm
      */
-    function __construct(Datatable $dataTable)
+    function __construct(AddNewBranchForm $addNewBranchForm, BranchRepository $branchRepository, CloseBranchForm $closeBranchForm, UpdateBranchInformationForm $updateBranchInformationForm)
     {
-        $this->beforeFilter('auth');
+        $this->addNewBranchForm = $addNewBranchForm;
 
-        $this->dataTable = $dataTable;
+        $this->branchRepository = $branchRepository;
+
+        $this->closeBranchForm = $closeBranchForm;
+
+        $this->updateBranchInformationForm = $updateBranchInformationForm;
     }
 
 
@@ -28,29 +46,125 @@ class BranchesController extends \BaseController {
 	 */
 	public function index()
 	{
-        $data['datatable'] = \Datatable::table()
-            ->addColumn('username', 'recstat')
-            ->setUrl(URL::route('branches_collection_path'))
-            ->setOptions(
-                array(
-                    'dom' => "T<'clear'>lfrtip"
-                )
-            )
-            ->render('users.partials.datatable');
+        $data['headerTitle'] = 'Branches';
+        $data['subTitle'] = 'Management';
+        $data['currentPage'] = 'Manage Branch';
+        $data['headingColor'] = ['info','success','danger'];
+        $data['columns'] = $this->branchRepository->getTableColumns();
 
-	    return View::make('branches.index', $data);
+        $query = Request::get('qbranch');
+
+        $data['branches'] = $query
+            ? $this->branchRepository->search($query)
+            : $this->branchRepository->getPaginated();
+
+
+        return View::make('branches.index', $data);
     }
 
     /**
-     * Show the form for creating a new branch.
-     * GET /branches/new
+     * Store a newly created resource in storage.
+     * POST /branches
      *
      * @return Response
      */
-    public function newBranch()
+    public function store()
+    {
+        try{
+            $this->addNewBranchForm->validate(Input::all());
+
+            $this->execute(AddNewBranchCommand::class);
+
+            $success = ['title' => 'Success', 'message' => 'Successfully opened new branch.'];
+
+            return Response::json($success);
+
+        } catch(Laracasts\Validation\FormValidationException $exception ) {
+
+            $errors = $exception->getErrors()->toArray();
+
+            return Response::json($errors, 400);
+        }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     * DELETE /branches/{id}
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function destroy($id)
+    {
+        try {
+
+            $input['id'] = $id;
+
+            $this->closeBranchForm->validate($input);
+
+            $this->execute(CloseBranchCommand::class, $input);
+
+            $success = ['title' => 'Success', 'message' => 'Successfully closed branch.'];
+
+            return Response::json($success);
+
+        } catch( Laracasts\Validation\FormValidationException $exception) {
+
+            $errors = $exception->getErrors()->toArray();
+
+            return Response::json($errors, 400);
+        }
+    }
+
+    /**
+     * Fetch the branch data.
+     * GET /branches/fetchdata/{id}
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function edit($id)
+    {
+        $branch = Branch::where('id', $id)->select('id', 'name', 'address', 'contact_no', 'lat', 'lng')->first();
+
+        return Response::json(['obj' => $branch->toArray()]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @return Response
+     */
+    public function update()
+    {
+        try {
+            $this->updateBranchInformationForm->validate(Input::all());
+
+            $this->execute(UpdateBranchInformationCommand::class);
+
+            $success = ['title' => 'Success', 'message' => 'Successfully updated.'];
+
+            return Response::json($success);
+
+        } catch ( Laracasts\Validation\FormValidationException $exception ) {
+            $errors = [];
+
+            if ( is_object($exception->getErrors()) ) {
+                $errors = $exception->getErrors()->toArray();
+            } else {
+                $errors = $exception->getErrors();
+            }
+
+            return Response::json($errors, 400);
+        }
+    }
+
+    public function search()
     {
 
     }
+
+
 
     public function getDatatable()
     {
@@ -69,27 +183,6 @@ class BranchesController extends \BaseController {
             ->make();
     }
 
-	/**
-	 * Show the form for creating a new resource.
-	 * GET /branches/create
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
-
-	/**
-	 * Store a newly created resource in storage.
-	 * POST /branches
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
 
 	/**
 	 * Display the specified resource.
@@ -103,40 +196,8 @@ class BranchesController extends \BaseController {
 		//
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /branches/{id}/edit
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
 
-	/**
-	 * Update the specified resource in storage.
-	 * PUT /branches/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 * DELETE /branches/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
+
 
 }

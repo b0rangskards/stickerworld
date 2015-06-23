@@ -1170,7 +1170,7 @@ $coverage->setData(array (
       0 => 'Codeception\\TestCase\\Cest::try_to_register_a_new_admin_user',
     ),
   ),
-  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Users\\UserRepository.php' => 
+  'C:\\wamp\\www\\stickerworld\\app\\Acme\\Users\\UserRepository.php' =>
   array (
     15 => 
     array (

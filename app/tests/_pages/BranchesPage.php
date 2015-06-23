@@ -5,7 +5,11 @@ class BranchesPage
     // include url of current page
     public static $URL = '/branch/branches';
 
+    public static $tableName = 'branches';
+
     public static $newBranchButton = 'a#new-branch-btn';
+
+    public static $branchThumbnail = 'div.branch-thumbnail';
 
 
     /**

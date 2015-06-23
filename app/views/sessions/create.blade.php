@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Stickerworld Sign In</title>
     {{ HTML::style('css/vendor.min.css'); }}
     {{ HTML::style('css/admin.min.css'); }}
 </head>

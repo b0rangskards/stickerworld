@@ -6,54 +6,28 @@ use \FunctionalTester;
  */
 class ChangePasswordCest
 {
-    private $id;
+    private $user;
 
-    private $roleId = 3;
+    private $currentPassword = 'mypassword1234';
 
-    private $username = 'sample';
-
-    private $password = 'samplepassword123';
-
-    private $email = 'sampleuser123@yahoo.com';
-
-    private $newPassword = 'mynewpassword123';
+    private $validPassword = 'mynewpassword123';
 
     private $invalidPassword = '32';
 
-
     public function _before(FunctionalTester $I)
     {
-        $I->createUser($this->roleId, $this->username, $this->password, $this->email);
+        $this->user = $I->have('User', ['password' => $this->currentPassword, 'recstat' => 'A']);
 
-        $I->login($this->username, $this->password);
+        $I->login($this->user->username, $this->currentPassword);
     }
-
-    public function _after(FunctionalTester $I)
-    {
-        $I->deleteUserById($this->id);
-    }
-
 
     public function try_to_change_password_with_valid_inputs(FunctionalTester $I)
-    {
-        $this->changePassword($I, $this->newPassword);
-    }
-
-    public function try_to_change_password_with_invalid_inputs(FunctionalTester $I)
-    {
-        $this->changePassword($I, $this->invalidPassword, false);
-    }
-
-    /**
-     * @param FunctionalTester $I
-     */
-    private function changePassword(FunctionalTester $I, $newPassword, $isValidInput = true)
     {
         $I->am('an employee and i have an active account');
 
         $I->wantTo('change my password');
 
-        $I->amOnPage(UserProfilePage::url($this->username));
+        $I->amOnPage(UserProfilePage::url($this->user->username));
 
         $I->click(UserProfilePage::$basicDetailsTab);
 
@@ -63,28 +37,53 @@ class ChangePasswordCest
 
         $I->see('Current', 'label');
 
-        $I->fillField('Current', $this->password);
+        $I->fillField('Current', $this->currentPassword);
 
-        $I->fillField('New Password', $newPassword);
+        $I->fillField('New Password', $this->validPassword);
 
-        $I->fillField('Confirm New', $newPassword);
-
+        $I->fillField('Confirm New', $this->validPassword);
 
         $I->canSeeExceptionThrown('Exception', function () use ($I) {
+
             $I->click('Save Changes');
+
+            $I->assertTrue(Hash::check($this->validPassword, $this->user->password));
         });
-
-        $user = User::whereUsername($this->username)->first();
-
-        $this->id = $user->id;
-
-        if( $isValidInput )
-        {
-            $I->assertTrue(Hash::check($newPassword, $user->password));
-        }
-        else {
-            $I->assertTrue(Hash::check($this->password, $user->password));
-        }
     }
+
+    /*
+     * @after try_to_change_password_with_valid_inputs
+     *
+     */
+    public function try_to_change_password_with_invalid_inputs(FunctionalTester $I)
+    {
+        $I->am('an employee and i have an active account');
+
+        $I->wantTo('change my password');
+
+        $I->amOnPage(UserProfilePage::url($this->user->username));
+
+        $I->click(UserProfilePage::$basicDetailsTab);
+
+        $I->see(UserProfilePage::$changePasswordLink, 'a');
+
+        $I->click(UserProfilePage::$changePasswordLink);
+
+        $I->see('Current', 'label');
+
+        $I->fillField('Current', $this->currentPassword);
+
+        $I->fillField('New Password', $this->validPassword);
+
+        $I->fillField('Confirm New', $this->validPassword);
+
+        $I->canSeeExceptionThrown('Exception', function () use ($I) {
+
+            $I->click('Save Changes');
+
+            $I->assertFalse(Hash::check($this->invalidPassword, $this->user->password));
+        });
+    }
+
 
 }

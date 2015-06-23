@@ -6,15 +6,7 @@ use \FunctionalTester;
  */
 class ChangeUsernameCest
 {
-    private $id;
-
-    private $roleId = 3;
-
-    private $username = 'sample';
-
-    private $password = 'samplepassword123';
-
-    private $email = 'sampleuser123@yahoo.com';
+    private $user;
 
     private $validNewUsername = 'myusername';
 
@@ -23,41 +15,21 @@ class ChangeUsernameCest
 /* TODO: need to create acceptance test for ajax xeditable */
     public function _before(FunctionalTester $I)
     {
-        $I->createUser($this->roleId, $this->username, $this->password, $this->email);
+        $myPassword = 'mypassword1234';
 
-        $I->login($this->username, $this->password);
-    }
+        $this->user = $I->have('User', ['password' => $myPassword, 'recstat' => 'A']);
 
-    public function _after(FunctionalTester $I)
-    {
-        $I->deleteUserById($this->id);
+        $I->login($this->user->username, $myPassword);
     }
 
     // tests
     public function try_to_change_username_with_valid_inputs(FunctionalTester $I)
     {
-        $this->testUsername($I, $this->validNewUsername);
-    }
-
-    public function try_to_change_username_with_invalid_inputs(FunctionalTester $I)
-    {
-        $this->testUsername($I, $this->invalidNewUsername, false);
-    }
-
-    /**
-     * @param FunctionalTester $I
-     */
-    private function testUsername(FunctionalTester $I, $newUsername, $isUsernameValid = true)
-    {
-        $user = $I->getUserByUsername($this->username);
-
-        $this->id = $user->id;
-
         $I->am('an employee and i have an active account');
 
-        $I->wantTo('change my username');
+        $I->wantTo('change my username with valid data');
 
-        $I->amOnPage(UserProfilePage::url($this->username));
+        $I->amOnPage(UserProfilePage::url($this->user->username));
 
         $I->click(UserProfilePage::$basicDetailsTab);
 
@@ -67,26 +39,55 @@ class ChangeUsernameCest
             URL::route('update_username_path'),
             [
                 'name' => 'email',
-                'pk' => $user->id,
-                'value' => $newUsername
+                'pk' => $this->user->id,
+                'value' => $this->validNewUsername
             ]
         );
 
-        if( $isUsernameValid )
-        {
-            $I->assertEquals(
-                $newUsername,
-                User::find($user->id)->first()->username
-            );
-        }
-        else
-        {
-            $I->assertEquals(
-                $this->username,
-                User::find($user->id)->first()->username
-            );
-        }
+        $I->seeResponseCodeIs(200);
 
+        $user = User::where('id', $this->user->id)->first();
+
+        $I->assertEquals(
+            $this->validNewUsername,
+            $user->username
+        );
     }
+
+    /*
+     * @after try_to_change_username_with_valid_inputs
+     *
+     */
+    public function try_to_change_username_with_invalid_inputs(FunctionalTester $I)
+    {
+        $I->am('an employee and i have an active account');
+
+        $I->wantTo('change my username with invalid data');
+
+        $I->amOnPage(UserProfilePage::url($this->user->username));
+
+        $I->click(UserProfilePage::$basicDetailsTab);
+
+        $I->click(UserProfilePage::$changeUsernameLink);
+
+        $I->sendAjaxRequest('PUT',
+            URL::route('update_username_path'),
+            [
+                'name' => 'email',
+                'pk' => $this->user->id,
+                'value' => $this->invalidNewUsername
+            ]
+        );
+
+        $I->seeResponseCodeIs(400);
+
+        $user = User::where('id', $this->user->id)->first();
+
+        $I->assertNotEquals(
+            $this->invalidNewUsername,
+            $this->user->username
+        );
+    }
+
 
 }

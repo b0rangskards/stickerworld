@@ -14,15 +14,20 @@ class CreateUsersTable extends Migration {
 	{
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('role_id')->unsigned();
-            $table->string('username', 20)->unique();
+            $table->integer('role_id')->unsigned()->index();
+            $table->string('username', 20)->unique()->index();
             $table->string('password', 60);
             $table->string('email', 100)->unique();
             $table->timestamp('last_login')->nullable();
             $table->string('remember_token', 100)->nullable();
             $table->string('activation_code', 20)->nullable();
-            $table->string('recstat', 1)->default('I');
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->char('recstat')->default('I');
+
+            $table->foreign('role_id')->references('id')->on('roles');
+
+
         });
 	}
 

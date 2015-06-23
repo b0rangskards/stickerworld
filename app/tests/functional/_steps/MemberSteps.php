@@ -13,11 +13,11 @@ class MemberSteps extends FunctionalTester
 
     public $adminRole = '1';
 
-    public $adminUsername = 'admin';
+    public $adminUsername = 'wayne';
 
-    public $adminPassword = '1234';
+    public $adminPassword = 'wayne1234';
 
-    public $adminEmail = 'admin@gmail.com';
+    public $adminEmail = 'wayne@gmail.com';
 
 
     function __construct($scenario)
@@ -28,13 +28,14 @@ class MemberSteps extends FunctionalTester
 
     public function signInAsAdmin()
     {
-        $this->createUser($this->adminRole, $this->adminUsername, $this->adminPassword, $this->adminEmail);
+        $admin = $this->createUser($this->adminRole, $this->adminUsername, $this->adminPassword, $this->adminEmail);
+
         $this->login($this->adminUsername, $this->adminPassword);
     }
 
     public function createUser($role_id, $username, $password, $email, $recstat = 'A')
     {
-        $this->I->haveAnAccount(compact('role_id', 'username', 'password', 'email', 'recstat'));
+        return $this->I->haveAnAccount(compact('role_id', 'username', 'password', 'email', 'recstat'));
     }
 
     public function login($username, $password)

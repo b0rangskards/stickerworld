@@ -32,9 +32,9 @@ class ResendUserActivationEmailCest
 
         $I->see('Management', 'span');
 
-        $I->canSeeNumberOfElements('tr', 2);
+//        $I->canSeeNumberOfElements('tr', 2);
 
-        $I->canSee($this->user->username, 'tr:nth-child(1) td');
+//        $I->canSee($this->user->username, 'tr:nth-child(1) td');
 
         $I->click( UsersPage::$resendButton);
 

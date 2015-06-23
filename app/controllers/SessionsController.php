@@ -13,8 +13,6 @@ class SessionsController extends \BaseController {
     function __construct(SignInForm $signInForm)
     {
         $this->signInForm = $signInForm;
-
-        $this->beforeFilter('guest', ['except' => 'destroy']);
     }
 
 
@@ -40,6 +38,15 @@ class SessionsController extends \BaseController {
 
         if ( ! Auth::attempt($formData))
         {
+            Flash::error('Invalid Username/Password.');
+
+            return Redirect::back()->withInput();
+        }
+
+
+        $user = User::whereUsername($formData['username'])->first();
+
+        if ( $user && !$user->isActive() ) {
             Flash::error('Invalid Username/Password.');
 
             return Redirect::back()->withInput();

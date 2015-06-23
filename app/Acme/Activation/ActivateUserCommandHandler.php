@@ -10,6 +10,7 @@ class ActivateUserCommandHandler implements CommandHandler {
 
     use DispatchableTrait;
 
+
     /**
      * @var UserRepository
      */

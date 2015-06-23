@@ -1,6 +1,7 @@
 <?php
 
 class Role extends \Eloquent {
+
 	protected $fillable = ['id', 'name'];
     /**
      * The database table used by the model.
@@ -14,4 +15,7 @@ class Role extends \Eloquent {
      * @var string
      */
     public $timestamps = false;
+
+
+
 }

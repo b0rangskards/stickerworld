@@ -31,11 +31,23 @@
                     </a>
                 </li>
                 <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-users"></i>
+                    <a href="{{ URL::route('departments_index_path') }}" id="departments-nav-btn" class="{{(Request::is('department/*'))?'active':''}}">
+                        <i class="fa fa-home"></i>
+                        <span>Departments</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;" class="{{(Request::is('employee/*'))?'active':''}}">
+                        <i class="fa fa-user"></i>
                         <span>Employees</span>
                     </a>
                     <ul class="sub">
+                        <li class="{{Request::is('employee/new')?'active':''}}">
+                            <a href="{{ URL::route('new_employee_path') }}">New Employee</a>
+                        </li>
+                        <li class="{{Request::is('employee/employees')?'active':''}}">
+                            <a href="{{ URL::route('employees_index_path') }}">View All Employees</a>
+                        </li>
                     </ul>
                 </li>
                     <li class="sub-menu">

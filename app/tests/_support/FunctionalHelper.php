@@ -10,6 +10,11 @@ use Laracasts\TestDummy\Factory as TestDummy;
 class FunctionalHelper extends \Codeception\Module
 {
 
+    private function initializeFactoriesPath()
+    {
+        TestDummy::$factoriesPath = 'app/tests/factories';
+    }
+
     /**
      * Create a user account in the database.
      *
@@ -21,16 +26,26 @@ class FunctionalHelper extends \Codeception\Module
         return $this->have('User', $overrides);
     }
 
+
     /**
      * Insert a dummy record into a database table.
      *
-     * @param $model
+     * @param $modelName
      * @param array $overrides
      * @return mixed
      */
-    public function have($model, $overrides = [])
+    public function have($modelName, $overrides = [])
     {
-        return TestDummy::create($model, $overrides);
+        $this->initializeFactoriesPath();
+
+        return TestDummy::create($modelName, $overrides);
+    }
+
+    public function build($modelName, $overrides = [])
+    {
+        $this->initializeFactoriesPath();
+
+        return TestDummy::build($modelName, $overrides);
     }
 
     public function seeExceptionThrown($exception, $function)

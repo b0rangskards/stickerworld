@@ -1,6 +1,6 @@
 <?php 
 
-class RolesTableSeeder extends MasterSeeder
+class RolesTableSeeder extends MasterTableSeeder
 {
 
     private static $roles = [

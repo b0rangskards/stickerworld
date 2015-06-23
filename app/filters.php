@@ -90,10 +90,28 @@ Route::filter('csrf', function()
 	}
 });
 
-/* TODO
-    filter to check user permissions
-*/
+/** TODO
+ * cache user permissions, check if permissions exists in cache if not then get from db and store in cache
+ * filter to check user permissions
+ * redirect to intented if grant
+ */
 //Route::filter('permission', function()
 //{
+//    $roleId = Auth::user()->role_id;
+//    $currentRouteName = Route::currentRouteName();
 //
+//    if( checkPermission($roleId, $currentRouteName)
+//    {
+//        if ( Request::ajax() ) {
+//            return Response::make('Unauthorized', Response::HTTP_UNAUTHORIZED);
+//        }
+//        return Redirect::to('\dashboard');
+//    }
 //});
+
+Route::filter('admin', function($route, $request)
+{
+   if( ! Auth::user()->isAdmin()) {
+       return App::abort(401, 'You are not authorized');
+   }
+});

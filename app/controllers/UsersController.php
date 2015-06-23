@@ -10,13 +10,11 @@ class UsersController extends BaseController {
     private $userRepository;
 
     /**
-     * Check User if logged in
+     *
      * @param UserRepository $userRepository
      */
     function __construct(UserRepository $userRepository)
     {
-        $this->beforeFilter('auth');
-
         $this->userRepository = $userRepository;
     }
 
@@ -27,7 +25,11 @@ class UsersController extends BaseController {
 	 */
 	public function index()
 	{
-        $data['users'] = $this->userRepository->getTableData();
+        $data['headerTitle'] = 'Users';
+        $data['subTitle'] = 'Management';
+        $data['currentPage'] = 'Manage Users';
+
+        $data['data'] = $this->userRepository->getTableData();
         $data['columns'] = $this->userRepository->getTableColumns();
 
 		return View::make('users.index', $data);
@@ -38,7 +40,7 @@ class UsersController extends BaseController {
     {
         $array = Input::only('user_id');
 
-        User::findOrFail($array['user_id']);
+        User::where('id', $array['user_id']);
 
         $this->execute(ResendUserActivationCommand::class);
     }
@@ -47,7 +49,11 @@ class UsersController extends BaseController {
     {
         extract(Input::all());
 
-        $user = User::findOrFail($userId);
+        $user = User::find($userId);
+
+        if(!$user) {
+            return Response::json(['message' => 'Cannot find user.'], 400);
+        }
 
         $this->execute(DeactivateUserCommand::class);
 
@@ -58,7 +64,11 @@ class UsersController extends BaseController {
     {
         extract(Input::all());
 
-        $user = User::findOrFail($userId);
+        $user = User::where('id', $userId)->first();
+
+        if ( !$user ) {
+            return Response::json(['message' => 'Cannot find user.'], 400);
+        }
 
         $this->execute(ReactivateUserCommand::class);
 

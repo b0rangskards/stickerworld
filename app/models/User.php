@@ -13,7 +13,7 @@ use Laracasts\Presenter\PresentableTrait;
 /**
  * Class User
  */
-class User extends Eloquent implements UserInterface, RemindableInterface
+class User extends \Eloquent implements UserInterface, RemindableInterface
 {
 
     use UserTrait, RemindableTrait, EventGenerator, PresentableTrait;
@@ -103,7 +103,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 
     public static function resendActivationEmail( $userId)
     {
-        $user = self::findOrFail($userId);
+        $user = static::find($userId);
 
         $user->raise(new UserHasRegistered($user));
 
@@ -112,7 +112,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 
     public static function deactivate( $userId)
     {
-        $user = self::findOrFail($userId);
+        $user = static::find($userId);
 
         $user->recstat = 'I';
 
@@ -121,7 +121,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 
     public static function reactivate( $userId)
     {
-        $user = self::findOrFail($userId);
+        $user = static::find($userId);
 
         $user->recstat = 'A';
 
@@ -154,6 +154,16 @@ class User extends Eloquent implements UserInterface, RemindableInterface
         $this->last_login = UserHelper::getCurrentDateForDB();
 
         $this->save();
+    }
+
+    public function isAdmin()
+    {
+        return $this->role_id === '1';
+    }
+
+    public function isActive()
+    {
+        return $this->recstat === 'A';
     }
 
     public function role()

@@ -21,7 +21,7 @@ class ChangeUsernameCommandHandler implements CommandHandler {
      */
     public function handle($command)
     {
-        $user = User::findOrFail($command->pk)->first();
+        $user = User::where('id', $command->pk)->first();
 
         $user = User::changeUsername($user, $command->value);
 

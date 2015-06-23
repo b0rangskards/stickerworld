@@ -1,6 +1,8 @@
 <?php
 
-class UsersTableSeeder extends MasterSeeder
+use Laracasts\TestDummy\Factory;
+
+class UsersTableSeeder extends MasterTableSeeder
 {
 
     public function run()
@@ -14,27 +16,22 @@ class UsersTableSeeder extends MasterSeeder
             'recstat'   => 'A'
         ]);
 
-        $users = [];
         foreach ( range(1, 10) as $index ) {
-            $users[] = $this->createSlug();
+            $this->createSlug();
         }
-        User::insert($users);
     }
 
     public function createSlug()
     {
-        $roles = Role::lists('id');
         $activation_code = str_random(20);
         $activation_select = $this->faker->randomElement([null, $activation_code]);
 
-        return [
-            'role_id'  => $this->faker->randomElement($roles),
-            'username' => $this->faker->userName,
+        Factory::create('User', [
             'password' => '1234',
-            'email'    => $this->faker->email,
             'activation_code' => $activation_select,
-            'recstat'  => is_null($activation_select) ? 'A' : 'I'
-        ];
+            'last_login' => (is_null($activation_select) ? $this->faker->dateTimeBetween('-2 weeks') : null),
+            'recstat' => (is_null($activation_select) ? 'A' : 'I')
+        ]);
     }
 
 }

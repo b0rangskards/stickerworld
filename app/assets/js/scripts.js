@@ -170,12 +170,36 @@
 
         /* Methods */
 
+        function processAjaxRequest(method, url, data) {
+            return $.ajax({
+                method: method,
+                url: url,
+                data: data
+            });
+        }
+
+        function processFormAjaxRequest(form)
+        {
+            var method = form.find('input[name="_method"]').val() || 'POST';
+            var url = form.prop('action');
+
+            return processAjaxRequest(method, url, form.serialize());
+        }
+
         function showSuccessDialog(title, message) {
             swal({
                 title: title,
                 text: message,
                 type: "success",
-                timer: 1000
+                timer: 1500
+            });
+        }
+
+        function showErrorDialog(title, message) {
+            swal({
+                title: title,
+                text: message,
+                type: "error"
             });
         }
 
@@ -187,6 +211,12 @@
         function clearGroup(divGroup) {
             divGroup.removeClass('has-error');
             divGroup.find('p.help-block').html('');
+        }
+
+        function resetForm(form) {
+            clearForm(form);
+
+            form[0].reset();
         }
 
         function displayError(fieldName, jsonObj) {
@@ -204,14 +234,73 @@
                 });
 
                 current.parent().find('p.help-block').html(errorMessage).fadeIn(300);
-            } else {
-                if (currentFormGroup.hasClass('has-error')) {
-                    currentFormGroup.removeClass('has-error');
-                    current.parent().find('p.help-block').html('').fadeOut(300);
-                }
             }
         }
 
+        function displayErrors(form, responseJSON) {
+            clearForm(form);
+
+            $.each(responseJSON, function (key, value) {
+                displayError(key, value);
+            });
+        }
+
+        function updateMapCenter(map, newLatLng) {
+            $(map).gmap3({
+                map: {
+                    options: {
+                        center: [newLatLng.lat, newLatLng.lng]
+                    }
+                }
+            });
+        }
+
+        function stringifyErrors(jsonErrors) {
+            var errors = '';
+
+            $.each(jsonErrors, function (key, value) {
+                errors += value + '\n';
+            });
+
+            return errors;
+        }
+
+        function loadUpdateDataFromModal(url, form, modal) {
+            var deferred = processAjaxRequest('GET', url, []);
+
+            deferred
+                .done(function (data, textStatus, jqXHR) {
+                    var responseData = data.obj;
+
+                    $.each(responseData, function (key, value) {
+                        form.find('input[name=' + key + ']').val(value);
+                    });
+                })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    showErrorDialog('Error Encountered', 'Cannot display specified record.');
+                    modal.modal('hide');
+                });
+        }
+
+        function processUpdateFormModal(form) {
+            var deferred = processFormAjaxRequest(form);
+
+            deferred
+                .done(function (data, textStatus, jqXHR) {
+                    showSuccessDialog(data.title, data.message);
+
+                    form.closest('div.modal').modal('hide');
+
+                    location.reload();
+                })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    var errors = jqXHR.responseJSON;
+
+                    console.log(errors);
+
+                    displayErrors(form, errors);
+                });
+        }
         /* End of Methods */
 
         /* Jquery */
@@ -219,8 +308,6 @@
         /* Resend User Activation Email */
         $('form[data-remote-resendmail]').on('submit', function(e) {
             var form = $(this),
-                method = form.find('input[name="_method"]').val() || 'POST',
-                url = form.prop('action'),
                 submitBtn = form.find('button[type="submit"]'),
                 loader = form.parent('td').find('div.loader'),
                 loaderLabel = form.parent().find('.loader-label');
@@ -229,13 +316,10 @@
             submitBtn.addClass('btn-disable');
             submitBtn.find('i.fa').removeClass('fa-paper-plane-o').addClass('fa-spinner fa-spin');
 
-            $.ajax({
-                method: method,
-                url: url,
-                data: form.serialize()
-            })
-                .done(function(){
+            var deffered = processFormAjaxRequest(form);
 
+            deffered
+                .done(function () {
                     loaderLabel.css('color', 'limegreen').html('Email sent!').fadeIn(300);
                     setTimeout(function () {
                         loaderLabel.fadeOut(300);
@@ -243,7 +327,6 @@
 
                 })
                 .fail(function() {
-
                     loaderLabel.css('color', 'red').html('Failed').fadeIn(300);
                     setTimeout(function () {
                         loaderLabel.fadeOut(300);
@@ -251,7 +334,6 @@
 
                 })
                 .always(function(){
-
                     submitBtn.find('i.fa').removeClass('fa-spinner fa-spin').addClass('fa-paper-plane-o');
 
                     loader.hide();
@@ -267,14 +349,10 @@
             e.preventDefault();
 
             var form = $(this);
-            var method = form.find('input[name="_method"]').val() || 'POST';
-            var url = form.prop('action');
+            var deffered = processFormAjaxRequest(form);
 
-            $.ajax({
-                method: method,
-                url: url,
-                data: form.serialize(),
-                success: function () {
+            deffered
+                .done(function () {
 
                     swal({
                         title: "Deactivated!",
@@ -284,8 +362,7 @@
                     });
 
                     location.reload();
-                }
-            });
+                });
         });
 
         /* Reactivate User */
@@ -293,16 +370,11 @@
             e.preventDefault();
 
             var form = $(this);
-            var method = form.find('input[name="_method"]').val() || 'POST';
-            var url = form.prop('action');
             var parentTd = $(this).closest('td');
+            var deffered = processFormAjaxRequest(form);
 
-            $.ajax({
-                method: method,
-                url: url,
-                data: form.serialize(),
-                success: function () {
-
+            deffered
+                .done(function () {
                     swal({
                         title: "Re-activated!",
                         text: "Account successfully re-activated.",
@@ -311,11 +383,7 @@
                     });
 
                     location.reload();
-                    //var message = form.data('remote-success-message');
-                    //
-                    //message && alert(message);
-                }
-            });
+                });
         });
 
 
@@ -325,7 +393,7 @@
 
            var input = $(this);
            var form = input.closest('form');
-           var prompt = input.data('confirm');
+           var prompt = input.data('confirm') || 'Are you sure?';
            var promptYes = input.data('confirm-yes') || 'Yes, pls!';
 
             swal({
@@ -373,8 +441,6 @@
         });
 
         /* X-Editable */
-
-
         /* User Profile Change Password SlideDown toggle */
 
         $('#change-password-toggle').on('click', function(e){
@@ -387,7 +453,6 @@
             }else{
                 changePasswordDiv.slideDown('slow');
             }
-
         });
 
         $('div#basic-details-div').mouseup(function(e){
@@ -412,32 +477,247 @@
             e.preventDefault();
 
             var form = $(this);
-            var method = form.find('input[name="_method"]').val() || 'POST';
-            var url = form.prop('action');
 
-            $.ajax({
-                method: method,
-                url: url,
-                data: form.serialize(),
-                success: function (response) {
+            var deffered = processFormAjaxRequest(form);
+
+            deffered
+                .done( function () {
                     clearForm(form);
 
                     showSuccessDialog('Password Changed!', 'Password Successfully Changed!')
 
                     form.trigger('reset');
                     $('#change-password').slideUp('slow');
+                })
+                .fail(  function (jqXHR, textStatus, errorThrown) {
+                    var errors = jqXHR.responseJSON;
+
+                    displayErrors(form, errors);
+                });
+        });
+
+        var image = new google.maps.MarkerImage(
+            'http://plebeosaur.us/etc/map/bluedot_retina.png',
+            null, // size
+            null, // origin
+            new google.maps.Point(8, 8), // anchor (move to center of marker)
+            new google.maps.Size(17, 17) // scaled size (required for Retina display icon)
+        );
+
+        $('#newBranchModal').on('shown.bs.modal', function() {
+
+            $('#new-branch-map').gmap3(
+                {
+                    trigger: 'resize',
+                    map: {
+                        options: {
+                            center: [GMAP.coords.lat, GMAP.coords.lng],
+                            zoom: GMAP.zoom,
+                            streetViewControl: false
+                        }
+                    },
+                    marker: {
+                        latLng: [GMAP.coords.lat, GMAP.coords.lng],
+                        options: {
+                            draggable: true,
+                            flat: true,
+                            icon: image,
+                            optimized: false,
+                            visible: true,
+                            title: 'I am here'
+                        },
+                        events: {
+                            dragend: function (marker, event, context) {
+                                var newLatLng = {
+                                  lat: marker.position.A,
+                                  lng: marker.position.F
+                                };
+
+                                updateMapCenter(this, newLatLng);
+
+                                $('#new-branch-lat-hidden').val(newLatLng.lat);
+                                $('#new-branch-lng-hidden').val(newLatLng.lng);
+                            }
+                        }
+                    }
+                });
+
+        });
+
+        $('#newBranchModal').on('show.bs.modal', function () {
+            $('#new-branch-map').gmap3();
+        });
+
+        $('#newBranchModal').on('hide.bs.modal', function(){
+           $('#new-branch-map').gmap3('destroy');
+       });
+
+        $('.modalSubmitBtnForm').on('click', function(){
+            $(this).parent().parent().find('form').trigger('submit');
+        });
+
+        $('div.modal-form form').on('submit', function (e) {
+            e.preventDefault();
+
+            var form = $(this);
+
+            var deferred = processFormAjaxRequest(form);
+
+            var modal = $(this).parents('div.modal');
+
+            deferred
+                .done(function (data, textStatus, jqXHR) {
+                    showSuccessDialog(data.title, data.message);
+
+                    modal.modal('hide');
+
+                    resetForm(form);
+
+                    location.reload();
+                })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    var errors = jqXHR.responseJSON;
+
+                    displayErrors(form, errors);
+                });
+        });
+
+        $('.branches-panel-map-grid').each( function(index, element){
+            var obj = $(element);
+            var lat = obj.data('lat'),
+                lng = obj.data('lng');
+
+            $(element).gmap3(
+                {
+                    map: {
+                        options: {
+                            center: [lat, lng],
+                            zoom: GMAP.minZoom,
+                            disableDefaultUI: true
+                        }
+                    },
+                    marker: {
+                        latLng: [lat, lng],
+                        options: {
+                            flat: true,
+                            icon: image,
+                            optimized: false,
+                            visible: true,
+                            title: 'I am here'
+                        }
+                    }
+                });
+        });
+
+        $('form[data-remote-delete-record]').on('submit', function(e){
+            e.preventDefault();
+
+            var form = $(this);
+
+            var deferred = processFormAjaxRequest(form);
+
+            deferred
+                .done(function (data, textStatus, jqXHR) {
+                    showSuccessDialog(data.title, data.message);
+                    location.reload();
+                })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    var errors = jqXHR.responseJSON;
+
+                    showErrorDialog('Error encountered', stringifyErrors(errors));
+                });
+        });
+
+
+        $('#updateBranchModal').on('hidden.bs.modal', function () {
+
+            var form = $('#update-branch-form');
+
+            resetForm(form);
+
+            $('#update-branch-map').gmap3('destroy');
+        });
+
+        $('#updateBranchModal').on('show.bs.modal', function(e){
+           var triggerBtn = e.relatedTarget;
+           var id = $(triggerBtn).data('id');
+           var method = 'GET',
+               url = '/branch/fetchdata/' + id,
+               form = $('#update-branch-form');
+
+            $('#update-branch-map').gmap3();
+
+            loadUpdateDataFromModal(url, form, $(this));
+        });
+
+        $('#updateBranchModal').on('shown.bs.modal', function (e) {
+            var form = $('#update-branch-form');
+            var lat = form.find('input[name=lat]').val(),
+                lng = form.find('input[name=lng]').val();
+
+            $('#update-branch-map').gmap3({
+                trigger: 'resize',
+                map: {
+                    options: {
+                        center: [lat, lng],
+                        zoom: GMAP.minZoom,
+                        streetViewControl: false
+                    }
                 },
-                error: function(response) {
-                    var errors = JSON.parse(response.responseText);
+                marker: {
+                    latLng: [lat, lng],
+                    options: {
+                        draggable: true,
+                        flat: true,
+                        icon: image,
+                        optimized: false,
+                        visible: true,
+                        title: 'I am here'
+                    },
+                    events: {
+                        dragend: function (marker, event, context) {
+                            var newLatLng = {
+                                lat: marker.position.A,
+                                lng: marker.position.F
+                            };
 
-                    displayError('current_password', errors.current_password);
-                    displayError('new_password', errors.new_password);
+                            updateMapCenter(this, newLatLng);
 
+                            $('#update-branch-lat-hidden').val(newLatLng.lat);
+                            $('#update-branch-lng-hidden').val(newLatLng.lng);
+                        }
+                    }
                 }
             });
         });
 
-        /* End of Jquery */
+        $('form#update-branch-form').on('submit', function (e) {
+            e.preventDefault();
 
-    });
+            var form = $(this);
+
+            processUpdateFormModal(form);
+        });
+
+
+        $('#updateDepartmentModal').on('show.bs.modal', function (e) {
+            var triggerBtn = e.relatedTarget;
+            var id = $(triggerBtn).data('id');
+            var method = 'GET',
+                url = '/department/fetchdata/' + id,
+                form = $('#update-department-form');
+
+            loadUpdateDataFromModal(url, form, $(this));
+        });
+
+
+        $('form#update-department-form').on('submit', function (e) {
+            e.preventDefault();
+
+            var form = $(this);
+
+            processUpdateFormModal(form);
+        });
+
+    });   /* End of Jquery */
 })(jQuery);

@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>{{{ is_null(Request::segment(2)) ? ucfirst(Request::segment(1)) : ucfirst(Request::segment(2)) }}}</title>
 
     {{ HTML::style('css/vendor.min.css'); }}
     {{ HTML::style('css/admin.min.css'); }}
 
+    {{ HTML::script('https://maps.googleapis.com/maps/api/js?v=3.exp'); }}
     {{ HTML::script('js/vendor.min.js'); }}
     {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'); }}
     {{ HTML::script('http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js'); }}

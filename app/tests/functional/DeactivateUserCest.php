@@ -6,21 +6,13 @@ use \FunctionalTester;
  */
 class DeactivateUserCest
 {
-
-    private $role_id = 2;
-
-    private $username = 'sample';
-
-    private $password = 'samplepassword123';
-
-    private $email = 'sampleuser123@yahoo.com';
-
+    private $user;
 
     public function _before(FunctionalTester $I)
     {
         $I->signInAsAdmin();
 
-        $I->createUser($this->role_id, $this->username, $this->password, $this->email, 'A');
+        $this->user = $I->have('User', ['recstat' => 'A']);
     }
 
     public function try_to_deactivate_user(FunctionalTester $I)
@@ -29,13 +21,19 @@ class DeactivateUserCest
 
         $I->see('Management', 'span');
 
-        $I->canSeeNumberOfElements('tr', 2);
+//        $I->canSeeNumberOfElements('tr', 2);
 
-        $I->canSee($this->username, 'tr:nth-child(1) td');
+//        $I->canSee($this->user->username, 'tr:nth-child(1) td');
 
-        $I->click(UsersPage::$deactivateButton);
+//        $I->click(UsersPage::$deactivateButton);
+        $I->sendAjaxRequest('PUT',
+            URL::route('deactivate_user_path'),
+            [
+                'userId' => $this->user->id
+            ]);
 
-        $user = User::whereEmail($this->email)->first();
+
+        $user = User::where('id', $this->user->id)->first();
 
         $I->assertEquals('I', $user->recstat);
     }

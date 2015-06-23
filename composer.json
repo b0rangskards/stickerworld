@@ -20,7 +20,7 @@
         "barryvdh/laravel-ide-helper": "~1.11",
         "barryvdh/laravel-debugbar": "v1.8.7",
         "fzaninotto/faker": "1.5.0",
-        "laracasts/testdummy": "~1.0"
+        "laracasts/testdummy": "~2.0"
     },
 	"autoload": {
 		"classmap": [

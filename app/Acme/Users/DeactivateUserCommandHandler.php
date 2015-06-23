@@ -24,9 +24,9 @@ class DeactivateUserCommandHandler implements CommandHandler {
      */
     public function handle($command)
     {
-        $user = User::deactivate( $command->userId );
+        $user = User::deactivate($command->userId);
 
-        $this->repository->save( $user);
+        $this->repository->save($user);
 
         return $user;
     }

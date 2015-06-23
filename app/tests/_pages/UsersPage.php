@@ -11,6 +11,8 @@ class UsersPage
 
     public static $reactivateButton = 'button.reactivate-user';
 
+    public static $tableRow = 'table.users-table tbody tr';
+
     /**
      * Declare UI map for this page here. CSS or XPath allowed.
      * public static $usernameField = '#username';

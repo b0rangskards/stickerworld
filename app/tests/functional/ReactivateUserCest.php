@@ -7,19 +7,13 @@ use \FunctionalTester;
 class ReactivateUserCest
 {
 
-    private $role_id = 2;
-
-    private $username = 'sample';
-
-    private $password = 'samplepassword123';
-
-    private $email = 'sampleuser123@yahoo.com';
+    private $user;
 
     public function _before(FunctionalTester $I)
     {
         $I->signInAsAdmin();
 
-        $I->createUser($this->role_id, $this->username, $this->password, $this->email, 'I');
+        $this->user = $I->have('User', ['recstat' => 'A']);
     }
 
     public function try_to_reactivate_user(FunctionalTester $I)
@@ -28,13 +22,19 @@ class ReactivateUserCest
 
         $I->see('Management', 'span');
 
-        $I->canSeeNumberOfElements('tr', 2);
+//        $I->canSeeNumberOfElements('tr', 2);
 
-        $I->canSee($this->username, 'tr:nth-child(1) td');
+//        $I->canSee($this->user->username, 'tr:nth-child(1) td');
 
-        $I->click(UsersPage::$reactivateButton);
+//        $I->click(UsersPage::$reactivateButton);
+        $I->sendAjaxRequest('PUT',
+            URL::route('reactivate_user_path'),
+            [
+                'userId' => $this->user->id
+            ]);
 
-        $user = User::whereEmail($this->email)->first();
+
+        $user = User::find($this->user->id);
 
         $I->assertEquals('A', $user->recstat);
     }
