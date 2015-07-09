@@ -186,7 +186,7 @@
 
 // Move borders to anchors instead of bottom of list
 //
-// Mixin for adding on top the shared `.nav-justified` css for our tabs
+// Mixin for adding on top the shared `.nav-justified` styles for our tabs
 .nav-tabs-justified {
   border-bottom: 0;
 
@@ -223,9 +223,11 @@
 .tab-content {
   > .tab-pane {
     display: none;
+    visibility: hidden;
   }
   > .active {
     display: block;
+    visibility: visible;
   }
 }
 

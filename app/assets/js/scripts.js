@@ -165,7 +165,16 @@
 
         $('#flash-overlay-modal').modal();
 
+        // initialize icheck in access control
+        $('.flat-green input').iCheck({
+            checkboxClass: 'icheckbox_flat-green',
+            radioClass: 'iradio_flat-green'
+        });
 
+        $('.flat-grey input').iCheck({
+            checkboxClass: 'icheckbox_flat-grey',
+            radioClass: 'iradio_flat-grey'
+        });
         /* Stickerworld Javascripts */
 
         /* Methods */
@@ -220,7 +229,7 @@
         }
 
         function displayError(fieldName, jsonObj) {
-            var current = $('input[name=' + fieldName + '],  a[data-name=' + fieldName + ']');
+            var current = $('input[name=' + fieldName + '],  a[data-name=' + fieldName + '], select[name=' + fieldName + '], textarea[name=' + fieldName + ']');
 
             var currentFormGroup = current.closest('div.form-group');
             var currentHelpBlock = current.closest('p.help-block');
@@ -282,28 +291,97 @@
                 });
         }
 
-        function processUpdateFormModal(form) {
+        function showErrorOnXEditPopup(xeditElement, errors)
+        {
+            xeditElement.parent().find('div.help-block').html(stringifyErrors(errors));
+        }
+
+        /* End of Methods */
+
+        /* Jquery */
+
+        /* Jquery Common Methods */
+
+        $('div.modal-form form').on('submit', function (e) {
+            e.preventDefault();
+
+            var form = $(this);
+
             var deferred = processFormAjaxRequest(form);
+
+            var modal = $(this).parents('div.modal');
 
             deferred
                 .done(function (data, textStatus, jqXHR) {
                     showSuccessDialog(data.title, data.message);
 
-                    form.closest('div.modal').modal('hide');
+                    modal.modal('hide');
 
-                    location.reload();
+                    resetForm(form);
+
+                    setTimeout(function(){
+
+                        window.location = window.location.href;
+
+                    },1500);
                 })
                 .fail(function (jqXHR, textStatus, errorThrown) {
                     var errors = jqXHR.responseJSON;
 
-                    console.log(errors);
-
                     displayErrors(form, errors);
                 });
-        }
-        /* End of Methods */
+        });
 
-        /* Jquery */
+        $('input[data-confirm], button[data-confirm]').on('click', function (e) {
+            e.preventDefault();
+
+            var input = $(this);
+            var form = input.closest('form');
+            var prompt = input.data('confirm') || 'Are you sure?';
+            var promptYes = input.data('confirm-yes') || 'Yes, pls!';
+
+            swal({
+                title: 'Are you sure?',
+                text: prompt,
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: promptYes,
+                cancelButtonText: 'No, cancel pls!',
+                closeOnConfirm: false
+            }, function (isConfirm) {
+                if (isConfirm) {
+                    form.submit();
+                }
+            });
+        });
+
+        $('form[data-remote-delete-record]').on('submit', function (e) {
+            e.preventDefault();
+
+            var form = $(this);
+
+            var deferred = processFormAjaxRequest(form);
+
+            deferred
+                .done(function (data, textStatus, jqXHR) {
+                    showSuccessDialog(data.title, data.message);
+                    location.reload();
+                })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    var errors = jqXHR.responseJSON.error;
+
+                    console.log(jqXHR);
+
+                    showErrorDialog('Error encountered', stringifyErrors(errors));
+                });
+        });
+
+        $('.modalSubmitBtnForm').on('click', function () {
+            $(this).parent().parent().find('form').trigger('submit');
+        });
+
+        /* Jquery Common Methods End */
 
         /* Resend User Activation Email */
         $('form[data-remote-resendmail]').on('submit', function(e) {
@@ -386,32 +464,6 @@
                 });
         });
 
-
-
-        $('input[data-confirm], button[data-confirm]').on('click', function(e) {
-            e.preventDefault();
-
-           var input = $(this);
-           var form = input.closest('form');
-           var prompt = input.data('confirm') || 'Are you sure?';
-           var promptYes = input.data('confirm-yes') || 'Yes, pls!';
-
-            swal({
-                title: 'Are you sure?',
-                text: prompt,
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#DD6B55',
-                confirmButtonText: promptYes,
-                cancelButtonText: 'No, cancel pls!',
-                closeOnConfirm: false
-            }, function (isConfirm) {
-                if(isConfirm) {
-                    form.submit();
-                }
-            });
-        });
-
         /* X-Editable */
 
         $.fn.editable.defaults.mode = 'inline';
@@ -421,7 +473,7 @@
             success: function (response, newValue) {
                 clearGroup($(this).closest('div.form-group'));
 
-                showSuccessDialog('Username Changed!', 'Username Successfully Changed!')
+                showSuccessDialog('Success!', 'Username Successfully Changed!')
 
                 $('ul.top-menu > li > a > span.username').html(newValue);
             },
@@ -432,11 +484,36 @@
 
         $('#email').editable({
             success: function (response, newValue) {
-                showSuccessDialog('Email Changed!', 'Email Successfully Changed!')
+                showSuccessDialog('Success!', 'Email Successfully Changed!')
                 clearGroup($(this).closest('div.form-group'));
             },
             error: function (response, newValue) {
                 displayError('email', response.responseJSON.email);
+            }
+        });
+
+        $('.role').editable({
+            'mode': 'popup',
+            success: function (response, newValue) {
+                showSuccessDialog('Success!', 'Role Name Successfully Changed!')
+                //clearGroup($(this).closest('div.form-group'));
+            },
+            error: function (response, newValue) {
+                var errors = response.responseJSON.name;
+
+                showErrorOnXEditPopup($(this), errors);
+            }
+        });
+
+        $('.permission-group-xedit').editable({
+            'mode': 'popup',
+            success: function (response, newValue) {
+                showSuccessDialog('Success!', 'Group Name Successfully Changed!')
+            },
+            error: function (response, newValue) {
+                var errors = response.responseJSON.name;
+
+                showErrorOnXEditPopup($(this), errors);
             }
         });
 
@@ -484,7 +561,7 @@
                 .done( function () {
                     clearForm(form);
 
-                    showSuccessDialog('Password Changed!', 'Password Successfully Changed!')
+                    showSuccessDialog('Success', 'Password Successfully Changed!')
 
                     form.trigger('reset');
                     $('#change-password').slideUp('slow');
@@ -552,36 +629,6 @@
            $('#new-branch-map').gmap3('destroy');
        });
 
-        $('.modalSubmitBtnForm').on('click', function(){
-            $(this).parent().parent().find('form').trigger('submit');
-        });
-
-        $('div.modal-form form').on('submit', function (e) {
-            e.preventDefault();
-
-            var form = $(this);
-
-            var deferred = processFormAjaxRequest(form);
-
-            var modal = $(this).parents('div.modal');
-
-            deferred
-                .done(function (data, textStatus, jqXHR) {
-                    showSuccessDialog(data.title, data.message);
-
-                    modal.modal('hide');
-
-                    resetForm(form);
-
-                    location.reload();
-                })
-                .fail(function (jqXHR, textStatus, errorThrown) {
-                    var errors = jqXHR.responseJSON;
-
-                    displayErrors(form, errors);
-                });
-        });
-
         $('.branches-panel-map-grid').each( function(index, element){
             var obj = $(element);
             var lat = obj.data('lat'),
@@ -608,26 +655,6 @@
                     }
                 });
         });
-
-        $('form[data-remote-delete-record]').on('submit', function(e){
-            e.preventDefault();
-
-            var form = $(this);
-
-            var deferred = processFormAjaxRequest(form);
-
-            deferred
-                .done(function (data, textStatus, jqXHR) {
-                    showSuccessDialog(data.title, data.message);
-                    location.reload();
-                })
-                .fail(function (jqXHR, textStatus, errorThrown) {
-                    var errors = jqXHR.responseJSON;
-
-                    showErrorDialog('Error encountered', stringifyErrors(errors));
-                });
-        });
-
 
         $('#updateBranchModal').on('hidden.bs.modal', function () {
 
@@ -691,15 +718,6 @@
             });
         });
 
-        $('form#update-branch-form').on('submit', function (e) {
-            e.preventDefault();
-
-            var form = $(this);
-
-            processUpdateFormModal(form);
-        });
-
-
         $('#updateDepartmentModal').on('show.bs.modal', function (e) {
             var triggerBtn = e.relatedTarget;
             var id = $(triggerBtn).data('id');
@@ -710,13 +728,200 @@
             loadUpdateDataFromModal(url, form, $(this));
         });
 
-
-        $('form#update-department-form').on('submit', function (e) {
+        $('button#toggle-new-group-btn').on('click', function(e) {
             e.preventDefault();
 
-            var form = $(this);
+            $(this).parents('div.modal').modal('toggle');
 
-            processUpdateFormModal(form);
+            $('div#newPermissionGroupModal').modal('toggle');
+        });
+
+
+        // Checkbox in permission
+        $('.icheck-permission input').on('ifChecked', function(e){
+            e.preventDefault();
+            var icheck = $(this);
+            var roleId = icheck.data('role-id'),
+                permissionId = icheck.data('permission-id'),
+                url = icheck.data('grant-url'),
+                method = 'POST';
+            var loader = icheck.parents('td').find('span.loader');
+
+            loader.show();
+
+            var deferred = processAjaxRequest(method, url, {
+                    'role_id'       : roleId,
+                    'permission_id' : permissionId
+                });
+
+            icheck.prop('disabled', true);
+
+            deferred
+                .done(function (data, textStatus, jqXHR) {
+                    console.log(data);
+
+                    icheck.data('id', data.permissionRoleId);
+                })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    var errorMessage = stringifyErrors(jqXHR.responseJSON.error);
+
+                    icheck.iCheck('uncheck');
+
+                    showErrorDialog('Error Encountered', errorMessage);
+                })
+                .always(function () {
+                    icheck.prop('disabled', false);
+
+                    loader.hide();
+                });
+        })
+        .on('ifUnchecked', function(e){
+                var icheckDelete = $(this);
+                var id = icheckDelete.data('id'),
+                    url = icheckDelete.data('revoke-url'),
+                    method = 'DELETE';
+                var loader = icheckDelete.parents('td').find('span.loader');
+
+                var deferred = processAjaxRequest(method, url, {
+                    'id': id
+                });
+
+                icheckDelete.prop('disabled', true);
+
+                loader.show();
+
+                deferred
+                    .done(function (data, textStatus, jqXHR) {
+                        icheckDelete.data('id', '');
+
+                        console.log('success' + data);
+                    })
+                    .fail(function (jqXHR, textStatus, errorThrown) {
+                        var errorMessage = stringifyErrors(jqXHR.responseJSON.error);
+
+                        icheckDelete.iCheck('check');
+
+                        showErrorDialog('Error Encountered', errorMessage);
+                    })
+                    .always(function(){
+                        loader.hide();
+
+                        icheckDelete.prop('disabled', false);
+                    });
+        });
+
+
+        // Checkbox in permission group
+        $('.icheck-permission-group input').on('ifChecked', function (e) {
+            e.preventDefault();
+
+            var icheck = $(this);
+            var roleId = icheck.data('role-id'),
+                permissionGroupId = icheck.data('permission-group-id'),
+                loader = icheck.parents('td').find('span.loader');
+
+            loader.show();
+            icheck.prop('disabled', true);
+
+            var ichecks = $(".icheck-permission input[data-permission-group-id='" + permissionGroupId + "']");
+
+
+            $.each(ichecks, function(key, element){
+
+                $(element).filter("[data-role-id='" + roleId + "']").iCheck('check');
+
+            });
+
+            setTimeout(function(){
+                    loader.hide();
+                    icheck.prop('disabled', false);
+                }
+                ,1000);
+        })
+            .on('ifUnchecked', function (e) {
+                e.preventDefault();
+
+                var icheck = $(this);
+                var roleId = icheck.data('role-id'),
+                    permissionGroupId = icheck.data('permission-group-id'),
+                    loader = icheck.parents('td').find('span.loader');
+
+                loader.show();
+                icheck.prop('disabled', true);
+
+                var ichecks = $(".icheck-permission input[data-permission-group-id='" + permissionGroupId + "']");
+
+                $.each(ichecks, function (key, element) {
+
+                    $(element).filter("[data-role-id='" + roleId + "']").iCheck('uncheck');
+
+                });
+
+                setTimeout(function () {
+                        loader.hide();
+                        icheck.prop('disabled', false);
+                    }, 1000);
+            });
+
+
+
+        $('#updatePermissionModal').on('show.bs.modal', function (e) {
+            var triggerBtn = e.relatedTarget;
+            var id = $(triggerBtn).data('id');
+            var method = 'GET',
+                url = 'access_control/permission/fetchdata/' + id,
+                form = $('#update-permission-form');
+            var modal = $(this);
+
+            var deferred = processAjaxRequest(method, url, []);
+
+            deferred
+                .done(function (data, textStatus, jqXHR) {
+                    var responseData = data.obj;
+                    var select = null;
+                    var options = null;
+
+                    $.each(responseData, function (key, value) {
+                        if(key === 'description')
+                        {
+                            form.find('textarea[name=' + key + ']').val(value);
+                        } else if(key === 'name' || key === 'id') {
+                            form.find('input[name=' + key + ']').val(value);
+                        } else {
+                            select = form.find('select[name=' + key + ']');
+                            options = select.find('option');
+                            $.map(options, function(option){
+                               if(option.value == value)
+                               {
+                                   option.setAttribute('selected', true);
+                               }
+                            });
+                        }
+                    });
+                })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    showErrorDialog('Error Encountered', 'Cannot display specified record.');
+                    modal.modal('hide');
+                });
+        });
+
+
+        $('input#register-user-radio-role[type=radio]').change(function(){
+           var selectedRoleId = this.value;
+
+            if(selectedRoleId == 1 || selectedRoleId == 2) {
+                $('div#register-user-select-employee').hide();
+                return;
+            }
+
+            $('div#register-user-select-employee').show();
+        });
+
+        /* Hire Employee Form */
+        $('#hire-emp-create-user-toggle input').on('ifChecked', function (e) {
+            $('div#hire-emp-users-info').slideDown(300);
+        }).on('ifUnchecked', function (e) {
+            $('div#hire-emp-users-info').slideUp(300);
         });
 
     });   /* End of Jquery */

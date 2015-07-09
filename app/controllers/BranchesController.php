@@ -8,6 +8,8 @@ use Acme\Branches\UpdateBranchInformationCommand;
 use Acme\Forms\AddNewBranchForm;
 use Acme\Forms\CloseBranchForm;
 use Acme\Forms\UpdateBranchInformationForm;
+use Acme\Helpers\DataHelper;
+use Acme\Helpers\ViewDataHelper;
 use Chumper\Datatable\Datatable;
 
 class BranchesController extends BaseController {
@@ -46,20 +48,20 @@ class BranchesController extends BaseController {
 	 */
 	public function index()
 	{
-        $data['headerTitle'] = 'Branches';
-        $data['subTitle'] = 'Management';
-        $data['currentPage'] = 'Manage Branch';
-        $data['headingColor'] = ['info','success','danger'];
-        $data['columns'] = $this->branchRepository->getTableColumns();
+        $viewData = ViewDataHelper::createViewHeaderData('Branches', 'Management', 'Manage Branch', 'fa fa-building-o');
+
+        $viewData = array_merge($viewData, [
+           'columns'    => $this->branchRepository->getTableColumns()
+        ]);
 
         $query = Request::get('qbranch');
 
-        $data['branches'] = $query
+        $viewData['branches'] = $query
             ? $this->branchRepository->search($query)
             : $this->branchRepository->getPaginated();
 
 
-        return View::make('branches.index', $data);
+        return View::make('branches.index', $viewData);
     }
 
     /**
@@ -147,57 +149,11 @@ class BranchesController extends BaseController {
             return Response::json($success);
 
         } catch ( Laracasts\Validation\FormValidationException $exception ) {
-            $errors = [];
-
-            if ( is_object($exception->getErrors()) ) {
-                $errors = $exception->getErrors()->toArray();
-            } else {
-                $errors = $exception->getErrors();
-            }
+            $errors = DataHelper::getErrorDataFromException($exception);
 
             return Response::json($errors, 400);
         }
     }
-
-    public function search()
-    {
-
-    }
-
-
-
-    public function getDatatable()
-    {
-        return $this->dataTable->collection(User::all())
-            ->showColumns('username', 'recstat')
-            ->addColumn('username', function ($model) {
-                return '<span class="weight600">'.$model->username.'</span>';
-            })
-            ->addColumn('recstat', function ($model) {
-                return $model->recstat === 'A'
-                    ? '<span class="badge bg-success">Yes</span>'
-                    : '<span class="badge bg-danger">No</span>';
-            })
-            ->searchColumns('username')
-            ->orderColumns('username')
-            ->make();
-    }
-
-
-	/**
-	 * Display the specified resource.
-	 * GET /branches/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-
-
 
 
 }

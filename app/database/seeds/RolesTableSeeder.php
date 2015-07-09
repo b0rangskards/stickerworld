@@ -4,10 +4,11 @@ class RolesTableSeeder extends MasterTableSeeder
 {
 
     private static $roles = [
-        'Admin',
-        'Moderator',
-        'Estimator',
-        'Accountant'
+        'admin',
+        'moderator',
+        'manager',
+        'estimator',
+        'accountant'
     ];
 
     public function run()

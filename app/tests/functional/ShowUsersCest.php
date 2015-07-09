@@ -29,7 +29,11 @@ class ShowUsersCest
         $I->amOnPage(UsersPage::$URL);
 
        foreach($this->users as $user) {
-           $I->see($user->username, 'td');
+           $I->seeRecord('users',
+               [
+                   'username' => $user->username
+               ]
+            );
        }
     }
 }

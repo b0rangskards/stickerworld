@@ -1,0 +1,1442 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Access_control</title>
+
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost/css/vendor.min.css">
+
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost/css/admin.min.css">
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
+    <script src="http://localhost/js/vendor.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+
+    <script src="http://localhost/js/admin.min.js"></script>
+
+</head>
+<body>
+
+    <div id="container">
+                <!--header start-->
+<header class="header fixed-top clearfix">
+<!--logo start-->
+<div class="brand">
+
+    <a href="http://localhost/dashboard" class="logo">
+        <img src="http://localhost/images/company-logo.png" alt="" />
+    </a>
+    <div class="sidebar-toggle-box">
+        <div class="fa fa-bars"></div>
+    </div>
+</div>
+<!--logo end-->
+
+<div class="nav notify-row" id="top_menu">
+    <!--  notification start -->
+    <ul class="nav top-menu">
+        <!-- settings start -->
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <i class="fa fa-tasks"></i>
+                <span class="badge bg-success">8</span>
+            </a>
+            <ul class="dropdown-menu extended tasks-bar">
+                <li>
+                    <p class="">You have 8 pending tasks</p>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-info clearfix">
+                            <div class="desc pull-left">
+                                <h5>Target Sell</h5>
+                                <p>25% , Deadline  12 June’13</p>
+                            </div>
+                                    <span class="notification-pie-chart pull-right" data-percent="45">
+                            <span class="percent"></span>
+                            </span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-info clearfix">
+                            <div class="desc pull-left">
+                                <h5>Product Delivery</h5>
+                                <p>45% , Deadline  12 June’13</p>
+                            </div>
+                                    <span class="notification-pie-chart pull-right" data-percent="78">
+                            <span class="percent"></span>
+                            </span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-info clearfix">
+                            <div class="desc pull-left">
+                                <h5>Payment collection</h5>
+                                <p>87% , Deadline  12 June’13</p>
+                            </div>
+                                    <span class="notification-pie-chart pull-right" data-percent="60">
+                            <span class="percent"></span>
+                            </span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-info clearfix">
+                            <div class="desc pull-left">
+                                <h5>Target Sell</h5>
+                                <p>33% , Deadline  12 June’13</p>
+                            </div>
+                                    <span class="notification-pie-chart pull-right" data-percent="90">
+                            <span class="percent"></span>
+                            </span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="external">
+                    <a href="#">See All Tasks</a>
+                </li>
+            </ul>
+        </li>
+        <!-- settings end -->
+        <!-- inbox dropdown start-->
+        <li id="header_inbox_bar" class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <i class="fa fa-envelope-o"></i>
+                <span class="badge bg-important">4</span>
+            </a>
+            <ul class="dropdown-menu extended inbox">
+                <li>
+                    <p class="red">You have 4 Mails</p>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="photo"><img alt="avatar" src="" /></span>
+                                <span class="subject">
+                                <span class="from">Jonathan Smith</span>
+                                <span class="time">Just now</span>
+                                </span>
+                                <span class="message">
+                                    Hello, this is an example msg.
+                                </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="photo"><img alt="avatar" src="" /></span>
+                                <span class="subject">
+                                <span class="from">Jane Doe</span>
+                                <span class="time">2 min ago</span>
+                                </span>
+                                <span class="message">
+                                    Nice admin template
+                                </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="photo"><img alt="avatar" src="" /></span>
+                                <span class="subject">
+                                <span class="from">Tasi sam</span>
+                                <span class="time">2 days ago</span>
+                                </span>
+                                <span class="message">
+                                    This is an example msg.
+                                </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="photo"><img alt="avatar" src="" /></span>
+                                <span class="subject">
+                                <span class="from">Mr. Perfect</span>
+                                <span class="time">2 hour ago</span>
+                                </span>
+                                <span class="message">
+                                    Hi there, its a test
+                                </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">See all messages</a>
+                </li>
+            </ul>
+        </li>
+        <!-- inbox dropdown end -->
+        <!-- notification dropdown start-->
+        <li id="header_notification_bar" class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+
+                <i class="fa fa-bell-o"></i>
+                <span class="badge bg-warning">3</span>
+            </a>
+            <ul class="dropdown-menu extended notification">
+                <li>
+                    <p>Notifications</p>
+                </li>
+                <li>
+                    <div class="alert alert-info clearfix">
+                        <span class="alert-icon"><i class="fa fa-bolt"></i></span>
+                        <div class="noti-info">
+                            <a href="#"> Server #1 overloaded.</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="alert alert-danger clearfix">
+                        <span class="alert-icon"><i class="fa fa-bolt"></i></span>
+                        <div class="noti-info">
+                            <a href="#"> Server #2 overloaded.</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="alert alert-success clearfix">
+                        <span class="alert-icon"><i class="fa fa-bolt"></i></span>
+                        <div class="noti-info">
+                            <a href="#"> Server #3 overloaded.</a>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </li>
+        <!-- notification dropdown end -->
+    </ul>
+    <!--  notification end -->
+</div>
+<div class="top-nav clearfix">
+    <!--search & user info start-->
+    <ul class="nav pull-right top-menu">
+        <li>
+            <input type="text" class="form-control search" placeholder=" Search">
+        </li>
+        <!-- user login dropdown start-->
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <img alt="" src="http://localhost/images/icon-user-default.png" />
+                <span class="username"> user_admin </span>
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu extended logout">
+                <li>
+                    <a href="http://localhost/profile/user_admin"><i class=" fa fa-user"></i>Profile</a>
+                </li>
+                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                <li><a href="http://localhost/logout"><i class="fa fa-sign-out"></i> Log Out</a></li>
+            </ul>
+        </li>
+    </ul>
+    <!--search & user info end-->
+</div>
+</header>
+<!--header end-->
+                <!--sidebar start-->
+<aside>
+    <div id="sidebar" class="nav-collapse">
+        <!-- sidebar menu start-->
+        <div class="leftside-navigation">
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a class="active" href="/">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+
+                <li class="sub-menu">
+                    <a href="javascript:;" class="active">
+                        <i class="fa fa-user"></i>
+                        <span>Users</span>
+                    </a>
+                    <ul class="sub">
+                        <li class="">
+                            <a href="http://localhost/register">Register New User</a>
+                        </li>
+                        <li class="">
+                            <a href="http://localhost/user/users">View All Users</a>
+                        </li>
+                        <li class="active">
+                            <a href="http://localhost/access_control">Roles & Permissions</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="http://localhost/branch/branches" id="branches-nav-btn" class="">
+                        <i class="fa fa-home"></i>
+                        <span>Branches</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="http://localhost/department/departments" id="departments-nav-btn" class="">
+                        <i class="fa fa-home"></i>
+                        <span>Departments</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="fa fa-user"></i>
+                        <span>Employees</span>
+                    </a>
+                    <ul class="sub">
+                        <li class="">
+                            <a href="http://localhost/employee/new">New Employee</a>
+                        </li>
+                        <li class="">
+                            <a href="http://localhost/employee/employees">View All Employees</a>
+                        </li>
+                    </ul>
+                </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-retweet"></i>
+                            <span>Suppliers</span>
+                        </a>
+                        <ul class="sub">
+                        </ul>
+                    </li>
+                <li>
+                    <a href="fontawesome.html">
+                        <i class="fa fa-th"></i>
+                        <span>Logs</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-bullhorn"></i>
+                        <span>Reports</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="basic_table.html">Basic Table</a></li>
+                        <li><a href="responsive_table.html">Responsive Table</a></li>
+                        <li><a href="dynamic_table.html">Dynamic Table</a></li>
+                        <li><a href="editable_table.html">Editable Table</a></li>
+                    </ul>
+                </li>
+
+
+
+
+
+            </ul>
+        </div>
+        <!-- sidebar menu end-->
+    </div>
+</aside>
+<!--sidebar end-->
+                <section id="main-content">
+            <section class="wrapper">
+
+                
+<div class="header-content">
+    <h2><i class="fa fa-table"></i> Access Control <span> Roles and Permissions</span></h2>
+    <div class="breadcrumb-wrapper hidden-xs">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="/dashboard">Dashboard</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li class="active">Access Control</li>
+        </ol>
+    </div><!-- /.breadcrumb-wrapper -->
+</div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <section class="panel">
+                  <div class="panel-body">
+
+                    <div class="adv-table">
+
+        <div class="clearfix">
+        <div class="inline-block">
+            <button id="new-role-btn" class="btn btn-primary" data-toggle="modal" data-target="#newRoleModal" type="button"><i class="fa fa-user"></i> New Role</button>
+
+            <button id="new-permission-btn" class="btn btn-success" data-toggle="modal" data-target="#newPermissionModal" type="button"><i class="fa fa-eye-slash"></i> New Permission</button>
+
+            <button id="new-permission-group-btn" class="btn btn-danger" data-toggle="modal" data-target="#newPermissionGroupModal" type="button"><i class="fa fa-users"></i> New Permission Group</button>
+
+            <div class="modal fade modal-form" id="newRoleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">New Role</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                     <div class="col-md-12">
+                        <form method="POST" action="http://localhost/access_control/role/new" accept-charset="UTF-8" id="new-role-form" class="form-horizontal" role="form"><input name="_token" type="hidden" value="p2h6A132eL4hc1vxnFGYg8BuSaFCTA982kR1vMuU">
+                            <div class="form-group">
+                                <label for="name" class="col-md-3 control-label">Role</label>
+                                <div class="col-md-8">
+                                    <input class="form-control" autofocus="autofocus" placeholder="eg. Super Admin, Moderator" required="required" name="name" type="text" id="name">
+                                     <p class="help-block"></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="col-md-3 control-label">Description</label>
+                                <div class="col-md-8">
+                                    <textarea class="form-control" placeholder="Enter description here..." rows="6" name="description" cols="50" id="description"></textarea>
+                                     <p class="help-block"></p>
+                                </div>
+                            </div>
+                        </form>
+                     </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+                <button class="btn btn-primary modalSubmitBtnForm" type="button">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <div class="modal fade modal-form" id="newPermissionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">New Permission</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                     <div class="col-md-12">
+                        <form method="POST" action="http://localhost/access_control/permission/new" accept-charset="UTF-8" id="new-permission-form" class="form-horizontal" role="form"><input name="_token" type="hidden" value="p2h6A132eL4hc1vxnFGYg8BuSaFCTA982kR1vMuU">
+                              <div class="form-group">
+                                  <label for="route" class="col-md-3 control-label">Select Group</label>
+                                  <div class="col-md-5">
+                                      <select name="group_id" class="form-control" id="permission-group-select">
+                                                                                  <option value="3">Dolorem omnis nobis aspernatur.</option>
+                                                                                  <option value="1">Items</option>
+                                                                                  <option value="2">Omnis dolor necessitatibus ut.</option>
+                                                                            </select>
+                                      <p class="help-block"></p>
+                                  </div>
+
+                                  <div class="col-md-4 reset-padding">
+                                  <span style="padding-left:10px;padding-right:10px;">or</span>
+                                      <button id="toggle-new-group-btn" class="btn btn-default" type="button">New Group</button>
+                                  </div>
+                              </div>
+                            <div class="form-group">
+                                <label for="name" class="col-md-3 control-label">Name</label>
+                                <div class="col-md-8">
+                                    <input class="form-control" autofocus="autofocus" placeholder="eg. Add Item, View All Item" required="required" name="name" type="text" id="name">
+                                     <p class="help-block"></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="route" class="col-md-3 control-label">Select Route</label>
+                                <div class="col-md-8">
+                                    <select name="route" class="form-control" id="permission-route-select">
+                                                                                    <option value="home">Home</option>
+                                                                                    <option value="logout_path">Logout </option>
+                                                                                    <option value="change_password_path">Change Password </option>
+                                                                                    <option value="user_profile_path">User Profile </option>
+                                                                                    <option value="update_username_path">Update Username </option>
+                                                                                    <option value="update_user_email_path">Update User Email </option>
+                                                                                    <option value="register_path">Register </option>
+                                                                                    <option value="resend_email_user_path">Resend Email User </option>
+                                                                                    <option value="access_control_path">Access Control </option>
+                                                                                    <option value="new_role_path">New Role </option>
+                                                                                    <option value="delete_role_path">Delete Role </option>
+                                                                                    <option value="update_role_path">Update Role </option>
+                                                                                    <option value="new_permission_group_path">New Permission Group </option>
+                                                                                    <option value="delete_permission_group_path">Delete Permission Group </option>
+                                                                                    <option value="update_permission_group_path">Update Permission Group </option>
+                                                                                    <option value="new_permission_path">New Permission </option>
+                                                                                    <option value="update_permission_path">Update Permission </option>
+                                                                                    <option value="delete_permission_path">Delete Permission </option>
+                                                                                    <option value="fetch_permission_data_path">Fetch Permission Data </option>
+                                                                                    <option value="grant_role_permission_path">Grant Role Permission </option>
+                                                                                    <option value="revoke_role_permission_path">Revoke Role Permission </option>
+                                                                                    <option value="users.index">Users.index</option>
+                                                                                    <option value="deactivate_user_path">Deactivate User </option>
+                                                                                    <option value="reactivate_user_path">Reactivate User </option>
+                                                                                    <option value="branches_index_path">Branches Index </option>
+                                                                                    <option value="branches_collection_path">Branches Collection </option>
+                                                                                    <option value="new_branch_path">New Branch </option>
+                                                                                    <option value="fetch_branch_data_path">Fetch Branch Data </option>
+                                                                                    <option value="search_branch_path">Search Branch </option>
+                                                                                    <option value="update_branch_path">Update Branch </option>
+                                                                                    <option value="close_branch_path">Close Branch </option>
+                                                                                    <option value="departments_index_path">Departments Index </option>
+                                                                                    <option value="new_department_path">New Department </option>
+                                                                                    <option value="update_department_path">Update Department </option>
+                                                                                    <option value="delete_department_path">Delete Department </option>
+                                                                                    <option value="fetch_department_data_path">Fetch Department Data </option>
+                                                                                    <option value="employees_index_path">Employees Index </option>
+                                                                                    <option value="new_employee_path">New Employee </option>
+                                                                                    <option value="my_employee_path">My Employee </option>
+                                                                                    <option value="delete_employee_path">Delete Employee </option>
+                                                                            </select>
+                                    <p class="help-block"></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="col-md-3 control-label">Description</label>
+                                <div class="col-md-8">
+                                    <textarea class="form-control" rows="6" placeholder="Enter permission description here..." name="description" cols="50" id="description"></textarea>
+                                     <p class="help-block"></p>
+                                </div>
+                            </div>
+                        </form>
+                     </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+                <button class="btn btn-primary modalSubmitBtnForm" type="button">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <div class="modal fade modal-form" id="newPermissionGroupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">New Permission Group</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                     <div class="col-md-12">
+                        <form method="POST" action="http://localhost/access_control/permission/new_group" accept-charset="UTF-8" id="new-permission-group-form" class="form-horizontal" role="form"><input name="_token" type="hidden" value="p2h6A132eL4hc1vxnFGYg8BuSaFCTA982kR1vMuU">
+                            <div class="form-group">
+                                <label for="name" class="col-md-3 control-label">Group Name</label>
+                                <div class="col-md-8">
+                                    <input class="form-control" autofocus="autofocus" placeholder="eg. User Management, User Registration" required="required" name="name" type="text" id="name">
+                                     <p class="help-block"></p>
+                                </div>
+                            </div>
+                        </form>
+                     </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+                <button class="btn btn-primary modalSubmitBtnForm" type="button">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            <div class="modal fade modal-form" id="updatePermissionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Update Permission</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                     <div class="col-md-12">
+                        <form method="POST" action="http://localhost/access_control/permission/update" accept-charset="UTF-8" id="update-permission-form" class="form-horizontal" role="form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="p2h6A132eL4hc1vxnFGYg8BuSaFCTA982kR1vMuU">
+                              <input name="id" type="hidden">
+
+                              <div class="form-group">
+                                  <label for="route" class="col-md-3 control-label">Select Group</label>
+                                  <div class="col-md-8">
+                                      <select name="group_id" class="form-control" id="permission-group-select">
+                                                                                  <option value="3">Dolorem omnis nobis aspernatur.</option>
+                                                                                  <option value="1">Items</option>
+                                                                                  <option value="2">Omnis dolor necessitatibus ut.</option>
+                                                                            </select>
+                                      <p class="help-block"></p>
+                                  </div>
+                              </div>
+                            <div class="form-group">
+                                <label for="name" class="col-md-3 control-label">Name</label>
+                                <div class="col-md-8">
+                                    <input class="form-control" autofocus="autofocus" placeholder="eg. Add Item, View All Item" required="required" name="name" type="text" id="name">
+                                     <p class="help-block"></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="route" class="col-md-3 control-label">Select Route</label>
+                                <div class="col-md-8">
+                                    <select name="route" class="form-control" id="permission-route-select">
+                                                                                    <option value="home">Home</option>
+                                                                                    <option value="logout_path">Logout </option>
+                                                                                    <option value="change_password_path">Change Password </option>
+                                                                                    <option value="user_profile_path">User Profile </option>
+                                                                                    <option value="update_username_path">Update Username </option>
+                                                                                    <option value="update_user_email_path">Update User Email </option>
+                                                                                    <option value="register_path">Register </option>
+                                                                                    <option value="resend_email_user_path">Resend Email User </option>
+                                                                                    <option value="access_control_path">Access Control </option>
+                                                                                    <option value="new_role_path">New Role </option>
+                                                                                    <option value="delete_role_path">Delete Role </option>
+                                                                                    <option value="update_role_path">Update Role </option>
+                                                                                    <option value="new_permission_group_path">New Permission Group </option>
+                                                                                    <option value="delete_permission_group_path">Delete Permission Group </option>
+                                                                                    <option value="update_permission_group_path">Update Permission Group </option>
+                                                                                    <option value="new_permission_path">New Permission </option>
+                                                                                    <option value="update_permission_path">Update Permission </option>
+                                                                                    <option value="delete_permission_path">Delete Permission </option>
+                                                                                    <option value="fetch_permission_data_path">Fetch Permission Data </option>
+                                                                                    <option value="grant_role_permission_path">Grant Role Permission </option>
+                                                                                    <option value="revoke_role_permission_path">Revoke Role Permission </option>
+                                                                                    <option value="users.index">Users.index</option>
+                                                                                    <option value="deactivate_user_path">Deactivate User </option>
+                                                                                    <option value="reactivate_user_path">Reactivate User </option>
+                                                                                    <option value="branches_index_path">Branches Index </option>
+                                                                                    <option value="branches_collection_path">Branches Collection </option>
+                                                                                    <option value="new_branch_path">New Branch </option>
+                                                                                    <option value="fetch_branch_data_path">Fetch Branch Data </option>
+                                                                                    <option value="search_branch_path">Search Branch </option>
+                                                                                    <option value="update_branch_path">Update Branch </option>
+                                                                                    <option value="close_branch_path">Close Branch </option>
+                                                                                    <option value="departments_index_path">Departments Index </option>
+                                                                                    <option value="new_department_path">New Department </option>
+                                                                                    <option value="update_department_path">Update Department </option>
+                                                                                    <option value="delete_department_path">Delete Department </option>
+                                                                                    <option value="fetch_department_data_path">Fetch Department Data </option>
+                                                                                    <option value="employees_index_path">Employees Index </option>
+                                                                                    <option value="new_employee_path">New Employee </option>
+                                                                                    <option value="my_employee_path">My Employee </option>
+                                                                                    <option value="delete_employee_path">Delete Employee </option>
+                                                                            </select>
+                                    <p class="help-block"></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="col-md-3 control-label">Description</label>
+                                <div class="col-md-8">
+                                    <textarea class="form-control" rows="6" placeholder="Enter permission description here..." name="description" cols="50" id="description"></textarea>
+                                     <p class="help-block"></p>
+                                </div>
+                            </div>
+                        </form>
+                     </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+                <button class="btn btn-primary modalSubmitBtnForm" type="button">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+        </div>
+        <div class="btn-group pull-right">
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">Tools <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu pull-right">
+                <li><a href="#">Print</a></li>
+                <li><a href="#">Save as PDF</a></li>
+                <li><a href="#">Export to Excel</a></li>
+            </ul>
+        </div>
+    </div>
+
+        <table id="table-permission" class="display table table-bordered table-curved">
+        <thead>
+        <tr>
+                         <th class="col-md-3">
+                                            Permission
+                                                       </th>
+                         <th class="col-md-1">
+                                            <span class="popovers"
+                        data-trigger="hover"
+                        data-placement="top"
+                        data-original-title="Moderator"
+                        data-content="No description specified.">
+                        <a href="#" class="role" data-type="text" data-pk="2" data-url="http://localhost/access_control/role/update" data-title="Update role name" data-emptytext="Click to change role name">Moderator</a>
+                        </span>
+                                                            <span class="col-md-1 pull-right">
+                    <form method="POST" action="http://localhost/access_control/role/delete/2" accept-charset="UTF-8" role="form" data-remote-delete-record="data-remote-delete-record"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="p2h6A132eL4hc1vxnFGYg8BuSaFCTA982kR1vMuU">
+                    <button type="submit" class="btn btn-default btn-xs tooltips ordinary delete-role-btn" data-placement="top" data-toggle="tooltip" title="Delete Role" data-confirm="Are you sure?" data-confirm-yes="Yes, cancel it!"><i class="fa fa-times"></i></button>
+                    </form>
+                    </span>
+                                   </th>
+                         <th class="col-md-1">
+                                            <span class="popovers"
+                        data-trigger="hover"
+                        data-placement="top"
+                        data-original-title="Estimator"
+                        data-content="No description specified.">
+                        <a href="#" class="role" data-type="text" data-pk="3" data-url="http://localhost/access_control/role/update" data-title="Update role name" data-emptytext="Click to change role name">Estimator</a>
+                        </span>
+                                                            <span class="col-md-1 pull-right">
+                    <form method="POST" action="http://localhost/access_control/role/delete/3" accept-charset="UTF-8" role="form" data-remote-delete-record="data-remote-delete-record"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="p2h6A132eL4hc1vxnFGYg8BuSaFCTA982kR1vMuU">
+                    <button type="submit" class="btn btn-default btn-xs tooltips ordinary delete-role-btn" data-placement="top" data-toggle="tooltip" title="Delete Role" data-confirm="Are you sure?" data-confirm-yes="Yes, cancel it!"><i class="fa fa-times"></i></button>
+                    </form>
+                    </span>
+                                   </th>
+                         <th class="col-md-1">
+                                            <span class="popovers"
+                        data-trigger="hover"
+                        data-placement="top"
+                        data-original-title="Accountant"
+                        data-content="No description specified.">
+                        <a href="#" class="role" data-type="text" data-pk="4" data-url="http://localhost/access_control/role/update" data-title="Update role name" data-emptytext="Click to change role name">Accountant</a>
+                        </span>
+                                                            <span class="col-md-1 pull-right">
+                    <form method="POST" action="http://localhost/access_control/role/delete/4" accept-charset="UTF-8" role="form" data-remote-delete-record="data-remote-delete-record"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="p2h6A132eL4hc1vxnFGYg8BuSaFCTA982kR1vMuU">
+                    <button type="submit" class="btn btn-default btn-xs tooltips ordinary delete-role-btn" data-placement="top" data-toggle="tooltip" title="Delete Role" data-confirm="Are you sure?" data-confirm-yes="Yes, cancel it!"><i class="fa fa-times"></i></button>
+                    </form>
+                    </span>
+                                   </th>
+                         <th class="col-md-1">
+                                            <span class="popovers"
+                        data-trigger="hover"
+                        data-placement="top"
+                        data-original-title="Office Clerk"
+                        data-content="Excepturi Et Assumenda Saepe Sit Voluptate Voluptatem Et Molestiae Eum Laborum.">
+                        <a href="#" class="role" data-type="text" data-pk="5" data-url="http://localhost/access_control/role/update" data-title="Update role name" data-emptytext="Click to change role name">Office Clerk</a>
+                        </span>
+                                                            <span class="col-md-1 pull-right">
+                    <form method="POST" action="http://localhost/access_control/role/delete/5" accept-charset="UTF-8" role="form" data-remote-delete-record="data-remote-delete-record"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="p2h6A132eL4hc1vxnFGYg8BuSaFCTA982kR1vMuU">
+                    <button type="submit" class="btn btn-default btn-xs tooltips ordinary delete-role-btn" data-placement="top" data-toggle="tooltip" title="Delete Role" data-confirm="Are you sure?" data-confirm-yes="Yes, cancel it!"><i class="fa fa-times"></i></button>
+                    </form>
+                    </span>
+                                   </th>
+                    </tr>
+        </thead>
+        <tbody>
+            <tr>
+    <td>
+        <span>
+            <h5 class="inline-block"><b>
+                <a href="#" class="permission-group-xedit" data-type="text" data-pk="1" data-url="http://localhost/access_control/permission/update_group" data-title="Update Group Name" data-emptytext="Click to change permission group name">Items</a>
+                </b>
+            </h5>
+
+            <span class="permission-group-delete-span">
+                <form method="POST" action="http://localhost/access_control/permission/delete_group/1" accept-charset="UTF-8" class="inline-block" role="form" data-remote-delete-record="data-remote-delete-record"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="p2h6A132eL4hc1vxnFGYg8BuSaFCTA982kR1vMuU">
+                <button type="submit" class="btn btn-default btn-xs tooltips ordinary delete-permission-group-btn" data-placement="top" data-toggle="tooltip" title="Delete Group" data-confirm="Are you sure?" data-confirm-yes="Yes, cancel it!"><i class="fa fa-times"></i></button>
+                </form>
+            </span>
+        </span>
+    </td>
+
+                                <td class="reset-margin-top-bottom">
+            <div class="flat-green icheck-permission-group single-row col-md-2 col-md-offset-3">
+                <div class="radio">
+                    <input type="checkbox"
+                    data-permission-group-id="1"
+                    data-role-id="2"
+                    >
+                </div>
+            </div>
+                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+        </td>
+                            <td class="reset-margin-top-bottom">
+            <div class="flat-green icheck-permission-group single-row col-md-2 col-md-offset-3">
+                <div class="radio">
+                    <input type="checkbox"
+                    data-permission-group-id="1"
+                    data-role-id="3"
+                    >
+                </div>
+            </div>
+                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+        </td>
+                            <td class="reset-margin-top-bottom">
+            <div class="flat-green icheck-permission-group single-row col-md-2 col-md-offset-3">
+                <div class="radio">
+                    <input type="checkbox"
+                    data-permission-group-id="1"
+                    data-role-id="4"
+                    >
+                </div>
+            </div>
+                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+        </td>
+                            <td class="reset-margin-top-bottom">
+            <div class="flat-green icheck-permission-group single-row col-md-2 col-md-offset-3">
+                <div class="radio">
+                    <input type="checkbox"
+                    data-permission-group-id="1"
+                    data-role-id="5"
+                    >
+                </div>
+            </div>
+                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+        </td>
+            
+</tr>
+            <tr>
+            <td style="vertical-align: middle;">
+                <span data-trigger="hover" data-placement="top" class="popovers" data-original-title="Modi Animi."
+                 data-content="No description specified.">
+                    <a href="#" class="col-md-8 col-md-offset-1 update-permission-toggle-modal" data-id="3" data-toggle="modal" data-target="#updatePermissionModal">Modi Animi.</a>
+                    <span class="pull-right permission-delete-span">
+                        <form method="POST" action="http://localhost/access_control/permission/delete_permission/3" accept-charset="UTF-8" class="inline-block" role="form" data-remote-delete-record="data-remote-delete-record"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="p2h6A132eL4hc1vxnFGYg8BuSaFCTA982kR1vMuU">
+                        <button type="submit" class="btn btn-default btn-xs tooltips ordinary delete-permission-btn" data-placement="top" data-toggle="tooltip" title="Delete Permission" data-confirm="Are you sure?" data-confirm-yes="Yes, cancel it!"><i class="fa fa-times"></i></button>
+                        </form>
+                    </span>
+                </span>
+            </td>
+
+                                                                        <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="3"
+                            data-role-id="2"
+                            data-permission-group-id="1"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                                            <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="3"
+                            data-role-id="3"
+                            data-permission-group-id="1"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                                            <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="3"
+                            data-role-id="4"
+                            data-permission-group-id="1"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                                            <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="3"
+                            data-role-id="5"
+                            data-permission-group-id="1"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                    </tr>
+            <tr>
+            <td style="vertical-align: middle;">
+                <span data-trigger="hover" data-placement="top" class="popovers" data-original-title="Qui Aut Ab."
+                 data-content="No description specified.">
+                    <a href="#" class="col-md-8 col-md-offset-1 update-permission-toggle-modal" data-id="4" data-toggle="modal" data-target="#updatePermissionModal">Qui Aut Ab.</a>
+                    <span class="pull-right permission-delete-span">
+                        <form method="POST" action="http://localhost/access_control/permission/delete_permission/4" accept-charset="UTF-8" class="inline-block" role="form" data-remote-delete-record="data-remote-delete-record"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="p2h6A132eL4hc1vxnFGYg8BuSaFCTA982kR1vMuU">
+                        <button type="submit" class="btn btn-default btn-xs tooltips ordinary delete-permission-btn" data-placement="top" data-toggle="tooltip" title="Delete Permission" data-confirm="Are you sure?" data-confirm-yes="Yes, cancel it!"><i class="fa fa-times"></i></button>
+                        </form>
+                    </span>
+                </span>
+            </td>
+
+                                                                        <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="4"
+                            data-role-id="2"
+                            data-permission-group-id="1"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                                            <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="4"
+                            data-role-id="3"
+                            data-permission-group-id="1"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                                            <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="4"
+                            data-role-id="4"
+                            data-permission-group-id="1"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                                            <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="4"
+                            data-role-id="5"
+                            data-permission-group-id="1"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                    </tr>
+            <tr>
+            <td style="vertical-align: middle;">
+                <span data-trigger="hover" data-placement="top" class="popovers" data-original-title="Deserunt Incidunt A Molestias."
+                 data-content="No description specified.">
+                    <a href="#" class="col-md-8 col-md-offset-1 update-permission-toggle-modal" data-id="5" data-toggle="modal" data-target="#updatePermissionModal">Deserunt Incidunt A Molestias.</a>
+                    <span class="pull-right permission-delete-span">
+                        <form method="POST" action="http://localhost/access_control/permission/delete_permission/5" accept-charset="UTF-8" class="inline-block" role="form" data-remote-delete-record="data-remote-delete-record"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="p2h6A132eL4hc1vxnFGYg8BuSaFCTA982kR1vMuU">
+                        <button type="submit" class="btn btn-default btn-xs tooltips ordinary delete-permission-btn" data-placement="top" data-toggle="tooltip" title="Delete Permission" data-confirm="Are you sure?" data-confirm-yes="Yes, cancel it!"><i class="fa fa-times"></i></button>
+                        </form>
+                    </span>
+                </span>
+            </td>
+
+                                                                        <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="5"
+                            data-role-id="2"
+                            data-permission-group-id="1"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                                            <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="5"
+                            data-role-id="3"
+                            data-permission-group-id="1"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                                            <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="5"
+                            data-role-id="4"
+                            data-permission-group-id="1"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                                            <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="5"
+                            data-role-id="5"
+                            data-permission-group-id="1"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                    </tr>
+            <tr>
+            <td style="vertical-align: middle;">
+                <span data-trigger="hover" data-placement="top" class="popovers" data-original-title="Reprehenderit Eos Consequatur Deserunt."
+                 data-content="No description specified.">
+                    <a href="#" class="col-md-8 col-md-offset-1 update-permission-toggle-modal" data-id="6" data-toggle="modal" data-target="#updatePermissionModal">Reprehenderit Eos Consequatur Deserunt.</a>
+                    <span class="pull-right permission-delete-span">
+                        <form method="POST" action="http://localhost/access_control/permission/delete_permission/6" accept-charset="UTF-8" class="inline-block" role="form" data-remote-delete-record="data-remote-delete-record"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="p2h6A132eL4hc1vxnFGYg8BuSaFCTA982kR1vMuU">
+                        <button type="submit" class="btn btn-default btn-xs tooltips ordinary delete-permission-btn" data-placement="top" data-toggle="tooltip" title="Delete Permission" data-confirm="Are you sure?" data-confirm-yes="Yes, cancel it!"><i class="fa fa-times"></i></button>
+                        </form>
+                    </span>
+                </span>
+            </td>
+
+                                                                        <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="6"
+                            data-role-id="2"
+                            data-permission-group-id="1"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                                            <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="6"
+                            data-role-id="3"
+                            data-permission-group-id="1"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                                            <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="6"
+                            data-role-id="4"
+                            data-permission-group-id="1"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                                            <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="6"
+                            data-role-id="5"
+                            data-permission-group-id="1"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                    </tr>
+            <tr>
+            <td style="vertical-align: middle;">
+                <span data-trigger="hover" data-placement="top" class="popovers" data-original-title="Et Numquam Sit."
+                 data-content="No description specified.">
+                    <a href="#" class="col-md-8 col-md-offset-1 update-permission-toggle-modal" data-id="7" data-toggle="modal" data-target="#updatePermissionModal">Et Numquam Sit.</a>
+                    <span class="pull-right permission-delete-span">
+                        <form method="POST" action="http://localhost/access_control/permission/delete_permission/7" accept-charset="UTF-8" class="inline-block" role="form" data-remote-delete-record="data-remote-delete-record"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="p2h6A132eL4hc1vxnFGYg8BuSaFCTA982kR1vMuU">
+                        <button type="submit" class="btn btn-default btn-xs tooltips ordinary delete-permission-btn" data-placement="top" data-toggle="tooltip" title="Delete Permission" data-confirm="Are you sure?" data-confirm-yes="Yes, cancel it!"><i class="fa fa-times"></i></button>
+                        </form>
+                    </span>
+                </span>
+            </td>
+
+                                                                        <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="7"
+                            data-role-id="2"
+                            data-permission-group-id="1"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                                            <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="7"
+                            data-role-id="3"
+                            data-permission-group-id="1"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                                            <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="7"
+                            data-role-id="4"
+                            data-permission-group-id="1"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                                            <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="7"
+                            data-role-id="5"
+                            data-permission-group-id="1"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                    </tr>
+    <tr>
+    <td>
+        <span>
+            <h5 class="inline-block"><b>
+                <a href="#" class="permission-group-xedit" data-type="text" data-pk="2" data-url="http://localhost/access_control/permission/update_group" data-title="Update Group Name" data-emptytext="Click to change permission group name">Omnis Dolor Necessitatibus Ut.</a>
+                </b>
+            </h5>
+
+            <span class="permission-group-delete-span">
+                <form method="POST" action="http://localhost/access_control/permission/delete_group/2" accept-charset="UTF-8" class="inline-block" role="form" data-remote-delete-record="data-remote-delete-record"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="p2h6A132eL4hc1vxnFGYg8BuSaFCTA982kR1vMuU">
+                <button type="submit" class="btn btn-default btn-xs tooltips ordinary delete-permission-group-btn" data-placement="top" data-toggle="tooltip" title="Delete Group" data-confirm="Are you sure?" data-confirm-yes="Yes, cancel it!"><i class="fa fa-times"></i></button>
+                </form>
+            </span>
+        </span>
+    </td>
+
+                                <td class="reset-margin-top-bottom">
+            <div class="flat-green icheck-permission-group single-row col-md-2 col-md-offset-3">
+                <div class="radio">
+                    <input type="checkbox"
+                    data-permission-group-id="2"
+                    data-role-id="2"
+                    >
+                </div>
+            </div>
+                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+        </td>
+                            <td class="reset-margin-top-bottom">
+            <div class="flat-green icheck-permission-group single-row col-md-2 col-md-offset-3">
+                <div class="radio">
+                    <input type="checkbox"
+                    data-permission-group-id="2"
+                    data-role-id="3"
+                    >
+                </div>
+            </div>
+                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+        </td>
+                            <td class="reset-margin-top-bottom">
+            <div class="flat-green icheck-permission-group single-row col-md-2 col-md-offset-3">
+                <div class="radio">
+                    <input type="checkbox"
+                    data-permission-group-id="2"
+                    data-role-id="4"
+                    >
+                </div>
+            </div>
+                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+        </td>
+                            <td class="reset-margin-top-bottom">
+            <div class="flat-green icheck-permission-group single-row col-md-2 col-md-offset-3">
+                <div class="radio">
+                    <input type="checkbox"
+                    data-permission-group-id="2"
+                    data-role-id="5"
+                    checked>
+                </div>
+            </div>
+                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+        </td>
+            
+</tr>
+            <tr>
+            <td style="vertical-align: middle;">
+                <span data-trigger="hover" data-placement="top" class="popovers" data-original-title="Rem Molestiae Et."
+                 data-content="No description specified.">
+                    <a href="#" class="col-md-8 col-md-offset-1 update-permission-toggle-modal" data-id="1" data-toggle="modal" data-target="#updatePermissionModal">Rem Molestiae Et.</a>
+                    <span class="pull-right permission-delete-span">
+                        <form method="POST" action="http://localhost/access_control/permission/delete_permission/1" accept-charset="UTF-8" class="inline-block" role="form" data-remote-delete-record="data-remote-delete-record"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="p2h6A132eL4hc1vxnFGYg8BuSaFCTA982kR1vMuU">
+                        <button type="submit" class="btn btn-default btn-xs tooltips ordinary delete-permission-btn" data-placement="top" data-toggle="tooltip" title="Delete Permission" data-confirm="Are you sure?" data-confirm-yes="Yes, cancel it!"><i class="fa fa-times"></i></button>
+                        </form>
+                    </span>
+                </span>
+            </td>
+
+                                                                        <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="1"
+                            data-role-id="2"
+                            data-permission-group-id="2"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                                            <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="1"
+                            data-role-id="3"
+                            data-permission-group-id="2"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                                            <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="1"
+                            data-role-id="4"
+                            data-permission-group-id="2"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                                            <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="1"
+                            data-role-id="5"
+                            data-permission-group-id="2"
+                            data-id="1"
+                            checked>
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                    </tr>
+    <tr>
+    <td>
+        <span>
+            <h5 class="inline-block"><b>
+                <a href="#" class="permission-group-xedit" data-type="text" data-pk="3" data-url="http://localhost/access_control/permission/update_group" data-title="Update Group Name" data-emptytext="Click to change permission group name">Dolorem Omnis Nobis Aspernatur.</a>
+                </b>
+            </h5>
+
+            <span class="permission-group-delete-span">
+                <form method="POST" action="http://localhost/access_control/permission/delete_group/3" accept-charset="UTF-8" class="inline-block" role="form" data-remote-delete-record="data-remote-delete-record"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="p2h6A132eL4hc1vxnFGYg8BuSaFCTA982kR1vMuU">
+                <button type="submit" class="btn btn-default btn-xs tooltips ordinary delete-permission-group-btn" data-placement="top" data-toggle="tooltip" title="Delete Group" data-confirm="Are you sure?" data-confirm-yes="Yes, cancel it!"><i class="fa fa-times"></i></button>
+                </form>
+            </span>
+        </span>
+    </td>
+
+                                <td class="reset-margin-top-bottom">
+            <div class="flat-green icheck-permission-group single-row col-md-2 col-md-offset-3">
+                <div class="radio">
+                    <input type="checkbox"
+                    data-permission-group-id="3"
+                    data-role-id="2"
+                    >
+                </div>
+            </div>
+                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+        </td>
+                            <td class="reset-margin-top-bottom">
+            <div class="flat-green icheck-permission-group single-row col-md-2 col-md-offset-3">
+                <div class="radio">
+                    <input type="checkbox"
+                    data-permission-group-id="3"
+                    data-role-id="3"
+                    >
+                </div>
+            </div>
+                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+        </td>
+                            <td class="reset-margin-top-bottom">
+            <div class="flat-green icheck-permission-group single-row col-md-2 col-md-offset-3">
+                <div class="radio">
+                    <input type="checkbox"
+                    data-permission-group-id="3"
+                    data-role-id="4"
+                    >
+                </div>
+            </div>
+                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+        </td>
+                            <td class="reset-margin-top-bottom">
+            <div class="flat-green icheck-permission-group single-row col-md-2 col-md-offset-3">
+                <div class="radio">
+                    <input type="checkbox"
+                    data-permission-group-id="3"
+                    data-role-id="5"
+                    checked>
+                </div>
+            </div>
+                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+        </td>
+            
+</tr>
+            <tr>
+            <td style="vertical-align: middle;">
+                <span data-trigger="hover" data-placement="top" class="popovers" data-original-title="Tenetur Officia Rerum Perferendis."
+                 data-content="No description specified.">
+                    <a href="#" class="col-md-8 col-md-offset-1 update-permission-toggle-modal" data-id="2" data-toggle="modal" data-target="#updatePermissionModal">Tenetur Officia Rerum Perferendis.</a>
+                    <span class="pull-right permission-delete-span">
+                        <form method="POST" action="http://localhost/access_control/permission/delete_permission/2" accept-charset="UTF-8" class="inline-block" role="form" data-remote-delete-record="data-remote-delete-record"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="p2h6A132eL4hc1vxnFGYg8BuSaFCTA982kR1vMuU">
+                        <button type="submit" class="btn btn-default btn-xs tooltips ordinary delete-permission-btn" data-placement="top" data-toggle="tooltip" title="Delete Permission" data-confirm="Are you sure?" data-confirm-yes="Yes, cancel it!"><i class="fa fa-times"></i></button>
+                        </form>
+                    </span>
+                </span>
+            </td>
+
+                                                                        <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="2"
+                            data-role-id="2"
+                            data-permission-group-id="3"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                                            <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="2"
+                            data-role-id="3"
+                            data-permission-group-id="3"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                                            <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="2"
+                            data-role-id="4"
+                            data-permission-group-id="3"
+                            data-id=""
+                            >
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                                            <td class="reset-margin-top-bottom" style="padding-top: 0;padding-bottom: 0;">
+                    <div class="flat-green icheck-permission single-row col-md-2 col-md-offset-3">
+                        <div class="radio">
+                            <input type="checkbox"
+                            data-grant-url="http://localhost/access_control/permission/grant_permission_role"
+                            data-revoke-url="http://localhost/access_control/permission/revoke_permission_role"
+                            data-permission-id="2"
+                            data-role-id="5"
+                            data-permission-group-id="3"
+                            data-id="2"
+                            checked>
+                        </div>
+                    </div>
+                                        <span class="ui active small loader inline pull-right margin-top-10" style="display:none"></span>
+                </td>
+                                    </tr>
+            </tbody>
+    </table>
+
+        <div class="space15"></div>
+
+</div>
+                  </div>
+
+            </section>
+        </div>
+    </div>
+
+
+            </section>
+        </section>
+    </div>
+
+</body>
+</html>

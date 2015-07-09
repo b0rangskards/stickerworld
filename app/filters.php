@@ -11,9 +11,18 @@
 |
 */
 
+use Symfony\Component\HttpFoundation\Response as ResponseCode;
+
 App::before(function($request)
 {
     //
+});
+
+// Prevent from going back to a page after log out
+App::after(function ($request, $response) {
+    $response->headers->set("Cache-Control", "no-cache,no-store, must-revalidate");
+    $response->headers->set("Pragma", "no-cache"); //HTTP 1.0
+    $response->headers->set("Expires", " Mon, 01 Jan 1990 05:00:00 GMT"); // Date in the past
 });
 
 
@@ -35,11 +44,11 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest())
+	if ( !Session::has('currentUser'))
 	{
 		if (Request::ajax())
 		{
-			return Response::make('Unauthorized', Response::HTTP_UNAUTHORIZED);
+			return Response::make('Unauthorized', ResponseCode::HTTP_UNAUTHORIZED);
 		}
 		else
 		{
@@ -95,23 +104,26 @@ Route::filter('csrf', function()
  * filter to check user permissions
  * redirect to intented if grant
  */
-//Route::filter('permission', function()
-//{
-//    $roleId = Auth::user()->role_id;
-//    $currentRouteName = Route::currentRouteName();
-//
-//    if( checkPermission($roleId, $currentRouteName)
-//    {
-//        if ( Request::ajax() ) {
-//            return Response::make('Unauthorized', Response::HTTP_UNAUTHORIZED);
-//        }
-//        return Redirect::to('\dashboard');
-//    }
-//});
-
-Route::filter('admin', function($route, $request)
+Route::filter('permission', function()
 {
-   if( ! Auth::user()->isAdmin()) {
-       return App::abort(401, 'You are not authorized');
-   }
+    $currentRouteName = Route::currentRouteName();
+    $user = Auth::user();
+
+    if( !($user->isAdmin() || in_array($currentRouteName, ['home', 'logout_path']) || $user->hasPermission($currentRouteName)) )
+    {
+        if ( Request::ajax() ) {
+            return Response::make('Unauthorized', ResponseCode::HTTP_UNAUTHORIZED);
+        }
+
+        return Redirect::route('unauthorized_path');
+    }
+
 });
+
+
+//Route::filter('admin', function($route, $request)
+//{
+//   if( ! Auth::user()->isAdmin()) {
+//       return App::abort(401, 'You are not authorized');
+//   }
+//});

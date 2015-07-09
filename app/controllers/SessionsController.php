@@ -1,6 +1,7 @@
 <?php
 
 use Acme\Forms\SignInForm;
+use Acme\Helpers\DataHelper;
 use Laracasts\Flash\Flash;
 
 class SessionsController extends \BaseController {
@@ -22,7 +23,7 @@ class SessionsController extends \BaseController {
      */
     public function create()
 	{
-		return View::make('sessions.create');
+        return View::make('sessions.create');
 	}
 
     /**
@@ -31,32 +32,25 @@ class SessionsController extends \BaseController {
      */
     public function store()
     {
-        // fetch the form input
-        $formData = Input::only('username', 'password');
+        try {
+            $this->signInForm->validate(Input::only('username', 'password'));
 
-        $this->signInForm->validate($formData);
+            Session::put('currentUser', Auth::user());
 
-        if ( ! Auth::attempt($formData))
-        {
-            Flash::error('Invalid Username/Password.');
+            Auth::user()->updateLastLoginDate();
+
+            Flash::message('Welcome back!');
+
+            return Redirect::intended('/dashboard');
+
+        } catch (Laracasts\Validation\FormValidationException $exception) {
+
+            $errors = DataHelper::getErrorDataFromException($exception);
+
+            Flash::error(DataHelper::arrayToString($errors));
 
             return Redirect::back()->withInput();
         }
-
-
-        $user = User::whereUsername($formData['username'])->first();
-
-        if ( $user && !$user->isActive() ) {
-            Flash::error('Invalid Username/Password.');
-
-            return Redirect::back()->withInput();
-        }
-
-        Auth::user()->updateLastLoginDate();
-
-        Flash::message('Welcome back!');
-
-        return Redirect::intended('/dashboard');
     }
 
     /**
@@ -66,6 +60,8 @@ class SessionsController extends \BaseController {
     public function destroy()
     {
         Auth::logout();
+
+        Session::flush();
 
         Flash::message('You have now been logged out.');
 

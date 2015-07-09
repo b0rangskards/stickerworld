@@ -11,12 +11,4 @@ class UserHelper {
     {
         return str_random(20);
     }
-
-    /**
-     * @return bool|string
-     */
-    public static function getCurrentDateForDB()
-    {
-        return date('Y-m-d H:i:s');
-    }
 } 

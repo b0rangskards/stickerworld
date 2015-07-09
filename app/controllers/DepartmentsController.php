@@ -7,16 +7,17 @@ use Acme\Forms\AddNewDepartmentForm;
 use Acme\Departments\DepartmentRepository;
 use Acme\Forms\CloseDepartmentForm;
 use Acme\Forms\UpdateDepartmentForm;
+use Acme\Helpers\ViewDataHelper;
 
 class DepartmentsController extends \BaseController {
 
-    private $departmentRepository;
+    protected $departmentRepository;
 
-    private $addNewDepartmentForm;
+    protected $addNewDepartmentForm;
 
-    private $closeDepartmentForm;
+    protected $closeDepartmentForm;
 
-    private $updateDepartmentForm;
+    protected $updateDepartmentForm;
 
     /**
      * @param DepartmentRepository $departmentRepository
@@ -43,14 +44,14 @@ class DepartmentsController extends \BaseController {
 	 */
 	public function index()
 	{
-        $data['headerTitle'] = 'Departments';
-        $data['subTitle'] = 'Management';
-        $data['currentPage'] = 'Manage Departments';
+        $viewData = ViewDataHelper::createViewHeaderData('Department', 'Management', 'Manage Department', 'fa fa-certificate');
 
-        $data['data'] = $this->departmentRepository->getTableData();
-        $data['columns'] = $this->departmentRepository->getTableColumns();
+        $viewData = array_merge($viewData, [
+            'data'      =>  $this->departmentRepository->getTableData(),
+            'columns'   =>  $this->departmentRepository->getTableColumns()
+        ]);
 
-        return View::make('departments.index', $data);
+        return View::make('departments.index', $viewData);
 	}
 
 

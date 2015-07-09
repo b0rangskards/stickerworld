@@ -18,11 +18,11 @@ class UpdateBranchInformationCest
     {
         $I->signInAsAdmin();
 
-        $this->branch = Factory::create('Branch');
+        $this->branch = $I->have('Branch');
 
-        $this->otherBranch = Factory::create('Branch');
+        $this->otherBranch = $I->have('Branch');
 
-        $this->newBranchInfo = Factory::attributesFor('Branch');
+        $this->newBranchInfo = $I->buildDataFor('Branch');
     }
 
     // tests
@@ -30,7 +30,7 @@ class UpdateBranchInformationCest
     {
         $I->am('an admin');
 
-        $I->wantTo('update '. $this->branch->name .' branch information');
+        $I->wantTo('update branch information with valid data');
 
         $I->amOnPage(BranchesPage::$URL);
 

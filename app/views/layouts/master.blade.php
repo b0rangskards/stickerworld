@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{{ is_null(Request::segment(2)) ? ucfirst(Request::segment(1)) : ucfirst(Request::segment(2)) }}}</title>
+
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+
+    <title>{{{ (isset($currentPage) && is_array($currentPage) ? key(end($currentPage)) :  !isset($currentPage) ? (is_null(Request::segment(2)) ? ucfirst(Request::segment(1)) : ucfirst(Request::segment(1)).' '.ucfirst(Request::segment(2)) ) : $currentPage) }}} - Stickerworld</title>
 
     {{ HTML::style('css/vendor.min.css'); }}
     {{ HTML::style('css/admin.min.css'); }}

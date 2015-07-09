@@ -37,7 +37,7 @@
 
                         <div class="space15"></div>
 
-                        <table class="display table table-bordered table-striped dynamic-table departments-table">
+                        <table class="display table table-striped table-condensed dynamic-table departments-table">
                             <thead>
                                 <tr>
                                     @foreach($columns as $column)

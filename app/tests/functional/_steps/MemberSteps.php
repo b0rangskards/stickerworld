@@ -11,15 +11,6 @@ class MemberSteps extends FunctionalTester
 
     protected $I;
 
-    public $adminRole = '1';
-
-    public $adminUsername = 'wayne';
-
-    public $adminPassword = 'wayne1234';
-
-    public $adminEmail = 'wayne@gmail.com';
-
-
     function __construct($scenario)
     {
         parent::__construct($scenario);
@@ -28,9 +19,72 @@ class MemberSteps extends FunctionalTester
 
     public function signInAsAdmin()
     {
-        $admin = $this->createUser($this->adminRole, $this->adminUsername, $this->adminPassword, $this->adminEmail);
+        $admin = $this->I->have('admin_user');
 
-        $this->login($this->adminUsername, $this->adminPassword);
+        $this->login($admin->username, '1234');
+
+        return $admin;
+    }
+
+    public function signInAs($roleName, $attributes = [])
+    {
+        $roleId = ['role_id' => $this->getRoleId($roleName)];
+
+        $attributes = array_merge($attributes, $roleId);
+
+        $user = $this->I->have('User', $attributes);
+
+        $this->login($user->username, $attributes['password']);
+
+        return $user;
+    }
+
+
+    public function signInAsManager()
+    {
+       $user = $this->signInAs('manager',
+            [
+                'password' => '1234',
+                'recstat' => 'A'
+            ]);
+
+       $this->I->have('Employee', [
+           'user_id' => $user->id
+       ]);
+
+       return $user;
+    }
+
+    public function signInAsModerator()
+    {
+        $user = $this->signInAs('moderator',
+            [
+                'password' => '1234',
+                'recstat' => 'A'
+            ]);
+
+        $this->I->have('Employee', [
+            'user_id' => $user->id
+        ]);
+
+        return $user;
+    }
+
+
+    protected function getRoleId($roleName)
+    {
+        switch($roleName) {
+            case 'admin':
+                return 1;
+            case 'moderator':
+                return 2;
+            case 'manager':
+                return 3;
+            case 'estimator':
+                return 4;
+            case 'accountant':
+                return 5;
+        }
     }
 
     public function createUser($role_id, $username, $password, $email, $recstat = 'A')

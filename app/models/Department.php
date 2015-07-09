@@ -27,8 +27,14 @@ class Department extends \Eloquent {
         return static::find($id);
     }
 
-    public function employees()
+    public static function getDataForSelect()
     {
-        return $this->hasMany('Employee', 'dept_id');
+        return static::orderBy('id')
+            ->lists('name', 'id');
     }
+
+//    public function employees()
+//    {
+//        return $this->hasMany('Employee');
+//    }
 }

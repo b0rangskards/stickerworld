@@ -5,7 +5,11 @@ class EmployeesPage
     // include url of current page
     public static $URL = '/employee/employees';
 
+    public static $tableName = 'employees';
+
     public static $newEmployeeButton = 'a#new-employee-btn';
+
+    public static $updateEmployeeButton = 'a.update-employee-btn';
 
     public static $tableRow = 'table.employees-table > tbody tr';
     /**

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Stickerworld Sign In</title>
     <link media="all" type="text/css" rel="stylesheet" href="http://localhost/css/vendor.min.css">
 
     <link media="all" type="text/css" rel="stylesheet" href="http://localhost/css/admin.min.css">
@@ -12,15 +12,20 @@
 
     <div class="container">
 
-      <form method="POST" action="http://localhost/login" accept-charset="UTF-8" class="form-signin"><input name="_token" type="hidden" value="ZPKLxlDpjh9ifQLmM7njrQRLJyjK1bygUmUWntpk">
+      <form method="POST" action="http://localhost/login" accept-charset="UTF-8" class="form-signin"><input name="_token" type="hidden" value="">
 
         <h2 class="form-signin-heading">Stickerworld <br/><small>Sign in now</small></h2>
 
         <div class="login-wrap">
             <div class="user-login-info">
 
-                                                                
-                <input class="form-control" placeholder="Username" autofocus="autofocus" required="required" name="username" type="text">
+                                <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+            Invalid Username/Password.<br/>
+        </div>
+                                    
+                <input class="form-control" placeholder="Username" autofocus="autofocus" required="required" name="username" type="text" value="invalidUsername">
                 <input class="form-control" placeholder="Password" required="required" name="password" type="password" value="">
 
             </div>

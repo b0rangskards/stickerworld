@@ -13,16 +13,16 @@ class SearchBranchCest
     {
         $I->signInAsAdmin();
 
-        $this->searchBranch = Factory::create('Branch', ['name' => 'Pasig']);
+        $this->searchBranch = $I->have('Branch', ['name' => 'Pasig']);
 
-        Factory::times(10)->create('Branch');
+        $I->haveTimes('Branch', 10);
     }
     // tests
     public function try_to_search_an_existing_branch(FunctionalTester $I)
     {
         $I->am('an admin');
 
-        $I->wantTo('search an existing branch with its name');
+        $I->wantTo('search an existing branch');
 
         $I->amOnPage(BranchesPage::$URL);
 
@@ -30,7 +30,7 @@ class SearchBranchCest
 
         $I->click('#search-branch-submit-btn');
 
-        $I->see($this->searchBranch->name, '.panel-heading');
+        $I->see($this->searchBranch->name, '.prf-contacts');
     }
 
     /*
@@ -41,7 +41,7 @@ class SearchBranchCest
     {
         $I->am('an admin');
 
-        $I->wantTo('search a branch that doesnt exist with its name');
+        $I->wantTo('search a branch that doesnt exist');
 
         $I->amOnPage(BranchesPage::$URL);
 

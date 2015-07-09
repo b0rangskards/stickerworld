@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Laracasts\TestDummy\Factory;
 
 class UsersTableSeeder extends MasterTableSeeder
@@ -13,8 +14,42 @@ class UsersTableSeeder extends MasterTableSeeder
             'username'  => 'admin',
             'password'  => '1234',
             'email'     => 'admin@gmail.com',
+            'last_login'=> Carbon::now(),
             'recstat'   => 'A'
         ]);
+
+        /* Create moderator account */
+        User::create([
+            'role_id' => 2,
+            'username' => 'moderator',
+            'password' => '1234',
+            'email' => 'moderator@gmail.com',
+            'last_login' => Carbon::now(),
+            'recstat' => 'A'
+        ]);
+
+
+
+        /* Create manager account */
+        $manager = Factory::create('User',
+            [
+                'role_id' => 3,
+                'username' => 'manager',
+                'password' => '1234',
+                'email' => 'manager@gmail.com',
+                'last_login' => Carbon::now(),
+                'recstat' => 'A'
+            ]
+        );
+
+        $departmentIDs = Department::lists('id');
+
+        Factory::create('Employee',
+            [
+                'user_id' => $manager->id,
+                'dept_id' => $this->faker->randomElement($departmentIDs)
+            ]
+        );
 
         foreach ( range(1, 10) as $index ) {
             $this->createSlug();

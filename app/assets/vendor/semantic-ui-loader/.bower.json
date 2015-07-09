@@ -34,7 +34,6 @@
     "commit": "e9725944ca89208c70f47580969f0f1b8d5e6939"
   },
   "_source": "git://github.com/Semantic-Org/UI-Loader.git",
-  "_target": "~1.12.3",
-  "_originalSource": "semantic-ui-loader",
-  "_direct": true
+  "_target": "1.12.3",
+  "_originalSource": "semantic-ui-loader"
 }

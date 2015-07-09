@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Users</title>
+    <title>Register</title>
 
     <link media="all" type="text/css" rel="stylesheet" href="http://localhost/css/vendor.min.css">
 
@@ -225,12 +225,12 @@
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                 <img alt="" src="http://localhost/images/icon-user-default.png" />
-                <span class="username"> wayne </span>
+                <span class="username"> user_admin </span>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
                 <li>
-                    <a href="http://localhost/profile/wayne"><i class=" fa fa-user"></i>Profile</a>
+                    <a href="http://localhost/profile/user_admin"><i class=" fa fa-user"></i>Profile</a>
                 </li>
                 <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
                 <li><a href="http://localhost/logout"><i class="fa fa-sign-out"></i> Log Out</a></li>
@@ -248,46 +248,71 @@
         <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
-                    <a class="active" href="/">
+                    <a class="active" href="http://localhost/dashboard">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li class="sub-menu">
-                    <a href="javascript:;" class="active">
-                        <i class="fa fa-user"></i>
-                        <span>Users</span>
-                    </a>
-                    <ul class="sub">
-                        <li class="">
-                            <a href="http://localhost/register">Register New User</a>
-                        </li>
-                        <li class="active">
-                            <a href="http://localhost/user/users">View All Users</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="http://localhost/branch/branches" id="branches-nav-btn" class="">
-                        <i class="fa fa-home"></i>
-                        <span>Branches</span>
-                    </a>
-                </li>
-                <li class="sub-menu">
-                    <a href="http://localhost/department/departments" id="departments-nav-btn" class="">
-                        <i class="fa fa-home"></i>
-                        <span>Departments</span>
-                    </a>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-users"></i>
-                        <span>Employees</span>
-                    </a>
-                    <ul class="sub">
-                    </ul>
-                </li>
-                    <li class="sub-menu">
+
+                                    <li class="sub-menu">
+                        <a href="javascript:;" class="active">
+                            <i class="fa fa-user"></i>
+                            <span>Users</span>
+                        </a>
+                        <ul class="sub">
+
+                                                            <li class="active">
+                                    <a href="http://localhost/register">Register New User</a>
+                                </li>
+                            
+                                                            <li class="">
+                                    <a href="http://localhost/user/users">View All Users</a>
+                                </li>
+                            
+                                                            <li class="">
+                                    <a href="http://localhost/access_control">Roles & Permissions</a>
+                                </li>
+                                                    </ul>
+                    </li>
+                
+                                    <li class="sub-menu">
+
+                                            <a href="http://localhost/branch/branches" id="branches-nav-btn" class="">
+                            <i class="fa fa-home"></i>
+                            <span>Branches</span>
+                        </a>
+                    
+                    </li>
+                
+
+                                    <li class="sub-menu">
+
+                                            <a href="http://localhost/department/departments" id="departments-nav-btn" class="">
+                            <i class="fa fa-home"></i>
+                            <span>Departments</span>
+                        </a>
+                    
+                    </li>
+                
+                                    <li class="sub-menu">
+                        <a href="javascript:;" class="">
+                            <i class="fa fa-user"></i>
+                            <span>Employees</span>
+                        </a>
+                        <ul class="sub">
+
+                                                            <li class="">
+                                    <a href="http://localhost/employee/new">New Employee</a>
+                                </li>
+                            
+                                                            <li class="">
+                                    <a href="http://localhost/employee/employees">View All Employees</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+                                    <li class="sub-menu">
                         <a href="javascript:;">
                             <i class="fa fa-retweet"></i>
                             <span>Suppliers</span>
@@ -295,6 +320,7 @@
                         <ul class="sub">
                         </ul>
                     </li>
+                
                 <li>
                     <a href="fontawesome.html">
                         <i class="fa fa-th"></i>
@@ -315,11 +341,8 @@
                     </ul>
                 </li>
 
-
-
-
-
-            </ul>            </div>
+            </ul>
+        </div>
         <!-- sidebar menu end-->
     </div>
 </aside>
@@ -329,7 +352,7 @@
 
                 
 <div class="header-content">
-    <h2><i class="fa fa-table"></i> Users <span> Management</span></h2>
+    <h2><i class="fa fa-table"></i> Users <span> Registration</span></h2>
     <div class="breadcrumb-wrapper hidden-xs">
         <span class="label">You are here:</span>
         <ol class="breadcrumb">
@@ -338,469 +361,100 @@
                 <a href="/dashboard">Dashboard</a>
                 <i class="fa fa-angle-right"></i>
             </li>
-            <li class="active">Manage Users</li>
+            <li class="active">Register User</li>
         </ol>
     </div><!-- /.breadcrumb-wrapper -->
 </div>
 
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-lg-12">
             <section class="panel">
-                  <div class="panel-body">
-                      <div class="adv-table">
+                <header class="panel-heading">
+                    Register User
+                </header>
+                <div class="panel-body">
 
-                                                <div class="clearfix">
-                            <div class="btn-group">
+                                <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
-                            <a href="http://localhost/register" class="btn btn-primary">Register User</a>
+            User Successfully Registered. An Email was sent to User for activation.
+        </div>
+    
+                    <div class="position-center">
 
+                                                
+                        <form method="POST" action="http://localhost/register" accept-charset="UTF-8" name="registrationForm" class="form-vertical" role="form" novalidate="novalidate"><input name="_token" type="hidden">
+
+                                                      <div class="form-group">
+                              <div class="col-md-12">
+                                   <label for="2" class="control-label">Role</label>
+                                   <div class="btn-row">
+                                       <div class="btn-group" data-toggle="buttons">
+                                                                                           <label class="btn btn-default">
+                                                   <input type="radio" id="register-user-radio-role" value="1" id="1" name="role_id"> Admin
+                                               </label>
+                                                                                           <label class="btn btn-default">
+                                                   <input type="radio" id="register-user-radio-role" value="2" id="2" name="role_id"> Moderator
+                                               </label>
+                                                                                           <label class="btn btn-default">
+                                                   <input type="radio" id="register-user-radio-role" value="3" id="3" name="role_id"> Manager
+                                               </label>
+                                                                                           <label class="btn btn-default">
+                                                   <input type="radio" id="register-user-radio-role" value="4" id="4" name="role_id"> Estimator
+                                               </label>
+                                                                                           <label class="btn btn-default">
+                                                   <input type="radio" id="register-user-radio-role" value="5" id="5" name="role_id"> Accountant
+                                               </label>
+                                                                                   </div>
+                                   </div>
+                                   <p class="help-block"></p>
+                              </div>
+                           </div>
+
+                           <div class="form-group" id="register-user-select-employee" style="display:none">
+                               <div class="col-md-8">
+                                    <label for="emp_id" class="control-label">Employee</label>
+                                        <select name="emp_id" class="form-control">
+                                                                                      <option value="22">Greenholt, Elias H.</option>
+                                                                                      <option value="23">Grimes, Imogene R.</option>
+                                                                                      <option value="24">Adams, Kian H.</option>
+                                                                                      <option value="25">Bailey, Antone A.</option>
+                                                                                      <option value="26">Klocko, Evie H.</option>
+                                                                                      <option value="27">Moen, Jefferey Q.</option>
+                                                                                      <option value="28">Auer, Tatum C.</option>
+                                                                                      <option value="29">Collier, Mackenzie T.</option>
+                                                                                      <option value="30">Yost, Jay W.</option>
+                                                                                      <option value="31">Torphy, Lenny K.</option>
+                                                                                </select>
+                                        <p class="help-block"></p>
+                               </div>
                             </div>
-                            <div class="btn-group pull-right">
-                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">Tools <i class="fa fa-angle-down"></i>
-                                </button>
-                                <ul class="dropdown-menu pull-right">
-                                    <li><a href="#">Print</a></li>
-                                    <li><a href="#">Save as PDF</a></li>
-                                    <li><a href="#">Export to Excel</a></li>
-                                </ul>
+
+                                                      <div class="form-group">
+                               <div class="col-md-8">
+                                   <label for="my-email" class="control-label">Email</label>
+                                        <input class="form-control" id="my-email" required="required" name="email" type="email">
+                                       <p class="help-block"></p>
+                               </div>
+                           </div>
+
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    <input class="btn btn-primary" id="register-user" type="submit" value="Register User">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="space15"></div>
+                        </form>
 
-                        <table class="display table table-bordered table-striped dynamic-table users-table">
-                            <thead>
-                                <tr>
-                                                                            <th class='col-md-2'>Username</th>
-                                                                            <th class='col-md-1'>Role</th>
-                                                                            <th class='col-md-1'>Last Login</th>
-                                                                            <th class='col-md-1'>Activated</th>
-                                                                            <th class='col-md-1'>Action</th>
-                                                                    </tr>
-                            </thead>
-                            <tbody>
-                                                                    <tr>
-    <td>
-       <span class="weight600">admin</span>
-    </td>
-
-    <td>
-                <span class="badge bg-info">Admin</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-success">Yes</span>
-    </td>
-    <td class="action-btn">
-                
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-            <form method="POST" action="http://localhost/user/deactivate" accept-charset="UTF-8" data-remote-deactivate="data-remote-deactivate" class="inline-block"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="ZiWJJ2KGp8vM1NZanJwt9PLaafvI2MVYSBALrSlr">
-                <input name="userId" type="hidden" value="1">
-                <button type="submit" class="btn btn-danger btn-xs tooltips deactivate-user" data-placement="top" data-toggle="tooltip" title="Deactivate User" data-confirm="Are you sure?" data-confirm-yes="Yes, deactivate it!"><i class="fa fa-times"></i></button>
-            </form>
-
-        
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">webster.hudson</span>
-    </td>
-
-    <td>
-                <span class="badge bg-success">Moderator</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-danger">No</span>
-    </td>
-    <td class="action-btn">
-                
-            <form method="POST" action="http://localhost/register/resend_email" accept-charset="UTF-8" data-remote-resendmail="data-remote-resendmail" class="inline-block"><input name="_token" type="hidden" value="ZiWJJ2KGp8vM1NZanJwt9PLaafvI2MVYSBALrSlr">
-                <input name="user_id" type="hidden" value="2">
-                <button type="submit" class="btn btn-default btn-xs tooltips resend-email" data-placement="top" data-toggle="tooltip" title="Resend Email"><i class="fa fa-paper-plane-o"></i></button>
-            </form>
-
-        
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">lueilwitz.alexandra</span>
-    </td>
-
-    <td>
-                <span class="badge bg-primary">Accountant</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-success">Yes</span>
-    </td>
-    <td class="action-btn">
-                
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-            <form method="POST" action="http://localhost/user/deactivate" accept-charset="UTF-8" data-remote-deactivate="data-remote-deactivate" class="inline-block"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="ZiWJJ2KGp8vM1NZanJwt9PLaafvI2MVYSBALrSlr">
-                <input name="userId" type="hidden" value="3">
-                <button type="submit" class="btn btn-danger btn-xs tooltips deactivate-user" data-placement="top" data-toggle="tooltip" title="Deactivate User" data-confirm="Are you sure?" data-confirm-yes="Yes, deactivate it!"><i class="fa fa-times"></i></button>
-            </form>
-
-        
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">florence25</span>
-    </td>
-
-    <td>
-                <span class="badge bg-info">Admin</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-success">Yes</span>
-    </td>
-    <td class="action-btn">
-                
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-            <form method="POST" action="http://localhost/user/deactivate" accept-charset="UTF-8" data-remote-deactivate="data-remote-deactivate" class="inline-block"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="ZiWJJ2KGp8vM1NZanJwt9PLaafvI2MVYSBALrSlr">
-                <input name="userId" type="hidden" value="4">
-                <button type="submit" class="btn btn-danger btn-xs tooltips deactivate-user" data-placement="top" data-toggle="tooltip" title="Deactivate User" data-confirm="Are you sure?" data-confirm-yes="Yes, deactivate it!"><i class="fa fa-times"></i></button>
-            </form>
-
-        
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">susana.schulist</span>
-    </td>
-
-    <td>
-                <span class="badge bg-primary">Accountant</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-success">Yes</span>
-    </td>
-    <td class="action-btn">
-                
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-            <form method="POST" action="http://localhost/user/deactivate" accept-charset="UTF-8" data-remote-deactivate="data-remote-deactivate" class="inline-block"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="ZiWJJ2KGp8vM1NZanJwt9PLaafvI2MVYSBALrSlr">
-                <input name="userId" type="hidden" value="5">
-                <button type="submit" class="btn btn-danger btn-xs tooltips deactivate-user" data-placement="top" data-toggle="tooltip" title="Deactivate User" data-confirm="Are you sure?" data-confirm-yes="Yes, deactivate it!"><i class="fa fa-times"></i></button>
-            </form>
-
-        
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">jerald.pouros</span>
-    </td>
-
-    <td>
-                <span class="badge bg-warning">Estimator</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-danger">No</span>
-    </td>
-    <td class="action-btn">
-                
-            <form method="POST" action="http://localhost/register/resend_email" accept-charset="UTF-8" data-remote-resendmail="data-remote-resendmail" class="inline-block"><input name="_token" type="hidden" value="ZiWJJ2KGp8vM1NZanJwt9PLaafvI2MVYSBALrSlr">
-                <input name="user_id" type="hidden" value="6">
-                <button type="submit" class="btn btn-default btn-xs tooltips resend-email" data-placement="top" data-toggle="tooltip" title="Resend Email"><i class="fa fa-paper-plane-o"></i></button>
-            </form>
-
-        
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">anderson.grant</span>
-    </td>
-
-    <td>
-                <span class="badge bg-info">Admin</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-success">Yes</span>
-    </td>
-    <td class="action-btn">
-                
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-            <form method="POST" action="http://localhost/user/deactivate" accept-charset="UTF-8" data-remote-deactivate="data-remote-deactivate" class="inline-block"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="ZiWJJ2KGp8vM1NZanJwt9PLaafvI2MVYSBALrSlr">
-                <input name="userId" type="hidden" value="7">
-                <button type="submit" class="btn btn-danger btn-xs tooltips deactivate-user" data-placement="top" data-toggle="tooltip" title="Deactivate User" data-confirm="Are you sure?" data-confirm-yes="Yes, deactivate it!"><i class="fa fa-times"></i></button>
-            </form>
-
-        
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">shirley42</span>
-    </td>
-
-    <td>
-                <span class="badge bg-primary">Accountant</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-success">Yes</span>
-    </td>
-    <td class="action-btn">
-                
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-            <form method="POST" action="http://localhost/user/deactivate" accept-charset="UTF-8" data-remote-deactivate="data-remote-deactivate" class="inline-block"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="ZiWJJ2KGp8vM1NZanJwt9PLaafvI2MVYSBALrSlr">
-                <input name="userId" type="hidden" value="8">
-                <button type="submit" class="btn btn-danger btn-xs tooltips deactivate-user" data-placement="top" data-toggle="tooltip" title="Deactivate User" data-confirm="Are you sure?" data-confirm-yes="Yes, deactivate it!"><i class="fa fa-times"></i></button>
-            </form>
-
-        
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">xlakin</span>
-    </td>
-
-    <td>
-                <span class="badge bg-primary">Accountant</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-danger">No</span>
-    </td>
-    <td class="action-btn">
-                
-            <form method="POST" action="http://localhost/register/resend_email" accept-charset="UTF-8" data-remote-resendmail="data-remote-resendmail" class="inline-block"><input name="_token" type="hidden" value="ZiWJJ2KGp8vM1NZanJwt9PLaafvI2MVYSBALrSlr">
-                <input name="user_id" type="hidden" value="9">
-                <button type="submit" class="btn btn-default btn-xs tooltips resend-email" data-placement="top" data-toggle="tooltip" title="Resend Email"><i class="fa fa-paper-plane-o"></i></button>
-            </form>
-
-        
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">enoch48</span>
-    </td>
-
-    <td>
-                <span class="badge bg-warning">Estimator</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-danger">No</span>
-    </td>
-    <td class="action-btn">
-                
-            <form method="POST" action="http://localhost/register/resend_email" accept-charset="UTF-8" data-remote-resendmail="data-remote-resendmail" class="inline-block"><input name="_token" type="hidden" value="ZiWJJ2KGp8vM1NZanJwt9PLaafvI2MVYSBALrSlr">
-                <input name="user_id" type="hidden" value="10">
-                <button type="submit" class="btn btn-default btn-xs tooltips resend-email" data-placement="top" data-toggle="tooltip" title="Resend Email"><i class="fa fa-paper-plane-o"></i></button>
-            </form>
-
-        
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">volkman.foster</span>
-    </td>
-
-    <td>
-                <span class="badge bg-success">Moderator</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-danger">No</span>
-    </td>
-    <td class="action-btn">
-                
-            <form method="POST" action="http://localhost/register/resend_email" accept-charset="UTF-8" data-remote-resendmail="data-remote-resendmail" class="inline-block"><input name="_token" type="hidden" value="ZiWJJ2KGp8vM1NZanJwt9PLaafvI2MVYSBALrSlr">
-                <input name="user_id" type="hidden" value="11">
-                <button type="submit" class="btn btn-default btn-xs tooltips resend-email" data-placement="top" data-toggle="tooltip" title="Resend Email"><i class="fa fa-paper-plane-o"></i></button>
-            </form>
-
-        
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">estimatorsample14350</span>
-    </td>
-
-    <td>
-                <span class="badge bg-warning">Estimator</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-danger">No</span>
-    </td>
-    <td class="action-btn">
-                
-            <form method="POST" action="http://localhost/register/resend_email" accept-charset="UTF-8" data-remote-resendmail="data-remote-resendmail" class="inline-block"><input name="_token" type="hidden" value="ZiWJJ2KGp8vM1NZanJwt9PLaafvI2MVYSBALrSlr">
-                <input name="user_id" type="hidden" value="13">
-                <button type="submit" class="btn btn-default btn-xs tooltips resend-email" data-placement="top" data-toggle="tooltip" title="Resend Email"><i class="fa fa-paper-plane-o"></i></button>
-            </form>
-
-        
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                            </tbody>
-
-                        </table>
-                      </div>
-                  </div>
-
+                    </div>
+                </div>
             </section>
         </div>
     </div>
 
 
-    
-    
-                        
+
+
 
             </section>
         </section>

@@ -29,8 +29,11 @@
                         </div>
 
                         <div class="space15"></div>
-
-                        <table class="display table table-bordered table-striped dynamic-table users-table">
+  {{--{{ Datatable::table()--}}
+    {{--->addColumn('Username','Role', 'Last Login', 'Activated')       // these are the column headings to be shown--}}
+    {{--->setUrl(route('users_collection_path'))   // this is the route where data will be retrieved--}}
+    {{--->render('users.partials.template') }}--}}
+                        <table class="display table table-striped table-condensed  dynamic-table users-table">
                             <thead>
                                 <tr>
                                     @foreach($columns as $column)
@@ -45,6 +48,7 @@
                             </tbody>
 
                         </table>
+
                       </div>
                   </div>
 

@@ -1,8 +1,10 @@
 <?php
 
 use Acme\Activation\Events\UserHasActivated;
+use Acme\Helpers\DataHelper;
 use Acme\Registration\Events\UserHasRegistered;
 use Acme\Users\UserHelper;
+use Carbon\Carbon;
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\UserTrait;
 use Illuminate\Auth\Reminders\RemindableTrait;
@@ -151,25 +153,89 @@ class User extends \Eloquent implements UserInterface, RemindableInterface
 
     public function updateLastLoginDate()
     {
-        $this->last_login = UserHelper::getCurrentDateForDB();
+        $this->last_login = Carbon::now();
 
         $this->save();
     }
 
+    public function getEmployeeBranch()
+    {
+        return !is_null($this->employee()->first())
+            ? $this->employee()->first()->branch()->first()
+            : false;
+    }
+
+    // admin & moderator users
+    public function isAdminModerator()
+    {
+        return in_array($this->role_id, ['1', '2']);
+    }
+
     public function isAdmin()
     {
-        return $this->role_id === '1';
+        return $this->role_id == '1';
     }
 
     public function isActive()
     {
-        return $this->recstat === 'A';
+        return $this->recstat == 'A';
     }
+
+    public function hasPermission($currentRouteName)
+    {
+        if ( $this->isAdmin() === true ) return true;
+
+        $permissionsArray = array_dot(PermissionRole::getPermissionByRole($this->role_id));
+
+        $key = array_search($currentRouteName, $permissionsArray);
+
+        return $key !== false;
+    }
+
+    public function hasGroupPermission($groupName)
+    {
+        if($this->isAdmin() === true) return true;
+
+        $permissionGroupsArray = PermissionRole::getPermissionGroupsByRole($this->role_id);
+
+        $groupName = strtolower($groupName);
+
+        $key = array_search($groupName, $permissionGroupsArray);
+
+        return $key !== false;
+    }
+
+    /* Relations */
 
     public function role()
     {
         return $this->belongsTo('Role');
     }
+
+    public function employee()
+    {
+        return $this->belongsTo('Employee', 'id', 'user_id');
+    }
+
+    public function permissions()
+    {
+        return $this->hasManyThrough('PermissionRole', 'Role', 'id', 'role_id');
+    }
+
+    /* Query Scopes */
+
+    /**
+     * @param $query
+     * @return mixed
+     */
+    public function scopeMembers($query)
+    {
+       $currentUser = Session::get('currentUser');
+
+       return $query->where('id', '!=', $currentUser->id);
+    }
+
+    /* Mutators */
 
     /**
      * Passwords must always be hashed.
@@ -179,13 +245,6 @@ class User extends \Eloquent implements UserInterface, RemindableInterface
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = Hash::make($password);
-    }
-
-    /* Query Scopes */
-
-    public function scopeMembers($query)
-    {
-       return $query->where('id', '!=', Auth::user()->id);
     }
 
 }

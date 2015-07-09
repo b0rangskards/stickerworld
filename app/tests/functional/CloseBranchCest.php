@@ -13,7 +13,7 @@ class CloseBranchCest
     {
         $I->signInAsAdmin();
 
-        $this->branch = Factory::create('Branch');
+        $this->branch = $I->have('Branch');
     }
 
     // tests
@@ -29,8 +29,11 @@ class CloseBranchCest
             URL::route('close_branch_path', $this->branch->id)
         );
 
-        $myBranch = Branch::find($this->branch->id);
+        $I->seeResponseCodeIs(200);
 
-        $I->assertNull($myBranch);
+        $I->dontSeeRecord(BranchesPage::$tableName, [
+           'id'   => $this->branch->id,
+           'name' => $this->branch->name
+        ]);
     }
 }

@@ -26,8 +26,6 @@ class CreateUsersTable extends Migration {
             $table->char('recstat')->default('I');
 
             $table->foreign('role_id')->references('id')->on('roles');
-
-
         });
 	}
 

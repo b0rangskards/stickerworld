@@ -85,6 +85,14 @@ img#overlay-upload {
   color: #e74c3c;
 }
 
+.weight400 {
+  font-weight: 400;
+}
+
+.weight500 {
+  font-weight: 500;
+}
+
 .weight600 {
   font-weight: 600;
 }
@@ -131,15 +139,65 @@ div.dataTables_wrapper {
   padding-top: 0;
 }
 
+.reset-padding-top-bottom {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .reset-padding-left {
   padding-left: 0;
 }
 
 /* Margins */
 
+.reset-margin {
+  margin: 0;
+}
+
+.reset-margin-bottom {
+  margin-bottom: 0;
+}
+
+.reset-margin-top-bottom {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .margin-top-10 {
   margin-top: 10px;
 }
+
+.margin-top-15 {
+  margin-top: 15px;
+}
+
+.margin-top-30 {
+  margin-top: 30px;
+}
+
+.margin-bottom-5 {
+  margin-bottom: 5px;
+}
+
+/* Paddings */
+
+
+.padding-top-5 {
+  padding-top: 5px;
+}
+
+.padding-bottom-5 {
+  padding-bottom: 5px;
+}
+
+.padding-top-10 {
+  padding-top: 10px;
+}
+
+.padding-top-20 {
+  padding-top: 20px;
+}
+
 
 /* your custom CSS */
 @-moz-keyframes pulsate {
@@ -195,8 +253,25 @@ div.dataTables_wrapper {
 }
 
 .branches-panel-map-grid {
-  min-width: 300px;
-  min-height: 280px;
+//  min-width: 300px;
+//  min-height: 280px;
+  width: 320px;
+  height: 320px;
+  webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  border: #eee 10px solid;
+}
+
+.col-centered {
+  float:none;
+  margin: 0 auto;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .simple-tools  {
@@ -222,5 +297,71 @@ form {
 
 }
 
+.faded-tab {
+ li a i,span {
+    color: #7f8c8d;
+    text-transform: capitalize;
+     font-weight: 400;
+  }
+}
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.icon-only-button {
+  color: #95a5a6;
+  background-color: inherit;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+table#table-permission {
+  margin-top: 30px;
+  thead th {
+    text-align: center;
+  }
+  thead th, tbody tr td:first-child {
+    button.ordinary {
+      @extend .icon-only-button;
+      position: relative;
+      top:-5px;
+      right:-5px;
+    }
+
+  }
+  tbody tr td span.permission-group-delete-span button.ordinary {
+    @extend .icon-only-button;
+    position: relative;
+    top: -5px;
+    right: -10px;
+  }
+}
+
+table#employees-table tbody td {
+  a span {
+    line-height: 30px;
+  }
+  vertical-align: middle;
+}
+
+// Employee index img thumbnail in table
+.employee-thumbnail-small {
+  border-radius: 50%;
+  width: 33px;
+  border: 2px solid #ecf0f1;
+  margin-right: 5px;
+}
+
+.flat-blue-font {
+  color: #3498db;
+}
+
+.flat-pink-font {
+  color:#d2527f;
+}
 
 /* Stickerworld Custom CSS End here */

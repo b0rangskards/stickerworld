@@ -5,51 +5,93 @@
         <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
-                    <a class="active" href="/">
+                    <a class="active" href="{{URL::route('home')}}">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li class="sub-menu">
-                    <a href="javascript:;" class="{{(Request::is('user/*')||Request::is('register'))?'active':''}}">
-                        <i class="fa fa-user"></i>
-                        <span>Users</span>
-                    </a>
-                    <ul class="sub">
-                        <li class="{{Request::is('register')?'active':''}}">
-                            <a href="{{ URL::route('register_path') }}">Register New User</a>
-                        </li>
-                        <li class="{{Request::is('user/users')?'active':''}}">
-                            <a href="{{ URL::route('users.index') }}">View All Users</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="{{ URL::route('branches_index_path') }}" id="branches-nav-btn" class="{{(Request::is('branch/*'))?'active':''}}">
-                        <i class="fa fa-home"></i>
-                        <span>Branches</span>
-                    </a>
-                </li>
-                <li class="sub-menu">
-                    <a href="{{ URL::route('departments_index_path') }}" id="departments-nav-btn" class="{{(Request::is('department/*'))?'active':''}}">
-                        <i class="fa fa-home"></i>
-                        <span>Departments</span>
-                    </a>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;" class="{{(Request::is('employee/*'))?'active':''}}">
-                        <i class="fa fa-user"></i>
-                        <span>Employees</span>
-                    </a>
-                    <ul class="sub">
-                        <li class="{{Request::is('employee/new')?'active':''}}">
-                            <a href="{{ URL::route('new_employee_path') }}">New Employee</a>
-                        </li>
-                        <li class="{{Request::is('employee/employees')?'active':''}}">
-                            <a href="{{ URL::route('employees_index_path') }}">View All Employees</a>
-                        </li>
-                    </ul>
-                </li>
+
+                @if($currentUser->hasGroupPermission('user'))
+                    <li class="sub-menu">
+                        <a href="javascript:;" class="{{(Request::is('user/*')||Request::is('register')||Request::is('access_control'))?'active':''}}">
+                            <i class="fa fa-user"></i>
+                            <span>Users</span>
+                        </a>
+                        <ul class="sub">
+
+                            @if($currentUser->hasPermission('register_path'))
+                                <li class="{{Request::is('register')?'active':''}}">
+                                    <a href="{{ URL::route('register_path') }}">Register New User</a>
+                                </li>
+                            @endif
+
+                            @if($currentUser->hasPermission('users_index_path'))
+                                <li class="{{Request::is('user/users')?'active':''}}">
+                                    <a href="{{ URL::route('users_index_path') }}">View All Users</a>
+                                </li>
+                            @endif
+
+                            @if($currentUser->hasPermission('access_control_path'))
+                                <li class="{{Request::is('access_control')?'active':''}}">
+                                    <a href="{{ URL::route('access_control_path') }}">Roles & Permissions</a>
+                                </li>
+                            @endif
+                        </ul>
+                    </li>
+                @endif
+
+                @if($currentUser->hasGroupPermission('branch'))
+                    <li class="sub-menu">
+
+                    @if($currentUser->hasPermission('branches_index_path'))
+                        <a href="{{ URL::route('branches_index_path') }}" id="branches-nav-btn" class="{{(Request::is('branch/*'))?'active':''}}">
+                            <i class="fa fa-home"></i>
+                            <span>Branches</span>
+                        </a>
+                    @endif
+
+                    </li>
+                @endif
+
+
+                @if($currentUser->hasGroupPermission('branch'))
+                    <li class="sub-menu">
+
+                    @if($currentUser->hasPermission('departments_index_path'))
+                        <a href="{{ URL::route('departments_index_path') }}" id="departments-nav-btn" class="{{(Request::is('department/*'))?'active':''}}">
+                            <i class="fa fa-home"></i>
+                            <span>Departments</span>
+                        </a>
+                    @endif
+
+                    </li>
+                @endif
+
+                @if($currentUser->hasGroupPermission('employee'))
+                    <li class="sub-menu">
+                        <a href="javascript:;" class="{{(Request::is('employee/*'))?'active':''}}">
+                            <i class="fa fa-user"></i>
+                            <span>Employees</span>
+                        </a>
+                        <ul class="sub">
+
+                            @if($currentUser->hasPermission('hire_employee_path'))
+                                <li class="{{Request::is('employee/new')?'active':''}}">
+                                    <a href="{{ URL::route('hire_employee_path') }}">New Employee</a>
+                                </li>
+                            @endif
+
+                            @if($currentUser->hasPermission('employees_index_path'))
+                                <li class="{{Request::is('employee/employees')?'active':''}}">
+                                    <a href="{{ URL::route('employees_index_path') }}">View All Employees</a>
+                                </li>
+                            @endif
+
+                        </ul>
+                    </li>
+                @endif
+
+                {{--@if($currentUser->hasGroupPermission('supplier'))--}}
                     <li class="sub-menu">
                         <a href="javascript:;">
                             <i class="fa fa-retweet"></i>
@@ -58,6 +100,8 @@
                         <ul class="sub">
                         </ul>
                     </li>
+                {{--@endif--}}
+
                 <li>
                     <a href="fontawesome.html">
                         <i class="fa fa-th"></i>
@@ -78,11 +122,8 @@
                     </ul>
                 </li>
 
-
-
-
-
-            </ul>            </div>
+            </ul>
+        </div>
         <!-- sidebar menu end-->
     </div>
 </aside>

@@ -1,13 +1,14 @@
 <?php namespace Codeception\Module;
 
 
+use Codeception\Module;
 use Illuminate\Support\Facades\Artisan;
 use Laracasts\TestDummy\Factory as TestDummy;
 
 // here you can define custom actions
 // all public methods declared in helper class will be available in $I
 
-class FunctionalHelper extends \Codeception\Module
+class FunctionalHelper extends Module
 {
 
     private function initializeFactoriesPath()
@@ -41,12 +42,28 @@ class FunctionalHelper extends \Codeception\Module
         return TestDummy::create($modelName, $overrides);
     }
 
+
+    public function haveTimes($modelName, $count, $ovverides = [])
+    {
+        $this->initializeFactoriesPath();
+
+        return TestDummy::times($count)->create($modelName, $ovverides);
+    }
+
     public function build($modelName, $overrides = [])
     {
         $this->initializeFactoriesPath();
 
         return TestDummy::build($modelName, $overrides);
     }
+
+    public function buildDataFor($modelName, $overrides = [])
+    {
+        $this->initializeFactoriesPath();
+
+        return TestDummy::attributesFor($modelName, $overrides);
+    }
+
 
     public function seeExceptionThrown($exception, $function)
     {

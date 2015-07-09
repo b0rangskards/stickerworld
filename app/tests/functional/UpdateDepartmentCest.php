@@ -37,7 +37,10 @@ class UpdateDepartmentCest
             ]
         );
 
-        $I->seeRecord(DepartmentsPage::$tableName, ['id' => $this->department->id, 'name' => $newDeptName]);
+        $I->seeRecord(DepartmentsPage::$tableName, [
+            'id' => $this->department->id,
+            'name' => $newDeptName
+        ]);
     }
 
     /*

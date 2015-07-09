@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Users</title>
+    <title>Manage Users</title>
 
     <link media="all" type="text/css" rel="stylesheet" href="http://localhost/css/vendor.min.css">
 
@@ -225,12 +225,12 @@
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                 <img alt="" src="http://localhost/images/icon-user-default.png" />
-                <span class="username"> wayne </span>
+                <span class="username"> user_admin </span>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
                 <li>
-                    <a href="http://localhost/profile/wayne"><i class=" fa fa-user"></i>Profile</a>
+                    <a href="http://localhost/profile/user_admin"><i class=" fa fa-user"></i>Profile</a>
                 </li>
                 <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
                 <li><a href="http://localhost/logout"><i class="fa fa-sign-out"></i> Log Out</a></li>
@@ -248,46 +248,71 @@
         <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
-                    <a class="active" href="/">
+                    <a class="active" href="http://localhost/dashboard">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li class="sub-menu">
-                    <a href="javascript:;" class="active">
-                        <i class="fa fa-user"></i>
-                        <span>Users</span>
-                    </a>
-                    <ul class="sub">
-                        <li class="">
-                            <a href="http://localhost/register">Register New User</a>
-                        </li>
-                        <li class="active">
-                            <a href="http://localhost/user/users">View All Users</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="http://localhost/branch/branches" id="branches-nav-btn" class="">
-                        <i class="fa fa-home"></i>
-                        <span>Branches</span>
-                    </a>
-                </li>
-                <li class="sub-menu">
-                    <a href="http://localhost/department/departments" id="departments-nav-btn" class="">
-                        <i class="fa fa-home"></i>
-                        <span>Departments</span>
-                    </a>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-users"></i>
-                        <span>Employees</span>
-                    </a>
-                    <ul class="sub">
-                    </ul>
-                </li>
-                    <li class="sub-menu">
+
+                                    <li class="sub-menu">
+                        <a href="javascript:;" class="active">
+                            <i class="fa fa-user"></i>
+                            <span>Users</span>
+                        </a>
+                        <ul class="sub">
+
+                                                            <li class="">
+                                    <a href="http://localhost/register">Register New User</a>
+                                </li>
+                            
+                                                            <li class="active">
+                                    <a href="http://localhost/user/users">View All Users</a>
+                                </li>
+                            
+                                                            <li class="">
+                                    <a href="http://localhost/access_control">Roles & Permissions</a>
+                                </li>
+                                                    </ul>
+                    </li>
+                
+                                    <li class="sub-menu">
+
+                                            <a href="http://localhost/branch/branches" id="branches-nav-btn" class="">
+                            <i class="fa fa-home"></i>
+                            <span>Branches</span>
+                        </a>
+                    
+                    </li>
+                
+
+                                    <li class="sub-menu">
+
+                                            <a href="http://localhost/department/departments" id="departments-nav-btn" class="">
+                            <i class="fa fa-home"></i>
+                            <span>Departments</span>
+                        </a>
+                    
+                    </li>
+                
+                                    <li class="sub-menu">
+                        <a href="javascript:;" class="">
+                            <i class="fa fa-user"></i>
+                            <span>Employees</span>
+                        </a>
+                        <ul class="sub">
+
+                                                            <li class="">
+                                    <a href="http://localhost/employee/new">New Employee</a>
+                                </li>
+                            
+                                                            <li class="">
+                                    <a href="http://localhost/employee/employees">View All Employees</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+                                    <li class="sub-menu">
                         <a href="javascript:;">
                             <i class="fa fa-retweet"></i>
                             <span>Suppliers</span>
@@ -295,6 +320,7 @@
                         <ul class="sub">
                         </ul>
                     </li>
+                
                 <li>
                     <a href="fontawesome.html">
                         <i class="fa fa-th"></i>
@@ -315,11 +341,8 @@
                     </ul>
                 </li>
 
-
-
-
-
-            </ul>            </div>
+            </ul>
+        </div>
         <!-- sidebar menu end-->
     </div>
 </aside>
@@ -329,17 +352,17 @@
 
                 
 <div class="header-content">
-    <h2><i class="fa fa-table"></i> Users <span> Management</span></h2>
+    <h2><i class="fa fa-users"></i> Users <span> Management</span></h2>
     <div class="breadcrumb-wrapper hidden-xs">
         <span class="label">You are here:</span>
         <ol class="breadcrumb">
             <li>
                 <i class="fa fa-home"></i>
                 <a href="/dashboard">Dashboard</a>
-                <i class="fa fa-angle-right"></i>
             </li>
-            <li class="active">Manage Users</li>
-        </ol>
+                            <i class="fa fa-angle-right"></i>
+                <li class="active">Manage Users</li>
+                    </ol>
     </div><!-- /.breadcrumb-wrapper -->
 </div>
 
@@ -367,12 +390,11 @@
                         </div>
 
                         <div class="space15"></div>
-
-                        <table class="display table table-bordered table-striped dynamic-table users-table">
+                                      <table class="display table table-striped table-condensed  dynamic-table users-table">
                             <thead>
                                 <tr>
-                                                                            <th class='col-md-2'>Username</th>
-                                                                            <th class='col-md-1'>Role</th>
+                                                                            <th class='col-md-1'>Username</th>
+                                                                            <th class='col-md-2'>Department / Branch / Role</th>
                                                                             <th class='col-md-1'>Last Login</th>
                                                                             <th class='col-md-1'>Activated</th>
                                                                             <th class='col-md-1'>Action</th>
@@ -381,17 +403,21 @@
                             <tbody>
                                                                     <tr>
     <td>
-       <span class="weight600">admin</span>
+       <span class="weight600 users-table-td-username">manager</span>
     </td>
 
     <td>
-                <span class="badge bg-info">Admin</span>
-            </td>
+                    <span class="badge bg-inverse">Keelingshire </span>
+            <span class="badge bg-default">Production </span>
+                <span class='badge bg-primary'>Manager</span>
+    </td>
+
     <td>
-        <span class="text-muted"></span>
+        <span class="text-muted">17 hours ago</span>
     </td>
-    <td><span class="badge bg-success">Yes</span>
-    </td>
+
+    <td><span class='badge bg-success'>Yes</span></td>
+
     <td class="action-btn">
                 
                 <a href="" class="btn btn-success btn-xs tooltips"
@@ -400,75 +426,7 @@
         </a>
 
                 
-            <form method="POST" action="http://localhost/user/deactivate" accept-charset="UTF-8" data-remote-deactivate="data-remote-deactivate" class="inline-block"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="EJw5quDaBv824EtNc1tEPCBAc5oG4uJRJB8v4VXM">
-                <input name="userId" type="hidden" value="1">
-                <button type="submit" class="btn btn-danger btn-xs tooltips deactivate-user" data-placement="top" data-toggle="tooltip" title="Deactivate User" data-confirm="Are you sure?" data-confirm-yes="Yes, deactivate it!"><i class="fa fa-times"></i></button>
-            </form>
-
-        
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">webster.hudson</span>
-    </td>
-
-    <td>
-                <span class="badge bg-success">Moderator</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-danger">No</span>
-    </td>
-    <td class="action-btn">
-                
-            <form method="POST" action="http://localhost/register/resend_email" accept-charset="UTF-8" data-remote-resendmail="data-remote-resendmail" class="inline-block"><input name="_token" type="hidden" value="EJw5quDaBv824EtNc1tEPCBAc5oG4uJRJB8v4VXM">
-                <input name="user_id" type="hidden" value="2">
-                <button type="submit" class="btn btn-default btn-xs tooltips resend-email" data-placement="top" data-toggle="tooltip" title="Resend Email"><i class="fa fa-paper-plane-o"></i></button>
-            </form>
-
-        
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">lueilwitz.alexandra</span>
-    </td>
-
-    <td>
-                <span class="badge bg-primary">Accountant</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-success">Yes</span>
-    </td>
-    <td class="action-btn">
-                
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-            <form method="POST" action="http://localhost/user/deactivate" accept-charset="UTF-8" data-remote-deactivate="data-remote-deactivate" class="inline-block"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="EJw5quDaBv824EtNc1tEPCBAc5oG4uJRJB8v4VXM">
+            <form method="POST" action="http://localhost/user/deactivate" accept-charset="UTF-8" data-remote-deactivate="data-remote-deactivate" class="inline-block"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden">
                 <input name="userId" type="hidden" value="3">
                 <button type="submit" class="btn btn-danger btn-xs tooltips deactivate-user" data-placement="top" data-toggle="tooltip" title="Deactivate User" data-confirm="Are you sure?" data-confirm-yes="Yes, deactivate it!"><i class="fa fa-times"></i></button>
             </form>
@@ -483,17 +441,21 @@
 
 </tr>                                                                    <tr>
     <td>
-       <span class="weight600">florence25</span>
+       <span class="weight600 users-table-td-username">wlubowitz</span>
     </td>
 
     <td>
-                <span class="badge bg-info">Admin</span>
-            </td>
+                    <span class="badge bg-inverse">New Guadalupehaven </span>
+            <span class="badge bg-default">Production </span>
+                <span class='badge bg-primary'>Manager</span>
+    </td>
+
     <td>
         <span class="text-muted"></span>
     </td>
-    <td><span class="badge bg-success">Yes</span>
-    </td>
+
+    <td><span class='badge bg-danger'>No</span></td>
+
     <td class="action-btn">
                 
                 <a href="" class="btn btn-success btn-xs tooltips"
@@ -502,381 +464,7 @@
         </a>
 
                 
-            <form method="POST" action="http://localhost/user/deactivate" accept-charset="UTF-8" data-remote-deactivate="data-remote-deactivate" class="inline-block"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="EJw5quDaBv824EtNc1tEPCBAc5oG4uJRJB8v4VXM">
-                <input name="userId" type="hidden" value="4">
-                <button type="submit" class="btn btn-danger btn-xs tooltips deactivate-user" data-placement="top" data-toggle="tooltip" title="Deactivate User" data-confirm="Are you sure?" data-confirm-yes="Yes, deactivate it!"><i class="fa fa-times"></i></button>
-            </form>
-
-        
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">susana.schulist</span>
-    </td>
-
-    <td>
-                <span class="badge bg-primary">Accountant</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-success">Yes</span>
-    </td>
-    <td class="action-btn">
-                
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-            <form method="POST" action="http://localhost/user/deactivate" accept-charset="UTF-8" data-remote-deactivate="data-remote-deactivate" class="inline-block"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="EJw5quDaBv824EtNc1tEPCBAc5oG4uJRJB8v4VXM">
-                <input name="userId" type="hidden" value="5">
-                <button type="submit" class="btn btn-danger btn-xs tooltips deactivate-user" data-placement="top" data-toggle="tooltip" title="Deactivate User" data-confirm="Are you sure?" data-confirm-yes="Yes, deactivate it!"><i class="fa fa-times"></i></button>
-            </form>
-
-        
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">jerald.pouros</span>
-    </td>
-
-    <td>
-                <span class="badge bg-warning">Estimator</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-danger">No</span>
-    </td>
-    <td class="action-btn">
-                
-            <form method="POST" action="http://localhost/register/resend_email" accept-charset="UTF-8" data-remote-resendmail="data-remote-resendmail" class="inline-block"><input name="_token" type="hidden" value="EJw5quDaBv824EtNc1tEPCBAc5oG4uJRJB8v4VXM">
-                <input name="user_id" type="hidden" value="6">
-                <button type="submit" class="btn btn-default btn-xs tooltips resend-email" data-placement="top" data-toggle="tooltip" title="Resend Email"><i class="fa fa-paper-plane-o"></i></button>
-            </form>
-
-        
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">anderson.grant</span>
-    </td>
-
-    <td>
-                <span class="badge bg-info">Admin</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-success">Yes</span>
-    </td>
-    <td class="action-btn">
-                
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-            <form method="POST" action="http://localhost/user/deactivate" accept-charset="UTF-8" data-remote-deactivate="data-remote-deactivate" class="inline-block"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="EJw5quDaBv824EtNc1tEPCBAc5oG4uJRJB8v4VXM">
-                <input name="userId" type="hidden" value="7">
-                <button type="submit" class="btn btn-danger btn-xs tooltips deactivate-user" data-placement="top" data-toggle="tooltip" title="Deactivate User" data-confirm="Are you sure?" data-confirm-yes="Yes, deactivate it!"><i class="fa fa-times"></i></button>
-            </form>
-
-        
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">shirley42</span>
-    </td>
-
-    <td>
-                <span class="badge bg-primary">Accountant</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-success">Yes</span>
-    </td>
-    <td class="action-btn">
-                
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-            <form method="POST" action="http://localhost/user/deactivate" accept-charset="UTF-8" data-remote-deactivate="data-remote-deactivate" class="inline-block"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="EJw5quDaBv824EtNc1tEPCBAc5oG4uJRJB8v4VXM">
-                <input name="userId" type="hidden" value="8">
-                <button type="submit" class="btn btn-danger btn-xs tooltips deactivate-user" data-placement="top" data-toggle="tooltip" title="Deactivate User" data-confirm="Are you sure?" data-confirm-yes="Yes, deactivate it!"><i class="fa fa-times"></i></button>
-            </form>
-
-        
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">xlakin</span>
-    </td>
-
-    <td>
-                <span class="badge bg-primary">Accountant</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-danger">No</span>
-    </td>
-    <td class="action-btn">
-                
-            <form method="POST" action="http://localhost/register/resend_email" accept-charset="UTF-8" data-remote-resendmail="data-remote-resendmail" class="inline-block"><input name="_token" type="hidden" value="EJw5quDaBv824EtNc1tEPCBAc5oG4uJRJB8v4VXM">
-                <input name="user_id" type="hidden" value="9">
-                <button type="submit" class="btn btn-default btn-xs tooltips resend-email" data-placement="top" data-toggle="tooltip" title="Resend Email"><i class="fa fa-paper-plane-o"></i></button>
-            </form>
-
-        
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">enoch48</span>
-    </td>
-
-    <td>
-                <span class="badge bg-warning">Estimator</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-danger">No</span>
-    </td>
-    <td class="action-btn">
-                
-            <form method="POST" action="http://localhost/register/resend_email" accept-charset="UTF-8" data-remote-resendmail="data-remote-resendmail" class="inline-block"><input name="_token" type="hidden" value="EJw5quDaBv824EtNc1tEPCBAc5oG4uJRJB8v4VXM">
-                <input name="user_id" type="hidden" value="10">
-                <button type="submit" class="btn btn-default btn-xs tooltips resend-email" data-placement="top" data-toggle="tooltip" title="Resend Email"><i class="fa fa-paper-plane-o"></i></button>
-            </form>
-
-        
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">volkman.foster</span>
-    </td>
-
-    <td>
-                <span class="badge bg-success">Moderator</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-danger">No</span>
-    </td>
-    <td class="action-btn">
-                
-            <form method="POST" action="http://localhost/register/resend_email" accept-charset="UTF-8" data-remote-resendmail="data-remote-resendmail" class="inline-block"><input name="_token" type="hidden" value="EJw5quDaBv824EtNc1tEPCBAc5oG4uJRJB8v4VXM">
-                <input name="user_id" type="hidden" value="11">
-                <button type="submit" class="btn btn-default btn-xs tooltips resend-email" data-placement="top" data-toggle="tooltip" title="Resend Email"><i class="fa fa-paper-plane-o"></i></button>
-            </form>
-
-        
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">breanna87</span>
-    </td>
-
-    <td>
-                <span class="badge bg-warning">Estimator</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-danger">No</span>
-    </td>
-    <td class="action-btn">
-                
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="EJw5quDaBv824EtNc1tEPCBAc5oG4uJRJB8v4VXM">
-                <input name="userId" type="hidden" value="13">
-                <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
-            </form>
-
-        
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">sfeest</span>
-    </td>
-
-    <td>
-                <span class="badge bg-primary">Accountant</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-danger">No</span>
-    </td>
-    <td class="action-btn">
-                
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="EJw5quDaBv824EtNc1tEPCBAc5oG4uJRJB8v4VXM">
-                <input name="userId" type="hidden" value="14">
-                <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
-            </form>
-
-        
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">burley14</span>
-    </td>
-
-    <td>
-                <span class="badge bg-warning">Estimator</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-danger">No</span>
-    </td>
-    <td class="action-btn">
-                
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="EJw5quDaBv824EtNc1tEPCBAc5oG4uJRJB8v4VXM">
-                <input name="userId" type="hidden" value="15">
-                <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
-            </form>
-
-        
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">eliza06</span>
-    </td>
-
-    <td>
-                <span class="badge bg-warning">Estimator</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-danger">No</span>
-    </td>
-    <td class="action-btn">
-                
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="EJw5quDaBv824EtNc1tEPCBAc5oG4uJRJB8v4VXM">
+            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden">
                 <input name="userId" type="hidden" value="16">
                 <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
             </form>
@@ -891,17 +479,21 @@
 
 </tr>                                                                    <tr>
     <td>
-       <span class="weight600">justina.konopelski</span>
+       <span class="weight600 users-table-td-username">julio33</span>
     </td>
 
     <td>
-                <span class="badge bg-success">Moderator</span>
-            </td>
+                    <span class="badge bg-inverse">Ryleeview </span>
+            <span class="badge bg-default">IT & Design </span>
+                <span class='badge bg-primary'>Manager</span>
+    </td>
+
     <td>
         <span class="text-muted"></span>
     </td>
-    <td><span class="badge bg-danger">No</span>
-    </td>
+
+    <td><span class='badge bg-danger'>No</span></td>
+
     <td class="action-btn">
                 
                 <a href="" class="btn btn-success btn-xs tooltips"
@@ -910,7 +502,311 @@
         </a>
 
                 
-            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="EJw5quDaBv824EtNc1tEPCBAc5oG4uJRJB8v4VXM">
+            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden">
+                <input name="userId" type="hidden" value="24">
+                <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
+            </form>
+
+        
+                <div class="ui active small inline loader" style="display:none"></div>
+
+        <span class="loader-label display-none">
+            <span>Email Sent!</span>
+        </span>
+    </td>
+
+</tr>                                                                    <tr>
+    <td>
+       <span class="weight600 users-table-td-username">mann.velma</span>
+    </td>
+
+    <td>
+                    <span class="badge bg-inverse">New Serena </span>
+            <span class="badge bg-default">Production </span>
+                <span class='badge bg-primary'>Manager</span>
+    </td>
+
+    <td>
+        <span class="text-muted"></span>
+    </td>
+
+    <td><span class='badge bg-danger'>No</span></td>
+
+    <td class="action-btn">
+                
+                <a href="" class="btn btn-success btn-xs tooltips"
+        data-toggle="tooltip" data-placement="top" title="View Detail">
+            <i class="fa fa-eye"></i>
+        </a>
+
+                
+            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden">
+                <input name="userId" type="hidden" value="27">
+                <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
+            </form>
+
+        
+                <div class="ui active small inline loader" style="display:none"></div>
+
+        <span class="loader-label display-none">
+            <span>Email Sent!</span>
+        </span>
+    </td>
+
+</tr>                                                                    <tr>
+    <td>
+       <span class="weight600 users-table-td-username">elisabeth36</span>
+    </td>
+
+    <td>
+                    <span class="badge bg-inverse">Reynoldsmouth </span>
+            <span class="badge bg-default">Logistics </span>
+                <span class='badge bg-primary'>Manager</span>
+    </td>
+
+    <td>
+        <span class="text-muted"></span>
+    </td>
+
+    <td><span class='badge bg-danger'>No</span></td>
+
+    <td class="action-btn">
+                
+                <a href="" class="btn btn-success btn-xs tooltips"
+        data-toggle="tooltip" data-placement="top" title="View Detail">
+            <i class="fa fa-eye"></i>
+        </a>
+
+                
+            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden">
+                <input name="userId" type="hidden" value="28">
+                <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
+            </form>
+
+        
+                <div class="ui active small inline loader" style="display:none"></div>
+
+        <span class="loader-label display-none">
+            <span>Email Sent!</span>
+        </span>
+    </td>
+
+</tr>                                                                    <tr>
+    <td>
+       <span class="weight600 users-table-td-username">stamm.rodrick</span>
+    </td>
+
+    <td>
+                    <span class="badge bg-inverse">Heaneyshire </span>
+            <span class="badge bg-default">IT & Design </span>
+                <span class='badge bg-primary'>Manager</span>
+    </td>
+
+    <td>
+        <span class="text-muted"></span>
+    </td>
+
+    <td><span class='badge bg-danger'>No</span></td>
+
+    <td class="action-btn">
+                
+                <a href="" class="btn btn-success btn-xs tooltips"
+        data-toggle="tooltip" data-placement="top" title="View Detail">
+            <i class="fa fa-eye"></i>
+        </a>
+
+                
+            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden">
+                <input name="userId" type="hidden" value="29">
+                <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
+            </form>
+
+        
+                <div class="ui active small inline loader" style="display:none"></div>
+
+        <span class="loader-label display-none">
+            <span>Email Sent!</span>
+        </span>
+    </td>
+
+</tr>                                                                    <tr>
+    <td>
+       <span class="weight600 users-table-td-username">hosinski</span>
+    </td>
+
+    <td>
+                    <span class="badge bg-inverse">New Eliane </span>
+            <span class="badge bg-default">Production </span>
+                <span class='badge bg-primary'>Manager</span>
+    </td>
+
+    <td>
+        <span class="text-muted"></span>
+    </td>
+
+    <td><span class='badge bg-danger'>No</span></td>
+
+    <td class="action-btn">
+                
+                <a href="" class="btn btn-success btn-xs tooltips"
+        data-toggle="tooltip" data-placement="top" title="View Detail">
+            <i class="fa fa-eye"></i>
+        </a>
+
+                
+            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden">
+                <input name="userId" type="hidden" value="30">
+                <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
+            </form>
+
+        
+                <div class="ui active small inline loader" style="display:none"></div>
+
+        <span class="loader-label display-none">
+            <span>Email Sent!</span>
+        </span>
+    </td>
+
+</tr>                                                                    <tr>
+    <td>
+       <span class="weight600 users-table-td-username">turner.keyon</span>
+    </td>
+
+    <td>
+                    <span class="badge bg-inverse">Lake Enosland </span>
+            <span class="badge bg-default">Accounting </span>
+                <span class='badge bg-primary'>Manager</span>
+    </td>
+
+    <td>
+        <span class="text-muted"></span>
+    </td>
+
+    <td><span class='badge bg-danger'>No</span></td>
+
+    <td class="action-btn">
+                
+                <a href="" class="btn btn-success btn-xs tooltips"
+        data-toggle="tooltip" data-placement="top" title="View Detail">
+            <i class="fa fa-eye"></i>
+        </a>
+
+                
+            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden">
+                <input name="userId" type="hidden" value="32">
+                <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
+            </form>
+
+        
+                <div class="ui active small inline loader" style="display:none"></div>
+
+        <span class="loader-label display-none">
+            <span>Email Sent!</span>
+        </span>
+    </td>
+
+</tr>                                                                    <tr>
+    <td>
+       <span class="weight600 users-table-td-username">kaden06</span>
+    </td>
+
+    <td>
+                    <span class="badge bg-inverse">East Garret </span>
+            <span class="badge bg-default">IT & Design </span>
+                <span class='badge bg-important'>Estimator</span>
+    </td>
+
+    <td>
+        <span class="text-muted"></span>
+    </td>
+
+    <td><span class='badge bg-danger'>No</span></td>
+
+    <td class="action-btn">
+                
+                <a href="" class="btn btn-success btn-xs tooltips"
+        data-toggle="tooltip" data-placement="top" title="View Detail">
+            <i class="fa fa-eye"></i>
+        </a>
+
+                
+            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden">
+                <input name="userId" type="hidden" value="14">
+                <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
+            </form>
+
+        
+                <div class="ui active small inline loader" style="display:none"></div>
+
+        <span class="loader-label display-none">
+            <span>Email Sent!</span>
+        </span>
+    </td>
+
+</tr>                                                                    <tr>
+    <td>
+       <span class="weight600 users-table-td-username">makenna97</span>
+    </td>
+
+    <td>
+                    <span class="badge bg-inverse">North Grace </span>
+            <span class="badge bg-default">Accounting </span>
+                <span class='badge bg-important'>Estimator</span>
+    </td>
+
+    <td>
+        <span class="text-muted"></span>
+    </td>
+
+    <td><span class='badge bg-danger'>No</span></td>
+
+    <td class="action-btn">
+                
+                <a href="" class="btn btn-success btn-xs tooltips"
+        data-toggle="tooltip" data-placement="top" title="View Detail">
+            <i class="fa fa-eye"></i>
+        </a>
+
+                
+            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden">
+                <input name="userId" type="hidden" value="15">
+                <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
+            </form>
+
+        
+                <div class="ui active small inline loader" style="display:none"></div>
+
+        <span class="loader-label display-none">
+            <span>Email Sent!</span>
+        </span>
+    </td>
+
+</tr>                                                                    <tr>
+    <td>
+       <span class="weight600 users-table-td-username">wschuppe</span>
+    </td>
+
+    <td>
+                    <span class="badge bg-inverse">Port Darrelberg </span>
+            <span class="badge bg-default">Accounting </span>
+                <span class='badge bg-important'>Estimator</span>
+    </td>
+
+    <td>
+        <span class="text-muted"></span>
+    </td>
+
+    <td><span class='badge bg-danger'>No</span></td>
+
+    <td class="action-btn">
+                
+                <a href="" class="btn btn-success btn-xs tooltips"
+        data-toggle="tooltip" data-placement="top" title="View Detail">
+            <i class="fa fa-eye"></i>
+        </a>
+
+                
+            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden">
                 <input name="userId" type="hidden" value="17">
                 <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
             </form>
@@ -925,17 +821,21 @@
 
 </tr>                                                                    <tr>
     <td>
-       <span class="weight600">winona.lockman</span>
+       <span class="weight600 users-table-td-username">rborer</span>
     </td>
 
     <td>
-                <span class="badge bg-success">Moderator</span>
-            </td>
+                    <span class="badge bg-inverse">Bashirianfurt </span>
+            <span class="badge bg-default">Production </span>
+                <span class='badge bg-important'>Estimator</span>
+    </td>
+
     <td>
         <span class="text-muted"></span>
     </td>
-    <td><span class="badge bg-danger">No</span>
-    </td>
+
+    <td><span class='badge bg-danger'>No</span></td>
+
     <td class="action-btn">
                 
                 <a href="" class="btn btn-success btn-xs tooltips"
@@ -944,75 +844,7 @@
         </a>
 
                 
-            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="EJw5quDaBv824EtNc1tEPCBAc5oG4uJRJB8v4VXM">
-                <input name="userId" type="hidden" value="18">
-                <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
-            </form>
-
-        
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">ghackett</span>
-    </td>
-
-    <td>
-                <span class="badge bg-warning">Estimator</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-danger">No</span>
-    </td>
-    <td class="action-btn">
-                
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="EJw5quDaBv824EtNc1tEPCBAc5oG4uJRJB8v4VXM">
-                <input name="userId" type="hidden" value="19">
-                <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
-            </form>
-
-        
-                <div class="ui active small inline loader" style="display:none"></div>
-
-        <span class="loader-label display-none">
-            <span>Email Sent!</span>
-        </span>
-    </td>
-
-</tr>                                                                    <tr>
-    <td>
-       <span class="weight600">drunte</span>
-    </td>
-
-    <td>
-                <span class="badge bg-warning">Estimator</span>
-            </td>
-    <td>
-        <span class="text-muted"></span>
-    </td>
-    <td><span class="badge bg-danger">No</span>
-    </td>
-    <td class="action-btn">
-                
-                <a href="" class="btn btn-success btn-xs tooltips"
-        data-toggle="tooltip" data-placement="top" title="View Detail">
-            <i class="fa fa-eye"></i>
-        </a>
-
-                
-            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="EJw5quDaBv824EtNc1tEPCBAc5oG4uJRJB8v4VXM">
+            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden">
                 <input name="userId" type="hidden" value="20">
                 <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
             </form>
@@ -1027,17 +859,21 @@
 
 </tr>                                                                    <tr>
     <td>
-       <span class="weight600">ondricka.amanda</span>
+       <span class="weight600 users-table-td-username">krunolfsdottir</span>
     </td>
 
     <td>
-                <span class="badge bg-success">Moderator</span>
-            </td>
+                    <span class="badge bg-inverse">New Roslynchester </span>
+            <span class="badge bg-default">Logistics </span>
+                <span class='badge bg-important'>Estimator</span>
+    </td>
+
     <td>
         <span class="text-muted"></span>
     </td>
-    <td><span class="badge bg-danger">No</span>
-    </td>
+
+    <td><span class='badge bg-danger'>No</span></td>
+
     <td class="action-btn">
                 
                 <a href="" class="btn btn-success btn-xs tooltips"
@@ -1046,7 +882,273 @@
         </a>
 
                 
-            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="EJw5quDaBv824EtNc1tEPCBAc5oG4uJRJB8v4VXM">
+            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden">
+                <input name="userId" type="hidden" value="22">
+                <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
+            </form>
+
+        
+                <div class="ui active small inline loader" style="display:none"></div>
+
+        <span class="loader-label display-none">
+            <span>Email Sent!</span>
+        </span>
+    </td>
+
+</tr>                                                                    <tr>
+    <td>
+       <span class="weight600 users-table-td-username">aframi</span>
+    </td>
+
+    <td>
+                    <span class="badge bg-inverse">Weissnatmouth </span>
+            <span class="badge bg-default">Production </span>
+                <span class='badge bg-important'>Estimator</span>
+    </td>
+
+    <td>
+        <span class="text-muted"></span>
+    </td>
+
+    <td><span class='badge bg-danger'>No</span></td>
+
+    <td class="action-btn">
+                
+                <a href="" class="btn btn-success btn-xs tooltips"
+        data-toggle="tooltip" data-placement="top" title="View Detail">
+            <i class="fa fa-eye"></i>
+        </a>
+
+                
+            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden">
+                <input name="userId" type="hidden" value="23">
+                <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
+            </form>
+
+        
+                <div class="ui active small inline loader" style="display:none"></div>
+
+        <span class="loader-label display-none">
+            <span>Email Sent!</span>
+        </span>
+    </td>
+
+</tr>                                                                    <tr>
+    <td>
+       <span class="weight600 users-table-td-username">block.ruth</span>
+    </td>
+
+    <td>
+                    <span class="badge bg-inverse">Andersonview </span>
+            <span class="badge bg-default">Logistics </span>
+                <span class='badge bg-important'>Estimator</span>
+    </td>
+
+    <td>
+        <span class="text-muted"></span>
+    </td>
+
+    <td><span class='badge bg-danger'>No</span></td>
+
+    <td class="action-btn">
+                
+                <a href="" class="btn btn-success btn-xs tooltips"
+        data-toggle="tooltip" data-placement="top" title="View Detail">
+            <i class="fa fa-eye"></i>
+        </a>
+
+                
+            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden">
+                <input name="userId" type="hidden" value="25">
+                <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
+            </form>
+
+        
+                <div class="ui active small inline loader" style="display:none"></div>
+
+        <span class="loader-label display-none">
+            <span>Email Sent!</span>
+        </span>
+    </td>
+
+</tr>                                                                    <tr>
+    <td>
+       <span class="weight600 users-table-td-username">green.lukas</span>
+    </td>
+
+    <td>
+                    <span class="badge bg-inverse">North Lenny </span>
+            <span class="badge bg-default">Accounting </span>
+                <span class='badge bg-important'>Estimator</span>
+    </td>
+
+    <td>
+        <span class="text-muted"></span>
+    </td>
+
+    <td><span class='badge bg-danger'>No</span></td>
+
+    <td class="action-btn">
+                
+                <a href="" class="btn btn-success btn-xs tooltips"
+        data-toggle="tooltip" data-placement="top" title="View Detail">
+            <i class="fa fa-eye"></i>
+        </a>
+
+                
+            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden">
+                <input name="userId" type="hidden" value="31">
+                <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
+            </form>
+
+        
+                <div class="ui active small inline loader" style="display:none"></div>
+
+        <span class="loader-label display-none">
+            <span>Email Sent!</span>
+        </span>
+    </td>
+
+</tr>                                                                    <tr>
+    <td>
+       <span class="weight600 users-table-td-username">roscoe.blanda</span>
+    </td>
+
+    <td>
+                    <span class="badge bg-inverse">Port Naomie </span>
+            <span class="badge bg-default">IT & Design </span>
+                <span class='badge bg-important'>Estimator</span>
+    </td>
+
+    <td>
+        <span class="text-muted"></span>
+    </td>
+
+    <td><span class='badge bg-danger'>No</span></td>
+
+    <td class="action-btn">
+                
+                <a href="" class="btn btn-success btn-xs tooltips"
+        data-toggle="tooltip" data-placement="top" title="View Detail">
+            <i class="fa fa-eye"></i>
+        </a>
+
+                
+            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden">
+                <input name="userId" type="hidden" value="33">
+                <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
+            </form>
+
+        
+                <div class="ui active small inline loader" style="display:none"></div>
+
+        <span class="loader-label display-none">
+            <span>Email Sent!</span>
+        </span>
+    </td>
+
+</tr>                                                                    <tr>
+    <td>
+       <span class="weight600 users-table-td-username">lorna.klocko</span>
+    </td>
+
+    <td>
+                    <span class="badge bg-inverse">Maximilianside </span>
+            <span class="badge bg-default">Accounting </span>
+                <span class='badge bg-info'>Accountant</span>
+    </td>
+
+    <td>
+        <span class="text-muted"></span>
+    </td>
+
+    <td><span class='badge bg-danger'>No</span></td>
+
+    <td class="action-btn">
+                
+                <a href="" class="btn btn-success btn-xs tooltips"
+        data-toggle="tooltip" data-placement="top" title="View Detail">
+            <i class="fa fa-eye"></i>
+        </a>
+
+                
+            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden">
+                <input name="userId" type="hidden" value="18">
+                <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
+            </form>
+
+        
+                <div class="ui active small inline loader" style="display:none"></div>
+
+        <span class="loader-label display-none">
+            <span>Email Sent!</span>
+        </span>
+    </td>
+
+</tr>                                                                    <tr>
+    <td>
+       <span class="weight600 users-table-td-username">claude.hilll</span>
+    </td>
+
+    <td>
+                    <span class="badge bg-inverse">Rileyview </span>
+            <span class="badge bg-default">Logistics </span>
+                <span class='badge bg-info'>Accountant</span>
+    </td>
+
+    <td>
+        <span class="text-muted"></span>
+    </td>
+
+    <td><span class='badge bg-danger'>No</span></td>
+
+    <td class="action-btn">
+                
+                <a href="" class="btn btn-success btn-xs tooltips"
+        data-toggle="tooltip" data-placement="top" title="View Detail">
+            <i class="fa fa-eye"></i>
+        </a>
+
+                
+            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden">
+                <input name="userId" type="hidden" value="19">
+                <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
+            </form>
+
+        
+                <div class="ui active small inline loader" style="display:none"></div>
+
+        <span class="loader-label display-none">
+            <span>Email Sent!</span>
+        </span>
+    </td>
+
+</tr>                                                                    <tr>
+    <td>
+       <span class="weight600 users-table-td-username">bradtke.anya</span>
+    </td>
+
+    <td>
+                    <span class="badge bg-inverse">Aylaport </span>
+            <span class="badge bg-default">Production </span>
+                <span class='badge bg-info'>Accountant</span>
+    </td>
+
+    <td>
+        <span class="text-muted"></span>
+    </td>
+
+    <td><span class='badge bg-danger'>No</span></td>
+
+    <td class="action-btn">
+                
+                <a href="" class="btn btn-success btn-xs tooltips"
+        data-toggle="tooltip" data-placement="top" title="View Detail">
+            <i class="fa fa-eye"></i>
+        </a>
+
+                
+            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden">
                 <input name="userId" type="hidden" value="21">
                 <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
             </form>
@@ -1061,17 +1163,21 @@
 
 </tr>                                                                    <tr>
     <td>
-       <span class="weight600">candelario.macejkovi</span>
+       <span class="weight600 users-table-td-username">william19</span>
     </td>
 
     <td>
-                <span class="badge bg-warning">Estimator</span>
-            </td>
+                    <span class="badge bg-inverse">North Bradenside </span>
+            <span class="badge bg-default">Accounting </span>
+                <span class='badge bg-info'>Accountant</span>
+    </td>
+
     <td>
         <span class="text-muted"></span>
     </td>
-    <td><span class="badge bg-danger">No</span>
-    </td>
+
+    <td><span class='badge bg-danger'>No</span></td>
+
     <td class="action-btn">
                 
                 <a href="" class="btn btn-success btn-xs tooltips"
@@ -1080,8 +1186,8 @@
         </a>
 
                 
-            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="EJw5quDaBv824EtNc1tEPCBAc5oG4uJRJB8v4VXM">
-                <input name="userId" type="hidden" value="22">
+            <form method="POST" action="http://localhost/user/reactivate/%7Bid%7D" accept-charset="UTF-8" data-remote-reactivate="data-remote-reactivate" data-remote-success-message="Account Re-Activated!" class="inline-block reactivate-user-form"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden">
+                <input name="userId" type="hidden" value="26">
                 <button type="submit" class="btn btn-info btn-xs tooltips reactivate-user" data-placement="top" data-toggle="tooltip" title="Re-Activate User" data-confirm="Are you sure?" data-confirm-yes="Yes, reactivate it!"><i class="fa fa-power-off"></i></button>
             </form>
 
@@ -1096,6 +1202,7 @@
 </tr>                                                            </tbody>
 
                         </table>
+
                       </div>
                   </div>
 

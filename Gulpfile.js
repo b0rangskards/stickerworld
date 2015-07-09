@@ -14,6 +14,7 @@ var gulp = require('gulp'),
 
 
 var dirs = {
+    'views'             : './app/views/',
     'assets'            : './app/assets/',
     'assetsSass'        : './app/assets/sass/',
     'assetsCss'         : './app/assets/css/',
@@ -76,7 +77,9 @@ gulp.task('vendor-css', ['cleanVendorCss'], function(){
         dirs.assetsCss  + 'jquery-ui-1.10.1.custom.css',
         dirs.assetsCss  + 'bucket-ico-fonts.css',
         dirs.vendor     + 'fontawesome/css/font-awesome.css',
+        dirs.vendor     + 'select2/select2.css',
         dirs.vendor     + 'bootstrap/dist/css/bootstrap.css',
+        dirs.vendor     + 'select2-bootstrap-css/select2-bootstrap.css',
         dirs.assetsCss  + 'bootstrap-editable.css',
         dirs.assetsCss  + 'jasny-bootstrap.min.css',
         dirs.assetsCss  + 'demo_table.css',
@@ -88,8 +91,11 @@ gulp.task('vendor-css', ['cleanVendorCss'], function(){
         dirs.vendor     + 'semantic-ui-loader/loader.min.css',
         dirs.vendor     + 'sweetalert/dist/sweetalert.css',
         dirs.assetsCss  + 'real-estate-listing.css',
+        dirs.vendor     + 'iCheck/skins/flat/green.css',
+        dirs.vendor     + 'iCheck/skins/flat/grey.css',
         dirs.assetsCss  + 'style.css',
-        dirs.assetsCss  + 'style-responsive.css'
+        dirs.assetsCss  + 'style-responsive.css',
+        dirs.vendor + 'bootstrap-3-datepicker/dist/css/bootstrap-datepicker3.css'
     ])
         .pipe(concat('vendor.min.css'))
         .pipe(minifyCss({processImport: false}))
@@ -108,10 +114,12 @@ gulp.task('cleanJs', function () {
  */
 gulp.task('js', ['cleanJs'], function () {
     return gulp.src([
+        dirs.assetsJs + 'select2-init.js',
+        dirs.assetsJs + 'date-init.js',
         dirs.assetsJs + 'scripts.js'
     ])
+        .pipe(concat('admin.min.js'))
         .pipe(uglify({mangle: false}))
-        .pipe(rename('admin.min.js'))
         .pipe(gulp.dest(dirs.publicJs))
         .pipe(livereload())
         .on('error', gutil.log);
@@ -145,6 +153,9 @@ gulp.task('vendor-js', ['cleanVendorJs'], function () {
         dirs.vendor     + 'pnotify/pnotify.core.js',
         dirs.assetsJs   + 'jasny-bootstrap.min.js',
         dirs.vendor     + 'gmap3/dist/gmap3.js',
+        dirs.vendor     + 'select2/select2.js',
+        dirs.vendor     + 'iCheck/iCheck.js',
+        dirs.vendor     + 'bootstrap-3-datepicker/dist/js/bootstrap-datepicker.js'
     ])
             .pipe(concat('vendor.min.js'))
             .pipe(uglify({mangle: false}))
@@ -177,12 +188,27 @@ gulp.task('cleanImages', function () {
 });
 
 gulp.task('copy-images', ['cleanImages'], function () {
+    gulp.src([dirs.vendor + 'iCheck/skins/flat/green.png',
+              dirs.vendor + 'iCheck/skins/flat/green@2x.png',
+              dirs.vendor + 'iCheck/skins/flat/grey.png',
+              dirs.vendor + 'iCheck/skins/flat/grey@2x.png'])
+        .pipe(gulp.dest(dirs.publicCss));
+
     return gulp.src([
         dirs.assetsImages + '**/*.*'
     ])
         .pipe(gulp.dest(dirs.publicImages))
         .pipe(livereload());
+});
 
+//gulp.task('gulpfile',function(){
+//   return gulp.src('./Gulpfile.js')
+//       .pipe(livereload());
+//});
+
+gulp.task('views', function(){
+   return gulp.src([dirs.views + '**/*.*', dirs.views + '**/**/*.*'])
+       .pipe(livereload());
 });
 
 gulp.task('watch', ['sass', 'vendor-css', 'copy-images'], function () {
@@ -193,12 +219,14 @@ gulp.task('watch', ['sass', 'vendor-css', 'copy-images'], function () {
 
     gulp.watch(dirs.assetsCss + '*.css', ['vendor-css']);
 
-    gulp.watch([dirs.assetsJs + 'scripts.js'], ['js']);
+    gulp.watch([dirs.assetsJs + 'select2-init.js', dirs.assetsJs + 'date-init.js', dirs.assetsJs + 'scripts.js'], ['js']);
 
-    gulp.watch([dirs.assetsJs + '*.js', '!' + dirs.assetsJs + 'scripts.js'], ['vendor-js']);
+    gulp.watch([dirs.assetsJs + '*.js', '!' + dirs.assetsJs + 'select2-init.js', '!' + dirs.assetsJs + 'date-init.js', '!' + dirs.assetsJs + 'scripts.js'], ['vendor-js']);
 
     gulp.watch(dirs.assetsImages + '**/*.*', ['copy-images']);
 
+    gulp.watch([dirs.views + '**/*.*', dirs.views + '**/**/*.*'], ['views']);
+    //gulp.watch('./Gulpfile.js', ['compile']);
 });
 
 gulp.task('compile', ['sass', 'vendor-css', 'js', 'vendor-js']);

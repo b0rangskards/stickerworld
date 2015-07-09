@@ -12,7 +12,7 @@ class DepartmentsTableSeeder extends MasterTableSeeder {
 
 	public function run()
 	{
-        foreach ( static::$departments as $dept ) {
+        foreach ( self::$departments as $dept ) {
             Department::create([
                 'name' => $dept
             ]);

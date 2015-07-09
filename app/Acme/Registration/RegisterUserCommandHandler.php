@@ -1,5 +1,6 @@
 <?php  namespace Acme\Registration; 
 
+use Employee;
 use Laracasts\Commander\CommandHandler;
 use Acme\Users\UserRepository;
 use Laracasts\Commander\Events\DispatchableTrait;
@@ -27,11 +28,19 @@ class RegisterUserCommandHandler implements CommandHandler  {
      */
     public function handle($command)
     {
+        $employee = Employee::find($command->emp_id);
+
         $user = User::register(
             $command->role_id, $command->email
         );
 
-        $this->repository->save( $user);
+        if(!$employee)
+        {
+            $this->repository->save($user);
+        }
+        else {
+            $this->repository->saveWithEmployee($user, $employee);
+        }
 
         $this->dispatchEventsFor( $user);
 

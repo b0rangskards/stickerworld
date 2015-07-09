@@ -1,37 +1,22 @@
 <tr>
     <td>
-       <span class="weight600">{{$user->username}}</span>
+       <span class="weight600 users-table-td-username">{{$user->username}}</span>
     </td>
 
     <td>
-        @if ($user->role->id === 1)
-        {{
-            '<span class="badge bg-info">',$user->role->name,'</span>'
-        }}
-        @elseif ($user->role->id === 2)
-        {{
-            '<span class="badge bg-success">',$user->role->name,'</span>'
-        }}
-        @elseif ($user->role->id === 3)
-        {{
-            '<span class="badge bg-warning">',$user->role->name,'</span>'
-        }}
-        @elseif ($user->role->id === 4)
-        {{
-            '<span class="badge bg-primary">',$user->role->name,'</span>'
-        }}
-        @endif
+        @unless(is_null($user->employee))
+            <span class="badge bg-inverse">{{ $user->employee->branch->name}} </span>
+            <span class="badge bg-default">{{ $user->employee->department->name}} </span>
+        @endunless
+        {{ Form::role($user->role->id, $user->role->present()->prettyRoleName) }}
     </td>
+
     <td>
         <span class="text-muted">{{$user->present()->lastLoginHuman }}</span>
     </td>
-    <td>{{
-        $user->recstat === 'A' ?
-            '<span class="badge bg-success">Yes</span>'
-            :
-            '<span class="badge bg-danger">No</span>'
-        }}
-    </td>
+
+    <td>{{ Form::recstat($user->recstat) }}</td>
+
     <td class="action-btn">
         {{-- Shows when User is not activated --}}
         @unless( empty($user->activation_code))

@@ -125,7 +125,7 @@ return array(
     'Laracasts\Commander\CommanderServiceProvider',
     'Acme\Providers\EventServiceProvider',
     'Chumper\Datatable\DatatableServiceProvider'
-	),
+    ),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -192,7 +192,8 @@ return array(
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
     'Flash'             => 'Laracasts\Flash\Flash',
-    'Datatable'         => 'Chumper\Datatable\Facades\DatatableFacade'
+    'Datatable'         => 'Chumper\Datatable\Facades\DatatableFacade',
+    'Carbon'            => 'Carbon\Carbon'
 	),
 
 );

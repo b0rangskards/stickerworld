@@ -18,7 +18,6 @@ class NewDepartmentCest
 
     public function try_to_add_new_department_with_valid_credentials(FunctionalTester $I)
     {
-
         $I->am('an admin user');
 
         $I->wantTo('add new department');

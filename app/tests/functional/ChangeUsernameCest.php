@@ -17,7 +17,7 @@ class ChangeUsernameCest
     {
         $myPassword = 'mypassword1234';
 
-        $this->user = $I->have('User', ['password' => $myPassword, 'recstat' => 'A']);
+        $this->user = $I->have('User', ['role_id' => 1, 'password' => $myPassword, 'recstat' => 'A']);
 
         $I->login($this->user->username, $myPassword);
     }

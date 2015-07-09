@@ -8,7 +8,10 @@ class RegistrationForm extends FormValidator {
 
         'role_id' => 'required|numeric|exists:roles,id',
 
-        'email' => 'required|email|unique:users'
+        'emp_id'  => 'numeric|exists:employees,id',
+
+        'email'   => 'required|email|unique:users'
 
     ];
+
 } 

@@ -7,9 +7,21 @@
             <li>
                 <i class="fa fa-home"></i>
                 <a href="/dashboard">Dashboard</a>
-                <i class="fa fa-angle-right"></i>
             </li>
-            <li class="active">{{$currentPage}}</li>
+            @if( !is_array($currentPage))
+                <i class="fa fa-angle-right"></i>
+                <li class="active">{{$currentPage}}</li>
+            @else
+                @foreach($currentPage as $pageName => $page)
+                    <i class="fa fa-angle-right"></i>
+                    @if(isset($page['url']))
+                        <li class="{{isset($page['isCurrentPage']) ? 'active' : ''}}"><a href="{{$page['url']}}">{{$pageName}}</a></li>
+                    @else
+                        <li class="{{isset($page['isCurrentPage']) ? 'active' : ''}}">{{$pageName}}</li>
+                    @endif
+
+                @endforeach
+            @endif
         </ol>
     </div><!-- /.breadcrumb-wrapper -->
 </div>

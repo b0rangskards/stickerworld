@@ -46,7 +46,6 @@
                                                 {{--<option value="100">100</option>--}}
                                             {{--</select>records per page</label>--}}
                                     {{--</div>--}}
-
                                 {{--</div>--}}
 
                              <div class="col-md-4 pull-right reset-padding">
@@ -70,10 +69,10 @@
     </div>
 
         <div class="row">
-            <div class="col-md-12">
-                <div class="row-fluid">
-                    <div class="column">
-                        <div class="row">
+            <div class="container">
+                <div class="container-fluid">
+                    {{--<div class="column">--}}
+                        <div class="row col-md-offset-1">
                         @if($branches->count())
                             @foreach($branches as $index => $branch)
                                 @include('branches.partials.branch-thumbnail')
@@ -84,7 +83,7 @@
                             </div>
                         @endif
                         </div>
-                    </div>
+                    {{--</div>--}}
                 </div>
                 {{ $branches->links() }}
             </div>

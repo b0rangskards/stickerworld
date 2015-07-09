@@ -24,6 +24,8 @@ class ResendUserActivationEmailCest
         $I->seeEmailCount(1);
 
         $this->user = User::whereEmail($this->email)->first();
+
+//        dd($this->user->activation_code);
     }
 
     public function try_to_resend_user_activation_email(FunctionalTester $I)
@@ -36,7 +38,11 @@ class ResendUserActivationEmailCest
 
 //        $I->canSee($this->user->username, 'tr:nth-child(1) td');
 
-        $I->click( UsersPage::$resendButton);
+//        $I->click( UsersPage::$resendButton);
+        $I->sendAjaxPostRequest(URL::route('resend_email_user_path'),
+            [
+                'user_id' => $this->user->id
+            ]);
 
         $I->seeEmailCount(2);
     }

@@ -3,14 +3,6 @@
 class DatabaseSeeder extends Seeder
 {
 
-    private $tables = [
-        'roles',
-        'users',
-        'branches',
-        'departments',
-        'employees'
-    ];
-
     /**
      * Run the database seeds.
      *
@@ -31,7 +23,8 @@ class DatabaseSeeder extends Seeder
         $this->setSQLMode();
 
         foreach ( $this->tables as $tableName ) {
-            $tableSeeder = ucfirst($tableName) . 'TableSeeder';
+
+            $tableSeeder = ucfirst(Str::camel($tableName)) . 'TableSeeder';
             $this->call($tableSeeder);
         }
 
@@ -48,6 +41,17 @@ class DatabaseSeeder extends Seeder
 
         $this->setForeignKeyChecks(true);
     }
+
+    private $tables = [
+        'branches',
+        'departments',
+        'roles',
+        'users',
+        'employees',
+        'permission_groups',
+        'permissions',
+        'permission_role'
+    ];
 
     public function setSQLMode($value = 'NO_AUTO_VALUE_ON_ZERO')
     {

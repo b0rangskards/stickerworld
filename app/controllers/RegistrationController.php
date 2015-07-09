@@ -1,17 +1,23 @@
 <?php
 
+use Acme\AccessControl\Roles\RoleRepository;
 use Acme\Forms\RegistrationForm;
+use Acme\Helpers\ViewDataHelper;
 use Acme\Registration\InvalidActivationCodeException;
 use Acme\Registration\RegisterUserCommand;
 use Laracasts\Flash\Flash;
 
 class RegistrationController extends BaseController {
 
-    private $registrationForm;
+    protected $registrationForm;
 
-    function __construct(RegistrationForm $registrationForm)
+    protected $roleRepository;
+
+    function __construct(RegistrationForm $registrationForm, RoleRepository $roleRepository)
     {
         $this->registrationForm = $registrationForm;
+
+        $this->roleRepository = $roleRepository;
     }
 
     /**
@@ -22,14 +28,22 @@ class RegistrationController extends BaseController {
 	 */
 	public function create()
 	{
-        $pageTitle = 'Register User';
+        $currentPage = [
+            'Users' => [
+                'url' => URL::route('users_index_path')
+            ],
+            'Register User' => [
+                'isCurrentPage' => true
+            ]
+        ];
+        $viewData = ViewDataHelper::createViewHeaderData('Users', 'Registration', $currentPage, 'fa fa-user');
 
-        // Get Roles for form button group
-        $roles = Role::orderBy('id')->get();
+        $viewData = array_merge($viewData, [
+           'employees' => Employee::nonUsers()->get(),
+           'roles'     => $this->roleRepository->getRoles()
+        ]);
 
-		return View::make('registration.create',
-            ['roles' => $roles, 'pageTitle' => $pageTitle]
-        );
+		return View::make('registration.create', $viewData);
 	}
 
 	/**
@@ -44,7 +58,7 @@ class RegistrationController extends BaseController {
 
         $this->execute(RegisterUserCommand::class);
 
-        Flash::success('User Successfully Registered. An Email was sent to User.');
+        Flash::success('User Successfully Registered. An Email was sent to User for activation.');
 
         return Redirect::back();
     }

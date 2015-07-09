@@ -3,6 +3,7 @@
 use Acme\Forms\ChangeEmailForm;
 use Acme\Forms\ChangePasswordForm;
 use Acme\Forms\ChangeUsernameForm;
+use Acme\Helpers\DataHelper;
 use Acme\Users\UserProfile\ChangeEmailCommand;
 use Acme\Users\UserProfile\ChangePasswordCommand;
 use Acme\Users\UserProfile\ChangeUsernameCommand;
@@ -33,9 +34,7 @@ class UserProfileController extends \BaseController {
 	 */
 	public function index($username)
 	{
-        $user = User::whereUsername($username)->first();
-
-        if ($user)
+        if ( User::whereUsername($username)->first() )
         {
             return View::make('user_profile.index',
                 ['pageTitle' => 'Profile']
@@ -49,7 +48,6 @@ class UserProfileController extends \BaseController {
     {
         try
         {
-
             $this->changeUsernameForm->validate(
                 [
                     'id' => Input::get('pk'),
@@ -104,11 +102,7 @@ class UserProfileController extends \BaseController {
         }catch( Laracasts\Validation\FormValidationException $exception) {
             $errors = [];
 
-            if(is_object($exception->getErrors())){
-                $errors = $exception->getErrors()->toArray();
-            }else{
-                $errors = $exception->getErrors();
-            }
+            $errors = DataHelper::getErrorDataFromException($exception);
 
             return Response::json($errors, 400);
         }

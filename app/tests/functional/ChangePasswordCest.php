@@ -16,7 +16,7 @@ class ChangePasswordCest
 
     public function _before(FunctionalTester $I)
     {
-        $this->user = $I->have('User', ['password' => $this->currentPassword, 'recstat' => 'A']);
+        $this->user = $I->have('User', ['role_id' => 1, 'password' => $this->currentPassword, 'recstat' => 'A']);
 
         $I->login($this->user->username, $this->currentPassword);
     }

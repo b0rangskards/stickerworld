@@ -17,7 +17,7 @@ class UpdateBranchInformationForm extends FormValidator {
         'id' => 'required|exists:branches',
         'name' => 'required|min:3',
         'address' => 'required|min:10',
-        'contact_no' => 'required|min:3|regex:/^([0-9\s\-\+\(\)]*)$/',
+        'contact_no' => 'required|min:3|contact_no',
         'lat' => 'numeric',
         'lng' => 'numeric'
 

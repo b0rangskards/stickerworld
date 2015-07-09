@@ -13,6 +13,8 @@ class RegistrationPage
 
     public static $formSubmitButton = 'Register User';
 
+    public static $tableName = 'users';
+
     /**
      * Basic route example for your current URL
      * You can append any additional parameter to URL

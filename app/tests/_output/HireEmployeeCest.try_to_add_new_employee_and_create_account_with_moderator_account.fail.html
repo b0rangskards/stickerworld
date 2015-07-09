@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="shortcut icon" href="http://localhost/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="http://localhost/favicon.ico" type="image/x-icon">
+
+    <title>Employee New - Stickerworld</title>
+
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost/css/vendor.min.css">
+
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost/css/admin.min.css">
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
+    <script src="http://localhost/js/vendor.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+
+    <script src="http://localhost/js/admin.min.js"></script>
+
+</head>
+<body>
+
+    <div id="container">
+                <!--header start-->
+<header class="header fixed-top clearfix">
+<!--logo start-->
+<div class="brand">
+
+    <a href="http://localhost/dashboard" class="logo">
+        <img src="http://localhost/images/company-logo.png" alt="" />
+    </a>
+    <div class="sidebar-toggle-box">
+        <div class="fa fa-bars"></div>
+    </div>
+</div>
+<!--logo end-->
+
+<div class="nav notify-row" id="top_menu">
+    <!--  notification start -->
+    <ul class="nav top-menu">
+        <!-- settings start -->
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <i class="fa fa-tasks"></i>
+                <span class="badge bg-success">8</span>
+            </a>
+            <ul class="dropdown-menu extended tasks-bar">
+                <li>
+                    <p class="">You have 8 pending tasks</p>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-info clearfix">
+                            <div class="desc pull-left">
+                                <h5>Target Sell</h5>
+                                <p>25% , Deadline  12 June’13</p>
+                            </div>
+                                    <span class="notification-pie-chart pull-right" data-percent="45">
+                            <span class="percent"></span>
+                            </span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-info clearfix">
+                            <div class="desc pull-left">
+                                <h5>Product Delivery</h5>
+                                <p>45% , Deadline  12 June’13</p>
+                            </div>
+                                    <span class="notification-pie-chart pull-right" data-percent="78">
+                            <span class="percent"></span>
+                            </span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-info clearfix">
+                            <div class="desc pull-left">
+                                <h5>Payment collection</h5>
+                                <p>87% , Deadline  12 June’13</p>
+                            </div>
+                                    <span class="notification-pie-chart pull-right" data-percent="60">
+                            <span class="percent"></span>
+                            </span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-info clearfix">
+                            <div class="desc pull-left">
+                                <h5>Target Sell</h5>
+                                <p>33% , Deadline  12 June’13</p>
+                            </div>
+                                    <span class="notification-pie-chart pull-right" data-percent="90">
+                            <span class="percent"></span>
+                            </span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="external">
+                    <a href="#">See All Tasks</a>
+                </li>
+            </ul>
+        </li>
+        <!-- settings end -->
+        <!-- inbox dropdown start-->
+        <li id="header_inbox_bar" class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <i class="fa fa-envelope-o"></i>
+                <span class="badge bg-important">4</span>
+            </a>
+            <ul class="dropdown-menu extended inbox">
+                <li>
+                    <p class="red">You have 4 Mails</p>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="photo"><img alt="avatar" src="" /></span>
+                                <span class="subject">
+                                <span class="from">Jonathan Smith</span>
+                                <span class="time">Just now</span>
+                                </span>
+                                <span class="message">
+                                    Hello, this is an example msg.
+                                </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="photo"><img alt="avatar" src="" /></span>
+                                <span class="subject">
+                                <span class="from">Jane Doe</span>
+                                <span class="time">2 min ago</span>
+                                </span>
+                                <span class="message">
+                                    Nice admin template
+                                </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="photo"><img alt="avatar" src="" /></span>
+                                <span class="subject">
+                                <span class="from">Tasi sam</span>
+                                <span class="time">2 days ago</span>
+                                </span>
+                                <span class="message">
+                                    This is an example msg.
+                                </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="photo"><img alt="avatar" src="" /></span>
+                                <span class="subject">
+                                <span class="from">Mr. Perfect</span>
+                                <span class="time">2 hour ago</span>
+                                </span>
+                                <span class="message">
+                                    Hi there, its a test
+                                </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">See all messages</a>
+                </li>
+            </ul>
+        </li>
+        <!-- inbox dropdown end -->
+        <!-- notification dropdown start-->
+        <li id="header_notification_bar" class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+
+                <i class="fa fa-bell-o"></i>
+                <span class="badge bg-warning">3</span>
+            </a>
+            <ul class="dropdown-menu extended notification">
+                <li>
+                    <p>Notifications</p>
+                </li>
+                <li>
+                    <div class="alert alert-info clearfix">
+                        <span class="alert-icon"><i class="fa fa-bolt"></i></span>
+                        <div class="noti-info">
+                            <a href="#"> Server #1 overloaded.</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="alert alert-danger clearfix">
+                        <span class="alert-icon"><i class="fa fa-bolt"></i></span>
+                        <div class="noti-info">
+                            <a href="#"> Server #2 overloaded.</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="alert alert-success clearfix">
+                        <span class="alert-icon"><i class="fa fa-bolt"></i></span>
+                        <div class="noti-info">
+                            <a href="#"> Server #3 overloaded.</a>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </li>
+        <!-- notification dropdown end -->
+    </ul>
+    <!--  notification end -->
+</div>
+<div class="top-nav clearfix">
+    <!--search & user info start-->
+    <ul class="nav pull-right top-menu">
+        <li>
+            <input type="text" class="form-control search" placeholder=" Search">
+        </li>
+        <!-- user login dropdown start-->
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <img alt="" src="http://localhost/images/icon-user-default.png" />
+                <span class="username"> cummerata.romaine </span>
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu extended logout">
+                <li>
+                    <a href="http://localhost/profile/cummerata.romaine"><i class=" fa fa-user"></i>Profile</a>
+                </li>
+                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                <li><a href="http://localhost/logout"><i class="fa fa-sign-out"></i> Log Out</a></li>
+            </ul>
+        </li>
+    </ul>
+    <!--search & user info end-->
+</div>
+</header>
+<!--header end-->
+                <!--sidebar start-->
+<aside>
+    <div id="sidebar" class="nav-collapse">
+        <!-- sidebar menu start-->
+        <div class="leftside-navigation">
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a class="active" href="http://localhost/dashboard">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                                    <li class="sub-menu">
+                        <a href="javascript:;" class="">
+                            <i class="fa fa-user"></i>
+                            <span>Users</span>
+                        </a>
+                        <ul class="sub">
+
+                                                            <li class="">
+                                    <a href="http://localhost/register">Register New User</a>
+                                </li>
+                            
+                                                            <li class="">
+                                    <a href="http://localhost/user/users">View All Users</a>
+                                </li>
+                            
+                                                    </ul>
+                    </li>
+                
+                                    <li class="sub-menu">
+
+                                            <a href="http://localhost/branch/branches" id="branches-nav-btn" class="">
+                            <i class="fa fa-home"></i>
+                            <span>Branches</span>
+                        </a>
+                    
+                    </li>
+                
+
+                                    <li class="sub-menu">
+
+                                            <a href="http://localhost/department/departments" id="departments-nav-btn" class="">
+                            <i class="fa fa-home"></i>
+                            <span>Departments</span>
+                        </a>
+                    
+                    </li>
+                
+                                    <li class="sub-menu">
+                        <a href="javascript:;" class="active">
+                            <i class="fa fa-user"></i>
+                            <span>Employees</span>
+                        </a>
+                        <ul class="sub">
+
+                                                            <li class="active">
+                                    <a href="http://localhost/employee/new">New Employee</a>
+                                </li>
+                            
+                                                            <li class="">
+                                    <a href="http://localhost/employee/employees">View All Employees</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+                                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-retweet"></i>
+                            <span>Suppliers</span>
+                        </a>
+                        <ul class="sub">
+                        </ul>
+                    </li>
+                
+                <li>
+                    <a href="fontawesome.html">
+                        <i class="fa fa-th"></i>
+                        <span>Logs</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-bullhorn"></i>
+                        <span>Reports</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="basic_table.html">Basic Table</a></li>
+                        <li><a href="responsive_table.html">Responsive Table</a></li>
+                        <li><a href="dynamic_table.html">Dynamic Table</a></li>
+                        <li><a href="editable_table.html">Editable Table</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+        <!-- sidebar menu end-->
+    </div>
+</aside>
+<!--sidebar end-->
+                <section id="main-content">
+            <section class="wrapper">
+
+                
+<div class="header-content">
+    <h2><i class="fa fa-male"></i> Employees <span> Hire Employee</span></h2>
+    <div class="breadcrumb-wrapper hidden-xs">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="/dashboard">Dashboard</a>
+            </li>
+                                                <i class="fa fa-angle-right"></i>
+                                            <li class=""><a href="http://localhost/employee/employees">Employees</a></li>
+                    
+                                    <i class="fa fa-angle-right"></i>
+                                            <li class="active">Hire Employee</li>
+                    
+                                    </ol>
+    </div><!-- /.breadcrumb-wrapper -->
+</div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+                <div class="panel-body">
+
+                                <div class="alert alert-info">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+            Welcome back!
+        </div>
+    
+                    <div class="position-center">
+
+                                                
+                        <div class="form">
+                            <form method="POST" action="http://localhost/employee/new" accept-charset="UTF-8" class="form-horizontal" role="form" novalidate="novalidate" enctype="multipart/form-data"><input name="_token" type="hidden">
+
+                                                              <div class="form-group">
+                                    <label for="firstname" class="control-label col-lg-3">Firstname</label>
+                                    <div class="col-lg-6">
+                                        <input class="form-control" required="required" name="firstname" type="text" id="firstname">
+                                        <p class="help-block"></p>
+                                    </div>
+                               </div>
+
+                                                              <div class="form-group">
+                                    <label for="middlename" class="control-label col-lg-3">Middlename</label>
+                                    <div class="col-lg-6">
+                                        <input class="form-control" required="required" name="middlename" type="text" id="middlename">
+                                        <p class="help-block"></p>
+                                    </div>
+                               </div>
+
+                                                              <div class="form-group">
+                                    <label for="lastname" class="control-label col-lg-3">Lastname</label>
+                                    <div class="col-lg-6">
+                                        <input class="form-control" required="required" name="lastname" type="text" id="lastname">
+                                        <p class="help-block"></p>
+                                    </div>
+                               </div>
+
+                               <div class="form-group">
+                                    <label for="gender" class="control-label col-lg-3">Gender</label>
+                                    <div class="col-lg-6">
+                                                                                <div class="btn-group" data-toggle="buttons">
+                                                                                             <label class="btn btn-default">
+                                                    <input type="radio" value="male" name="gender" >Male
+                                                </label>
+                                                                                             <label class="btn btn-default">
+                                                    <input type="radio" value="female" name="gender" >Female
+                                                </label>
+                                                                                     </div>
+                                        <p class="help-block"></p>
+                                    </div>
+                               </div>
+
+                                                              <div class="form-group">
+                                   <label for="birthdate" class="control-label col-lg-3">Birth Date</label>
+                                   <div class="col-lg-4">
+
+                                       <div class="input-append date dpBdate">
+                                       <input class="form-control" size="10" readonly="readonly" name="birthdate" type="text" id="birthdate">
+                                          <span class="input-group-btn add-on">
+                                            <button class="btn btn-primary" type="button" style="height: 35px;"><i class="fa fa-calendar"></i></button>
+                                          </span>
+                                       </div>
+
+                                       <p class="help-block"></p>
+                                   </div>
+                               </div>
+
+                               <div class="form-group">
+                                    <label for="address" class="control-label col-lg-3">Address</label>
+                                    <div class="col-lg-6">
+                                    <textarea class="form-control" required="required" rows="3" name="address" cols="50" id="address"></textarea>
+                                        <p class="help-block"></p>
+                                    </div>
+                               </div>
+
+                               <div class="form-group">
+                                    <label for="contact_no" class="control-label col-lg-3">Contact No.</label>
+                                    <div class="col-lg-6">
+                                        <input class="form-control" required="required" name="contact_no" type="text" id="contact_no">
+                                        <p class="help-block"></p>
+                                    </div>
+                               </div>
+
+                               <div class="form-group">
+                                  <label for="employee_photo" class="control-label col-lg-3">Select Employee Picture</label>
+
+                                   <div class="col-lg-6">
+                                       <div class="fileupload fileinput-new" data-provides="fileinput" style="margin-bottom: 10px;">
+                                           <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                               <img src="/images/no_img.png" alt="" />
+                                           </div>
+                                           <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                           <div>
+                                                      <span class="btn btn-white btn-file">
+                                                      <span class="fileinput-new"><i class="fa fa-paper-clip"></i> Select image</span>
+                                                      <span class="fileinput-exists"><i class="fa fa-undo"></i> Change</span>
+                                                      <input class="default" name="employee_photo" type="file" id="employee_photo">
+                                                      </span>
+                                               <a href="#" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fa fa-trash"></i> Remove</a>
+                                           </div>
+                                       </div>
+
+                                       <span class="label label-info">Optional</span>
+                                       <span class="label label-danger">NOTE!</span>
+                                                <span>
+                                                Only image files are allowed to upload.
+                                                </span>
+                                   </div>
+                               </div>
+
+                               <hr/>
+
+                                                                  <div class="form-group">
+                                        <label for="br_id" class="control-label col-lg-3">Select Branch</label>
+                                        <div class="col-lg-6">
+                                            <select name="br_id" class="form-control m-bot15">
+                                                                                                    <option value="1">North Celestinoton</option>
+                                                                                                    <option value="2">West Zakaryburgh</option>
+                                                                                                    <option value="3">North Oda</option>
+                                                                                                    <option value="4">Kuphalbury</option>
+                                                                                                    <option value="5">South Joannyfurt</option>
+                                                                                                    <option value="6">Keelingshire</option>
+                                                                                                    <option value="7">East Garret</option>
+                                                                                                    <option value="8">North Grace</option>
+                                                                                                    <option value="9">New Guadalupehaven</option>
+                                                                                                    <option value="10">Port Darrelberg</option>
+                                                                                                    <option value="11">Maximilianside</option>
+                                                                                                    <option value="12">Rileyview</option>
+                                                                                                    <option value="13">Bashirianfurt</option>
+                                                                                                    <option value="14">Aylaport</option>
+                                                                                                    <option value="15">New Roslynchester</option>
+                                                                                                    <option value="16">Weissnatmouth</option>
+                                                                                                    <option value="17">Ryleeview</option>
+                                                                                                    <option value="18">Andersonview</option>
+                                                                                                    <option value="19">North Bradenside</option>
+                                                                                                    <option value="20">New Serena</option>
+                                                                                                    <option value="21">Reynoldsmouth</option>
+                                                                                                    <option value="22">Heaneyshire</option>
+                                                                                                    <option value="23">New Eliane</option>
+                                                                                                    <option value="24">North Lenny</option>
+                                                                                                    <option value="25">Lake Enosland</option>
+                                                                                                    <option value="26">Port Naomie</option>
+                                                                                                    <option value="27">Heloisebury</option>
+                                                                                                    <option value="28">Caspershire</option>
+                                                                                                    <option value="29">New Onastad</option>
+                                                                                                    <option value="30">Romagueraside</option>
+                                                                                                    <option value="31">Kenbury</option>
+                                                                                                    <option value="32">Kemmerborough</option>
+                                                                                                    <option value="33">Klingview</option>
+                                                                                                    <option value="34">Hegmannport</option>
+                                                                                                    <option value="35">New Anastasia</option>
+                                                                                                    <option value="36">Port Joey</option>
+                                                                                                    <option value="37">New Sebastian</option>
+                                                                                            </select>
+                                            <p class="help-block"></p>
+                                        </div>
+                                   </div>
+                               
+                               <div class="form-group">
+                                    <label for="dept_id" class="control-label col-lg-3">Select Department</label>
+                                    <div class="col-lg-6">
+                                        <select class="form-control m-bot15" id="dept_id" name="dept_id"><option value="1">Accounting</option><option value="2">Sales</option><option value="3">IT &amp; Design</option><option value="4">Production</option><option value="5">Logistics</option></select>
+                                        <p class="help-block"></p>
+                                    </div>
+                               </div>
+
+                               <div class="form-group">
+                                    <label for="designation" class="control-label col-lg-3">Designation</label>
+                                    <div class="col-lg-6">
+                                        <input class="form-control" required="required" name="designation" type="text" id="designation">
+                                        <p class="help-block"></p>
+                                    </div>
+                               </div>
+
+                               <div class="form-group">
+                                   <label for="hired_date" class="control-label col-lg-3">Hired Date</label>
+                                   <div class="col-lg-4">
+
+                                       <div class="input-append date hiredDate">
+                                       <input class="form-control" size="10" readonly="readonly" name="hired_date" type="text" value="2015-07-10" id="hired_date">
+                                          <span class="input-group-btn add-on">
+                                            <button class="btn btn-primary" type="button" style="height: 35px;"><i class="fa fa-calendar"></i></button>
+                                          </span>
+                                       </div>
+
+                                       <p class="help-block"></p>
+                                   </div>
+                               </div>
+
+                               <hr/>
+
+                               <div class="form-group ">
+                                   <label for="agree" class="control-label col-lg-3 col-sm-3">Create Account?</label>
+                                   <div class="col-lg-6 col-sm-9">
+                                       <div class="flat-grey single-row" id="hire-emp-create-user-toggle">
+                                           <div class="radio ">
+                                               <input type="checkbox" name="create_account" value="checked">
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+
+                                <div id="hire-emp-users-info" style="display:none;">
+                                    <div class="form-group">
+                                         <label for="role_id" class="control-label col-lg-3">Select Role</label>
+                                         <div class="col-lg-6">
+
+                                                <div class="btn-group" data-toggle="buttons">
+                                                                                                             <label class="btn btn-default">
+                                                            <input type="radio" value="3" name="role_id" > Manager
+                                                        </label>
+                                                                                                             <label class="btn btn-default">
+                                                            <input type="radio" value="4" name="role_id" > Estimator
+                                                        </label>
+                                                                                                             <label class="btn btn-default">
+                                                            <input type="radio" value="5" name="role_id" > Accountant
+                                                        </label>
+                                                                                                     </div>
+
+                                             <p class="help-block"></p>
+                                         </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                         <label for="usr_email" class="control-label col-lg-3">Email</label>
+                                         <div class="col-lg-6">
+                                             <input class="form-control" id="usr_email" name="email" type="text">
+                                             <p class="help-block"></p>
+                                         </div>
+                                    </div>
+                                </div>
+
+                               <hr/>
+
+                                <div class="form-group">
+                                    <div class="col-lg-offset-3 col-lg-6">
+                                        <input class="btn btn-primary" id="btn-hire-employee" type="submit" value="Hire Employee">
+                                        <button class="btn btn-default" type="button">Cancel</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+
+
+
+            </section>
+        </section>
+    </div>
+
+</body>
+</html>

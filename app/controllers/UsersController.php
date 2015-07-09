@@ -1,21 +1,27 @@
 <?php
 
 use Acme\Activation\ResendUserActivationCommand;
+use Acme\Helpers\ViewDataHelper;
 use Acme\Users\DeactivateUserCommand;
 use Acme\Users\ReactivateUserCommand;
 use Acme\Users\UserRepository;
+use Chumper\Datatable\Datatable;
 
 class UsersController extends BaseController {
 
     private $userRepository;
 
+    private $dataTable;
+
     /**
      *
      * @param UserRepository $userRepository
      */
-    function __construct(UserRepository $userRepository)
+    function __construct(UserRepository $userRepository, Datatable $dataTable)
     {
         $this->userRepository = $userRepository;
+
+        $this->dataTable = $dataTable;
     }
 
     /**
@@ -25,14 +31,14 @@ class UsersController extends BaseController {
 	 */
 	public function index()
 	{
-        $data['headerTitle'] = 'Users';
-        $data['subTitle'] = 'Management';
-        $data['currentPage'] = 'Manage Users';
+        $viewData = ViewDataHelper::createViewHeaderData('Users', 'Management', 'Manage Users', 'fa fa-users');
 
-        $data['data'] = $this->userRepository->getTableData();
-        $data['columns'] = $this->userRepository->getTableColumns();
+        $viewData = array_merge($viewData, [
+           'data'       => $this->userRepository->getTableData(),
+           'columns'    => $this->userRepository->getTableColumns()
+        ]);
 
-		return View::make('users.index', $data);
+		return View::make('users.index', $viewData);
 	}
 
 
@@ -74,5 +80,45 @@ class UsersController extends BaseController {
 
         return Response::json();
     }
+
+//    public function getDatatable()
+//    {
+//        return $this->dataTable->collection($this->userRepository->getMembers())
+//            ->showColumns('Username', 'Role', 'Last Login', 'Activated')
+//            ->addColumn('Username', function ($model) {
+//                return '<span class="weight600">' . $model->username . '</span>';
+//            })
+//            ->addColumn('Role', function($model) {
+//                $class = "";
+//                switch($model->role->id) {
+//                    case 1:
+//                        $class = 'bg-info';
+//                        break;
+//                    case 2:
+//                        $class = 'bg-success';
+//                        break;
+//                    case 3:
+//                        $class = 'bg-warning';
+//                        break;
+//                    case 4:
+//                        $class = 'bg-primary';
+//                        break;
+//                    case 5:
+//                        $class = 'bg-default';
+//                }
+//                return '<span class="badge '.$class.'">'.$model->role->present()->prettyRoleName.'</span>';
+//            })
+//            ->addColumn('Last Login', function ($model) {
+//                return '<span class="text-muted">' . $model->present()->lastLoginHuman . '</span>';
+//            })
+//            ->addColumn('Activated', function ($model) {
+//                return $model->recstat === 'A'
+//                    ? '<span class="badge bg-success">Yes</span>'
+//                    : '<span class="badge bg-danger">No</span>';
+//            })
+//            ->searchColumns('username')
+//            ->orderColumns('username')
+//            ->make();
+//    }
 
 }

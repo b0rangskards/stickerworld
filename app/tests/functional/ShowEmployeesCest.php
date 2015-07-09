@@ -27,6 +27,9 @@ class ShowEmployeesCest
 
         $I->amOnPage(EmployeesPage::$URL);
 
-        $I->seeNumberOfElements(EmployeesPage::$tableRow, $this->noOfEmployees);
+        foreach($this->employees as $employee){
+            $I->see($employee->name, EmployeesPage::$tableRow);
+        }
+//        $I->seeNumberOfElements(EmployeesPage::$tableRow, $this->noOfEmployees);
     }
 }

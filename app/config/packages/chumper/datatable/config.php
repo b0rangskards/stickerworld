@@ -21,7 +21,7 @@ return array(
         |
         */
 
-        'class' => 'display table table-bordered table-striped',
+        'class' => 'display table table-condensed table-striped',
 
         /*
         |--------------------------------------------------------------------------
@@ -49,7 +49,6 @@ return array(
         */
 
         'options' => array(
-
 
             "bProcessing" => true
 
