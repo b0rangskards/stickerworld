@@ -124,8 +124,12 @@ return array(
     'Laracasts\Flash\FlashServiceProvider',
     'Laracasts\Commander\CommanderServiceProvider',
     'Acme\Providers\EventServiceProvider',
-    'Chumper\Datatable\DatatableServiceProvider'
-    ),
+    'Chumper\Datatable\DatatableServiceProvider',
+	'Acme\Projects\ProjectServiceProvider',
+	'Moltin\Cart\CartServiceProvider',
+	'Acme\Projects\CartMaterialsServiceProvider',
+	'Acme\Providers\NotificationServiceProvider'
+	),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -191,9 +195,13 @@ return array(
 		'URL'               => 'Illuminate\Support\Facades\URL',
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
-    'Flash'             => 'Laracasts\Flash\Flash',
-    'Datatable'         => 'Chumper\Datatable\Facades\DatatableFacade',
-    'Carbon'            => 'Carbon\Carbon'
+    'Flash'                     => 'Laracasts\Flash\Flash',
+    'Datatable'                 => 'Chumper\Datatable\Facades\DatatableFacade',
+    'Carbon'                    => 'Carbon\Carbon',
+    'DataHelper'                => 'Acme\Helpers\DataHelper',
+	'ProjectService'            => 'Acme\Facades\ProjectService',
+	'Cart'                      => 'Moltin\Cart\Facade',
+	'CartMaterials'             => 'Acme\Facades\CartMaterials'
 	),
 
 );

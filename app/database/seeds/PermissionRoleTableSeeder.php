@@ -36,6 +36,18 @@ class PermissionRoleTableSeeder extends Seeder {
         ]
     ];
 
+	public function run()
+	{
+		foreach ( $this->roles as $role )
+		{
+			$rolePermission = $role . 'Permissions';
+
+			$permissionIds = $this->getPermissions($this->{$rolePermission});
+
+			$this->addPermissions($this->{$rolePermission}['role']['id'], $permissionIds);
+		}
+	}
+
     /**
      * @param $pGroupName
      * @return array
@@ -46,12 +58,15 @@ class PermissionRoleTableSeeder extends Seeder {
 
         $pGroup = PermissionGroup::whereName($pGroupName)->first();
 
-        if ( $pGroup ) {
+        if ( $pGroup )
+        {
             $permissionIds = $pGroup->permissions()->lists('id');
 
             $permissions[] = $permissionIds;
+
             return $permissions;
         }
+
         return $permissions;
     }
 
@@ -61,13 +76,17 @@ class PermissionRoleTableSeeder extends Seeder {
 
         foreach($params as $index => $group) {
 
-            if( $index === 'except') {
-                foreach($group as $ind => $content) {
-                    if( $ind === 'group') {
+            if( $index === 'except')
+            {
+                foreach($group as $ind => $content)
+                {
+                    if( $ind === 'group')
+                    {
 
                         $pGroups = PermissionGroup::whereNotIn('name', $content)->lists('name');
 
-                        foreach($pGroups as $pGroupName) {
+                        foreach($pGroups as $pGroupName)
+                        {
                             $permissions[] = $this->getPermissionsByGroupName($pGroupName);
                         }
                     }
@@ -85,18 +104,6 @@ class PermissionRoleTableSeeder extends Seeder {
                 'role_id'       => $roleId,
                 'permission_id' => $id
             ]);
-        }
-    }
-
-    public function run()
-	{
-        foreach($this->roles as $role)
-        {
-            $rolePermission = $role . 'Permissions';
-
-            $permissionIds = $this->getPermissions($this->{$rolePermission});
-
-            $this->addPermissions($this->{$rolePermission}['role']['id'], $permissionIds);
         }
     }
 

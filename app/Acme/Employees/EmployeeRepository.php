@@ -1,8 +1,10 @@
 <?php  namespace Acme\Employees; 
 
 use Acme\Base\BaseRepositoryInterface;
+use DB;
 use Employee;
 use Session;
+use User;
 
 class EmployeeRepository implements BaseRepositoryInterface {
 
@@ -52,4 +54,19 @@ class EmployeeRepository implements BaseRepositoryInterface {
             ['column' => 'Action',      'width'  => '1']
         ];
     }
+
+	public function getEmployeeData($query, $designation, User $user)
+	{
+		return !isset($user->employee->br_id)
+			? Employee::
+				where('designation', $designation)
+				->where('firstname', 'like', "%$query%")
+				->get(['id', DB::raw('CONCAT(firstname, " ", lastname) AS fullname')])
+			: Employee::
+				where('designation', $designation)
+				->where('firstname', 'like', "%$query%")
+				->where('br_id', $user->employee->br_id)
+				->get(['id', DB::raw('CONCAT(firstname, " ", lastname) AS fullname')]);
+
+	}
 }

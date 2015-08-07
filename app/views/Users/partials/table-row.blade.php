@@ -6,7 +6,7 @@
     <td>
         @unless(is_null($user->employee))
             <span class="badge bg-inverse">{{ $user->employee->branch->name}} </span>
-            <span class="badge bg-default">{{ $user->employee->department->name}} </span>
+            <span class="badge bg-default">{{ $user->employee->department->name or "<span class='font-dark'>Unassigned</span>" }}</span>
         @endunless
         {{ Form::role($user->role->id, $user->role->present()->prettyRoleName) }}
     </td>

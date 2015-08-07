@@ -11,7 +11,7 @@ class UserActivationForm extends FormValidator {
      */
     protected $rules = [
 
-        'username' => 'required|alpha_dash|between:4,20|unique:users',
+        'username' => 'required|username|between:4,20|unique:users',
 
         'password' => 'required|alpha_num|min:6|confirmed',
 

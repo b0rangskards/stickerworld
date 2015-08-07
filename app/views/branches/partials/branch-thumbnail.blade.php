@@ -4,11 +4,11 @@
              <div class="prf-contacts">
                 <h2> <span><i class="fa fa-building"></i></span> branch</h2>
                 <div class="location-info">
-                    <p><b>{{$branch->name}}</b></p>
+                    <p><b>{{$branch->present()->prettyName}}</b></p>
                 </div>
                  <h2> <span><i class="fa fa-map-marker"></i></span> location</h2>
                  <div class="location-info">
-                     <p>{{$branch->address}}</p>
+                     <p>{{$branch->present()->prettyAddress}}</p>
                  </div>
                  <h2> <span><i class="fa fa-phone"></i></span> contacts</h2>
                  <div class="location-info">

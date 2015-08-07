@@ -10,6 +10,11 @@ class EmployeePresenter extends Presenter {
         return ucwords($fullName);
     }
 
+	public function shortFullName()
+	{
+		return ucwords($this->firstname. ' ' . $this->lastname);
+	}
+
     public function prettyDesignation()
     {
         return ucwords($this->designation);

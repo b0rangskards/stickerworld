@@ -41,7 +41,7 @@ class SessionsController extends \BaseController {
 
             Flash::message('Welcome back!');
 
-            return Redirect::intended('/dashboard');
+            return Redirect::route('dashboard');
 
         } catch (Laracasts\Validation\FormValidationException $exception) {
 
@@ -65,7 +65,7 @@ class SessionsController extends \BaseController {
 
         Flash::message('You have now been logged out.');
 
-        return Redirect::to('/login');
+        return Redirect::route('login_path');
     }
 
 }

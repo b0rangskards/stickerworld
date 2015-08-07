@@ -11,7 +11,7 @@ class EmployeesPage
 
     public static $updateEmployeeButton = 'a.update-employee-btn';
 
-    public static $tableRow = 'table.employees-table > tbody tr';
+    public static $tableRow = 'table#employees-table > tbody tr';
     /**
      * Declare UI map for this page here. CSS or XPath allowed.
      * public static $usernameField = '#username';

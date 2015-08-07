@@ -1,5 +1,7 @@
 <?php  namespace Acme\Forms; 
 
+use Employee;
+use Laracasts\Validation\FormValidationException;
 use Laracasts\Validation\FormValidator;
 
 class UpdateEmployeeForm extends FormValidator {
@@ -11,16 +13,20 @@ class UpdateEmployeeForm extends FormValidator {
      */
     protected $rules = [
 
-        'firstname'      => 'required|alpha_spaces',
-        'middlename'     => 'required|alpha_spaces',
-        'lastname'       => 'required|alpha_spaces',
+        'employee_id'    => 'required|numeric|exists:employees,id',
+        'department'     => 'numeric|exists:departments,id',
+        'branch'         => 'required|numeric|exists:branches,id',
+        'firstname'      => 'required|name',
+        'middlename'     => 'required|name',
+        'lastname'       => 'required|name',
         'gender'         => 'required|alpha|gender',
         'birthdate'      => 'required|date|date_format:Y-m-d|before:now',
         'address'        => 'required',
         'employee_photo' => 'mimes:jpeg,png',
         'designation'    => 'required|alpha_spaces',
         'hired_date'     => 'required|date|date_format:Y-m-d',
-        'role_id'        => 'required_if:create_account,checked|exists:roles,id'
+        'role'           => 'required_if:create_account,checked|exists:roles,id',
+        'email'          => 'required_if:create_account,checked|email|unique:users'
 
     ];
 
@@ -41,18 +47,25 @@ class UpdateEmployeeForm extends FormValidator {
             $this->getValidationMessages()
         );
 
-        $department = Department::find($formData['id']);
-
-        $result = Department::whereRaw('name = ? and name != ?', [$formData['name'], $department->name])->get();
-
-        if ( !$result->isEmpty() ) {
-            $error = ['name' => ['The name is taken']];
-
-            throw new FormValidationException('Validation failed', $error);
-        }
-
         if ( $this->validation->fails() ) {
             throw new FormValidationException('Validation failed', $this->getValidationErrors());
+        }
+
+        // Check employee name if exist
+        $employee = Employee::find($formData['employee_id']);
+
+        if( !($employee->firstname == $formData['firstname'] ||
+              $employee->middlename == $formData['middlename'] ||
+              $employee->lastname == $formData['lastname']) )
+        {
+            $emp = Employee::where('firstname', $formData['firstname'])
+                ->where('middlename', $formData['middlename'])
+                ->where('lastname', $formData['lastname'])
+                ->get();
+
+            if ( !$emp->isEmpty() ) {
+                throw new FormValidationException('Validation failed', ['error' => 'Name already exists.']);
+            }
         }
 
         return true;

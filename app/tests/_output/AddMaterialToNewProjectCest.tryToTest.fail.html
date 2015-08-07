@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+    <meta charset="UTF-8" />
+
+    <link type="image/x-icon" href="http://stickerworld.dev/favicon.ico" rel="shortcut icon" />
+    <link type="image/x-icon" href="http://stickerworld.dev/favicon.ico" rel="icon" />
+
+    <title>Dashboard - Stickerworld</title>
+
+    <link href="http://stickerworld.dev/css/vendor.min.css" rel="stylesheet" type="text/css" media="all" />
+
+    <link href="http://stickerworld.dev/css/admin.min.css" rel="stylesheet" type="text/css" media="all" />
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script><script src="https://maps.gstatic.com/maps-api-v3/api/js/21/9/main.js"></script>
+
+    <script src="http://stickerworld.dev/js/vendor.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+
+    <script src="http://stickerworld.dev/js/admin.min.js"></script>
+
+</head>
+<body style="padding-bottom: 30px;">
+
+    <div id="container">
+                <!--header start-->
+<header class="header fixed-top clearfix">
+<!--logo start-->
+<div class="brand">
+
+    <a class="logo" href="http://stickerworld.dev">
+            </a>
+    <div class="sidebar-toggle-box">
+        <div class="fa fa-bars"></div>
+    </div>
+</div>
+<!--logo end-->
+
+<div id="top_menu" class="nav notify-row">
+    <!--  notification start -->
+    <ul class="nav top-menu">
+        <!-- settings start -->
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-tasks"></i>
+                <span class="badge bg-success">8</span>
+            </a>
+            <ul class="dropdown-menu extended tasks-bar">
+                <li>
+                    <p class="">You have 8 pending tasks</p>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-info clearfix">
+                            <div class="desc pull-left">
+                                <h5>Target Sell</h5>
+                                <p>25% , Deadline  12 June’13</p>
+                            </div>
+                                    <span data-percent="45" class="notification-pie-chart pull-right">
+                            <span class="percent"></span>
+                            </span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-info clearfix">
+                            <div class="desc pull-left">
+                                <h5>Product Delivery</h5>
+                                <p>45% , Deadline  12 June’13</p>
+                            </div>
+                                    <span data-percent="78" class="notification-pie-chart pull-right">
+                            <span class="percent"></span>
+                            </span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-info clearfix">
+                            <div class="desc pull-left">
+                                <h5>Payment collection</h5>
+                                <p>87% , Deadline  12 June’13</p>
+                            </div>
+                                    <span data-percent="60" class="notification-pie-chart pull-right">
+                            <span class="percent"></span>
+                            </span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-info clearfix">
+                            <div class="desc pull-left">
+                                <h5>Target Sell</h5>
+                                <p>33% , Deadline  12 June’13</p>
+                            </div>
+                                    <span data-percent="90" class="notification-pie-chart pull-right">
+                            <span class="percent"></span>
+                            </span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="external">
+                    <a href="#">See All Tasks</a>
+                </li>
+            </ul>
+        </li>
+        <!-- settings end -->
+        <!-- inbox dropdown start-->
+        <li class="dropdown" id="header_inbox_bar">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-envelope-o"></i>
+                <span class="badge bg-important">4</span>
+            </a>
+            <ul class="dropdown-menu extended inbox">
+                <li>
+                    <p class="red">You have 4 Mails</p>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="photo"><img src="" alt="avatar" /></span>
+                                <span class="subject">
+                                <span class="from">Jonathan Smith</span>
+                                <span class="time">Just now</span>
+                                </span>
+                                <span class="message">
+                                    Hello, this is an example msg.
+                                </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="photo"><img src="" alt="avatar" /></span>
+                                <span class="subject">
+                                <span class="from">Jane Doe</span>
+                                <span class="time">2 min ago</span>
+                                </span>
+                                <span class="message">
+                                    Nice admin template
+                                </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="photo"><img src="" alt="avatar" /></span>
+                                <span class="subject">
+                                <span class="from">Tasi sam</span>
+                                <span class="time">2 days ago</span>
+                                </span>
+                                <span class="message">
+                                    This is an example msg.
+                                </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="photo"><img src="" alt="avatar" /></span>
+                                <span class="subject">
+                                <span class="from">Mr. Perfect</span>
+                                <span class="time">2 hour ago</span>
+                                </span>
+                                <span class="message">
+                                    Hi there, its a test
+                                </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">See all messages</a>
+                </li>
+            </ul>
+        </li>
+        <!-- inbox dropdown end -->
+        <!-- notification dropdown start-->
+        <li class="dropdown" id="header_notification_bar">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+                <i class="fa fa-bell-o"></i>
+                <span class="badge bg-warning">3</span>
+            </a>
+            <ul class="dropdown-menu extended notification">
+                <li>
+                    <p>Notifications</p>
+                </li>
+                <li>
+                    <div class="alert alert-info clearfix">
+                        <span class="alert-icon"><i class="fa fa-bolt"></i></span>
+                        <div class="noti-info">
+                            <a href="#"> Server #1 overloaded.</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="alert alert-danger clearfix">
+                        <span class="alert-icon"><i class="fa fa-bolt"></i></span>
+                        <div class="noti-info">
+                            <a href="#"> Server #2 overloaded.</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="alert alert-success clearfix">
+                        <span class="alert-icon"><i class="fa fa-bolt"></i></span>
+                        <div class="noti-info">
+                            <a href="#"> Server #3 overloaded.</a>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </li>
+        <!-- notification dropdown end -->
+    </ul>
+    <!--  notification end -->
+</div>
+<div class="top-nav clearfix">
+    <!--search & user info start-->
+    <ul class="nav pull-right top-menu">
+        <li>
+            <input type="text" placeholder=" Search" class="form-control search" />
+        </li>
+        <!-- user login dropdown start-->
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="http://stickerworld.dev/images/icon-user-default.png" alt="" />
+                <span class="username"> manager </span>
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu extended logout">
+                <li>
+                    <a href="http://stickerworld.dev/profile/manager"><i class=" fa fa-user"></i>Profile</a>
+                </li>
+                <li><a href="http://stickerworld.dev/settings"><i class="fa fa-cog"></i>Settings</a></li>
+                <li>
+                    <form accept-charset="UTF-8" action="http://stickerworld.dev/logout" method="POST"><input type="hidden" value="DELETE" name="_method" /><input type="hidden" value="rp8wI2qQsVKyTu4Rlz5qB9zGsYEnYCrYHgHhHEyt" name="_token" />
+                        <button type="submit"><i class="fa fa-sign-out"></i>Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <!--search & user info end-->
+</div>
+</header>
+<!--header end-->
+                <!--sidebar start-->
+<aside>
+    <div class="nav-collapse" id="sidebar">
+        <!-- sidebar menu start-->
+        <div class="leftside-navigation" style="overflow: hidden;" tabindex="5000">
+            <ul id="nav-accordion" class="sidebar-menu">
+                <li>
+                    <a href="http://stickerworld.dev/dashboard" class="active">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                
+                
+
+                
+                                    <li class="sub-menu dcjq-parent-li">
+                        <a class="dcjq-parent" href="javascript:;">
+                            <i class="fa fa-users"></i>
+                            <span>Employees</span>
+                        <span class="dcjq-icon"></span></a>
+                        <ul class="sub" style="display: none;">
+
+                                                            <li class="">
+                                    <a href="http://stickerworld.dev/employee/new">New Employee</a>
+                                </li>
+                            
+                                                            <li class="">
+                                    <a href="http://stickerworld.dev/employee/employees">View All Employees</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+                                    <li class="sub-menu dcjq-parent-li">
+                        <a class="dcjq-parent" href="javascript:;">
+                            <i class="fa fa-truck"></i>
+                            <span>Suppliers</span>
+                        <span class="dcjq-icon"></span></a>
+                        <ul class="sub" style="display: none;">
+
+                                                            <li class="">
+                                    <a href="http://stickerworld.dev/supplier/new">New Supplier</a>
+                                </li>
+                            
+                                                            <li class="">
+                                    <a href="http://stickerworld.dev/supplier/suppliers">View All Suppliers</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+                                    <li class="sub-menu dcjq-parent-li">
+                        <a class="dcjq-parent" href="javascript:;">
+                            <i class="fa fa-cube"></i>
+                            <span>Items</span>
+                        <span class="dcjq-icon"></span></a>
+                        <ul class="sub" style="display: none;">
+
+                                                            <li class="">
+                                    <a href="http://stickerworld.dev/item/new">New Item</a>
+                                </li>
+                            
+                                                            <li class="">
+                                    <a href="http://stickerworld.dev/item/items">View All Items</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+                                    <li class="sub-menu dcjq-parent-li">
+                        <a class="dcjq-parent" href="javascript:;">
+                            <i class="fa fa-male"></i>
+                            <span>Clients</span>
+                        <span class="dcjq-icon"></span></a>
+                        <ul class="sub" style="display: none;">
+
+                                                            <li class="">
+                                    <a href="http://stickerworld.dev/client/new">New Client</a>
+                                </li>
+                            
+                                                            <li class="">
+                                    <a href="http://stickerworld.dev/client/clients">View All Clients</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+                                    <li class="sub-menu dcjq-parent-li">
+                        <a class="dcjq-parent" id="project-sidemenu-link" href="javascript:;">
+                            <i class="fa fa-exchange"></i>
+                            <span>Project</span>
+                        <span class="dcjq-icon"></span></a>
+                        <ul class="sub" style="display: none;">
+
+                                                            <li class="">
+                                    <a id="new-project-sidemenu-link" href="http://stickerworld.dev/project/new">New Project</a>
+                                </li>
+                            
+                                                            <li class="">
+                                    <a href="http://stickerworld.dev/project/projects">View Projects</a>
+                                </li>
+                            
+                                                                                                    
+                            <li class="">
+                                <a href="http://stickerworld.dev/project/labor-cost/labor-costs">Labor Costs</a>
+                            </li>
+
+                            <li class="">
+                                <a href="http://stickerworld.dev/project/logistics-cost/logistics-costs">Logistics Costs</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                
+                <li class="sub-menu dcjq-parent-li">
+                    <a href="javascript:;" class="dcjq-parent">
+                        <i class="fa fa-bullhorn"></i>
+                        <span>Reports</span>
+                    <span class="dcjq-icon"></span></a>
+                    <ul class="sub" style="display: none;">
+                        <li><a href="basic_table.html">Basic Table</a></li>
+                        <li><a href="responsive_table.html">Responsive Table</a></li>
+                        <li><a href="dynamic_table.html">Dynamic Table</a></li>
+                        <li><a href="editable_table.html">Editable Table</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+        <!-- sidebar menu end-->
+    <div id="ascrail2000" class="nicescroll-rails" style="width: 3px; z-index: auto; cursor: default; position: absolute; top: 0px; left: 237px; height: 686px; display: none;"><div style="position: relative; top: 0px; float: right; width: 3px; height: 0px; background-color: rgb(31, 181, 173); border: 0px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 0px;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails" style="height: 3px; z-index: auto; top: 683px; left: 0px; position: absolute; cursor: default; display: none;"><div style="position: relative; top: 0px; height: 3px; width: 0px; background-color: rgb(31, 181, 173); border: 0px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 0px;"></div></div></div>
+</aside>
+<!--sidebar end-->
+                <section id="main-content">
+            <section class="wrapper">
+
+                
+    <div class="alert alert-info">
+            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+
+            Welcome back!
+        </div>
+    
+    <div class="jumbotron text-center">
+        <h2>Welcome to Stickerworld!</h2>
+        <h1>buster</h1>
+    </div>
+
+
+            </section>
+        </section>
+    </div>
+
+<link href="http://stickerworld.dev/_debugbar/assets/stylesheets?1434382435" type="text/css" rel="stylesheet" />
+<script src="http://stickerworld.dev/_debugbar/assets/javascript?1434382435" type="text/javascript"></script>
+<script type="text/javascript">jQuery.noConflict(true);</script>
+<script type="text/javascript">
+var phpdebugbar = new PhpDebugBar.DebugBar();
+phpdebugbar.addTab("messages", new PhpDebugBar.DebugBar.Tab({"icon":"list-alt","title":"Messages", "widget": new PhpDebugBar.Widgets.MessagesWidget()}));
+phpdebugbar.addIndicator("time", new PhpDebugBar.DebugBar.Indicator({"icon":"clock-o","tooltip":"Request Duration"}), "right");
+phpdebugbar.addTab("timeline", new PhpDebugBar.DebugBar.Tab({"icon":"tasks","title":"Timeline", "widget": new PhpDebugBar.Widgets.TimelineWidget()}));
+phpdebugbar.addIndicator("memory", new PhpDebugBar.DebugBar.Indicator({"icon":"cogs","tooltip":"Memory Usage"}), "right");
+phpdebugbar.addTab("exceptions", new PhpDebugBar.DebugBar.Tab({"icon":"bug","title":"Exceptions", "widget": new PhpDebugBar.Widgets.ExceptionsWidget()}));
+phpdebugbar.addTab("views", new PhpDebugBar.DebugBar.Tab({"icon":"leaf","title":"Views", "widget": new PhpDebugBar.Widgets.TemplatesWidget()}));
+phpdebugbar.addTab("route", new PhpDebugBar.DebugBar.Tab({"icon":"share","title":"Route", "widget": new PhpDebugBar.Widgets.VariableListWidget()}));
+phpdebugbar.addIndicator("currentroute", new PhpDebugBar.DebugBar.Indicator({"icon":"share","tooltip":"Route"}), "right");
+phpdebugbar.addTab("queries", new PhpDebugBar.DebugBar.Tab({"icon":"inbox","title":"Queries", "widget": new PhpDebugBar.Widgets.SQLQueriesWidget()}));
+phpdebugbar.addTab("emails", new PhpDebugBar.DebugBar.Tab({"icon":"inbox","title":"Mails", "widget": new PhpDebugBar.Widgets.MailsWidget()}));
+phpdebugbar.addTab("request", new PhpDebugBar.DebugBar.Tab({"icon":"tags","title":"Request", "widget": new PhpDebugBar.Widgets.VariableListWidget()}));
+phpdebugbar.setDataMap({
+"messages": ["messages.messages", []],
+"messages:badge": ["messages.count", null],
+"time": ["time.duration_str", '0ms'],
+"timeline": ["time", {}],
+"memory": ["memory.peak_usage_str", '0B'],
+"exceptions": ["exceptions.exceptions", []],
+"exceptions:badge": ["exceptions.count", null],
+"views": ["views", []],
+"views:badge": ["views.nb_templates", 0],
+"route": ["route", {}],
+"currentroute": ["route.uri", ],
+"queries": ["queries", []],
+"queries:badge": ["queries.nb_statements", 0],
+"emails": ["swiftmailer_mails.mails", []],
+"emails:badge": ["swiftmailer_mails.count", null],
+"request": ["request", {}]
+});
+phpdebugbar.restoreState();
+phpdebugbar.ajaxHandler = new PhpDebugBar.AjaxHandler(phpdebugbar);
+phpdebugbar.ajaxHandler.bindToXHR();
+phpdebugbar.setOpenHandler(new PhpDebugBar.OpenHandler({"url":"http:\/\/stickerworld.dev\/_debugbar\/open"}));
+phpdebugbar.addDataSet({"__meta":{"id":"f41b21a1d6ee75981c83e2e262f4c2e1","datetime":"2015-08-06 13:46:28","utime":1438839988.5391,"method":"POST","uri":"\/login","ip":"127.0.0.1"},"php":{"version":"5.5.12"},"messages":{"count":0,"messages":[]},"time":{"start":1438839988.1121,"end":1438839988.5391,"duration":0.42702412605286,"duration_str":"427.02ms","measures":[{"label":"Booting","start":1438839988.1121,"relative_start":0,"end":1438839988.3831,"relative_end":1438839988.3831,"duration":0.27101516723633,"duration_str":"271.02ms","params":[],"collector":null},{"label":"Application","start":1438839988.3921,"relative_start":0.28001618385315,"end":1438839988.5361,"relative_end":1438839988.5361,"duration":0.14400792121887,"duration_str":"144.01ms","params":[],"collector":null},{"label":"After application","start":1438839988.5361,"relative_start":0.42402410507202,"end":1438839988.5391,"relative_end":0,"duration":0.003000020980835,"duration_str":"3ms","params":[],"collector":null}]},"memory":{"peak_usage":14680064,"peak_usage_str":"14MB"},"exceptions":{"count":0,"exceptions":[]},"views":{"nb_templates":0,"templates":[]},"route":{"uri":"POST login","before":"guest","as":"login_path","controller":"SessionsController@store","namespace":null,"prefix":null,"where":[],"file":"\\app\\controllers\\SessionsController.php:33-54"},"queries":{"nb_statements":3,"nb_failed_statements":0,"accumulated_duration":0.003,"accumulated_duration_str":"3ms","statements":[{"sql":"select * from `users` where `username` = 'manager' limit 1","params":{"0":"manager","hints":"Use &lt;code&gt;SELECT *&lt;\/code&gt; only if you need all columns from table&lt;br \/&gt;&lt;code&gt;LIMIT&lt;\/code&gt; without &lt;code&gt;ORDER BY&lt;\/code&gt; causes non-deterministic results, depending on the query execution plan"},"duration":0,"duration_str":"0\u03bcs","stmt_id":null},{"sql":"select * from `users` where `username` = 'manager' limit 1","params":{"0":"manager","hints":"Use &lt;code&gt;SELECT *&lt;\/code&gt; only if you need all columns from table&lt;br \/&gt;&lt;code&gt;LIMIT&lt;\/code&gt; without &lt;code&gt;ORDER BY&lt;\/code&gt; causes non-deterministic results, depending on the query execution plan"},"duration":0.001,"duration_str":"1ms","stmt_id":null},{"sql":"update `users` set `last_login` = '2015-08-06 13:46:28', `updated_at` = '2015-08-06 13:46:28' where `id` = '3'","params":["2015-08-06 13:46:28","2015-08-06 13:46:28","3"],"duration":0.002,"duration_str":"2ms","stmt_id":null}]},"swiftmailer_mails":{"count":0,"mails":[]},"request":{"format":"html","content_type":"text\/html; charset=UTF-8","status_text":"Found","status_code":"302","request_query":"[]","request_request":"array:3 [\n  \"_token\" =&gt; \"rp8wI2qQsVKyTu4Rlz5qB9zGsYEnYCrYHgHhHEyt\"\n  \"username\" =&gt; \"manager\"\n  \"password\" =&gt; \"1234\"\n]","request_headers":"array:10 [\n  \"host\" =&gt; array:1 [\n    0 =&gt; \"stickerworld.dev\"\n  ]\n  \"user-agent\" =&gt; array:1 [\n    0 =&gt; \"Mozilla\/5.0 (Windows NT 6.1; WOW64; rv:39.0) Gecko\/20100101 Firefox\/39.0\"\n  ]\n  \"accept\" =&gt; array:1 [\n    0 =&gt; \"text\/html,application\/xhtml+xml,application\/xml;q=0.9,*\/*;q=0.8\"\n  ]\n  \"accept-language\" =&gt; array:1 [\n    0 =&gt; \"en-US,en;q=0.5\"\n  ]\n  \"accept-encoding\" =&gt; array:1 [\n    0 =&gt; \"gzip, deflate\"\n  ]\n  \"referer\" =&gt; array:1 [\n    0 =&gt; \"http:\/\/stickerworld.dev\/login\"\n  ]\n  \"cookie\" =&gt; array:1 [\n    0 =&gt; \"laravel_session=eyJpdiI6ImNyRmtCOHJ3bU9XeFpPYzZEbEhNcGc9PSIsInZhbHVlIjoiVFRwSEVnbHNySEc0eThLRlVLdklJaXNvVWlQOVdUMUNpN3ZEUHU5bEFyWTM4QkErOGpjakI2OVNwTDVRSFpYOTdzOGRvT3ExMGx6TDNyeU5JTThvU1E9PSIsIm1hYyI6ImYwNDljZWYwOThiMjkxYTEzNjcwZDFiNjRiYjY0MWVhYmUzMzljZDk4M2UzMWE2NDVhOGMwYjc0N2U4MGJjNDgifQ%3D%3D\"\n  ]\n  \"connection\" =&gt; array:1 [\n    0 =&gt; \"keep-alive\"\n  ]\n  \"content-type\" =&gt; array:1 [\n    0 =&gt; \"application\/x-www-form-urlencoded\"\n  ]\n  \"content-length\" =&gt; array:1 [\n    0 =&gt; \"78\"\n  ]\n]","request_server":"array:39 [\n  \"REDIRECT_STATUS\" =&gt; \"200\"\n  \"HTTP_HOST\" =&gt; \"stickerworld.dev\"\n  \"HTTP_USER_AGENT\" =&gt; \"Mozilla\/5.0 (Windows NT 6.1; WOW64; rv:39.0) Gecko\/20100101 Firefox\/39.0\"\n  \"HTTP_ACCEPT\" =&gt; \"text\/html,application\/xhtml+xml,application\/xml;q=0.9,*\/*;q=0.8\"\n  \"HTTP_ACCEPT_LANGUAGE\" =&gt; \"en-US,en;q=0.5\"\n  \"HTTP_ACCEPT_ENCODING\" =&gt; \"gzip, deflate\"\n  \"HTTP_REFERER\" =&gt; \"http:\/\/stickerworld.dev\/login\"\n  \"HTTP_COOKIE\" =&gt; \"laravel_session=eyJpdiI6ImNyRmtCOHJ3bU9XeFpPYzZEbEhNcGc9PSIsInZhbHVlIjoiVFRwSEVnbHNySEc0eThLRlVLdklJaXNvVWlQOVdUMUNpN3ZEUHU5bEFyWTM4QkErOGpjakI2OVNwTDVRSFpYOTdzOGRvT3ExMGx6TDNyeU5JTThvU1E9PSIsIm1hYyI6ImYwNDljZWYwOThiMjkxYTEzNjcwZDFiNjRiYjY0MWVhYmUzMzljZDk4M2UzMWE2NDVhOGMwYjc0N2U4MGJjNDgifQ%3D%3D\"\n  \"HTTP_CONNECTION\" =&gt; \"keep-alive\"\n  \"CONTENT_TYPE\" =&gt; \"application\/x-www-form-urlencoded\"\n  \"CONTENT_LENGTH\" =&gt; \"78\"\n  \"PATH\" =&gt; \"C:\\Program Files (x86)\\Pervasive Software\\PSQL\\bin\\;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files\\Common Files\\Microsoft Shared\\Windows Live;C:\\Program Files (x86)\\Common Files\\Microsoft Shared\\Windows Live;C:\\Program Files\\Java\\jdk1.8.0_05\\bin;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Windows Live\\Shared;c:\\adt-bundle-windows-x86_64\\sdk\\platform-tools;C:\\wamp\\bin\\php\\php5.5.12;C:\\apache-maven-3.2.3\\bin;C:\\Users\\Wayne\\AppData\\Local\\GitHub\\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\\bin;C:\\Users\\Wayne\\AppData\\Local\\GitHub;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\HashiCorp\\Vagrant\\bin;C:\\Users\\Wayne\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Python34;C:\\Python34\\Scripts;\"\n  \"SystemRoot\" =&gt; \"C:\\Windows\"\n  \"COMSPEC\" =&gt; \"C:\\Windows\\system32\\cmd.exe\"\n  \"PATHEXT\" =&gt; \".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY\"\n  \"WINDIR\" =&gt; \"C:\\Windows\"\n  \"SERVER_SIGNATURE\" =&gt; \"&lt;address&gt;Apache\/2.4.9 (Win64) OpenSSL\/1.0.1g PHP\/5.5.12 Server at stickerworld.dev Port 80&lt;\/address&gt;\\n\"\n  \"SERVER_SOFTWARE\" =&gt; \"Apache\/2.4.9 (Win64) OpenSSL\/1.0.1g PHP\/5.5.12\"\n  \"SERVER_NAME\" =&gt; \"stickerworld.dev\"\n  \"SERVER_ADDR\" =&gt; \"127.0.0.1\"\n  \"SERVER_PORT\" =&gt; \"80\"\n  \"REMOTE_ADDR\" =&gt; \"127.0.0.1\"\n  \"DOCUMENT_ROOT\" =&gt; \"C:\/wamp\/www\/stickerworld\/public\"\n  \"REQUEST_SCHEME\" =&gt; \"http\"\n  \"CONTEXT_PREFIX\" =&gt; \"\"\n  \"CONTEXT_DOCUMENT_ROOT\" =&gt; \"C:\/wamp\/www\/stickerworld\/public\"\n  \"SERVER_ADMIN\" =&gt; \"admin@example.com\"\n  \"SCRIPT_FILENAME\" =&gt; \"C:\/wamp\/www\/stickerworld\/public\/index.php\"\n  \"REMOTE_PORT\" =&gt; \"54894\"\n  \"REDIRECT_URL\" =&gt; \"\/login\"\n  \"GATEWAY_INTERFACE\" =&gt; \"CGI\/1.1\"\n  \"SERVER_PROTOCOL\" =&gt; \"HTTP\/1.1\"\n  \"REQUEST_METHOD\" =&gt; \"POST\"\n  \"QUERY_STRING\" =&gt; \"\"\n  \"REQUEST_URI\" =&gt; \"\/login\"\n  \"SCRIPT_NAME\" =&gt; \"\/index.php\"\n  \"PHP_SELF\" =&gt; \"\/index.php\"\n  \"REQUEST_TIME_FLOAT\" =&gt; 1438839988.108\n  \"REQUEST_TIME\" =&gt; 1438839988\n]","request_cookies":"array:1 [\n  \"laravel_session\" =&gt; \"42fc5b7383a280c2292ef45f9730f83f1118d4af\"\n]","response_headers":"array:6 [\n  \"cache-control\" =&gt; array:1 [\n    0 =&gt; \"must-revalidate, no-cache, no-store, private\"\n  ]\n  \"date\" =&gt; array:1 [\n    0 =&gt; \"Thu, 06 Aug 2015 05:46:28 GMT\"\n  ]\n  \"location\" =&gt; array:1 [\n    0 =&gt; \"http:\/\/stickerworld.dev\/dashboard\"\n  ]\n  \"content-type\" =&gt; array:1 [\n    0 =&gt; \"text\/html; charset=UTF-8\"\n  ]\n  \"pragma\" =&gt; array:1 [\n    0 =&gt; \"no-cache\"\n  ]\n  \"expires\" =&gt; array:1 [\n    0 =&gt; \" Mon, 01 Jan 1990 05:00:00 GMT\"\n  ]\n]","path_info":"\/login","session_attributes":"array:6 [\n  \"_token\" =&gt; \"rp8wI2qQsVKyTu4Rlz5qB9zGsYEnYCrYHgHhHEyt\"\n  \"PHPDEBUGBAR_STACK_DATA\" =&gt; []\n  \"flash\" =&gt; array:2 [\n    \"old\" =&gt; []\n    \"new\" =&gt; array:2 [\n      0 =&gt; \"flash_notification.message\"\n      1 =&gt; \"flash_notification.level\"\n    ]\n  ]\n  \"login_82e5d2c56bdd0811318f0cf078b78bfc\" =&gt; 3\n  \"currentUser\" =&gt; User {#542\n    #fillable: array:6 [\n      0 =&gt; \"role_id\"\n      1 =&gt; \"username\"\n      2 =&gt; \"password\"\n      3 =&gt; \"email\"\n      4 =&gt; \"last_login\"\n      5 =&gt; \"recstat\"\n    ]\n    #table: \"users\"\n    #hidden: array:3 [\n      0 =&gt; \"password\"\n      1 =&gt; \"remember_token\"\n      2 =&gt; \"activation_code\"\n    ]\n    #presenter: \"Acme\\Presenters\\UserPresenter\"\n    #connection: null\n    #primaryKey: \"id\"\n    #perPage: 15\n    +incrementing: true\n    +timestamps: true\n    #attributes: array:11 [\n      \"id\" =&gt; 3\n      \"role_id\" =&gt; 3\n      \"username\" =&gt; \"manager\"\n      \"password\" =&gt; \"$2y$10$S.D1SGyVNYmZoLR.AUpIyOJmkWA3isqVQLVrNUpAjte9DV4PHSsk2\"\n      \"email\" =&gt; \"manager@gmail.com\"\n      \"remember_token\" =&gt; \"iunwOlKgmZ1FooVfF8Y7vC5YufhBV0BKZdmtZCaJeUvDQHwADgzpCXnHYbhl\"\n      \"activation_code\" =&gt; null\n      \"last_login\" =&gt; Carbon\\Carbon {#547\n        +\"date\": \"2015-08-06 13:46:28\"\n        +\"timezone_type\": 3\n        +\"timezone\": \"Asia\/Manila\"\n      }\n      \"created_at\" =&gt; \"2015-08-05 12:17:54\"\n      \"updated_at\" =&gt; \"2015-08-06 13:46:28\"\n      \"recstat\" =&gt; \"A\"\n    ]\n    #original: array:11 [\n      \"id\" =&gt; 3\n      \"role_id\" =&gt; 3\n      \"username\" =&gt; \"manager\"\n      \"password\" =&gt; \"$2y$10$S.D1SGyVNYmZoLR.AUpIyOJmkWA3isqVQLVrNUpAjte9DV4PHSsk2\"\n      \"email\" =&gt; \"manager@gmail.com\"\n      \"remember_token\" =&gt; \"iunwOlKgmZ1FooVfF8Y7vC5YufhBV0BKZdmtZCaJeUvDQHwADgzpCXnHYbhl\"\n      \"activation_code\" =&gt; null\n      \"last_login\" =&gt; Carbon\\Carbon {#547}\n      \"created_at\" =&gt; \"2015-08-05 12:17:54\"\n      \"updated_at\" =&gt; \"2015-08-06 13:46:28\"\n      \"recstat\" =&gt; \"A\"\n    ]\n    #relations: []\n    #visible: []\n    #appends: []\n    #guarded: array:1 [\n      0 =&gt; \"*\"\n    ]\n    #dates: []\n    #touches: []\n    #observables: []\n    #with: []\n    #morphClass: null\n    +exists: true\n    #pendingEvents: []\n    #presenterInstance: null\n  }\n  \"flash_notification\" =&gt; array:2 [\n    \"message\" =&gt; \"Welcome back!\"\n    \"level\" =&gt; \"info\"\n  ]\n]"}}, "f41b21a1d6ee75981c83e2e262f4c2e1", "(stacked)");
+phpdebugbar.addDataSet({"__meta":{"id":"25dfb32cdb5a8a864e7ed3fa36e1a27a","datetime":"2015-08-06 13:46:28","utime":1438839988.9632,"method":"GET","uri":"\/dashboard","ip":"127.0.0.1"},"php":{"version":"5.5.12"},"messages":{"count":0,"messages":[]},"time":{"start":1438839988.5871,"end":1438839988.9632,"duration":0.37602210044861,"duration_str":"376.02ms","measures":[{"label":"Booting","start":1438839988.5871,"relative_start":0,"end":1438839988.8191,"relative_end":1438839988.8191,"duration":0.23201298713684,"duration_str":"232.01ms","params":[],"collector":null},{"label":"Application","start":1438839988.8252,"relative_start":0.23801398277283,"end":1438839988.9482,"relative_end":1438839988.9482,"duration":0.12300705909729,"duration_str":"123.01ms","params":[],"collector":null},{"label":"After application","start":1438839988.9482,"relative_start":0.36102104187012,"end":1438839988.9632,"relative_end":0,"duration":0.015001058578491,"duration_str":"15ms","params":[],"collector":null}]},"memory":{"peak_usage":15204352,"peak_usage_str":"14.5MB"},"exceptions":{"count":0,"exceptions":[]},"views":{"nb_templates":6,"templates":[{"name":"pages.home (\\app\\views\\pages\\home.blade.php)","param_count":0,"params":[],"type":"blade"},{"name":"flash::message (\\vendor\\laracasts\\flash\\src\\views\\message.blade.php)","param_count":5,"params":["obLevel","__env","app","errors","currentUser"],"type":"blade"},{"name":"layouts.master (\\app\\views\\layouts\\master.blade.php)","param_count":5,"params":["obLevel","__env","app","errors","currentUser"],"type":"blade"},{"name":"layouts.partials.head-nav (\\app\\views\\layouts\\partials\\head-nav.blade.php)","param_count":5,"params":["obLevel","__env","app","errors","currentUser"],"type":"blade"},{"name":"layouts.partials.notify-section (\\app\\views\\layouts\\partials\\notify-section.blade.php)","param_count":5,"params":["obLevel","__env","app","errors","currentUser"],"type":"blade"},{"name":"layouts.partials.side-nav (\\app\\views\\layouts\\partials\\side-nav.blade.php)","param_count":5,"params":["obLevel","__env","app","errors","currentUser"],"type":"blade"}]},"route":{"uri":"GET dashboard","before":"auth","as":"dashboard","controller":"DashboardController@index","namespace":null,"prefix":null,"where":[],"file":"\\app\\controllers\\DashboardController.php:5-8"},"queries":{"nb_statements":2,"nb_failed_statements":0,"accumulated_duration":0.002,"accumulated_duration_str":"2ms","statements":[{"sql":"select * from `users` where `users`.`id` = '3' limit 1","params":{"0":"3","hints":"Use &lt;code&gt;SELECT *&lt;\/code&gt; only if you need all columns from table&lt;br \/&gt;&lt;code&gt;LIMIT&lt;\/code&gt; without &lt;code&gt;ORDER BY&lt;\/code&gt; causes non-deterministic results, depending on the query execution plan"},"duration":0.001,"duration_str":"1ms","stmt_id":null},{"sql":"select * from `employees` where `employees`.`user_id` = '3' limit 1","params":{"0":"3","hints":"Use &lt;code&gt;SELECT *&lt;\/code&gt; only if you need all columns from table&lt;br \/&gt;&lt;code&gt;LIMIT&lt;\/code&gt; without &lt;code&gt;ORDER BY&lt;\/code&gt; causes non-deterministic results, depending on the query execution plan"},"duration":0.001,"duration_str":"1ms","stmt_id":null}]},"swiftmailer_mails":{"count":0,"mails":[]},"request":{"format":"html","content_type":"text\/html; charset=UTF-8","status_text":"OK","status_code":"200","request_query":"[]","request_request":"[]","request_headers":"array:8 [\n  \"host\" =&gt; array:1 [\n    0 =&gt; \"stickerworld.dev\"\n  ]\n  \"user-agent\" =&gt; array:1 [\n    0 =&gt; \"Mozilla\/5.0 (Windows NT 6.1; WOW64; rv:39.0) Gecko\/20100101 Firefox\/39.0\"\n  ]\n  \"accept\" =&gt; array:1 [\n    0 =&gt; \"text\/html,application\/xhtml+xml,application\/xml;q=0.9,*\/*;q=0.8\"\n  ]\n  \"accept-language\" =&gt; array:1 [\n    0 =&gt; \"en-US,en;q=0.5\"\n  ]\n  \"accept-encoding\" =&gt; array:1 [\n    0 =&gt; \"gzip, deflate\"\n  ]\n  \"referer\" =&gt; array:1 [\n    0 =&gt; \"http:\/\/stickerworld.dev\/login\"\n  ]\n  \"cookie\" =&gt; array:1 [\n    0 =&gt; \"laravel_session=eyJpdiI6ImYzVUU2YzBnMzJEVlRza3lObWw3c0E9PSIsInZhbHVlIjoiWGxUNnpGanY0Z3VMb1FhVk1Tb1hVV1dnTnpPNzlqa1ViUVdlbVFBYUw2ZlNCbk1ZQnNXWnRTU202eGFtMlwvMG82K2lRS2V2VXU5bDd4NmV5NkNYMk9RPT0iLCJtYWMiOiI4MDQzZGU3MDg0MWU4M2ZlMzQyMDJkZmIxYmU2NWU2YjI3ODhmYzg3YjgyYzY1MWNhNWVhNzA5MTczYjRkMDhmIn0%3D\"\n  ]\n  \"connection\" =&gt; array:1 [\n    0 =&gt; \"keep-alive\"\n  ]\n]","request_server":"array:37 [\n  \"REDIRECT_STATUS\" =&gt; \"200\"\n  \"HTTP_HOST\" =&gt; \"stickerworld.dev\"\n  \"HTTP_USER_AGENT\" =&gt; \"Mozilla\/5.0 (Windows NT 6.1; WOW64; rv:39.0) Gecko\/20100101 Firefox\/39.0\"\n  \"HTTP_ACCEPT\" =&gt; \"text\/html,application\/xhtml+xml,application\/xml;q=0.9,*\/*;q=0.8\"\n  \"HTTP_ACCEPT_LANGUAGE\" =&gt; \"en-US,en;q=0.5\"\n  \"HTTP_ACCEPT_ENCODING\" =&gt; \"gzip, deflate\"\n  \"HTTP_REFERER\" =&gt; \"http:\/\/stickerworld.dev\/login\"\n  \"HTTP_COOKIE\" =&gt; \"laravel_session=eyJpdiI6ImYzVUU2YzBnMzJEVlRza3lObWw3c0E9PSIsInZhbHVlIjoiWGxUNnpGanY0Z3VMb1FhVk1Tb1hVV1dnTnpPNzlqa1ViUVdlbVFBYUw2ZlNCbk1ZQnNXWnRTU202eGFtMlwvMG82K2lRS2V2VXU5bDd4NmV5NkNYMk9RPT0iLCJtYWMiOiI4MDQzZGU3MDg0MWU4M2ZlMzQyMDJkZmIxYmU2NWU2YjI3ODhmYzg3YjgyYzY1MWNhNWVhNzA5MTczYjRkMDhmIn0%3D\"\n  \"HTTP_CONNECTION\" =&gt; \"keep-alive\"\n  \"PATH\" =&gt; \"C:\\Program Files (x86)\\Pervasive Software\\PSQL\\bin\\;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files\\Common Files\\Microsoft Shared\\Windows Live;C:\\Program Files (x86)\\Common Files\\Microsoft Shared\\Windows Live;C:\\Program Files\\Java\\jdk1.8.0_05\\bin;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Windows Live\\Shared;c:\\adt-bundle-windows-x86_64\\sdk\\platform-tools;C:\\wamp\\bin\\php\\php5.5.12;C:\\apache-maven-3.2.3\\bin;C:\\Users\\Wayne\\AppData\\Local\\GitHub\\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\\bin;C:\\Users\\Wayne\\AppData\\Local\\GitHub;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\HashiCorp\\Vagrant\\bin;C:\\Users\\Wayne\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Python34;C:\\Python34\\Scripts;\"\n  \"SystemRoot\" =&gt; \"C:\\Windows\"\n  \"COMSPEC\" =&gt; \"C:\\Windows\\system32\\cmd.exe\"\n  \"PATHEXT\" =&gt; \".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY\"\n  \"WINDIR\" =&gt; \"C:\\Windows\"\n  \"SERVER_SIGNATURE\" =&gt; \"&lt;address&gt;Apache\/2.4.9 (Win64) OpenSSL\/1.0.1g PHP\/5.5.12 Server at stickerworld.dev Port 80&lt;\/address&gt;\\n\"\n  \"SERVER_SOFTWARE\" =&gt; \"Apache\/2.4.9 (Win64) OpenSSL\/1.0.1g PHP\/5.5.12\"\n  \"SERVER_NAME\" =&gt; \"stickerworld.dev\"\n  \"SERVER_ADDR\" =&gt; \"127.0.0.1\"\n  \"SERVER_PORT\" =&gt; \"80\"\n  \"REMOTE_ADDR\" =&gt; \"127.0.0.1\"\n  \"DOCUMENT_ROOT\" =&gt; \"C:\/wamp\/www\/stickerworld\/public\"\n  \"REQUEST_SCHEME\" =&gt; \"http\"\n  \"CONTEXT_PREFIX\" =&gt; \"\"\n  \"CONTEXT_DOCUMENT_ROOT\" =&gt; \"C:\/wamp\/www\/stickerworld\/public\"\n  \"SERVER_ADMIN\" =&gt; \"admin@example.com\"\n  \"SCRIPT_FILENAME\" =&gt; \"C:\/wamp\/www\/stickerworld\/public\/index.php\"\n  \"REMOTE_PORT\" =&gt; \"54894\"\n  \"REDIRECT_URL\" =&gt; \"\/dashboard\"\n  \"GATEWAY_INTERFACE\" =&gt; \"CGI\/1.1\"\n  \"SERVER_PROTOCOL\" =&gt; \"HTTP\/1.1\"\n  \"REQUEST_METHOD\" =&gt; \"GET\"\n  \"QUERY_STRING\" =&gt; \"\"\n  \"REQUEST_URI\" =&gt; \"\/dashboard\"\n  \"SCRIPT_NAME\" =&gt; \"\/index.php\"\n  \"PHP_SELF\" =&gt; \"\/index.php\"\n  \"REQUEST_TIME_FLOAT\" =&gt; 1438839988.585\n  \"REQUEST_TIME\" =&gt; 1438839988\n]","request_cookies":"array:1 [\n  \"laravel_session\" =&gt; \"5a781f0e367b9862e7ecc7416b307371a75a1f48\"\n]","response_headers":"array:5 [\n  \"cache-control\" =&gt; array:1 [\n    0 =&gt; \"must-revalidate, no-cache, no-store, private\"\n  ]\n  \"date\" =&gt; array:1 [\n    0 =&gt; \"Thu, 06 Aug 2015 05:46:28 GMT\"\n  ]\n  \"content-type\" =&gt; array:1 [\n    0 =&gt; \"text\/html; charset=UTF-8\"\n  ]\n  \"pragma\" =&gt; array:1 [\n    0 =&gt; \"no-cache\"\n  ]\n  \"expires\" =&gt; array:1 [\n    0 =&gt; \" Mon, 01 Jan 1990 05:00:00 GMT\"\n  ]\n]","path_info":"\/dashboard","session_attributes":"array:5 [\n  \"_token\" =&gt; \"rp8wI2qQsVKyTu4Rlz5qB9zGsYEnYCrYHgHhHEyt\"\n  \"flash\" =&gt; array:2 [\n    \"old\" =&gt; array:2 [\n      0 =&gt; \"flash_notification.message\"\n      1 =&gt; \"flash_notification.level\"\n    ]\n    \"new\" =&gt; []\n  ]\n  \"login_82e5d2c56bdd0811318f0cf078b78bfc\" =&gt; 3\n  \"currentUser\" =&gt; User {#153\n    #fillable: array:6 [\n      0 =&gt; \"role_id\"\n      1 =&gt; \"username\"\n      2 =&gt; \"password\"\n      3 =&gt; \"email\"\n      4 =&gt; \"last_login\"\n      5 =&gt; \"recstat\"\n    ]\n    #table: \"users\"\n    #hidden: array:3 [\n      0 =&gt; \"password\"\n      1 =&gt; \"remember_token\"\n      2 =&gt; \"activation_code\"\n    ]\n    #presenter: \"Acme\\Presenters\\UserPresenter\"\n    #connection: null\n    #primaryKey: \"id\"\n    #perPage: 15\n    +incrementing: true\n    +timestamps: true\n    #attributes: array:11 [\n      \"id\" =&gt; 3\n      \"role_id\" =&gt; 3\n      \"username\" =&gt; \"manager\"\n      \"password\" =&gt; \"$2y$10$S.D1SGyVNYmZoLR.AUpIyOJmkWA3isqVQLVrNUpAjte9DV4PHSsk2\"\n      \"email\" =&gt; \"manager@gmail.com\"\n      \"remember_token\" =&gt; \"iunwOlKgmZ1FooVfF8Y7vC5YufhBV0BKZdmtZCaJeUvDQHwADgzpCXnHYbhl\"\n      \"activation_code\" =&gt; null\n      \"last_login\" =&gt; Carbon\\Carbon {#154\n        +\"date\": \"2015-08-06 13:46:28\"\n        +\"timezone_type\": 3\n        +\"timezone\": \"Asia\/Manila\"\n      }\n      \"created_at\" =&gt; \"2015-08-05 12:17:54\"\n      \"updated_at\" =&gt; \"2015-08-06 13:46:28\"\n      \"recstat\" =&gt; \"A\"\n    ]\n    #original: array:11 [\n      \"id\" =&gt; 3\n      \"role_id\" =&gt; 3\n      \"username\" =&gt; \"manager\"\n      \"password\" =&gt; \"$2y$10$S.D1SGyVNYmZoLR.AUpIyOJmkWA3isqVQLVrNUpAjte9DV4PHSsk2\"\n      \"email\" =&gt; \"manager@gmail.com\"\n      \"remember_token\" =&gt; \"iunwOlKgmZ1FooVfF8Y7vC5YufhBV0BKZdmtZCaJeUvDQHwADgzpCXnHYbhl\"\n      \"activation_code\" =&gt; null\n      \"last_login\" =&gt; Carbon\\Carbon {#154}\n      \"created_at\" =&gt; \"2015-08-05 12:17:54\"\n      \"updated_at\" =&gt; \"2015-08-06 13:46:28\"\n      \"recstat\" =&gt; \"A\"\n    ]\n    #relations: []\n    #visible: []\n    #appends: []\n    #guarded: array:1 [\n      0 =&gt; \"*\"\n    ]\n    #dates: []\n    #touches: []\n    #observables: []\n    #with: []\n    #morphClass: null\n    +exists: true\n    #pendingEvents: []\n    #presenterInstance: null\n  }\n  \"flash_notification\" =&gt; array:2 [\n    \"message\" =&gt; \"Welcome back!\"\n    \"level\" =&gt; \"info\"\n  ]\n]"}}, "25dfb32cdb5a8a864e7ed3fa36e1a27a");
+
+</script><div class="phpdebugbar phpdebugbar-minimized"><div class="phpdebugbar-drag-capture"></div><div class="phpdebugbar-resize-handle"></div><div class="phpdebugbar-header"><div class="phpdebugbar-header-left"><a href="javascript:" class="phpdebugbar-tab"><i class="fa fa-list-alt"></i><span class="phpdebugbar-text">Messages</span><span class="phpdebugbar-badge" style="display: none;"></span></a><a href="javascript:" class="phpdebugbar-tab"><i class="fa fa-tasks"></i><span class="phpdebugbar-text">Timeline</span><span class="phpdebugbar-badge"></span></a><a href="javascript:" class="phpdebugbar-tab"><i class="fa fa-bug"></i><span class="phpdebugbar-text">Exceptions</span><span class="phpdebugbar-badge" style="display: none;"></span></a><a href="javascript:" class="phpdebugbar-tab"><i class="fa fa-leaf"></i><span class="phpdebugbar-text">Views</span><span class="phpdebugbar-badge" style="display: inline;">6</span></a><a href="javascript:" class="phpdebugbar-tab"><i class="fa fa-share"></i><span class="phpdebugbar-text">Route</span><span class="phpdebugbar-badge"></span></a><a href="javascript:" class="phpdebugbar-tab"><i class="fa fa-inbox"></i><span class="phpdebugbar-text">Queries</span><span class="phpdebugbar-badge" style="display: inline;">2</span></a><a href="javascript:" class="phpdebugbar-tab"><i class="fa fa-inbox"></i><span class="phpdebugbar-text">Mails</span><span class="phpdebugbar-badge" style="display: none;"></span></a><a href="javascript:" class="phpdebugbar-tab"><i class="fa fa-tags"></i><span class="phpdebugbar-text">Request</span><span class="phpdebugbar-badge"></span></a></div><div class="phpdebugbar-header-right"><a href="javascript:" class="phpdebugbar-close-btn"></a><a href="javascript:" class="phpdebugbar-minimize-btn"></a><a href="javascript:" class="phpdebugbar-maximize-btn"></a><a href="javascript:" class="phpdebugbar-open-btn" style="display: block;"></a><select class="phpdebugbar-datasets-switcher" style="display: inline-block;"><option value="f41b21a1d6ee75981c83e2e262f4c2e1">#1 login (stacked) (13:46:28)</option><option value="25dfb32cdb5a8a864e7ed3fa36e1a27a">#2 dashboard (13:46:28)</option></select><span class="phpdebugbar-indicator"><i class="fa fa-clock-o"></i><span class="phpdebugbar-text">376.02ms</span><span class="phpdebugbar-tooltip">Request Duration</span></span><span class="phpdebugbar-indicator"><i class="fa fa-cogs"></i><span class="phpdebugbar-text">14.5MB</span><span class="phpdebugbar-tooltip">Memory Usage</span></span><span class="phpdebugbar-indicator"><i class="fa fa-share"></i><span class="phpdebugbar-text">GET dashboard</span><span class="phpdebugbar-tooltip">Route</span></span></div></div><div class="phpdebugbar-body" style="height: 300px;"><div class="phpdebugbar-panel"><div class="phpdebugbar-widgets-messages"><ul class="phpdebugbar-widgets-list"></ul><div class="phpdebugbar-widgets-toolbar"><i class="fa fa-search"></i><input type="text" /></div></div></div><div class="phpdebugbar-panel"><ul class="phpdebugbar-widgets-timeline"><li><div class="phpdebugbar-widgets-measure"><span class="phpdebugbar-widgets-value" style="left: 0%; width: 62%;"></span><span class="phpdebugbar-widgets-label">Booting (232.01ms)</span></div></li><li><div class="phpdebugbar-widgets-measure"><span class="phpdebugbar-widgets-value" style="left: 63%; width: 33%;"></span><span class="phpdebugbar-widgets-label">Application (123.01ms)</span></div></li><li><div class="phpdebugbar-widgets-measure"><span class="phpdebugbar-widgets-value" style="left: 96%; width: 4%;"></span><span class="phpdebugbar-widgets-label">After application (15ms)</span></div></li></ul></div><div class="phpdebugbar-panel"><div class="phpdebugbar-widgets-exceptions"><ul class="phpdebugbar-widgets-list"></ul></div></div><div class="phpdebugbar-panel"><div class="phpdebugbar-widgets-templates"><div class="phpdebugbar-widgets-status"><span>6 templates were rendered</span></div><ul class="phpdebugbar-widgets-list"><li class="phpdebugbar-widgets-list-item"><span class="phpdebugbar-widgets-name">pages.home (\app\views\pages\home.blade.php)</span><span title="Parameter count" class="phpdebugbar-widgets-param-count">0</span><span title="Type" class="phpdebugbar-widgets-type">blade</span></li><li class="phpdebugbar-widgets-list-item" style="cursor: pointer;"><span class="phpdebugbar-widgets-name">flash::message (\vendor\laracasts\flash\src\views\message.blade.php)</span><span title="Parameter count" class="phpdebugbar-widgets-param-count">5</span><span title="Type" class="phpdebugbar-widgets-type">blade</span><table class="phpdebugbar-widgets-params"><tbody><tr><th colspan="2">Params</th></tr><tr><td class="phpdebugbar-widgets-name">0</td><td class="phpdebugbar-widgets-value"><pre><code>obLevel</code></pre></td></tr><tr><td class="phpdebugbar-widgets-name">1</td><td class="phpdebugbar-widgets-value"><pre><code>__env</code></pre></td></tr><tr><td class="phpdebugbar-widgets-name">2</td><td class="phpdebugbar-widgets-value"><pre><code>app</code></pre></td></tr><tr><td class="phpdebugbar-widgets-name">3</td><td class="phpdebugbar-widgets-value"><pre><code>errors</code></pre></td></tr><tr><td class="phpdebugbar-widgets-name">4</td><td class="phpdebugbar-widgets-value"><pre><code>currentUser</code></pre></td></tr></tbody></table></li><li class="phpdebugbar-widgets-list-item" style="cursor: pointer;"><span class="phpdebugbar-widgets-name">layouts.master (\app\views\layouts\master.blade.php)</span><span title="Parameter count" class="phpdebugbar-widgets-param-count">5</span><span title="Type" class="phpdebugbar-widgets-type">blade</span><table class="phpdebugbar-widgets-params"><tbody><tr><th colspan="2">Params</th></tr><tr><td class="phpdebugbar-widgets-name">0</td><td class="phpdebugbar-widgets-value"><pre><code>obLevel</code></pre></td></tr><tr><td class="phpdebugbar-widgets-name">1</td><td class="phpdebugbar-widgets-value"><pre><code>__env</code></pre></td></tr><tr><td class="phpdebugbar-widgets-name">2</td><td class="phpdebugbar-widgets-value"><pre><code>app</code></pre></td></tr><tr><td class="phpdebugbar-widgets-name">3</td><td class="phpdebugbar-widgets-value"><pre><code>errors</code></pre></td></tr><tr><td class="phpdebugbar-widgets-name">4</td><td class="phpdebugbar-widgets-value"><pre><code>currentUser</code></pre></td></tr></tbody></table></li><li class="phpdebugbar-widgets-list-item" style="cursor: pointer;"><span class="phpdebugbar-widgets-name">layouts.partials.head-nav (\app\views\layouts\partials\head-nav.blade.php)</span><span title="Parameter count" class="phpdebugbar-widgets-param-count">5</span><span title="Type" class="phpdebugbar-widgets-type">blade</span><table class="phpdebugbar-widgets-params"><tbody><tr><th colspan="2">Params</th></tr><tr><td class="phpdebugbar-widgets-name">0</td><td class="phpdebugbar-widgets-value"><pre><code>obLevel</code></pre></td></tr><tr><td class="phpdebugbar-widgets-name">1</td><td class="phpdebugbar-widgets-value"><pre><code>__env</code></pre></td></tr><tr><td class="phpdebugbar-widgets-name">2</td><td class="phpdebugbar-widgets-value"><pre><code>app</code></pre></td></tr><tr><td class="phpdebugbar-widgets-name">3</td><td class="phpdebugbar-widgets-value"><pre><code>errors</code></pre></td></tr><tr><td class="phpdebugbar-widgets-name">4</td><td class="phpdebugbar-widgets-value"><pre><code>currentUser</code></pre></td></tr></tbody></table></li><li class="phpdebugbar-widgets-list-item" style="cursor: pointer;"><span class="phpdebugbar-widgets-name">layouts.partials.notify-section (\app\views\layouts\partials\notify-section.blade.php)</span><span title="Parameter count" class="phpdebugbar-widgets-param-count">5</span><span title="Type" class="phpdebugbar-widgets-type">blade</span><table class="phpdebugbar-widgets-params"><tbody><tr><th colspan="2">Params</th></tr><tr><td class="phpdebugbar-widgets-name">0</td><td class="phpdebugbar-widgets-value"><pre><code>obLevel</code></pre></td></tr><tr><td class="phpdebugbar-widgets-name">1</td><td class="phpdebugbar-widgets-value"><pre><code>__env</code></pre></td></tr><tr><td class="phpdebugbar-widgets-name">2</td><td class="phpdebugbar-widgets-value"><pre><code>app</code></pre></td></tr><tr><td class="phpdebugbar-widgets-name">3</td><td class="phpdebugbar-widgets-value"><pre><code>errors</code></pre></td></tr><tr><td class="phpdebugbar-widgets-name">4</td><td class="phpdebugbar-widgets-value"><pre><code>currentUser</code></pre></td></tr></tbody></table></li><li class="phpdebugbar-widgets-list-item" style="cursor: pointer;"><span class="phpdebugbar-widgets-name">layouts.partials.side-nav (\app\views\layouts\partials\side-nav.blade.php)</span><span title="Parameter count" class="phpdebugbar-widgets-param-count">5</span><span title="Type" class="phpdebugbar-widgets-type">blade</span><table class="phpdebugbar-widgets-params"><tbody><tr><th colspan="2">Params</th></tr><tr><td class="phpdebugbar-widgets-name">0</td><td class="phpdebugbar-widgets-value"><pre><code>obLevel</code></pre></td></tr><tr><td class="phpdebugbar-widgets-name">1</td><td class="phpdebugbar-widgets-value"><pre><code>__env</code></pre></td></tr><tr><td class="phpdebugbar-widgets-name">2</td><td class="phpdebugbar-widgets-value"><pre><code>app</code></pre></td></tr><tr><td class="phpdebugbar-widgets-name">3</td><td class="phpdebugbar-widgets-value"><pre><code>errors</code></pre></td></tr><tr><td class="phpdebugbar-widgets-name">4</td><td class="phpdebugbar-widgets-value"><pre><code>currentUser</code></pre></td></tr></tbody></table></li></ul></div></div><div class="phpdebugbar-panel"><dl class="phpdebugbar-widgets-kvlist phpdebugbar-widgets-varlist"><dt class="phpdebugbar-widgets-key"><span title="uri">uri</span></dt><dd class="phpdebugbar-widgets-value">GET dashboard</dd><dt class="phpdebugbar-widgets-key"><span title="before">before</span></dt><dd class="phpdebugbar-widgets-value">auth</dd><dt class="phpdebugbar-widgets-key"><span title="as">as</span></dt><dd class="phpdebugbar-widgets-value">dashboard</dd><dt class="phpdebugbar-widgets-key"><span title="controller">controller</span></dt><dd class="phpdebugbar-widgets-value">DashboardController@index</dd><dt class="phpdebugbar-widgets-key"><span title="namespace">namespace</span></dt><dd class="phpdebugbar-widgets-value">null</dd><dt class="phpdebugbar-widgets-key"><span title="prefix">prefix</span></dt><dd class="phpdebugbar-widgets-value">null</dd><dt class="phpdebugbar-widgets-key"><span title="where">where</span></dt><dd class="phpdebugbar-widgets-value"></dd><dt class="phpdebugbar-widgets-key"><span title="file">file</span></dt><dd class="phpdebugbar-widgets-value">\app\controllers\DashboardController.php:5-8</dd></dl></div><div class="phpdebugbar-panel"><div class="phpdebugbar-widgets-sqlqueries"><div class="phpdebugbar-widgets-status"><span>2 statements were executed</span><span title="Accumulated duration" class="phpdebugbar-widgets-duration">2ms</span></div><div class="phpdebugbar-widgets-toolbar"></div><ul class="phpdebugbar-widgets-list"><li class="phpdebugbar-widgets-list-item" style="cursor: pointer;"><code class="phpdebugbar-widgets-sql"><span class="hljs-operator"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> <span class="hljs-string">`users`</span> <span class="hljs-keyword">where</span> <span class="hljs-string">`users`</span>.<span class="hljs-string">`id`</span> = <span class="hljs-string">'3'</span> limit <span class="hljs-number">1</span></span></code><span title="Duration" class="phpdebugbar-widgets-duration">1ms</span><table class="phpdebugbar-widgets-params"><tbody><tr><th colspan="2">Params</th></tr><tr><td class="phpdebugbar-widgets-name">0</td><td class="phpdebugbar-widgets-value">3</td></tr><tr><td class="phpdebugbar-widgets-name">hints</td><td class="phpdebugbar-widgets-value">Use <code>SELECT *</code> only if you need all columns from table<br /><code>LIMIT</code> without <code>ORDER BY</code> causes non-deterministic results, depending on the query execution plan</td></tr></tbody></table></li><li class="phpdebugbar-widgets-list-item" style="cursor: pointer;"><code class="phpdebugbar-widgets-sql"><span class="hljs-operator"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> <span class="hljs-string">`employees`</span> <span class="hljs-keyword">where</span> <span class="hljs-string">`employees`</span>.<span class="hljs-string">`user_id`</span> = <span class="hljs-string">'3'</span> limit <span class="hljs-number">1</span></span></code><span title="Duration" class="phpdebugbar-widgets-duration">1ms</span><table class="phpdebugbar-widgets-params"><tbody><tr><th colspan="2">Params</th></tr><tr><td class="phpdebugbar-widgets-name">0</td><td class="phpdebugbar-widgets-value">3</td></tr><tr><td class="phpdebugbar-widgets-name">hints</td><td class="phpdebugbar-widgets-value">Use <code>SELECT *</code> only if you need all columns from table<br /><code>LIMIT</code> without <code>ORDER BY</code> causes non-deterministic results, depending on the query execution plan</td></tr></tbody></table></li></ul></div></div><div class="phpdebugbar-panel"><div class="phpdebugbar-widgets-mails"><ul class="phpdebugbar-widgets-list"></ul></div></div><div class="phpdebugbar-panel"><dl class="phpdebugbar-widgets-kvlist phpdebugbar-widgets-varlist"><dt class="phpdebugbar-widgets-key"><span title="format">format</span></dt><dd class="phpdebugbar-widgets-value">html</dd><dt class="phpdebugbar-widgets-key"><span title="content_type">content_type</span></dt><dd class="phpdebugbar-widgets-value">text/html; charset=UTF-8</dd><dt class="phpdebugbar-widgets-key"><span title="status_text">status_text</span></dt><dd class="phpdebugbar-widgets-value">OK</dd><dt class="phpdebugbar-widgets-key"><span title="status_code">status_code</span></dt><dd class="phpdebugbar-widgets-value">200</dd><dt class="phpdebugbar-widgets-key"><span title="request_query">request_query</span></dt><dd class="phpdebugbar-widgets-value">[]</dd><dt class="phpdebugbar-widgets-key"><span title="request_request">request_request</span></dt><dd class="phpdebugbar-widgets-value">[]</dd><dt class="phpdebugbar-widgets-key"><span title="request_headers">request_headers</span></dt><dd class="phpdebugbar-widgets-value">array:8 [
+  "host" =&gt; array:1 [
+    0 =&gt; "stickerworld.dev"
+  ]
+  "user-agent" =&gt; array:1 [
+    0 =&gt;...</dd><dt class="phpdebugbar-widgets-key"><span title="request_server">request_server</span></dt><dd class="phpdebugbar-widgets-value">array:37 [
+  "REDIRECT_STATUS" =&gt; "200"
+  "HTTP_HOST" =&gt; "stickerworld.dev"
+  "HTTP_USER_AGENT" =&gt; "...</dd><dt class="phpdebugbar-widgets-key"><span title="request_cookies">request_cookies</span></dt><dd class="phpdebugbar-widgets-value">array:1 [
+  "laravel_session" =&gt; "5a781f0e367b9862e7ecc7416b307371a75a1f48"
+]</dd><dt class="phpdebugbar-widgets-key"><span title="response_headers">response_headers</span></dt><dd class="phpdebugbar-widgets-value">array:5 [
+  "cache-control" =&gt; array:1 [
+    0 =&gt; "must-revalidate, no-cache, no-store, private"
+  ]...</dd><dt class="phpdebugbar-widgets-key"><span title="path_info">path_info</span></dt><dd class="phpdebugbar-widgets-value">/dashboard</dd><dt class="phpdebugbar-widgets-key"><span title="session_attributes">session_attributes</span></dt><dd class="phpdebugbar-widgets-value">array:5 [
+  "_token" =&gt; "rp8wI2qQsVKyTu4Rlz5qB9zGsYEnYCrYHgHhHEyt"
+  "flash" =&gt; array:2 [
+    "old" ...</dd></dl></div></div><a href="javascript:" class="phpdebugbar-restore-btn" style="display: none;"></a></div><div class="phpdebugbar-openhandler" style="display: none;"><div class="phpdebugbar-openhandler-header">PHP DebugBar | Open<a href="javascript:"><i class="fa fa-times"></i></a></div><table><thead><tr><th width="150">Date</th><th width="55">Method</th><th>URL</th><th width="125">IP</th><th width="100">Filter data</th></tr></thead><tbody></tbody></table><div class="phpdebugbar-openhandler-actions"><a href="javascript:">Load more</a><a href="javascript:">Show only current URL</a><a href="javascript:">Show all</a><a href="javascript:">Delete all</a><form><br /><b>Filter results</b><br />Method: <select name="method"><option></option><option>GET</option><option>POST</option><option>PUT</option><option>DELETE</option></select><br />Uri: <input type="text" name="uri" /><br />IP: <input type="text" name="ip" /><br /><button type="submit">Search</button></form></div></div><div class="phpdebugbar-openhandler-overlay" style="display: none;"></div>
+
+
+</body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="1426" height="686"></canvas></html>

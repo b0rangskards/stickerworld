@@ -20,14 +20,12 @@ class ActivateAccountWithEmailCest
         $this->email = 'testemail@yahoo.com';
 
         $I->registerAUser($this->role_id, $this->email);
-
-        Auth::logout();
     }
 
     public function activateAccount(FunctionalTester $I)
     {
-        $username = 'testusername';
-        $password = 'testpassword';
+        $username = 'testusername123';
+        $password = 'testpassword123';
 
         $activation_code = User::whereEmail($this->email)->first()->activation_code;
 
@@ -35,9 +33,9 @@ class ActivateAccountWithEmailCest
 
         $I->wantTo('activate my account');
 
-        $I->amOnPage( ActivateUserPage::$URL.$activation_code);
+        $I->amOnPage( ActivateUserPage::route($activation_code));
 
-        $I->see( ActivateUserPage::$header);
+        $I->see( ActivateUserPage::$header, 'small');
 
         $I->fillField( ActivateUserPage::$usernameField, $username);
 
@@ -53,7 +51,7 @@ class ActivateAccountWithEmailCest
 
         $I->assertTrue( Hash::check($password, Auth::user()->password ));
 
-        $I->seeInCurrentUrl('dashboard');
+        $I->seeCurrentRouteIs('dashboard');
 
         $I->see('You have successfully activated your account.');
     }

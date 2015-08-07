@@ -8,7 +8,10 @@
             <div class="modal-body">
                 <div class="row">
                      <div class="col-md-12">
-                        {{ Form::open(['route' => 'new_department_path', 'id' => 'new-department-form', 'class' => 'form-horizontal', 'role' => 'form']) }}
+                        {{ Form::open(['route' => 'new_department_path',
+                        'id' => 'new-department-form',
+                        'class' => 'form-horizontal',
+                        'role' => 'form']) }}
                             <div class="form-group">
                                 {{ Form::label('name', 'Department', ['class' => 'col-md-3 control-label']) }}
                                 <div class="col-md-6">

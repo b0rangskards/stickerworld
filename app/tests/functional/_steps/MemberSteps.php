@@ -1,9 +1,11 @@
 <?php
 namespace FunctionalTester;
 
+use Auth;
 use FunctionalTester;
 use RegistrationPage;
 use SignInPage;
+use URL;
 use User;
 
 class MemberSteps extends FunctionalTester
@@ -26,33 +28,47 @@ class MemberSteps extends FunctionalTester
         return $admin;
     }
 
-    public function signInAs($roleName, $attributes = [])
+//    public function createAccount($roleName, $attributes = [])
+//    {
+//        $roleId = ['role_id' => $this->getRoleId($roleName)];
+//
+//        $attributes = array_merge($attributes, $roleId);
+//
+//        return $this->I->have('User', $attributes);
+//    }
+
+	public function signInAs($roleName, $attributes = [])
+	{
+		$roleId = ['role_id' => $this->getRoleId($roleName)];
+
+		$attributes = array_merge($attributes, $roleId);
+
+		$user = $this->I->have('User', $attributes);
+
+		$this->login($user->username, $attributes['password']);
+
+		$employee = $this->I->have('Employee', [
+			'user_id' => $user->id
+		]);
+
+		Auth::logout();
+
+		Auth::loginUsingId($user->id);
+
+		return $user;
+	}
+
+
+	public function signInAsManager()
     {
-        $roleId = ['role_id' => $this->getRoleId($roleName)];
+	  $attributes = [
+		  'password' => '1234',
+		  'recstat' => 'A'
+	  ];
 
-        $attributes = array_merge($attributes, $roleId);
+       $user = $this->signInAs('manager', $attributes);
 
-        $user = $this->I->have('User', $attributes);
-
-        $this->login($user->username, $attributes['password']);
-
-        return $user;
-    }
-
-
-    public function signInAsManager()
-    {
-       $user = $this->signInAs('manager',
-            [
-                'password' => '1234',
-                'recstat' => 'A'
-            ]);
-
-       $this->I->have('Employee', [
-           'user_id' => $user->id
-       ]);
-
-       return $user;
+	    return $user;
     }
 
     public function signInAsModerator()
@@ -70,6 +86,35 @@ class MemberSteps extends FunctionalTester
         return $user;
     }
 
+	public function signInAsEstimator()
+	{
+		$user = $this->signInAs('estimator',
+			[
+				'password' => '1234',
+				'recstat' => 'A'
+			]);
+
+		$this->I->have('Employee', [
+			'user_id' => $user->id
+		]);
+
+		return $user;
+	}
+
+	public function signInAsAccountant()
+	{
+		$user = $this->signInAs('accountant',
+			[
+				'password' => '1234',
+				'recstat' => 'A'
+			]);
+
+		$this->I->have('Employee', [
+			'user_id' => $user->id
+		]);
+
+		return $user;
+	}
 
     protected function getRoleId($roleName)
     {
@@ -98,6 +143,11 @@ class MemberSteps extends FunctionalTester
         $this->I->fillField(SignInPage::$usernameField, $username);
         $this->I->fillField(SignInPage::$passwordField, $password);
         $this->I->click(SignInPage::$signInButton);
+    }
+
+    public function logout()
+    {
+        $this->I->sendAjaxRequest('DELETE', URL::route('logout_path'));
     }
 
     public function registerAUser($role_id, $email)

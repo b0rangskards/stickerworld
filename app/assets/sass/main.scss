@@ -179,6 +179,25 @@ div.dataTables_wrapper {
   margin-bottom: 5px;
 }
 
+.margin-bottom-10 {
+  margin-bottom: 10px;
+}
+
+.margin-left-10 {
+  margin-left: 10px;
+}
+
+.margin-right-10 {
+  margin-right: 10px;
+}
+
+.margin-left-5 {
+  margin-left: 5px;
+}
+
+.margin-right-5 {
+  margin-right: 5px;
+}
 /* Paddings */
 
 
@@ -352,8 +371,46 @@ table#employees-table tbody td {
 .employee-thumbnail-small {
   border-radius: 50%;
   width: 33px;
+  height: 33px;
   border: 2px solid #ecf0f1;
   margin-right: 5px;
+}
+
+.upload-employee-photo-group {
+
+  .employee-thumbnail-upload-photo {
+    border-radius: 50%;
+    border: 2px solid #ecf0f1;
+    width: 160px;
+    height: auto;
+  }
+
+  .fileinput-preview {
+
+    @extend .employee-thumbnail-upload-photo;
+
+    img {
+      @extend .employee-thumbnail-upload-photo;
+    }
+  }
+
+  .upload-btns {
+    span.btn {
+      margin-bottom: 5px;
+    }
+    @extend .col-md-offset-1;
+  }
+}
+
+.upload-item-photo-group {
+  .fileinput-preview {
+    width: 160;
+    height: auto;
+    img {
+      width: 160;
+      height: auto;
+    }
+  }
 }
 
 .flat-blue-font {
@@ -362,6 +419,58 @@ table#employees-table tbody td {
 
 .flat-pink-font {
   color:#d2527f;
+}
+
+.font-dark {
+  color: #bdc3c7;
+}
+
+.view-modal {
+  img.item-image {
+    width: 200px;
+    height: auto;
+  }
+
+  .info-group {
+    font-weight: 400;
+    color: #bdbdbd;
+  }
+  label {
+    font-size: 15px;
+  }
+  span.info-value {
+    font-size: 13px;
+  }
+}
+
+/*Remove the underline in x-editable */
+a.editable-click {
+  border-bottom: none;
+  &:hover {
+    border-bottom: none;
+  }
+}
+
+/* Search Item Result in New Project */
+.project-item-result {
+  .item-name {
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .supplier {
+    font-size: 11px;
+    font-style: oblique;
+    margin-bottom: 3px;
+  }
+  .price {
+    font-weight: 600;
+    color: #5f6165;
+  }
+  &:hover {
+    .price {
+      color:white;
+    }
+  }
 }
 
 /* Stickerworld Custom CSS End here */

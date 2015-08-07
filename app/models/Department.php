@@ -1,9 +1,23 @@
 <?php
 
 
+use Laracasts\Presenter\PresentableTrait;
+
 class Department extends \Eloquent {
 
+    use PresentableTrait;
+
+
+
+
 	protected $fillable = ['name'];
+
+    /**
+     * Path to the presenter for a branch.
+     *
+     * @var string
+     */
+    protected $presenter = 'Acme\Presenters\DepartmentPresenter';
 
 
     public static function newDepartment($name)
@@ -29,8 +43,9 @@ class Department extends \Eloquent {
 
     public static function getDataForSelect()
     {
-        return static::orderBy('id')
-            ->lists('name', 'id');
+        return static::select(['name', 'id'])
+                      ->orderBy('id')
+                      ->get();
     }
 
 //    public function employees()

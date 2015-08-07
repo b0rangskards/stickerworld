@@ -27,11 +27,11 @@ a,a:hover,a:focus {
     outline:none;
 }
 ::selection {
-    background:#1FB5AD;
+    background: #57b8e2;
     color:#fff;
 }
 ::-moz-selection {
-    background:#1FB5AD;
+    background: #57b8e2;
     color:#fff;
 }
 #container {
@@ -64,11 +64,35 @@ a,a:hover,a:focus {
     border-radius:5px 5px 0 0;
     -webkit-border-radius:5px 5px 0 0;
     color:#fff;
-    font-size:18px;
+    font-size: 25px;
+    letter-spacing: 1px;
     text-transform:uppercase;
-    font-weight:300;
+    font-weight:400;
     font-family:'Open Sans',sans-serif;
     border-bottom:10px solid #a0b87e;
+}
+.form-signin h3.form-signin-heading {
+    margin: 0;
+    padding: 35px 15px;
+    text-align: center;
+    background: #aec785;
+    border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    color: #fff;
+    font-size: 25px;
+    letter-spacing: 1px;
+    font-stretch:extra-expanded;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    border-bottom: 10px solid #a0b87e;
+}
+
+.form-signin h3.form-signin-heading small{
+    font-size: 13px;
+    letter-spacing: normal;
+    text-transform: none;
+    font-family: 'Open Sans', sans-serif;
 }
 .form-signin .checkbox {
     margin-bottom:14px;
@@ -114,7 +138,7 @@ a,a:hover,a:focus {
     font-weight:300;
 }
 .form-signin a,.form-signin a:hover {
-    color:#1fb5ac;
+    color: #57b8e2;
 }
 .form-signin a:hover {
     text-decoration:underline;
@@ -238,7 +262,7 @@ ul.sidebar-menu li ul.sub li a {
     color:#aeb2b7;
 }
 ul.sidebar-menu li ul.sub li a:hover,ul.sidebar-menu li ul.sub li.active a {
-    color:#1fb5ad;
+    color: #57b8e2;
     -webkit-transition:all 0.3s ease;
     -moz-transition:all 0.3s ease;
     -o-transition:all 0.3s ease;
@@ -274,7 +298,7 @@ ul.sidebar-menu li a {
 }
 ul.sidebar-menu li a.active,ul.sidebar-menu li a:hover,ul.sidebar-menu li a:focus {
     background:#28282e;
-    color:#1FB5AD;
+    color: #57b8e2;
     display:block;
     -webkit-transition:all 0.3s ease;
     -moz-transition:all 0.3s ease;
@@ -287,10 +311,10 @@ ul.sidebar-menu li a i {
     padding-right:6px;
 }
 ul.sidebar-menu li a:hover i,ul.sidebar-menu li a:focus i {
-    color:#1fb5ad;
+    color: #57b8e2;
 }
 ul.sidebar-menu li a.active i {
-    color:#1fb5ad;
+    color: #57b8e2;
 }
 /*ul.sidebar-menu li ul i.fa {*/
     /*font-size: 90%;*/
@@ -337,7 +361,11 @@ ul.sidebar-menu li a.active i {
 
 }
 .brand {
-    background:#1fb5ad;
+    background-color:#57b8e2;
+    background-image: url('/images/company-logo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
     float:left;
     width:240px;
     height:80px;
@@ -370,7 +398,18 @@ ul.top-menu {
     margin-right:15px;
     margin-top: 0;
 }
-ul.top-menu > li > a {
+
+ul.top-menu>li>form>button {
+    color: #666666;
+    font-size: 16px;
+    background: #f6f6f6;
+    padding: 4px 8px;
+    margin-right: 15px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    padding-right: 8px !important;
+}
+ul.top-menu>li>a {
     color:#666666;
     font-size:16px;
     background:#f6f6f6;
@@ -380,7 +419,7 @@ ul.top-menu > li > a {
     -webkit-border-radius:50%;
     padding-right:8px !important;
 }
-ul.top-menu>li>a:hover,ul.top-menu>li>a:focus {
+ul.top-menu>li>a:hover,ul.top-menu>li>a:focus,ul.top-menu>li>form:hover,ul.top-menu>li>form:focus {
     background:#32D2C9;
     text-decoration:none;
     color:rgba(0,0,0,0.3) !important;
@@ -455,14 +494,28 @@ ul.top-menu>li>a:hover,ul.top-menu>li>a:focus {
     font-size:12px;
     list-style:none;
 }
+
+.dropdown-menu.extended li button {
+    font-size: 12px;
+    list-style: none;
+}
+
 .dropdown-menu.extended.logout {
     padding:10px;
 }
 .dropdown-menu.extended.logout li a {
     padding:10px;
 }
+
+.dropdown-menu.extended.logout>li>form {
+    padding: 10px;
+}
 .dropdown-menu.extended li a:hover {
     color:#32323a;
+}
+
+.dropdown-menu.extended li button:hover {
+    color: #32323a;
 }
 .dropdown-menu.tasks-bar .task-info .desc {
     font-size:13px;
@@ -555,6 +608,10 @@ ul.top-menu>li>a:hover,ul.top-menu>li>a:focus {
 .dropdown-menu.extended.logout>li>a {
     border-bottom:none !important;
 }
+
+.dropdown-menu.extended.logout>li>form {
+    border-bottom: none !important;
+}
 .full-width .dropdown-menu.extended.logout>li>a:hover {
     background:#F1F2F7 !important;
     color:#32323a !important;
@@ -563,20 +620,45 @@ ul.top-menu>li>a:hover,ul.top-menu>li>a:focus {
     background:#F1F2F7 !important;
     border-radius:5px;
 }
+.dropdown-menu.extended.logout>li>form:hover {
+    background: #F1F2F7 !important;
+    border-radius: 5px;
+}
 .dropdown-menu.extended.logout>li>a:hover i {
-    color:#32D2C9;
+    color: #57b8e2;
+}
+.dropdown-menu.extended.logout>li>form:hover i {
+    color: #57b8e2;
 }
 .dropdown-menu.extended.logout>li>a i {
     font-size:17px;
 }
+.dropdown-menu.extended.logout>li>form i {
+    font-size: 17px;
+}
 .dropdown-menu.extended.logout>li>a>i {
     padding-right:10px;
 }
+.dropdown-menu.extended.logout>li>form>button>i {
+    padding-right: 10px;
+}
+.dropdown-menu.extended.logout > li > form {
+    padding: 10px;
+}
+
+.dropdown-menu.extended.logout>li>form>button {
+    background-color: transparent;
+    background: none !important;
+    border: none;
+    color:#333333;
+}
+
+
 .top-nav .username {
     font-size:13px;
     color:#555555;
 }
-.top-nav ul.top-menu>li>a {
+.top-nav ul.top-menu>li>a,form>button {
     border-radius:100px;
     -webkit-border-radius:100px;
     padding:0px;
@@ -603,7 +685,7 @@ ul.top-menu>li>a:hover,ul.top-menu>li>a:focus {
 .top-nav ul.top-menu>li {
     margin-left:10px;
 }
-.top-nav ul.top-menu>li>a:hover,.top-nav ul.top-menu>li>a:focus {
+.top-nav ul.top-menu>li>a:hover,.top-nav ul.top-menu>li>a:focus, .top-nav ul.top-menu>li>form>button:hover{
     border:1px solid #f6f6f6;
     background:#f6f6f6 !important;
     border-radius:100px;
@@ -676,13 +758,14 @@ ul.top-menu>li>a:hover,ul.top-menu>li>a:focus {
     float:left;
     margin-top:23px;
     margin-left:-15px;
-    background:#32d2c9;
+    background: #57b8e2;
     border-radius:50%;
     -webkit-border-radius:50%;
     width:32px;
     height:32px;
     position:absolute;
     right:-15px;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 .sidebar-toggle-box .fa-bars {
     cursor:pointer;
@@ -727,7 +810,7 @@ ul.top-menu>li>a:hover,ul.top-menu>li>a:focus {
     height:35px;
 }
 .toggle-right-box:hover {
-    background:#32D2C9;
+    background: #57b8e2;
 }
 .toggle-right-box:hover .fa-bars {
     color:rgba(0,0,0,0.3);
@@ -779,7 +862,7 @@ ul.top-menu>li>a:hover,ul.top-menu>li>a:focus {
     color:#fff;
 }
 .right-side-accordion .terques-bg {
-    background:#45c9c4;
+    background: #57b8e2;
     color:#fff;
 }
 .right-side-accordion .purple-bg {
@@ -2615,7 +2698,25 @@ ul.inbox-pagination li {
     color:#aeaeb1;
     margin-bottom: 0;
 }
-
+.invoice .tools .btn-group {
+    margin: 5px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding: 5px 10px;
+    padding-bottom: 0px;
+    display: inline-block;
+    background: #fcfcfc;
+    color: #afafaf;
+}
+.invoice .tools .btn-group a {
+    height: 35px;
+    padding: 10px;
+    margin-right: 10px;
+}
+.invoice .add-btns a{
+    margin-left: 10px;
+    margin-right: 5px;
+}
 .logo-print {
     float: left;
     margin:-50px 0 0 250px;
@@ -2640,10 +2741,16 @@ ul.inbox-pagination li {
 .inv-label h3 {
     font-weight:300;
 }
-ul.amounts li.grand-total {
-    background:#1fb5ad;
+ul.amounts li.total-cost {
+    /*background:#1fb5ad;*/
+    background: #c7cbd6;
     color:#fff;
     font-weight:bold;
+}
+ul.amounts li.grand-total {
+    background:#1fb5ad;
+    color: #fff;
+    font-weight: bold;
 }
 .amnt-value,.table-invoice h4 {
     margin:0;
@@ -2677,8 +2784,12 @@ ul.amounts li.grand-total {
     color:#73737b;
     font-weight:600;
 }
+.invoice-to a{
+    font-weight: 400;
+    color: #aeaeb1;
+}
 .table-invoice {
-    margin-top:30px;
+    margin-top:10px;
     border-spacing:5px;
     border-collapse:separate;
 }
@@ -2700,8 +2811,35 @@ ul.amounts li.grand-total {
 .table-invoice tbody tr td {
     background:#f5f6f9;
     border-radius:5px;
+    text-align: center;
     -webkit-border-radius:5px;
     vertical-align:middle;
+}
+
+.table-invoice tbody tr td input[type=number]{
+    display:inline-block;
+    background-color: rgba(255,255,255,0.5);
+    color: #333;
+    margin: 1px;
+    padding: 2px;
+    width: 60px
+}
+.table-invoice tbody tr:first-child td {
+    background: #e8e9f0;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 600;
+    font-size: 13px;
+}
+.table-invoice tbody tr.second-header th {
+    background: #e8e9f0;
+    font-weight: 600;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    vertical-align: middle;
+    text-align: center;
 }
 .invoice-block {
     text-align:right;
@@ -2718,6 +2856,7 @@ ul.amounts li {
     font-weight:300;
     font-size:16px;
     list-style: none;
+    padding-right: 95px;
 }
 .invoice-btn {
     margin-top:30px;
@@ -3485,8 +3624,13 @@ ul.clock-category li a:hover i,ul.clock-category li a.active i {
 .prd-row {
     position:relative;
 }
+.prd-row input[type=number] {
+    width: 80px;
+    display: inline-block;
+    margin-left: 10px;
+}
 .btn-add-cart {
-    bottom:9px;
+    bottom:-30px;
     padding:12px;
     position:absolute;
     right:15px;
@@ -3498,11 +3642,28 @@ ul.clock-category li a:hover i,ul.clock-category li a.active i {
     width:100px;
     height:45px;
     position:absolute;
-    bottom:10px;
-    right:-35px;
-    background:rgba(0,0,0,0.5);
+    bottom:-30px;
+    left:80px;
     border-radius:5px;
     -webkit-border-radius:5px;
+}
+.prd-row .action .input-group button{
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 14px;
+    height: 39px;
+}
+.prd-row .action .select2-container a{
+    background: rgba(255, 255, 255, 0.8);
+    color: #000;
+    font-size: 14px;
+    height: 39px;
+    width:250px;
+    border: 1px  rgba(0,0,0,0.3) solid;
+}
+
+.prd-row .action .select2-container a span {
+    padding-top: 10px;
 }
 .prd-row .action .part1 {
     width:50%;
@@ -3523,6 +3684,7 @@ ul.clock-category li a:hover i,ul.clock-category li a.active i {
     color:#5f6165;
     margin:5px 0;
 }
+
 .prd-row p {
     margin:0;
     color:#bfc2c4;
@@ -3539,11 +3701,16 @@ ul.clock-category li a:hover i,ul.clock-category li a.active i {
 }
 .prd-row .price .amnt {
     color:#1fb5ad;
-    font-size:25px;
+    font-size:23px;
     font-weight:600;
 }
+.prd-row .price .label {
+    color: #bfc2c4;
+    font-size: 12px;
+    font-weight: 400;
+    padding:0px;
+}
 .prd-row .price .amnt:after {
-    content:".00";
     position:relative;
     top:-10px;
     font-size:12px;

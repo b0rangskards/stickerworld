@@ -45,7 +45,6 @@ class PermissionRolesController extends \BaseController {
             return Response::json($responseData);
 
         } catch ( Laracasts\Validation\FormValidationException $exception ) {
-            $errors = [];
 
             $errors = DataHelper::getErrorDataFromException($exception);
 

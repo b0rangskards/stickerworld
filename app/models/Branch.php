@@ -1,6 +1,8 @@
 <?php
 
 
+use Acme\Helpers\InputConverter;
+use Acme\Helpers\StrHelper;
 use Laracasts\Presenter\PresentableTrait;
 
 class Branch extends \Eloquent {
@@ -49,9 +51,9 @@ class Branch extends \Eloquent {
 
         $branch->name = $name;
 
-        $branch->address = $address;
+        if($branch->name != $address) $branch->address = $address;
 
-        $branch->contact_no = $contact_no;
+        if($branch->contact_no != $contact_no) $branch->contact_no = $contact_no;
 
         $branch->lat = $lat;
 
@@ -77,6 +79,18 @@ class Branch extends \Eloquent {
             ->whereNotIn('name', $except)
             ->orderBy('id')
             ->get();
+    }
+
+    /* Mutators */
+
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = InputConverter::cleanInput($value);
+    }
+
+    public function setAddressAttribute($value)
+    {
+        $this->attributes['address'] = InputConverter::cleanInput($value);
     }
 
 

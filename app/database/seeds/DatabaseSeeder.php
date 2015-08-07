@@ -3,6 +3,20 @@
 class DatabaseSeeder extends Seeder
 {
 
+    protected  $tables = [
+        'roles',
+        'users',
+        'permission_groups',
+        'permissions',
+        'permission_role',
+        'branches',
+        'departments',
+        'employees',
+        'suppliers',
+	    'items',
+	    'utility_costs'
+    ];
+
     /**
      * Run the database seeds.
      *
@@ -22,8 +36,8 @@ class DatabaseSeeder extends Seeder
         $this->setForeignKeyChecks(false);
         $this->setSQLMode();
 
-        foreach ( $this->tables as $tableName ) {
-
+        foreach ( $this->tables as $tableName )
+        {
             $tableSeeder = ucfirst(Str::camel($tableName)) . 'TableSeeder';
             $this->call($tableSeeder);
         }
@@ -42,17 +56,6 @@ class DatabaseSeeder extends Seeder
         $this->setForeignKeyChecks(true);
     }
 
-    private $tables = [
-        'branches',
-        'departments',
-        'roles',
-        'users',
-        'employees',
-        'permission_groups',
-        'permissions',
-        'permission_role'
-    ];
-
     public function setSQLMode($value = 'NO_AUTO_VALUE_ON_ZERO')
     {
        if( $this->isMySQL() )
@@ -63,17 +66,15 @@ class DatabaseSeeder extends Seeder
 
     public function setForeignKeyChecks($enable = true)
     {
-        $statement = '';
-
         if( $this->isSQLite() )
         {
             $statement = 'PRAGMA foreign_keys=' . ($enable ? '1' : '0');
             DB::statement(DB::raw($statement));
-        } elseif( $this->isMySQL() ) {
-                $statement = 'SET FOREIGN_KEY_CHECKS=' . ($enable ? '1' : '0');
-                DB::statement($statement);
+            return;
         }
 
+        $statement = 'SET FOREIGN_KEY_CHECKS=' . ($enable ? '1' : '0');
+        DB::statement($statement);
     }
 
     /**

@@ -13,7 +13,6 @@
 
 
 /* Page Not Found */
-use Acme\Helpers\RouteHelper;
 
 Route::get('/not_found', [
     'as'   => 'not_found_path',
@@ -29,10 +28,6 @@ Route::get('/401', [
 /* For Guest Users */
 Route::group(['before' => 'guest'], function()
 {
-    /**
-     * Sessions
-     */
-
     /* Log in User */
     Route::get('/login', [
         'as'   => 'login_path',
@@ -43,19 +38,21 @@ Route::group(['before' => 'guest'], function()
         'as'   => 'login_path',
         'uses' => 'SessionsController@store'
     ]);
+}); /* End of Guest Users */
 
-    /* Activate User */
+/* Activate User */
+Route::group(['before' => 'guest_logout'], function ()
+{
     Route::get('register/activate/{activationCode}', [
-        'as'   => 'user_activation_path',
+        'as' => 'user_activation_path',
         'uses' => 'UserActivationController@index'
     ]);
 
     Route::post('register/activate/{activationCode}', [
-        'as'   => 'user_activation_path',
+        'as' => 'user_activation_path',
         'uses' => 'UserActivationController@store'
     ]);
-
-}); /* End of Guest Users */
+});
 
 /* For Members */
 Route::group(['before' => 'auth'], function()
@@ -67,12 +64,11 @@ Route::group(['before' => 'auth'], function()
     ]);
 
     Route::get('/dashboard', [
-        'as'   => 'home',
+        'as'   => 'dashboard',
         'uses' => 'DashboardController@index'
     ]);
 
-    /* Logout *Need to change it to DELETE */
-    Route::get('/logout', [
+    Route::delete('/logout', [
         'as'   => 'logout_path',
         'uses' => 'SessionsController@destroy'
     ]);
@@ -106,8 +102,22 @@ Route::group(['before' => 'auth'], function()
             'as'   => 'update_user_email_path',
             'uses' => 'UserProfileController@changeEmail'
         ]);
-
     });
+
+	/* Settings */
+	Route::group(['prefix' => 'settings'], function () {
+
+		Route::get('/', [
+			'as'   => 'user_settings_path',
+			'uses' => 'UserSettingsController@index'
+		]);
+
+		Route::put('edit', [
+			'as'   => 'update_company_settings_path',
+			'uses' => 'UserSettingsController@update'
+		]);
+
+	});
 
 
     /*
@@ -348,11 +358,310 @@ Route::group(['before' => 'auth'], function()
             'as'   => 'terminate_employee_path',
             'uses' => 'EmployeesController@destroy'
         ]);
+
+	    Route::get('fetchdata', [
+		    'as' => 'fetch_employee_data_path',
+		    'uses' => 'EmployeesController@fetchData'
+	    ]);
+
     });
 
-    Route::get('/groups', function(){
-        dd(url());
+    Route::group(['prefix' => 'supplier'], function () {
+        /* Show all Suppliers */
+        Route::get('suppliers', [
+            'as'   => 'suppliers_index_path',
+            'uses' => 'SuppliersController@index'
+        ]);
+
+        Route::get('new', [
+            'as'    => 'new_supplier_path',
+            'uses'  => 'SuppliersController@create'
+        ]);
+
+        Route::post('new', [
+            'as'   => 'new_supplier_path',
+            'uses' => 'SuppliersController@store'
+        ]);
+
+	    Route::get('show/{id}', [
+		    'as'   => 'show_supplier_path',
+		    'uses' => 'SuppliersController@show'
+	    ]);
+
+        Route::get('edit/{id}', [
+            'as'   => 'update_supplier_path',
+            'uses' => 'SuppliersController@edit'
+        ]);
+
+        Route::put('edit/{id}', [
+            'as'   => 'update_supplier_path',
+            'uses' => 'SuppliersController@update'
+        ]);
+
+        Route::delete('cancel/{id}', [
+            'as'   => 'cancel_supplier_path',
+            'uses' => 'SuppliersController@destroy'
+        ]);
+
+	    /* Supplier Item Routes */
+
+	    Route::post('{supplierId}/item', [
+		    'as'   => 'create_item_path',
+		    'uses' => 'ItemsController@store'
+	    ]);
+
+	    Route::post('{supplierId}/item/update', [
+		    'as' => 'update_item_path',
+		    'uses' => 'ItemsController@update'
+	    ]);
+
+	    Route::delete('item/{id}', [
+		    'as'   => 'delete_item_path',
+		    'uses' => 'ItemsController@destroy'
+	    ]);
+
+	    Route::get('item/fetchdata/{id}', [
+		    'as' => 'fetch_item_data_path',
+		    'uses' => 'ItemsController@fetchData'
+	    ]);
+
     });
+
+	Route::group(['prefix' => 'item'], function () {
+
+		Route::get('items', [
+			'as'   => 'items_index_path',
+			'uses' => 'ItemsController@index'
+		]);
+
+		Route::get('new', [
+			'as'   => 'new_item_path',
+			'uses' => 'ItemsController@create'
+		]);
+
+		Route::post('new', [
+			'as'   => 'new_item_index_path',
+			'uses' => 'ItemsController@newItem'
+		]);
+
+		Route::get('edit/{item}', [
+			'as'   => 'update_item_index_path',
+			'uses' => 'ItemsController@edit'
+		]);
+
+		Route::put('edit', [
+			'as'   => 'update_item_index_path',
+			'uses' => 'ItemsController@updateItem'
+		]);
+
+		Route::get('search', [
+			'as' => 'search_item_path',
+			'uses' => 'ItemsController@search'
+		]);
+
+	});
+
+
+	Route::group(['prefix' => 'client'], function () {
+
+		Route::get('clients', [
+			'as' => 'clients_index_path',
+			'uses' => 'ClientsController@index'
+		]);
+
+		Route::get('new', [
+			'as' => 'new_client_path',
+			'uses' => 'ClientsController@create'
+		]);
+
+		Route::post('new', [
+			'as' => 'new_client_path',
+			'uses' => 'ClientsController@store'
+		]);
+
+		Route::get('edit/{client}', [
+			'as'   => 'update_client_path',
+			'uses' => 'ClientsController@edit'
+		]);
+
+		Route::put('edit/{client}', [
+			'as'   => 'update_client_path',
+			'uses' => 'ClientsController@update'
+		]);
+
+		Route::delete('client/{client}', [
+			'as' => 'delete_client_path',
+			'uses' => 'ClientsController@destroy'
+		]);
+
+		Route::get('fetchdata', [
+			'as'   => 'fetch_client_data_path',
+			'uses' => 'ClientsController@fetchData'
+		]);
+
+	});
+
+
+	Route::group(['prefix' => 'project'], function () {
+
+		Route::get('projects', [
+			'as'   => 'projects_index_path',
+			'uses' => 'ProjectsController@index'
+		]);
+
+		Route::get('new', [
+			'as'   => 'new_project_path',
+			'uses' => 'ProjectsController@create'
+		]);
+
+		Route::post('new', [
+			'as'   => 'new_project_path',
+			'uses' => 'ProjectsController@store'
+		]);
+
+		Route::get('confirm/{projectname}', [
+			'as'   => 'confirm_project_path',
+			'uses' => 'ProjectsController@getConfirm'
+		]);
+
+		Route::post('confirm', [
+			'as'   => 'confirm_project_path',
+			'uses' => 'ProjectsController@postConfirm'
+		]);
+
+		Route::put('new/add-material', [
+			'as'   => 'add_material_path',
+			'uses' => 'NewProjectController@addMaterial'
+		]);
+
+		Route::put('new/add-labor-cost', [
+			'as'   => 'add_labor_cost_from_project_path',
+			'uses' => 'NewProjectController@addLaborCost'
+		]);
+
+		Route::put('new/add-logistics-cost', [
+			'as'   => 'add_logistics_cost_from_project_path',
+			'uses' => 'NewProjectController@addLogisticsCost'
+		]);
+
+		Route::put('new/update-quantity', [
+			'as'   => 'update_quantity_path',
+			'uses' => 'NewProjectController@updateMaterialQuantity'
+		]);
+
+		Route::put('new/update-utility-quantity', [
+			'as'   => 'update_utility_quantity_path',
+			'uses' => 'NewProjectController@updateUtilityQuantity'
+		]);
+
+		Route::put('new/update-logistics-quantity', [
+			'as'   => 'update_logistics_quantity_path',
+			'uses' => 'NewProjectController@updateLogisticsQuantity'
+		]);
+
+		Route::delete('cancel-material/{itemId}', [
+			'as'   => 'cancel_project_material_path',
+			'uses' => 'NewProjectController@cancelMaterial'
+		]);
+
+		/* Validate New Project Fields with Xeditable */
+		Route::post('new/validate', [
+			'as'   => 'validate_project_path',
+			'uses' => 'NewProjectController@validate'
+		]);
+
+		/* Generate Cost Estimation Section on New Project */
+
+		Route::get('new/generate-cost-estimation-section', [
+			'as'   => 'generate_cost_estimation_section_path',
+			'uses' => 'NewProjectController@generateCostEstimationSection'
+		]);
+
+
+		/* Labor Costs */
+		Route::group(['prefix' => 'labor-cost'], function () {
+
+			Route::get('labor-costs', [
+				'as'   => 'labor_costs_index_path',
+				'uses' => 'LaborCostsController@index'
+			]);
+
+			Route::get('new', [
+				'as'   => 'new_labor_cost_path',
+				'uses' => 'LaborCostsController@create'
+			]);
+
+			Route::post('new', [
+				'as'   => 'new_labor_cost_path',
+				'uses' => 'LaborCostsController@store'
+			]);
+
+			Route::get('edit/{utilitycost}', [
+				'as'   => 'update_labor_cost_path',
+				'uses' => 'LaborCostsController@edit'
+			]);
+
+			Route::put('edit/{id}', [
+				'as'   => 'update_labor_cost_path',
+				'uses' => 'LaborCostsController@update'
+			]);
+
+			Route::delete('delete/{utilitycost}', [
+				'as'   => 'delete_labor_cost_path',
+				'uses' => 'LaborCostsController@destroy'
+			]);
+
+		}); /* End of Labor Cost Route Group */
+
+		/* Labor Costs */
+		Route::group(['prefix' => 'logistics-cost'], function () {
+
+			Route::get('logistics-costs', [
+				'as'   => 'logistics_costs_index_path',
+				'uses' => 'LogisticsCostsController@index'
+			]);
+
+			Route::get('new', [
+				'as'   => 'new_logistics_cost_path',
+				'uses' => 'LogisticsCostsController@create'
+			]);
+
+			Route::post('new', [
+				'as'   => 'new_logistics_cost_path',
+				'uses' => 'LogisticsCostsController@store'
+			]);
+
+			Route::get('edit/{utilitycost}', [
+				'as'   => 'update_logistics_cost_path',
+				'uses' => 'LogisticsCostsController@edit'
+			]);
+
+			Route::put('edit/{id}', [
+				'as'   => 'update_logistics_cost_path',
+				'uses' => 'LogisticsCostsController@update'
+			]);
+
+			Route::delete('delete/{utilitycost}', [
+				'as'   => 'delete_logistics_cost_path',
+				'uses' => 'LogisticsCostsController@destroy'
+			]);
+
+		}); /* End of Labor Cost Route Group */
+	}); /* End of Project Route Group */
+
+	Route::get('test', function(){
+//		dd(CartMaterials::getLabors());
+//		dd(CartMaterials::generateCostEstimatesFromCart());
+//dd(Cart::contents(true));
+		dd(UtilityCost::find(44));
+	});
+
+	Route::model('item', 'Item');
+	Route::model('client', 'Client');
+	Route::model('utilitycost', 'UtilityCost');
+	Route::bind('projectname', function($value){
+		return Project::where('name', $value)->first();
+	});
 
 }); // End of Route Group auth
 

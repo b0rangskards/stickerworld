@@ -83,17 +83,20 @@ return array(
     */
     "alpha_spaces"          => "The :attribute may only contain letters and spaces.",
     "gender"                => "The :attribute is invalid.",
+    "name"                  => "The :attribute may only contain letters, spaces and apostrophes.",
+    "username"              => "The :attribute may only contain letters, numbers, hyphens(-) and underscores(_).",
+    "company_name"          => "The :attribute may only contain letters, numbers, hyphens(-), apostrophes('), underscores(_) and whitespaces.",
 
-	/*
-	|--------------------------------------------------------------------------
-	| Custom Validation Language Lines
-	|--------------------------------------------------------------------------
-	|
-	| Here you may specify custom validation messages for attributes using the
-	| convention "attribute.rule" to name the lines. This makes it quick to
-	| specify a specific custom language line for a given attribute rule.
-	|
-	*/
+    /*
+    |--------------------------------------------------------------------------
+    | Custom Validation Language Lines
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify custom validation messages for attributes using the
+    | convention "attribute.rule" to name the lines. This makes it quick to
+    | specify a specific custom language line for a given attribute rule.
+    |
+    */
 
 	'custom' => array(
 		'attribute-name' => array(

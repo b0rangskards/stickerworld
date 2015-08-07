@@ -3,11 +3,13 @@
 use Acme\Employees\EmployeeRepository;
 use Acme\Employees\HireNewEmployeeCommand;
 use Acme\Employees\TerminateEmployeeCommand;
+use Acme\Employees\UpdateEmployeeCommand;
 use Acme\Forms\HireNewEmployeeForm;
 use Acme\Forms\TerminateEmployeeForm;
 use Acme\Forms\UpdateEmployeeForm;
 use Acme\Helpers\DataHelper;
 use Acme\Helpers\ViewDataHelper;
+use Laracasts\Flash\Flash;
 
 class EmployeesController extends \BaseController {
 
@@ -29,6 +31,8 @@ class EmployeesController extends \BaseController {
         $this->hireNewEmployeeForm = $hireNewEmployeeForm;
 
         $this->terminateEmployeeForm = $terminateEmployeeForm;
+
+        $this->updateEmployeeForm = $updateEmployeeForm;
     }
 
     /**
@@ -70,7 +74,7 @@ class EmployeesController extends \BaseController {
 
         $viewData = array_merge($viewData, [
            // Data for select options
-           'genders'        => ['male' => 'Male', 'female' => 'Female'],
+           'genders'        => Config::get('enums.gender'),
            'departments'    => Department::getDataForSelect()
         ]);
 
@@ -100,7 +104,7 @@ class EmployeesController extends \BaseController {
 
             $this->execute(HireNewEmployeeCommand::class);
 
-            $userActivationPromptMessage = !empty(Input::get('email')) ? 'An Email was sent to the Employee for account activation' : '';
+            $userActivationPromptMessage = !empty(Input::get('email')) ? 'An Email was sent to Employee for Account Activation' : '';
 
             Flash::success('Successfully Hired Employee. ' . $userActivationPromptMessage);
 
@@ -110,11 +114,10 @@ class EmployeesController extends \BaseController {
 
             $errors = DataHelper::getErrorDataFromException($exception);
 
-            Flash::error(DataHelper::arrayToString($errors));
-
             if(Request::ajax()) return Response::json($errors, 400);
 
-            return Redirect::back()->withInput();
+
+            return Redirect::back()->withInput()->withErrors($errors);
 	    }
     }
 
@@ -138,6 +141,8 @@ class EmployeesController extends \BaseController {
 
     public function edit($id)
     {
+        $currentEmployee = Employee::findOrFail($id);
+
         $currentPage = [
             'Employees' => [
                 'url' => URL::route('employees_index_path')
@@ -150,11 +155,11 @@ class EmployeesController extends \BaseController {
         $viewData = ViewDataHelper::createViewHeaderData('Employee', 'Update Information', $currentPage, 'fa fa-user');
 
         $viewData = array_merge($viewData, [
-            'genders'       =>      ['male' => 'Male', 'female' => 'Female'],
-            'departments' => Department::getDataForSelect(),
-            'branches' => Branch::getDataForSelect(),
-            'roles' => Role::getDataForSelect(['admin', 'moderator']),
-            'currentEmployee' => Employee::find($id)
+            'genders'         => Config::get('enums.gender'),
+            'departments'     => Department::getDataForSelect(),
+            'branches'        => Branch::getDataForSelect(),
+            'roles'           => Role::getDataForSelect(['admin', 'moderator']),
+            'currentEmployee' => $currentEmployee
         ]);
 
         return View::make('employees.edit', $viewData);
@@ -169,7 +174,35 @@ class EmployeesController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		dd('update employee '.$id);
+		try {
+            $inputs = Input::all();
+
+            $inputs['employee_id'] = $id;
+
+            $this->updateEmployeeForm->validate($inputs);
+
+            $this->execute( UpdateEmployeeCommand::class, $inputs);
+
+            $userActivationPromptMessage = !empty(Input::get('email')) ? 'An Email was sent to Employee for Account Activation' : '';
+
+            Flash::success('Successfully Update Employee Information.' . $userActivationPromptMessage);
+
+            return Redirect::route('employees_index_path');
+
+        }catch( Laracasts\Validation\FormValidationException $exception) {
+
+            $errors = DataHelper::getErrorDataFromException($exception);
+
+            if(!is_object($exception->getErrors())) {
+                Flash::error(DataHelper::arrayToString($errors));
+
+                return Redirect::back()->withInput();
+            }
+
+            if ( Request::ajax() ) return Response::json($errors, 400);
+
+            return Redirect::back()->withInput()->withErrors($errors);
+        }
 	}
 
 	/**
@@ -198,6 +231,17 @@ class EmployeesController extends \BaseController {
 
             return Response::json($errors, 400);
         }
+	}
+
+
+	public function fetchData()
+	{
+		$query = Request::get('query');
+		$designation = Request::get('designation');
+
+		$employees = $this->employeeRepository->getEmployeeData($query, $designation, Auth::user());
+
+		return Response::json($employees, 200);
 	}
 
 }

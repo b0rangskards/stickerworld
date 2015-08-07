@@ -6,7 +6,7 @@ return [
 
     'connections' => [
         'mysql' => [
-            'driver' => 'mysql',
+            'driver'   => 'mysql',
             'host'     => 'localhost',
             'database' => 'stickerworld_db',
             'username' => 'root',

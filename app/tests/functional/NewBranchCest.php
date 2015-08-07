@@ -1,4 +1,5 @@
 <?php
+use Acme\Helpers\StrHelper;
 use \FunctionalTester;
 
 /**
@@ -21,19 +22,26 @@ class NewBranchCest
 
         $I->amOnPage(BranchesPage::$URL);
 
-        $branch = $I->build('Branch');
-
-        $params = [];
-        foreach($this->fields as $field)
-        {
-            $params[$field] = $branch->$field;
-        }
+        $branch = $I->buildDataFor('Branch', [
+            'name' => 'Mambaling',
+            'contact_no' => '268-9279',
+            'address' => '#220 N. Bacalso Avenue
+                            National Highway, Mambaling
+                            Cebu City, Cebu 6000
+                            Philippines'
+        ]);
 
         $I->sendAjaxRequest('POST',
-            URL::route('new_branch_path'), $params
+            URL::route('new_branch_path'), $branch
         );
 
-        $I->seeRecord(BranchesPage::$tableName, $params);
+        $I->seeRecord(BranchesPage::$tableName, [
+            'name' => strtolower(StrHelper::cleanSpacing($branch['name'])),
+            'address' => strtolower(StrHelper::cleanSpacing($branch['address'])),
+            'contact_no' => $branch['contact_no'],
+            'lat' => $branch['lat'],
+            'lng' => $branch['lng']
+        ]);
     }
 
 

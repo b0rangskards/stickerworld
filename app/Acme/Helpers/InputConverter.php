@@ -14,4 +14,9 @@ class InputConverter {
         return Carbon::createFromFormat($format, $date)->toDateString();
     }
 
+    public static function cleanInput($str)
+    {
+        return strtolower(StrHelper::cleanSpacing($str));
+    }
+
 } 

@@ -4,7 +4,7 @@
 <div class="brand">
 
     <a href="{{ URL::route('home') }}" class="logo">
-        <img src="{{ asset('images/company-logo.png') }}" alt="" />
+        {{--<img src="{{ asset('images/company-logo.png') }}" alt="" />--}}
     </a>
     <div class="sidebar-toggle-box">
         <div class="fa fa-bars"></div>
@@ -32,8 +32,12 @@
                 <li>
                     <a href="{{ URL::route('user_profile_path', $currentUser->username) }}"><i class=" fa fa-user"></i>Profile</a>
                 </li>
-                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                <li><a href="{{ URL::route('logout_path') }}"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                <li><a href="{{URL::route('user_settings_path')}}"><i class="fa fa-cog"></i>Settings</a></li>
+                <li>
+                    {{Form::open(['route' => 'logout_path', 'method' => 'DELETE'])}}
+                        <button type="submit"><i class="fa fa-sign-out"></i>Logout</button>
+                    {{Form::close()}}
+                </li>
             </ul>
         </li>
     </ul>

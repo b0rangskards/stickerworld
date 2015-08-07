@@ -1,0 +1,11 @@
+<?php  namespace Acme\Facades; 
+
+use Illuminate\Support\Facades\Facade;
+
+class CartMaterials extends Facade {
+
+	protected static function getFacadeAccessor()
+	{
+		return 'cartmaterials';
+	}
+} 

@@ -7,7 +7,7 @@ class ActivateUserPage
 
     public static $URL = 'register/activate/';
 
-    public static $header = 'Please Enter Username and Password to activate your account';
+    public static $header = 'Please enter desired Username and Password to activate your account';
 
     public static $usernameField = 'username';
 

@@ -5,7 +5,12 @@ class SideMenuPage
     // include url of current page
     public static $URL = '';
 
-    public static $branchesButton = 'a#branches-nav-btn';
+    public static $branchesButton = '#branches-nav-btn';
+
+	/* Projects Menu */
+	public static $projectsLink = '#project-sidemenu-link';
+
+	public static $newProjectLink = '#new-project-sidemenu-link';
 
     /**
      * Declare UI map for this page here. CSS or XPath allowed.

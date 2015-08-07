@@ -25,15 +25,15 @@ class NewEmployeePage
 
     public static $contactNoField = 'contact_no';
 
-    public static $deptIdField = 'dept_id';
+    public static $deptIdField = 'department';
 
     public static $designationField = 'designation';
 
-    public static $branchOptionField = 'br_id';
+    public static $branchOptionField = 'branch';
 
     public static $createAccountCheckbox = 'create_account';
 
-    public static $roleIdOptionField = 'role_id';
+    public static $roleIdOptionField = 'role';
 
     public static $emailField = 'email';
 

@@ -60,7 +60,7 @@
                                             alt=""/>
                                     </span>
                                     <span class="col-md-8"> {{$employee->present()->fullName}} </span>
-                                    <span class="col-md-1 pull-left"><i class="fa {{$employee->gender === 'male' ? 'fa-male flat-blue-font' : 'fa-female flat-pink-font'}}"></i></span>
+                                    <span class="col-md-1 pull-left"><i class="fa {{$employee->gender === 'male' ? 'fa-mars flat-blue-font' : 'fa-venus flat-pink-font'}}"></i></span>
                                     </a>
                                 </div>
                             </td>
@@ -68,7 +68,7 @@
                                 <span> {{$employee->branch->name}} </span>
                             </td>
                             <td>
-                                <span> {{$employee->department->name}} </span>
+                                <span> {{$employee->department->name or "<span class='font-dark'>Unassigned</span>"}} </span>
                             </td>
                             <td>
                                 <span> {{$employee->designation}} </span>

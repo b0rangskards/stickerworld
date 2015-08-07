@@ -13,18 +13,18 @@ class HireNewEmployeeForm extends FormValidator {
      */
     protected $rules = [
 
-        'dept_id'               => 'required|numeric|exists:employees,id',
-        'br_id'                 => 'required|numeric|exists:branches,id',
-        'firstname'             => 'required|alpha_spaces',
-        'middlename'            => 'required|alpha_spaces',
-        'lastname'              => 'required|alpha_spaces',
+        'department'            => 'required|numeric|exists:departments,id',
+        'branch'                => 'required|numeric|exists:branches,id',
+        'firstname'             => 'required|name',
+        'middlename'            => 'required|name',
+        'lastname'              => 'required|name',
         'gender'                => 'required|alpha|gender',
         'birthdate'             => 'required|date|date_format:Y-m-d|before:now',
         'address'               => 'required',
         'employee_photo'        => 'mimes:jpeg,png',
         'designation'           => 'required|alpha_spaces',
         'hired_date'            => 'required|date|date_format:Y-m-d',
-        'role_id'               => 'required_if:create_account,checked|exists:roles,id',
+        'role'                  => 'required_if:create_account,checked|exists:roles,id',
         'email'                 => 'required_if:create_account,checked|email|unique:users'
 
     ];

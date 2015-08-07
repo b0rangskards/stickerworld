@@ -52,7 +52,7 @@ class UserActivationController extends BaseController {
 
         Flash::message('You have successfully activated your account.');
 
-        return Redirect::home();
+        return Redirect::route('dashboard');
     }
 
 

@@ -2,9 +2,9 @@
 
 class HireNewEmployeeCommand {
 
-    public $dept_id;
+    public $department;
 
-    public $br_id;
+    public $branch;
 
     public $firstname;
 
@@ -24,13 +24,13 @@ class HireNewEmployeeCommand {
 
     public $hired_date;
 
-    function __construct($dept_id, $br_id, $firstname, $middlename, $lastname,
+    function __construct($department, $branch, $firstname, $middlename, $lastname,
                          $birthdate, $gender, $address, $contact_no, $designation,
                          $hired_date)
     {
-        $this->dept_id = $dept_id;
+        $this->department = $department;
 
-        $this->br_id = $br_id;
+        $this->branch = $branch;
 
         $this->firstname = $firstname;
 

@@ -1,4 +1,5 @@
 <?php
+use Acme\Helpers\StrHelper;
 use \FunctionalTester;
 use Laracasts\TestDummy\Factory;
 
@@ -22,7 +23,14 @@ class UpdateBranchInformationCest
 
         $this->otherBranch = $I->have('Branch');
 
-        $this->newBranchInfo = $I->buildDataFor('Branch');
+        $this->newBranchInfo = $I->buildDataFor('Branch', [
+            'name' => 'Mambaling',
+            'contact_no'    =>  '268-9279',
+            'address'   => '#220 N. Bacalso Avenue
+                            National Highway, Mambaling
+                            Cebu City, Cebu 6000
+                            Philippines'
+        ]);
     }
 
     // tests
@@ -42,8 +50,8 @@ class UpdateBranchInformationCest
 
         $I->seeRecord(BranchesPage::$tableName, [
             'id'            => $this->branch->id,
-            'name'          => $this->newBranchInfo['name'],
-            'address'       => $this->newBranchInfo['address'],
+            'name'          => strtolower(StrHelper::cleanSpacing($this->newBranchInfo['name'])),
+            'address'       => strtolower(StrHelper::cleanSpacing($this->newBranchInfo['address'])),
             'contact_no'    => $this->newBranchInfo['contact_no'],
             'lat'           => $this->newBranchInfo['lat'],
             'lng'           => $this->newBranchInfo['lng']

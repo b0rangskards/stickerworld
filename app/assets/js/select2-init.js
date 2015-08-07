@@ -8,5 +8,16 @@ $(document).ready(function () {
         placeholder: 'Select a Group',
         allowClear: true
     });
+
+    $('#select-item-type').select2({
+        placeholder: 'Select Item Type'
+    });
+
+    $('#select-item-um').select2({
+        placeholder: 'Select Unit of Mesaure'
+    });
+
+
+
 });
 

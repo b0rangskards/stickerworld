@@ -57,7 +57,7 @@ class HireNewEmployeeCommandHandler implements CommandHandler {
 
         if(!is_null($createAccount) && $createAccount === 'checked')
         {
-            $user = User::register(Input::get('role_id'), Input::get('email'));
+            $user = User::register(Input::get('role'), Input::get('email'));
 
             $this->userRepository->save($user);
 

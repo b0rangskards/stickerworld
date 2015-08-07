@@ -5,7 +5,7 @@
         <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
-                    <a class="active" href="{{URL::route('home')}}">
+                    <a class="active" href="{{URL::route('dashboard')}}">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
@@ -45,7 +45,7 @@
 
                     @if($currentUser->hasPermission('branches_index_path'))
                         <a href="{{ URL::route('branches_index_path') }}" id="branches-nav-btn" class="{{(Request::is('branch/*'))?'active':''}}">
-                            <i class="fa fa-home"></i>
+                            <i class="fa fa-building"></i>
                             <span>Branches</span>
                         </a>
                     @endif
@@ -54,12 +54,12 @@
                 @endif
 
 
-                @if($currentUser->hasGroupPermission('branch'))
+                @if($currentUser->hasGroupPermission('department'))
                     <li class="sub-menu">
 
                     @if($currentUser->hasPermission('departments_index_path'))
                         <a href="{{ URL::route('departments_index_path') }}" id="departments-nav-btn" class="{{(Request::is('department/*'))?'active':''}}">
-                            <i class="fa fa-home"></i>
+                            <i class="fa fa-certificate"></i>
                             <span>Departments</span>
                         </a>
                     @endif
@@ -70,7 +70,7 @@
                 @if($currentUser->hasGroupPermission('employee'))
                     <li class="sub-menu">
                         <a href="javascript:;" class="{{(Request::is('employee/*'))?'active':''}}">
-                            <i class="fa fa-user"></i>
+                            <i class="fa fa-users"></i>
                             <span>Employees</span>
                         </a>
                         <ul class="sub">
@@ -91,23 +91,113 @@
                     </li>
                 @endif
 
-                {{--@if($currentUser->hasGroupPermission('supplier'))--}}
+                @if($currentUser->hasGroupPermission('supplier'))
                     <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-retweet"></i>
+                        <a href="javascript:;" class="{{(Request::is('supplier/*'))?'active':''}}">
+                            <i class="fa fa-truck"></i>
                             <span>Suppliers</span>
                         </a>
                         <ul class="sub">
+
+                            @if($currentUser->hasPermission('new_supplier_path'))
+                                <li class="{{Request::is('supplier/new')?'active':''}}">
+                                    <a href="{{ URL::route('new_supplier_path') }}">New Supplier</a>
+                                </li>
+                            @endif
+
+                            @if($currentUser->hasPermission('suppliers_index_path'))
+                                <li class="{{Request::is('supplier/suppliers')?'active':''}}">
+                                    <a href="{{ URL::route('suppliers_index_path') }}">View All Suppliers</a>
+                                </li>
+                            @endif
+
                         </ul>
                     </li>
-                {{--@endif--}}
+                @endif
 
-                <li>
-                    <a href="fontawesome.html">
-                        <i class="fa fa-th"></i>
-                        <span>Logs</span>
-                    </a>
-                </li>
+                @if($currentUser->hasGroupPermission('item'))
+                    <li class="sub-menu">
+                        <a href="javascript:;" class="{{(Request::is('item/*'))?'active':''}}">
+                            <i class="fa fa-cube"></i>
+                            <span>Items</span>
+                        </a>
+                        <ul class="sub">
+
+                            @if($currentUser->hasPermission('new_item_path'))
+                                <li class="{{Request::is('item/new')?'active':''}}">
+                                    <a href="{{URL::route('new_item_index_path')}}">New Item</a>
+                                </li>
+                            @endif
+
+                            @if($currentUser->hasPermission('items_index_path'))
+                                <li class="{{Request::is('item/items')?'active':''}}">
+                                    <a href="{{URL::route('items_index_path')}}">View All Items</a>
+                                </li>
+                            @endif
+
+                        </ul>
+                    </li>
+                @endif
+
+                @if($currentUser->hasGroupPermission('client'))
+                    <li class="sub-menu">
+                        <a href="javascript:;" class="{{(Request::is('client/*'))?'active':''}}">
+                            <i class="fa fa-male"></i>
+                            <span>Clients</span>
+                        </a>
+                        <ul class="sub">
+
+                            @if($currentUser->hasPermission('new_client_path'))
+                                <li class="{{Request::is('client/new')?'active':''}}">
+                                    <a href="{{URL::route('new_client_path')}}">New Client</a>
+                                </li>
+                            @endif
+
+                            @if($currentUser->hasPermission('clients_index_path'))
+                                <li class="{{Request::is('client/clients')?'active':''}}">
+                                    <a href="{{URL::route('clients_index_path')}}">View All Clients</a>
+                                </li>
+                            @endif
+
+                        </ul>
+                    </li>
+                @endif
+
+                @if($currentUser->hasGroupPermission('project'))
+                    <li class="sub-menu">
+                        <a href="javascript:;" id="project-sidemenu-link" class="{{(Request::is('project/*'))?'active':''}}">
+                            <i class="fa fa-exchange"></i>
+                            <span>Project</span>
+                        </a>
+                        <ul class="sub">
+
+                            @if($currentUser->hasPermission('new_project_path'))
+                                <li class="{{Request::is('project/new')?'active':''}}">
+                                    <a href="{{ URL::route('new_project_path') }}" id="new-project-sidemenu-link">New Project</a>
+                                </li>
+                            @endif
+
+                            @if($currentUser->hasPermission('projects_index_path'))
+                                <li class="{{Request::is('project/projects')?'active':''}}">
+                                    <a href="{{URL::route('projects_index_path')}}">View Projects</a>
+                                </li>
+                            @endif
+
+                                {{--<li class="{{Request::is('project/projects')?'active':''}}">--}}
+                                    {{--<a href="#">Project Templates</a>--}}
+                                {{--</li>--}}
+
+                            <li class="{{Request::is('project/labor-cost/labor-costs')?'active':''}}">
+                                <a href="{{URL::route('labor_costs_index_path')}}">Labor Costs</a>
+                            </li>
+
+                            <li class="{{Request::is('project/logistics-cost/logistics-costs')?'active':''}}">
+                                <a href="{{URL::route('logistics_costs_index_path')}}">Logistics Costs</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                @endif
 
                 <li class="sub-menu">
                     <a href="javascript:;">

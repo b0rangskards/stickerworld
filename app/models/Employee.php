@@ -23,8 +23,27 @@ class Employee extends \Eloquent {
     {
         $employee = new static();
 
-        $employee->br_id = $command->br_id;
-        $employee->dept_id = $command->dept_id;
+        $employee->br_id = $command->branch;
+        $employee->dept_id = $command->department;
+        $employee->firstname = $command->firstname;
+        $employee->middlename = $command->middlename;
+        $employee->lastname = $command->lastname;
+        $employee->birthdate = InputConverter::getDateFromDatePicker($command->birthdate);
+        $employee->gender = $command->gender;
+        $employee->address = $command->address;
+        $employee->contact_no = $command->contact_no;
+        $employee->designation = $command->designation;
+        $employee->hired_date = InputConverter::getDateFromDatePicker($command->hired_date);
+
+        return $employee;
+    }
+
+    public static function updateInformation($command)
+    {
+        $employee = static::find($command->employee_id);
+
+        $employee->br_id = $command->branch;
+        $employee->dept_id = $command->department;
         $employee->firstname = $command->firstname;
         $employee->middlename = $command->middlename;
         $employee->lastname = $command->lastname;

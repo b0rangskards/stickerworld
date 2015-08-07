@@ -45,7 +45,6 @@ class AccessControlsController extends \BaseController {
                 ?   $this->accessControlRepository->search($query)
                 :   $this->accessControlRepository->getTableData();
 
-
         return View::make('access_control.index', $viewData);
 	}
 

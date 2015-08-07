@@ -14,7 +14,7 @@
                        </div>
                        <div class="col-md-6">
                            <div class="profile-desk">
-                               <h1>{{$employee->present()->fullName}}</h1>
+                               <h1>{{$employee->present()->fullName}} <small class="weight600"><i class="fa {{$employee->gender=='male'?'fa-mars flat-blue-font':'fa-venus flat-pink-font'}}"></i></small></h1>
                                <span class="text-muted">{{$employee->present()->designation}}</span>
                                <p>
                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porttitor vestibulum imperdiet. Ut auctor accumsan erat, a vulputate metus tristique non. Aliquam aliquam vel orci quis sagittis.

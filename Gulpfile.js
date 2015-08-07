@@ -29,20 +29,6 @@ var dirs = {
     'publicImages'      : './public/images/'
 };
 
-/* Clean Files in .tmp and public directory */
-//gulp.task('clean', function(){
-//    return del([
-//            dirs.tempCss        + '*.css',
-//            dirs.publicCss      + '*.css',
-//            dirs.publicJs       + '*.js',
-//            dirs.publicFonts    + '**.*',
-//            dirs.publicImages   + '**.*'
-//        ]
-//        ,function(err, deletedFiles){
-//           gutil.log('Files deleted:', deletedFiles.join('\n'));
-//        });
-//});
-
 gulp.task('cleanSass', function(){
    return del(dirs.publicCss + 'admin.min.css', function(err, deletedFile){
        gutil.log('Files deleted:', deletedFile);
@@ -95,7 +81,8 @@ gulp.task('vendor-css', ['cleanVendorCss'], function(){
         dirs.vendor     + 'iCheck/skins/flat/grey.css',
         dirs.assetsCss  + 'style.css',
         dirs.assetsCss  + 'style-responsive.css',
-        dirs.vendor + 'bootstrap-3-datepicker/dist/css/bootstrap-datepicker3.css'
+        dirs.vendor     + 'bootstrap-3-datepicker/dist/css/bootstrap-datepicker3.css',
+        dirs.assetsCss  + 'cssanimations.css'
     ])
         .pipe(concat('vendor.min.css'))
         .pipe(minifyCss({processImport: false}))
@@ -116,6 +103,8 @@ gulp.task('js', ['cleanJs'], function () {
     return gulp.src([
         dirs.assetsJs + 'select2-init.js',
         dirs.assetsJs + 'date-init.js',
+        dirs.assetsJs + 'dynamic-form.js',
+        dirs.assetsJs  + 'x-edit-init.js',
         dirs.assetsJs + 'scripts.js'
     ])
         .pipe(concat('admin.min.js'))
@@ -155,6 +144,7 @@ gulp.task('vendor-js', ['cleanVendorJs'], function () {
         dirs.vendor     + 'gmap3/dist/gmap3.js',
         dirs.vendor     + 'select2/select2.js',
         dirs.vendor     + 'iCheck/iCheck.js',
+        dirs.vendor     + 'momentjs/moment.js',
         dirs.vendor     + 'bootstrap-3-datepicker/dist/js/bootstrap-datepicker.js'
     ])
             .pipe(concat('vendor.min.js'))
@@ -219,9 +209,22 @@ gulp.task('watch', ['sass', 'vendor-css', 'copy-images'], function () {
 
     gulp.watch(dirs.assetsCss + '*.css', ['vendor-css']);
 
-    gulp.watch([dirs.assetsJs + 'select2-init.js', dirs.assetsJs + 'date-init.js', dirs.assetsJs + 'scripts.js'], ['js']);
+    gulp.watch([
+        dirs.assetsJs + 'select2-init.js',
+        dirs.assetsJs + 'date-init.js',
+        dirs.assetsJs + 'dynamic-form.js',
+        dirs.assetsJs + 'x-edit-init.js',
+        dirs.assetsJs + 'scripts.js'
+    ], ['js']);
 
-    gulp.watch([dirs.assetsJs + '*.js', '!' + dirs.assetsJs + 'select2-init.js', '!' + dirs.assetsJs + 'date-init.js', '!' + dirs.assetsJs + 'scripts.js'], ['vendor-js']);
+    gulp.watch([
+        dirs.assetsJs + '*.js',
+        '!' + dirs.assetsJs + 'select2-init.js',
+        '!' + dirs.assetsJs + 'date-init.js',
+        '!' + dirs.assetsJs + 'dynamic-form.js',
+        '!' + dirs.assetsJs + 'x-edit-init.js',
+        '!' + dirs.assetsJs + 'scripts.js'
+    ], ['vendor-js']);
 
     gulp.watch(dirs.assetsImages + '**/*.*', ['copy-images']);
 

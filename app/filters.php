@@ -44,18 +44,14 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if ( !Session::has('currentUser'))
-	{
-		if (Request::ajax())
-		{
-			return Response::make('Unauthorized', ResponseCode::HTTP_UNAUTHORIZED);
-		}
-		else
-		{
+    if ( !Auth::check() ) {
+        if ( Request::ajax() ) {
+            return Response::make('Unauthorized', ResponseCode::HTTP_UNAUTHORIZED);
+        } else {
             Flash::error('Please Log in to Continue');
             return Redirect::to('/login');
-		}
-	}
+        }
+    }
 });
 
 
@@ -77,7 +73,20 @@ Route::filter('auth.basic', function()
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/dashboard');
+	if (Auth::check()) return Redirect::route('home');
+});
+
+/*
+ * Logs out user if already logged in
+ * Then proceed intented
+ */
+Route::filter('guest_logout', function () {
+    if ( Auth::check() )
+    {
+        Session::flush();
+
+        Auth::logout();
+    }
 });
 
 /*
@@ -99,11 +108,6 @@ Route::filter('csrf', function()
 	}
 });
 
-/** TODO
- * cache user permissions, check if permissions exists in cache if not then get from db and store in cache
- * filter to check user permissions
- * redirect to intented if grant
- */
 Route::filter('permission', function()
 {
     $currentRouteName = Route::currentRouteName();
@@ -117,7 +121,6 @@ Route::filter('permission', function()
 
         return Redirect::route('unauthorized_path');
     }
-
 });
 
 

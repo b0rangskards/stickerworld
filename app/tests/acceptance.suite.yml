@@ -3,17 +3,17 @@
 # suite for acceptance tests.
 # perform tests in browser using the WebDriver or PhpBrowser.
 # If you need both WebDriver and PHPBrowser tests - create a separate suite.
+# java -Dwebdriver.chrome.driver=app/tests/chromedriver.exe -jar app/tests/selenium-server-standalone-2.47.1.jar
 
 class_name: AcceptanceTester
 modules:
     enabled:
-        - PhpBrowser
+        - WebDriver
         - AcceptanceHelper
-        - MailCatcher
     config:
-        PhpBrowser:
+        WebDriver:
             url: 'http://stickerworld.dev'
-            port: '1080'
-        MailCatcher:
-            url: 'http://stickerworld.dev'
-            port: '1080'
+            browser: firefox
+            delay: 200
+            capabilities:
+                unexpectedAlertBehaviour: 'accept'

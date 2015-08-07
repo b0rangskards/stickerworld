@@ -1,9 +1,10 @@
 <?php  namespace Acme\Activation; 
 
 use Acme\Users\UserRepository;
-use Illuminate\Support\Facades\Auth;
+use Auth;
 use Laracasts\Commander\CommandHandler;
 use Laracasts\Commander\Events\DispatchableTrait;
+use Session;
 use User;
 
 class ActivateUserCommandHandler implements CommandHandler {
@@ -40,6 +41,13 @@ class ActivateUserCommandHandler implements CommandHandler {
         $this->dispatchEventsFor( $user);
 
         $user->updateLastLoginDate();
+
+        if(Auth::check())
+        {
+            Auth::logout();
+
+            Session::flush();
+        }
 
         Auth::loginUsingId($user->id);
 

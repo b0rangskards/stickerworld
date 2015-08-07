@@ -3,7 +3,9 @@
 class HomePage
 {
     // include url of current page
-    public static $URL = '/dashboard';
+    public static $URL = '/';
+
+    public static $ROUTE = 'dashboard';
 
     public static $welcomeMessage = 'Welcome to Stickerworld!';
 

@@ -25,7 +25,7 @@ class UpdateDepartmentCest
     {
         $I->am('an admin');
 
-        $I->wantTo('update ' . $this->department->name . ' department');
+        $I->wantTo('update department with valid data');
 
         $I->amOnPage(DepartmentsPage::$URL);
 

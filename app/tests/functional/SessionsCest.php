@@ -13,7 +13,7 @@ class SessionsCest
 
         $I->signInAsAdmin();
 
-        $I->seeInCurrentUrl( HomePage::$URL);
+        $I->seeCurrentRouteIs(HomePage::$ROUTE);
         $I->see(HomePage::$welcomeMessage, 'h2');
 
         $I->assertTrue(Auth::check());
@@ -42,12 +42,12 @@ class SessionsCest
 
         $I->signInAsAdmin();
 
-        $I->seeInCurrentUrl( HomePage::$URL);
+        $I->seeCurrentRouteIs(HomePage::$ROUTE);
         $I->see( HomePage::$welcomeMessage, 'h2');
 
         $I->assertTrue(Auth::check());
 
-        $I->amOnPage( SignOutPage::$URL);
+        $I->logout();
 
         $I->assertTrue(Auth::guest());
         $I->see( SignOutPage::$loggedOutMessage);

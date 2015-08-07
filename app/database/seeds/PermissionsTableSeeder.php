@@ -14,7 +14,7 @@ class PermissionsTableSeeder extends MasterTableSeeder{
 
             foreach($routeMembers as $route)
             {
-                Permission::create([
+                $p = Permission::create([
                     'group_id'      =>      $group->id,
                     'name'          =>      RouteHelper::prettyRouteName($route),
                     'route'         =>      $route

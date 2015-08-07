@@ -13,4 +13,9 @@ class FileHelper {
         return time() . '_' . strtolower($lastname) . '_' . strtolower($firstname) . '.' . $file->getClientOriginalExtension();
     }
 
+	public static function createItemPictureFileName($itemName, $file)
+	{
+		return time() . '_' . strtolower($itemName) . '.' . $file->getClientOriginalExtension();
+	}
+
 } 

@@ -49,7 +49,11 @@ return array(
     'Acme\Providers\EventServiceProvider',
     'Barryvdh\Debugbar\ServiceProvider',
     'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
-    'Chumper\Datatable\DatatableServiceProvider'
+    'Chumper\Datatable\DatatableServiceProvider',
+	'Acme\Projects\ProjectServiceProvider',
+	'Moltin\Cart\CartServiceProvider',
+	'Acme\Projects\CartMaterialsServiceProvider',
+	'Acme\Providers\NotificationServiceProvider'
     ]
 	/*
 	|--------------------------------------------------------------------------
